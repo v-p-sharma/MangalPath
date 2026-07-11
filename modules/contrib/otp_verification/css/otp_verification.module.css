@@ -1,0 +1,125 @@
+.templates{
+  width: 45% !important;
+}
+
+/*------------------------------2fa adv----------------------------------------------*/
+
+.mo_adv_tfa{
+  background:#e1e2dc;
+  height:7em;
+  border-radius:30px;
+}
+
+.mo_img_adv{
+  margin: 0.50em 1em 0.50em 2em;
+}
+.mo_txt_h3{
+ text-align:center;
+ margin-left: 5em;
+ margin-top: -4em;
+}
+
+.mo_paragraph{
+  font-family: sans-serif;
+  font-size: 13px;
+   text-align: justify;
+
+
+}
+
+.mo_btn1{
+  float:left;
+  cursor: pointer;
+  width: 10em;
+  height: 2em;
+  line-height: 2em;
+  margin-top: 1em;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  }
+
+.mo_btn2{
+  float:right;
+  margin-top: 1em;
+  margin-left: 1em;
+  width: 10em;
+  height: 2em;
+  margin-right: 1em!important;
+  border: #5771be 1.5px solid !important ;
+  line-height: 2em;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.mo_btn1:hover{
+  background: #32B496!important;
+  /* border: none!important;*/
+   color: white;
+
+}
+
+.mo_btn2:hover{
+ background: #5771be!important;
+ color: white;
+ /*border: none!important;*/
+}
+
+#mo_tfa_btn_know{
+ width:30%;
+}
+#mo_tfa_btn_download{
+  width: 30%;
+}
+
+.mo_h_3{
+  text-align: center;
+  padding: 0px 66px 6px 4em;
+}
+
+/**
+ * Register message	css
+ */
+.mo_saml_configure_message{
+	display: block;
+	text-align: center;
+	font-size: 15px;
+	border-radius: 10px;
+	border: 1px solid #fb9a9a;
+	color: red;
+	background-color: rgba(255,0,0,0.1);
+	padding: 10px;
+}
+
+
+/*
+*/
+/***************Css for Sliding support**********/
+
+.mo_saml_table_layout_support_btn{
+  position: fixed;
+  top: 100px;
+  z-index: 10000;
+  right: -391px;
+}
+#mosaml-feedback-overlay{
+  background: rgba(11, 13, 13, 0.44);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9999;
+}
+
+.mo_text_color{
+  color: #d9534f;
+}
+
+
+.mo_saml_table_layout_support_1 {
+  border-radius: 4px;
+  position: relative;
+  width: 350px;
+  border: 1px solid #CCCCCC;
+  padding: 15px 20px 17px 20px;
+  background-color: white;
+}

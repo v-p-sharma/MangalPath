@@ -1,0 +1,23 @@
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+
+<ul class="footer-contact p-0">
+  
+  {% for items in content.field_contact_details['#object'].field_contact_details  %}
+   
+  <li>
+    <i class="{{ items.entity.field_icon_class[0].value }}"></i
+    ><span
+      >{{ items.entity.field_title[0].value }}</span
+    >
+  </li>
+  {% endfor %}
+</ul>
+    
+  {% endblock %}
+</div>

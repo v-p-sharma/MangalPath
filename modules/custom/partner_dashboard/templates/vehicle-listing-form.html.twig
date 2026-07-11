@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Add Vehicle For Sale | mangalpath Partner</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Tailwind CSS (via CDN for standalone usage) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Tailwind Config to match Brand -->
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#1a3c6e',
+                    primaryDark: '#0f2548',
+                    accent: '#f5821f',
+                    accentDark: '#d96b10',
+                    green: '#16a34a',
+                    lightBg: '#f4f7fc',
+                    border: '#e0e8f4',
+                    textMain: '#1e2d40',
+                    textMuted: '#64748b',
+                },
+                fontFamily: {
+                    sans: ['Nunito', 'sans-serif'],
+                    serif: ['Playfair Display', 'serif'],
+                },
+                boxShadow: {
+                    'card': '0 4px 24px rgba(26,60,110,0.08)',
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    body { background-color: #f4f7fc; color: #1e2d40; padding-bottom: 100px; }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    /* Wizard Steps Animation */
+    .step-card {
+        display: none;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+    .step-card.active { display: block; }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Custom Checkbox Styling */
+    .feature-checkbox:checked + div {
+        border-color: #1a3c6e;
+        background-color: #f0f9ff;
+        color: #1a3c6e;
+    }
+
+    /* Hide file input */
+    input[type="file"] { display: none; }
+    
+    /* Toast */
+    #toast {
+        visibility: hidden;
+        min-width: 250px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 8px;
+        padding: 16px;
+        position: fixed;
+        z-index: 100;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        font-size: 14px;
+    }
+    #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+    @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+    @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+</style>
+</head>
+<body class="font-sans">
+
+<!-- Toast Notification -->
+<div id="toast">Action Successful</div>
+
+<!-- Main Container -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 py-6">
+
+    <!-- Header -->
+    <div class="bg-white rounded-xl shadow-card p-6 mb-6">
+        <div class="flex justify-between items-center mb-4">
+            <div>
+                <h1 class="font-serif text-2xl font-bold text-primary">Add Vehicle For Sale</h1>
+                <p class="text-sm text-textMuted mt-1">List your vehicle to reach thousands of buyers</p>
+            </div>
+            <div class="hidden sm:block">
+                <span class="bg-blue-100 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Partner Panel</span>
+            </div>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="relative pt-1">
+            <div class="flex mb-2 items-center justify-between">
+                <div class="text-right">
+                    <span class="text-xs font-semibold inline-block text-primary" id="progress-text">
+                        Step 1 of 12
+                    </span>
+                </div>
+            </div>
+            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-100">
+                <div id="progress-bar" style="width: 8.33%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary transition-all duration-500 ease-in-out"></div>
+            </div>
+        </div>
+    </div>
+
+   {{ form }}
+    
+</div>
+
+
+</body>
+</html>

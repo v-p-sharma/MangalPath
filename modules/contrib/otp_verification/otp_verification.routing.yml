@@ -1,0 +1,71 @@
+otp_verification.customer_setup:
+  path: /admin/config/people/otp_verification/customer_setup
+  defaults:
+    _title: 'miniOrange OTP Verification &nbsp;&nbsp;<a class="button button--primary js-form-submit form-submit mo_top_bar_button use-ajax" href="requestSupport" data-dialog-type = "modal" data-dialog-options="{&quot;width&quot;:&quot;40%&quot;}" >Contact Us</a>'
+    _form: \Drupal\otp_verification\Form\MiniorangeOTPVerificationCustomerSetup
+  requirements:
+    _permission: 'administer site configuration'
+
+otp_verification.settings:
+  path: /admin/config/people/otp_verification/settings
+  defaults:
+    _title: 'miniOrange OTP Verification &nbsp;&nbsp;<a class="button button--primary js-form-submit form-submit mo_top_bar_button use-ajax" href="requestSupport" data-dialog-type = "modal" data-dialog-options="{&quot;width&quot;:&quot;40%&quot;}" >Contact Us</a>'
+    _form: \Drupal\otp_verification\Form\MiniorangeSettings
+  requirements:
+    _permission: 'administer site configuration'
+
+#otp_verification.configuration:
+#  path: /admin/config/people/otp_verification/configuration
+#  defaults:
+#    _title: 'miniOrange OTP Verification &nbsp;&nbsp;<a class="button button--primary js-form-submit form-submit mo_top_bar_button use-ajax" href="requestSupport" data-dialog-type = "modal" data-dialog-options="{&quot;width&quot;:&quot;40%&quot;}" >Contact Us</a>'
+#    _form: \Drupal\otp_verification\Form\MiniorangeConfiguration
+#  requirements:
+#    _permission: 'administer site configuration'
+
+#otp_verification.templates:
+#  path: /admin/config/people/otp_verification/templates
+#  defaults:
+#    _title: 'miniOrange OTP Verification &nbsp;&nbsp;<a class="button button--primary js-form-submit form-submit mo_top_bar_button use-ajax" href="requestSupport" data-dialog-type = "modal" data-dialog-options="{&quot;width&quot;:&quot;40%&quot;}" >Contact Us</a>'
+#    _form: \Drupal\otp_verification\Form\MiniorangeCustomTemplates
+#  requirements:
+#    _permission: 'administer site configuration'
+
+otp_verification.licensing:
+  path: /admin/config/people/otp_verification/Licensing
+  defaults:
+    _title: 'miniOrange OTP Verification &nbsp;&nbsp;<a class="button button--primary js-form-submit form-submit mo_top_bar_button use-ajax" href="requestSupport" data-dialog-type = "modal" data-dialog-options="{&quot;width&quot;:&quot;40%&quot;}" >Contact Us</a>'
+    _form: \Drupal\otp_verification\Form\MiniorangeLicensing
+  requirements:
+    _permission: 'administer site configuration'
+
+otp_verification.register.user.otp:
+  path: /register/user/otp
+  defaults:
+    _title: 'OTP Verification'
+    _form: \Drupal\otp_verification\Form\MiniorangeValidateUser
+  requirements:
+    _access: 'TRUE'
+
+otp_verification.oauth_client_logout:
+  path: /user/logout
+  defaults:
+    _controller: '\Drupal\otp_verification\Controller\otp_verificationController::otp_user_logout'
+  requirements:
+    _access: 'TRUE'
+
+otp_verification.modal_form:
+  path: /otp_verification_removeAccount
+  defaults:
+    _title: 'OTP verification Remove Account'
+    _controller: '\Drupal\otp_verification\Controller\otp_verificationController::openModalForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+#Route for Support Request/Contact Us
+otp_verification.request_support:
+  path: /admin/config/people/otp_verification/requestSupport
+  defaults:
+    _title: 'miniOrange OTP Verification Request Support'
+    _form:  '\Drupal\otp_verification\Form\MiniorangeOTPVerificationRequestSupport'
+  requirements:
+    _permission: 'administer site configuration'

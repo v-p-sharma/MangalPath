@@ -1,0 +1,26 @@
+<div{{ attributes }} >
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+
+
+<div class="row align-items-center">
+  <div class="col-md-7">
+   {{ content.body|raw}}
+     
+  </div>
+  <div class="col-md-5">
+    <div class="footer-social">
+      <a href="{{ content.field_social_media_links_and_tit[0]['#paragraph'].field_links[0].uri }}"><i class="fab fa-facebook-f"></i></a>
+      <a href="{{ content.field_social_media_links_and_tit[1]['#paragraph'].field_links[0].uri }}"><i class="fab fa-instagram"></i></a>
+      <a href="{{ content.field_social_media_links_and_tit[2]['#paragraph'].field_links[0].uri }}"><i class="fab fa-linkedin-in"></i></a>
+      <a href="{{ content.field_social_media_links_and_tit[3]['#paragraph'].field_links[0].uri }}"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
+  {% endblock %}
+</div>

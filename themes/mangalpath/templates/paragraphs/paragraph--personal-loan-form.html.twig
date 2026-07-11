@@ -1,0 +1,23 @@
+<section class="py-section" id="enquiry-form">
+  <div class="container">
+    <div class="enq-card">
+      <h2 class="section-title text-start">Loan Application Form</h2>
+      <p class="section-sub text-start mb-4">Fill in the complete details below to apply for any type of loan (Home, Gold, Property, OD, etc.).</p>
+      
+      <!-- Form Container -->
+      <div id="applicationFormContainer">
+        {{ drupal_block('loan_form_block') }}
+
+      </div>
+
+      <!-- Success Message (Hidden by default) -->
+      <div id="successMessage" class="success-message">
+        <div class="success-icon"><i class="fa fa-check-circle"></i></div>
+        <h3 class="fw-bold text-primary">Application Submitted!</h3>
+        <p class="text-muted mt-3">Thank you for applying with mangalpath. Our loan experts will review your details and contact you shortly.</p>
+        <button class="btn btn-outline-primary mt-3 rounded-pill px-4" onclick="resetForm()">Apply Another</button>
+      </div>
+
+    </div>
+  </div>
+</section>

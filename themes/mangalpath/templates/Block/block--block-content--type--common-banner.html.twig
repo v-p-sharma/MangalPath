@@ -1,0 +1,16 @@
+<section class="loan-hero" style="background-image: url({{file_url(content.field_background_image['#object'].field_background_image[0].entity.uri[0].value) }})">
+  <div class="container">
+    <div class="loan-hero-content">
+        {{ content.field_title|raw}}
+       <p> {{ content.body|render|striptags}} </p>
+      <a href="#enquiry-form" class="btn-hero-large">{{ content.field_email_address['#title']|render|striptags}}</a>
+    </div>
+  </div>
+  
+  <!-- SVG Curve for transition -->
+  <div class="curve-divider">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+  </div>
+</section>

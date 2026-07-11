@@ -1,0 +1,145 @@
+
+<div class="auth-wrapper">
+  
+  <!-- LEFT SIDE -->
+  <div class="auth-left">
+    <div class="auth-left-content">
+      <div class="dream-brand">
+        <div class="dream-icon">M</div>
+        <div style="font-size:18px; font-weight:900; text-transform:lowercase;">mangalpath</div>
+      </div>
+      <h1 class="dream-title">Welcome Back.<br><span style="color:var(--accent)">Secure Login.</span></h1>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="auth-right">
+    <!-- Mobile Nav -->
+    <div class="auth-nav d-lg-none">
+      <a href="index.html" class="nav-back-link"><i class="fa fa-arrow-left me-1"></i> Home</a>
+      <span style="font-weight:800; color:var(--primary);">Login</span>
+    </div>
+
+    <div class="auth-form-container fade-in">
+      
+      <!-- STEP 1: EMAIL/PASSWORD -->
+      <div id="step-1">
+        <div class="form-header">
+          <h2>Login to Account</h2>
+          <p style="color:var(--text-muted); font-size:14px;">Enter your credentials to continue</p>
+        </div>
+
+       {{ drupal_form('Drupal\\user\\Form\\UserLoginForm') }}
+
+        <div class="text-center mt-4">
+          <span style="font-size:13px; color:#888;">New to mangalpath? </span>
+          <a href="/user/register" style="color:var(--primary); font-weight:700; text-decoration:none;">Create Account</a>
+        </div>
+      </div>
+
+      <!-- STEP 2: OTP VERIFICATION -->
+      <div id="step-2" class="d-none">
+        <div class="form-header">
+          <h2>Verification</h2>
+          <p style="font-size:14px; color:var(--text-muted);">Enter the 4-digit code sent to <br><strong id="display-email" class="text-primary"></strong></p>
+        </div>
+
+        <div class="otp-container">
+          <input type="tel" maxlength="1" class="otp-input" onkeyup="focusNext(this)">
+          <input type="tel" maxlength="1" class="otp-input" onkeyup="focusNext(this)">
+          <input type="tel" maxlength="1" class="otp-input" onkeyup="focusNext(this)">
+          <input type="tel" maxlength="1" class="otp-input" onkeyup="focusNext(this)">
+        </div>
+
+        <button class="btn-custom" id="verifyBtn" onclick="verifyLogin()">
+          Verify & Login <i class="fa fa-check ms-2"></i>
+        </button>
+
+        <div class="text-center mt-4">
+          <span style="font-size:13px; color:var(--text-muted);">Didn't receive code? </span>
+          <span style="color:var(--accent); font-weight:700; cursor:pointer;" onclick="alert('OTP Resent!')">Resend</span>
+          <br><br>
+          <span style="font-size:13px; color:var(--primary); cursor:pointer; font-weight:600;" onclick="goBackToStep1()">
+            <i class="fa fa-arrow-left me-1"></i> Change Email
+          </span>
+        </div>
+      </div>
+
+      <!-- STEP 3: SUCCESS STATE -->
+      <div id="step-3" class="d-none text-center py-4">
+        <div class="success-icon">
+          <i class="fa fa-check"></i>
+        </div>
+        <div class="form-header">
+          <h2>Login Successful!</h2>
+          <p style="color:var(--text-muted); font-size:15px; margin-top:10px;">Welcome back to mangalpath.</p>
+        </div>
+        
+        <a href="index.html" class="btn-custom">
+          Go to Home Page <i class="fa fa-home ms-2"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// Logic to switch to Step 2 (OTP)
+function goToOTP() {
+  const email = document.getElementById('email').value;
+  const pass = document.getElementById('password').value;
+
+  if(!email || !pass) {
+    alert("Please enter both email and password.");
+    return;
+  }
+
+  // Simulate backend check
+  document.getElementById('display-email').innerText = email;
+  
+  // Transition UI
+  document.getElementById('step-1').classList.add('d-none');
+  document.getElementById('step-2').classList.remove('d-none');
+  
+  setTimeout(() => document.querySelector('.otp-input').focus(), 100);
+}
+
+// Logic to go back
+function goBackToStep1() {
+  document.getElementById('step-2').classList.add('d-none');
+  document.getElementById('step-1').classList.remove('d-none');
+}
+
+// Logic for OTP auto-focus
+function focusNext(el) {
+  if (el.value.length === 1) {
+    if(el.nextElementSibling) el.nextElementSibling.focus();
+  }
+  el.value = el.value.replace(/[^0-9]/g, '');
+}
+
+// Logic for Final Verification (Step 3)
+function verifyLogin() {
+  const inputs = document.querySelectorAll('.otp-input');
+  let otp = '';
+  inputs.forEach(input => otp += input.value);
+
+  if(otp.length < 4) {
+    alert("Please enter the complete 4-digit code.");
+    return;
+  }
+
+  // Simulate API loading
+  const btn = document.getElementById('verifyBtn');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Verifying...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    // Success! Show Step 3
+    document.getElementById('step-2').classList.add('d-none');
+    document.getElementById('step-3').classList.remove('d-none');
+  }, 1500);
+}
+</script>

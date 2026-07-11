@@ -1,0 +1,117 @@
+<div class="auth-wrapper">
+  
+  <!-- LEFT PANEL -->
+  <div class="auth-left">
+    <div class="auth-left-content">
+      <div class="dream-brand">
+        <div class="dream-icon">M</div>
+        <div>
+          <div style="font-size:18px; font-weight:900; text-transform:lowercase;">mangalpath</div>
+          <div style="font-size:10px; opacity:0.8; font-weight:700;">TRUSTED PARTNER</div>
+        </div>
+      </div>
+      
+      <h1 class="dream-title">
+        Fulfill Your <br><span style="color:var(--accent)">Big Dreams.</span>
+      </h1>
+      
+      <div class="dream-items">
+        <div class="dream-item">
+          <i class="fa fa-house-chimney"></i>
+          <span>Own Your Dream Home</span>
+        </div>
+        <div class="dream-item">
+          <i class="fa fa-car-side"></i>
+          <span>Drive Your Dream Car</span>
+        </div>
+        <div class="dream-item">
+          <i class="fa fa-sack-dollar"></i>
+          <span>Secure Your Future</span>
+        </div>
+        <div class="dream-item">
+          <i class="fa fa-plane-departure"></i>
+          <span>Travel the World</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="auth-right">
+    <div class="auth-nav d-lg-none">
+      <a href="index.html" class="nav-back-link"><i class="fa fa-arrow-left me-1"></i> Home</a>
+      <span style="font-weight:800; color:var(--primary);">Join Now</span>
+    </div>
+
+    <div class="auth-form-container fade-in">
+      
+      <!-- Stepper -->
+      <div class="stepper-wrapper">
+        <div class="step-dot active" id="dot1">1</div>
+        <div class="step-dot" id="dot2">2</div>
+      </div>
+
+      <!-- STEP 1: DETAILS -->
+      <div id="step-1">
+        <div class="form-header">
+          <h2>Create Account</h2>
+          <p>Select your role and enter details.</p>
+        </div>
+
+        <!-- NEW: ROLE SELECTOR -->
+        <div class="role-selector">
+          <input type="radio" name="reg-role" id="reg-customer" value="Customer" checked>
+          <label for="reg-customer" class="role-option active">
+            <i class="fa fa-user"></i> Customer
+          </label>
+          <input type="radio" name="reg-role" id="reg-partner" value="Partner">
+          <label for="reg-partner" class="role-option">
+            <i class="fa fa-briefcase"></i> Partner
+          </label>
+        </div>
+
+        {{ page.content }}
+        
+
+        <div class="text-center mt-4">
+          <span style="font-size:13px; color:#888;">Already have an account? </span>
+          <a href="login.html" style="color:var(--primary); font-weight:700; text-decoration:none;">Login</a>
+        </div>
+      </div>
+
+      <!-- STEP 2: OTP -->
+      <div id="step-2" class="d-none">
+        <div class="form-header">
+          <h2>Verify Email</h2>
+          <p>Enter the 4-digit code sent to <br><strong id="display-email" class="text-primary">...</strong></p>
+        </div>
+
+        <form onsubmit="return false;">
+          <div class="otp-container">
+            <input type="tel" maxlength="1" class="otp-input" onkeyup="focusNext(this)">
+            <input type="tel" maxlength="1" class="otp-input" onkeyup="focusNext(this)">
+            <input type="tel" maxlength="1" class="otp-input" onkeyup="focusNext(this)">
+            <input type="tel" maxlength="1" class="otp-input" onkeyup="focusNext(this)">
+          </div>
+
+          <button class="btn-custom" onclick="verifyOTP()">
+            Create Account <i class="fa fa-check ms-2"></i>
+          </button>
+        </form>
+
+        <div class="text-center mt-4">
+          <span style="font-size:13px; color:#888;">Didn't receive code? </span>
+          <span style="color:var(--accent); font-weight:700; cursor:pointer;" onclick="alert('OTP Resent!')">Resend</span>
+          <br><br>
+          <span style="font-size:13px; color:var(--primary); cursor:pointer; font-weight:600;" onclick="goBackToStep1()">
+            <i class="fa fa-arrow-left me-1"></i> Back
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+

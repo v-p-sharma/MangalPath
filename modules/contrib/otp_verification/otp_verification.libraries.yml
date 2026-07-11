@@ -1,0 +1,24 @@
+otp_verification.admin:
+  version: VERSION
+  css:
+    layout:
+      css/otp_verification.admin.css: {}
+      css/otp_verification.module.css: {}
+
+otp_verification.bootstrap:
+  version: VERSION
+  css:
+    layout:
+      css/otp_verification.bootstrap.min.css: {}
+
+otp_verification.phone:
+  version: VERSION
+  js:
+    JS/Phone.js: {}
+  css:
+    layout:
+      css/phone.css: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

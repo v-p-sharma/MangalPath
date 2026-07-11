@@ -1,0 +1,5 @@
+name: "Partner Dashboard"
+type: module
+description: "Partner Dashboard Module manage Partners"
+core_version_requirement: ^9 || ^10 || ^11
+package: custom

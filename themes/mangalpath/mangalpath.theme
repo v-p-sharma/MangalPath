@@ -1,0 +1,106 @@
+<?php 
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\UserInterface;
+
+  function mangalpath_preprocess_page(array &$variables) {
+  // Check if current route is user registration page
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  if ($route_name == 'user.register') {
+    $user = \Drupal\user\Entity\User::create();
+    $registerForm = \Drupal::service('entity.form_builder')->getForm($user, 'register');
+    $variables['registerForm'] = $registerForm;
+  }
+  // if ($route_name == 'user.login') {
+  //   $loginForm =  \Drupal::formBuilder()->getForm(UserLoginForm::class);
+  //   $variables['loginForm'] = $loginForm;
+  // }
+}
+
+function mangalpath_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  if ($form_id === 'user_register_form') {
+
+    $form['#attributes']['class'][] = 'custom-register-form';
+      
+    if (isset($form['account']['name'])) {
+    $form['account']['name']['#attributes']['class'][] = 'form-control';
+    $form['account']['name']['#title'] = t('Full Name');
+    $form['account']['name']['#description'] = Null;
+
+
+    $form['account']['name']['#prefix'] = '<div class="mb-3">';
+    $form['account']['name']['#suffix'] = '</div>';
+    }
+    if (isset($form['field_phone'])) {
+   $form['field_phone']['widget'][0]['value']['#attributes']['class'][] = 'form-control';
+    $form['field_phone']['#prefix'] = '<div class="mb-3">';
+    $form['field_phone']['#suffix'] = '</div>';
+    }
+    $form['custom_hidden_role_field'] = [
+        '#type' => 'hidden',
+        '#default_value' => '',
+        '#attributes' => [
+        'id' => 'custom-hidden-field',
+        ],
+    ];
+    // dump($form['field_phone']); die();
+    if (isset($form['account']['mail'])) {
+    $form['account']['mail']['#attributes']['class'][] = 'form-control';
+    $form['account']['mail']['#title'] = t('Email Address');
+    $form['account']['mail']['#description'] = Null;
+
+    $form['account']['mail']['#prefix'] = '<div class="mb-3">';
+    $form['account']['mail']['#suffix'] = '</div>';
+    }
+    if (isset($form['account']['pass'])) {
+    // 1. Remove the default helper description (as you did)
+    $form['account']['pass']['#description'] = NULL;
+    // $form['account']['pass']['#prefix'] = '<div class="row g-2 mb-4">';
+    // $form['account']['pass']['#suffix'] = '</div>';
+    $form['account']['pass']['#process'] = [
+    [\Drupal\Core\Render\Element\PasswordConfirm::class, 'processPasswordConfirm'], // Drupal default
+    'mangalpath_process_password', // your callback
+  ];
+}
+    //  dump($form['account']['pass']);die(); 
+
+    // Submit button
+    if (isset($form['actions']['submit'])) {
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-custom';
+      $form['actions']['submit']['#value'] = t('Create Account');
+      $form['actions']['submit']['#submit'][] = 'mangalpath_user_register_submit';
+      
+    }
+  }
+}
+function mangalpath_user_register_submit($form, FormStateInterface $form_state) {
+  // Store the value in temporary storage so presave can read it
+  $account = $form_state->getFormObject()->getEntity();
+  $role = $form_state->getValue("custom_hidden_role_field");
+   if (!empty($role)) {
+    $role_map = [
+      'Partner'   => 'partner',
+      'Sub Admin' => 'sub_admin',
+      'Editor'    => 'content_editor',
+    ];
+
+    if (isset($role_map[$role])) {
+      $account->addRole($role_map[$role]);
+      $account->save();
+    }
+  } 
+   
+}
+function mangalpath_process_password($element, &$form_state, &$complete_form) {
+    $element['#attributes']['class'] = ['row g-2 mb-4'];
+    // dump($element); die();
+  $element['pass1']['#attributes']['class'][] = 'form-control';
+    //   $element['pass1']['#prefix'] = '<div class="col-6">';
+    // $element['pass1']['#suffix'] = '</div>';
+  $element['pass2']['#attributes']['class'][] = 'form-control';
+    //    $element['pass2']['#prefix'] = '<div class="col-6">';
+    // $element['pass2']['#suffix'] = '</div>';
+  return $element;
+}

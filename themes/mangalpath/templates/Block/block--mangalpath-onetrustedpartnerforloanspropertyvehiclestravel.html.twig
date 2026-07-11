@@ -1,0 +1,155 @@
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="hero-badge"><i class="fa fa-shield-halved"></i> {{content.field_sub_title|render|striptags}}</div>
+        {{ content.field_title |raw}}
+        <p class="hero-sub">{{ content.body|render|striptags}}</p>
+        <div class="hero-trust mb-4">
+          {% for items in content.field_home_page_banner_box['#object'].field_home_page_banner_box  %}
+          {% for data in items.entity.field_inner_box %}
+                    <div class="trust-item">
+            <div class="icon orange"><i class="{{data.entity.field_icon_class[0].value}}"></i></div>
+            <div>
+              <div>{{data.entity.field_title[0].value}}</div>
+              <div class="sub">{{data.entity.field_sub_title[0].value}}</div>
+            </div>
+          </div>
+          {% endfor %}
+
+          {% endfor %}
+        </div>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-hero-primary"><i class="fa fa-comment-dots me-2"></i>{{content.field_email_address[0]['#title']}}</a>
+          <a href="#services" class="btn btn-hero-secondary">{{content.field_facebook[0]['#title']}} <i class="fa fa-arrow-right ms-2"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="hero-form-card">
+          <div class="form-tabs">
+            <div class="form-tab active" onclick="switchTab(this,'loans-form')"><i class="fa fa-coins"></i> Loans</div>
+            <div class="form-tab" onclick="switchTab(this,'property-form')"><i class="fa fa-building"></i> Property</div>
+            <div class="form-tab" onclick="switchTab(this,'vehicle-form')"><i class="fa fa-car"></i> Vehicle</div>
+            <div class="form-tab" onclick="switchTab(this,'travel-form')"><i class="fa fa-van-shuttle"></i> Travel</div>
+          </div>
+          <div id="loans-form" class="tab-content-form">
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <select class="form-select form-select-sm">
+                  <option>Select Loan Type</option>
+                  <option>Personal Loan</option>
+                  <option>Home Loan</option>
+                  <option>Business Loan</option>
+                  <option>Vehicle Loan</option>
+                  <option>Gold Loan</option>
+                  <option>Education Loan</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <select class="form-select form-select-sm">
+                  <option>Select City</option>
+                  <option>Delhi</option>
+                  <option>Mumbai</option>
+                  <option>Jaipur</option>
+                  <option>Bangalore</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <select class="form-select form-select-sm">
+                <option>Loan Amount Required</option>
+                <option>₹50,000 – ₹1 Lakh</option>
+                <option>₹1 Lakh – ₹5 Lakh</option>
+                <option>₹5 Lakh – ₹20 Lakh</option>
+                <option>₹20 Lakh – ₹50 Lakh</option>
+                <option>₹50 Lakh+</option>
+              </select>
+            </div>
+            <button class="btn-check-now">Check Eligibility <i class="fa fa-arrow-right ms-2"></i></button>
+          </div>
+          <div id="property-form" class="tab-content-form d-none">
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <select class="form-select form-select-sm">
+                  <option>Service Type</option>
+                  <option>Buy Property</option>
+                  <option>Sell Property</option>
+                  <option>Rent Property</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <select class="form-select form-select-sm">
+                  <option>Property Type</option>
+                  <option>Residential</option>
+                  <option>Commercial</option>
+                  <option>Land / Plot</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-sm" placeholder="Your City / Location">
+            </div>
+            <button class="btn-check-now">Find Property <i class="fa fa-arrow-right ms-2"></i></button>
+          </div>
+          <div id="vehicle-form" class="tab-content-form d-none">
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <select class="form-select form-select-sm">
+                  <option>Vehicle Type</option>
+                  <option>Two Wheeler</option>
+                  <option>Four Wheeler</option>
+                  <option>Commercial Vehicle</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <select class="form-select form-select-sm">
+                  <option>Buy / Sell</option>
+                  <option>Buy Vehicle</option>
+                  <option>Sell Vehicle</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-sm" placeholder="Your Budget Range">
+            </div>
+            <button class="btn-check-now">Get Assistance <i class="fa fa-arrow-right ms-2"></i></button>
+          </div>
+          <div id="travel-form" class="tab-content-form d-none">
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <input type="text" class="form-control form-control-sm" placeholder="From City">
+              </div>
+              <div class="col-6">
+                <input type="text" class="form-control form-control-sm" placeholder="To City">
+              </div>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <input type="date" class="form-control form-control-sm">
+              </div>
+              <div class="col-6">
+                <select class="form-select form-select-sm">
+                  <option>Vehicle Type</option>
+                  <option>Cab / Sedan</option>
+                  <option>SUV</option>
+                  <option>Tempo Traveller</option>
+                  <option>Bus</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-check-now">Check Availability <i class="fa fa-arrow-right ms-2"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  {% endblock %}
+</div>
