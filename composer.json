@@ -20,6 +20,7 @@
         "drupal/core-composer-scaffold": "^10.5",
         "drupal/core-project-message": "^10.5",
         "drupal/core-recommended": "^10.5",
+        "drupal/email_login_otp": "^1.1",
         "drupal/otp": "^1.1",
         "drupal/paragraphs": "^1.21",
         "drupal/smtp": "^1.4",

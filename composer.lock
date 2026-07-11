@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "975ae9cc4359ea51f81ae857acd7da0e",
+    "content-hash": "5db027352ecc219582db84c4f675b882",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1435,6 +1435,50 @@
                 "source": "https://github.com/drupal/core-recommended/tree/10.6.12"
             },
             "time": "2026-06-23T07:23:10+00:00"
+        },
+        {
+            "name": "drupal/email_login_otp",
+            "version": "1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/email_login_otp.git",
+                "reference": "1.1.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/email_login_otp-1.1.8.zip",
+                "reference": "1.1.8",
+                "shasum": "c31acd7731be703dc6929e12a8de6141245b0a73"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.8",
+                    "datestamp": "1745162429",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ahmed.raza",
+                    "homepage": "https://www.drupal.org/user/3007075"
+                }
+            ],
+            "description": "Provides login via Email OTP.",
+            "homepage": "https://www.drupal.org/project/email_login_otp",
+            "support": {
+                "source": "https://git.drupalcode.org/project/email_login_otp"
+            }
         },
         {
             "name": "drupal/entity_reference_revisions",
@@ -6574,10 +6618,10 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
