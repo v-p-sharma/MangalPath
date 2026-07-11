@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: qVQ1RHKobjP6sdrM7AyswE45vzpPM9ff9JGcyTdOFAQ
+langcode: en-gb
+otp_no_of_digits: '6'
+otp_otp_mail_subject: 'Your Requested One Time Password'
+otp_otp_mail_body: "🙏 मंगल पथ परिवार में आपका\r\nहार्दिक स्वागत है!:- MangalPath\r\n\r\nहमें बेहद खुशी है कि आपने\r\nमंगल पथ से जुड़ने का निर्णय\r\nलिया।\r\n\r\nयहाँ आपको एक ही प्लेटफ़ॉर्म\r\nपर कई सुविधाएँ मिलती हैं:\r\n\r\n💰 आसान लोन सुविधा\r\n🏠 प्रॉपर्टी खरीद, बिक्री एवं\r\nकिराये की सेवा\r\n🚗 वाहन खरीद, बिक्री एवं\r\nकिराये की सेवा\r\n✈️ टूर एवं ट्रैवल सेवाएँ\r\n\r\nआपके मोबाइल नंबर/ईमेल का\r\nसत्यापन करने के लिए कृपया\r\nनीचे दिया गया OTP दर्ज करें।\r\n\r\nआपका OTP है:  [user:otp]\r\n\r\n⏳ यह OTP 5 मिनट तक मान्य है।\r\nकृपया इसे किसी के साथ साझा न\r\nकरें।\r\n\r\nआपका धन्यवाद!\r\nटीम मंगल पथ 🌼"
+user_otp_generate_threshold: '6'
+user_otp_generate_time_window: '3'
+user_otp_submit_threshold: '15'
+user_otp_submit_time_window: '1'

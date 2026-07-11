@@ -1,0 +1,233 @@
+uuid: ea881feb-0a1d-4389-af75-e2d7fa5a22eb
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.adminbannerblock
+    - block_content.type.basic
+    - block_content.type.bottom_footer
+    - block_content.type.common_banner
+    - block_content.type.copy_right_section
+    - block_content.type.footer_right_contact
+    - block_content.type.home_page_banner_section
+    - block_content.type.social_media_links_and_title
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - node.type.about_us
+    - node.type.article
+    - node.type.contact_us
+    - node.type.home_page
+    - node.type.loan_page
+    - node.type.loan_section
+    - node.type.page
+    - node.type.properties_listing_form
+    - node.type.property_details_page
+    - node.type.property_listing_page
+    - node.type.single_loan_page
+    - node.type.single_tour_vehicle_details_page
+    - node.type.single_vehicle_details_page
+    - node.type.tour_vehicle_listing
+    - node.type.vehicle_listing_page
+    - node.type.vehicle_sell
+    - taxonomy.vocabulary.loan_type
+    - taxonomy.vocabulary.properties
+    - taxonomy.vocabulary.purpose_of_property
+    - taxonomy.vocabulary.purpose_of_vehicle
+    - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.vehicle_category_for_sell
+    - taxonomy.vocabulary.vehicle_feul_type
+  module:
+    - block_content
+    - file
+    - filter
+    - node
+    - shortcut
+    - system
+    - taxonomy
+    - toolbar
+    - update
+id: admin
+label: Admin
+weight: 6
+is_admin: null
+permissions:
+  - 'access block library'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access site in maintenance mode'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'administer filters'
+  - 'administer shortcuts'
+  - 'administer taxonomy'
+  - 'create adminbannerblock block content'
+  - 'create basic block content'
+  - 'create bottom_footer block content'
+  - 'create common_banner block content'
+  - 'create copy_right_section block content'
+  - 'create footer_right_contact block content'
+  - 'create home_page_banner_section block content'
+  - 'create loan_section content'
+  - 'create properties_listing_form content'
+  - 'create single_loan_page content'
+  - 'create single_tour_vehicle_details_page content'
+  - 'create single_vehicle_details_page content'
+  - 'create social_media_links_and_title block content'
+  - 'create terms in loan_type'
+  - 'create terms in properties'
+  - 'create terms in purpose_of_property'
+  - 'create terms in purpose_of_vehicle'
+  - 'create terms in tags'
+  - 'create terms in vehicle_category_for_sell'
+  - 'create terms in vehicle_feul_type'
+  - 'create vehicle_sell content'
+  - 'delete all taxonomy revisions'
+  - 'delete any adminbannerblock block content'
+  - 'delete any adminbannerblock block content revisions'
+  - 'delete any basic block content'
+  - 'delete any basic block content revisions'
+  - 'delete any bottom_footer block content'
+  - 'delete any bottom_footer block content revisions'
+  - 'delete any common_banner block content'
+  - 'delete any common_banner block content revisions'
+  - 'delete any copy_right_section block content'
+  - 'delete any copy_right_section block content revisions'
+  - 'delete any file'
+  - 'delete any footer_right_contact block content'
+  - 'delete any footer_right_contact block content revisions'
+  - 'delete any home_page_banner_section block content'
+  - 'delete any home_page_banner_section block content revisions'
+  - 'delete any loan_section content'
+  - 'delete any properties_listing_form content'
+  - 'delete any property_details_page content'
+  - 'delete any single_loan_page content'
+  - 'delete any social_media_links_and_title block content'
+  - 'delete any social_media_links_and_title block content revisions'
+  - 'delete term revisions in loan_type'
+  - 'delete term revisions in properties'
+  - 'delete term revisions in purpose_of_property'
+  - 'delete term revisions in purpose_of_vehicle'
+  - 'delete term revisions in tags'
+  - 'delete term revisions in vehicle_category_for_sell'
+  - 'delete term revisions in vehicle_feul_type'
+  - 'delete terms in loan_type'
+  - 'delete terms in properties'
+  - 'delete terms in purpose_of_property'
+  - 'delete terms in purpose_of_vehicle'
+  - 'delete terms in tags'
+  - 'delete terms in vehicle_category_for_sell'
+  - 'delete terms in vehicle_feul_type'
+  - 'edit any about_us content'
+  - 'edit any adminbannerblock block content'
+  - 'edit any basic block content'
+  - 'edit any bottom_footer block content'
+  - 'edit any common_banner block content'
+  - 'edit any contact_us content'
+  - 'edit any copy_right_section block content'
+  - 'edit any footer_right_contact block content'
+  - 'edit any home_page content'
+  - 'edit any home_page_banner_section block content'
+  - 'edit any loan_page content'
+  - 'edit any loan_section content'
+  - 'edit any properties_listing_form content'
+  - 'edit any property_details_page content'
+  - 'edit any property_listing_page content'
+  - 'edit any single_loan_page content'
+  - 'edit any single_tour_vehicle_details_page content'
+  - 'edit any single_vehicle_details_page content'
+  - 'edit any social_media_links_and_title block content'
+  - 'edit any tour_vehicle_listing content'
+  - 'edit any vehicle_listing_page content'
+  - 'edit any vehicle_sell content'
+  - 'edit own about_us content'
+  - 'edit own article content'
+  - 'edit own contact_us content'
+  - 'edit own home_page content'
+  - 'edit own loan_page content'
+  - 'edit own loan_section content'
+  - 'edit own page content'
+  - 'edit own properties_listing_form content'
+  - 'edit own property_details_page content'
+  - 'edit own property_listing_page content'
+  - 'edit own single_loan_page content'
+  - 'edit own single_tour_vehicle_details_page content'
+  - 'edit own single_vehicle_details_page content'
+  - 'edit own tour_vehicle_listing content'
+  - 'edit own vehicle_listing_page content'
+  - 'edit own vehicle_sell content'
+  - 'edit terms in loan_type'
+  - 'edit terms in properties'
+  - 'edit terms in purpose_of_property'
+  - 'edit terms in purpose_of_vehicle'
+  - 'edit terms in tags'
+  - 'edit terms in vehicle_category_for_sell'
+  - 'edit terms in vehicle_feul_type'
+  - 'revert about_us revisions'
+  - 'revert all taxonomy revisions'
+  - 'revert any adminbannerblock block content revisions'
+  - 'revert any basic block content revisions'
+  - 'revert any bottom_footer block content revisions'
+  - 'revert any common_banner block content revisions'
+  - 'revert any copy_right_section block content revisions'
+  - 'revert any footer_right_contact block content revisions'
+  - 'revert any home_page_banner_section block content revisions'
+  - 'revert any social_media_links_and_title block content revisions'
+  - 'revert article revisions'
+  - 'revert contact_us revisions'
+  - 'revert home_page revisions'
+  - 'revert loan_page revisions'
+  - 'revert loan_section revisions'
+  - 'revert page revisions'
+  - 'revert properties_listing_form revisions'
+  - 'revert property_details_page revisions'
+  - 'revert property_listing_page revisions'
+  - 'revert single_loan_page revisions'
+  - 'revert single_tour_vehicle_details_page revisions'
+  - 'revert single_vehicle_details_page revisions'
+  - 'revert term revisions in loan_type'
+  - 'revert term revisions in properties'
+  - 'revert term revisions in purpose_of_property'
+  - 'revert term revisions in purpose_of_vehicle'
+  - 'revert term revisions in tags'
+  - 'revert term revisions in vehicle_category_for_sell'
+  - 'revert term revisions in vehicle_feul_type'
+  - 'revert tour_vehicle_listing revisions'
+  - 'revert vehicle_listing_page revisions'
+  - 'revert vehicle_sell revisions'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view about_us revisions'
+  - 'view all taxonomy revisions'
+  - 'view any adminbannerblock block content history'
+  - 'view any basic block content history'
+  - 'view any bottom_footer block content history'
+  - 'view any common_banner block content history'
+  - 'view any copy_right_section block content history'
+  - 'view any footer_right_contact block content history'
+  - 'view any home_page_banner_section block content history'
+  - 'view any social_media_links_and_title block content history'
+  - 'view article revisions'
+  - 'view contact_us revisions'
+  - 'view home_page revisions'
+  - 'view loan_page revisions'
+  - 'view loan_section revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view properties_listing_form revisions'
+  - 'view property_details_page revisions'
+  - 'view property_listing_page revisions'
+  - 'view single_loan_page revisions'
+  - 'view single_tour_vehicle_details_page revisions'
+  - 'view single_vehicle_details_page revisions'
+  - 'view term revisions in loan_type'
+  - 'view term revisions in properties'
+  - 'view term revisions in purpose_of_property'
+  - 'view term revisions in purpose_of_vehicle'
+  - 'view term revisions in tags'
+  - 'view term revisions in vehicle_category_for_sell'
+  - 'view term revisions in vehicle_feul_type'
+  - 'view tour_vehicle_listing revisions'
+  - 'view update notifications'
+  - 'view vehicle_listing_page revisions'
+  - 'view vehicle_sell revisions'
+  - 'view vocabulary labels'
