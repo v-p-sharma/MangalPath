@@ -3,20 +3,20 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
 
-  function mangalpath_preprocess_page(array &$variables) {
-  // Check if current route is user registration page
-  $route_name = \Drupal::routeMatch()->getRouteName();
+//   function mangalpath_preprocess_page(array &$variables) {
+//   // Check if current route is user registration page
+//   $route_name = \Drupal::routeMatch()->getRouteName();
 
-  if ($route_name == 'user.register') {
-    $user = \Drupal\user\Entity\User::create();
-    $registerForm = \Drupal::service('entity.form_builder')->getForm($user, 'register');
-    $variables['registerForm'] = $registerForm;
-  }
-  // if ($route_name == 'user.login') {
-  //   $loginForm =  \Drupal::formBuilder()->getForm(UserLoginForm::class);
-  //   $variables['loginForm'] = $loginForm;
-  // }
-}
+//   if ($route_name == 'user.register') {
+//     $user = \Drupal\user\Entity\User::create();
+//     $registerForm = \Drupal::service('entity.form_builder')->getForm($user, 'register');
+//     $variables['registerForm'] = $registerForm;
+//   }
+//   // if ($route_name == 'user.login') {
+//   //   $loginForm =  \Drupal::formBuilder()->getForm(UserLoginForm::class);
+//   //   $variables['loginForm'] = $loginForm;
+//   // }
+// }
 
 function mangalpath_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
