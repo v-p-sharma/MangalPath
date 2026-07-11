@@ -1,0 +1,1760 @@
+blocks:
+  -
+    info: 'Find Your Dream Property'
+    langcode: en-gb
+    uuid: 8a287e3a-f322-4727-926c-93ee3fc7e064
+    bundle: common_banner
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p><strong>From luxury villas to agricultural land, we help you buy, sell, and rent properties across India with verified documentation.</strong></p>'
+          summary: ''
+          format: basic_html
+      field_background_image: {  }
+      field_email_address:
+        -
+          uri: 'internal:#listings'
+          title: 'Browse Listings'
+          options: {  }
+      field_title:
+        -
+          value: '<h1>Find Your <span style="color:var(--accent);">Dream Property</span></h1>'
+          summary: ''
+          format: full_html
+  -
+    info: 'Fulfill Your Dreams with'
+    langcode: en-gb
+    uuid: b4b19d6b-df1c-47ac-96ef-a0ce646aaafb
+    bundle: common_banner
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><strong>Turn your aspirations into reality. Whether it's a new home, your dream car, or urgent funds, mangalpath is here to support you.</strong></p>"
+          summary: ''
+          format: basic_html
+      field_background_image:
+        -
+          target_id: '34'
+          alt: image
+          title: ''
+          width: '2070'
+          height: '1380'
+      field_email_address:
+        -
+          uri: 'internal:#enquiry-form'
+          title: 'Get Instant Approval'
+          options: {  }
+      field_title:
+        -
+          value: '<h1>Fulfill Your Dreams with&nbsp;<br><span style="color:var(--accent);">Easy Loans</span></h1>'
+          summary: ''
+          format: full_html
+  -
+    info: 'Copy Right Section '
+    langcode: en-gb
+    uuid: fea2d764-3acd-44ab-93c5-fe70edd2c302
+    bundle: copy_right_section
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p>© 2025 mangalpath. All Rights Reserved. | Designed with ❤️ in India...</p>'
+          summary: ''
+          format: full_html
+      field_social_media_links_and_tit:
+        -
+          target_id: '128'
+          target_revision_id: '374'
+        -
+          target_id: '129'
+          target_revision_id: '375'
+        -
+          target_id: '130'
+          target_revision_id: '376'
+  -
+    info: 'Contact Information'
+    langcode: en-gb
+    uuid: 1341bded-939a-4476-a81a-24ee64bc21b1
+    bundle: footer_right_contact
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body: {  }
+      field_contact_details:
+        -
+          target_id: '124'
+          target_revision_id: '370'
+        -
+          target_id: '125'
+          target_revision_id: '371'
+        -
+          target_id: '126'
+          target_revision_id: '372'
+        -
+          target_id: '127'
+          target_revision_id: '373'
+  -
+    info: mangalpath
+    langcode: en-gb
+    uuid: c5fb5db7-1ba0-4082-a803-00de4d547e5b
+    bundle: bottom_footer
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p>mangalpath is a multi-service company providing financial assistance, real estate services, vehicle transactions, and transportation arrangements across India — all under one trusted brand.</p>'
+          summary: ''
+          format: basic_html
+      field_background_image: {  }
+      field_sub_title:
+        -
+          value: 'Your Trusted Multi-Service Partner'
+      field_tag_1:
+        -
+          value: ' Verified Company'
+      field_tag_2:
+        -
+          value: ' 4.9 / 5 Rating'
+      field_title:
+        -
+          value: '<p>mangalpath</p>'
+          summary: ''
+          format: basic_html
+  -
+    info: 'One Trusted Partner for Loans, Property, Vehicles & Travel'
+    langcode: en-gb
+    uuid: f7374b46-eb26-4461-af61-4adc7700122d
+    bundle: home_page_banner_section
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p>Helping individuals and businesses with financial assistance, real estate services, vehicle transactions, and transportation arrangements across India.</p>'
+          summary: ''
+          format: basic_html
+      field_email_address:
+        -
+          uri: 'internal:#'
+          title: 'Get Free Consultation'
+          options: {  }
+      field_facebook:
+        -
+          uri: 'internal:#'
+          title: 'Explore Services '
+          options: {  }
+      field_home_page_banner_box:
+        -
+          target_id: '11'
+          target_revision_id: '11'
+      field_sub_title:
+        -
+          value: "India's Trusted Multi-Service Partner"
+      field_title:
+        -
+          value: '<h1>One Trusted Partner for <span>Loans, Property,</span> Vehicles &amp; Travel</h1>'
+          summary: ''
+          format: full_html
+  -
+    info: 'Header Top Section'
+    langcode: en-gb
+    uuid: 1cf04729-2142-4e62-ab87-8ac568d190af
+    bundle: social_media_links_and_title
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_email_address:
+        -
+          uri: 'internal:#'
+          title: mangalpath07@gmail.com
+          options: {  }
+      field_social_media_links_and_tit:
+        -
+          target_id: '131'
+          target_revision_id: '377'
+        -
+          target_id: '132'
+          target_revision_id: '378'
+        -
+          target_id: '133'
+          target_revision_id: '379'
+      field_time:
+        -
+          value: ' Mon–Sat: 9 AM – 7 PM'
+  -
+    info: 'Get the Best Value for Your Property'
+    langcode: en-gb
+    uuid: 0559031c-74ac-4056-a489-cffe15ed3b09
+    bundle: adminbannerblock
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p><strong>Sell, Rent, or Lease your property faster with mangalpath. Reach thousands of genuine buyers across Rajasthan with zero brokerage hassles.</strong></p>'
+          summary: ''
+          format: basic_html
+      field_active_listing:
+        -
+          value: 10k
+      field_satisfaction:
+        -
+          value: 98%
+      field_sub_title:
+        -
+          value: 'List Your Property'
+      field_verifiedbuyer:
+        -
+          value: 5k
+menus:
+  -
+    menu_name: footer
+    title: Home
+    parent: null
+    uri: 'internal:/'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -50
+    langcode: en-gb
+    uuid: bfbe4a42-5319-434b-9bb6-60792198e3ec
+    options: {  }
+  -
+    menu_name: footer
+    title: Loan
+    parent: null
+    uri: 'internal:/loan'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -49
+    langcode: en-gb
+    uuid: 4f700dfa-3009-4cc5-ab0e-6aeb4111a7d7
+    options: {  }
+  -
+    menu_name: footer
+    title: Property
+    parent: null
+    uri: 'internal:/propery'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -48
+    langcode: en-gb
+    uuid: a00adc9d-0283-4190-a0ed-91f62af3b105
+    options: {  }
+  -
+    menu_name: footer
+    title: 'Vehicle Services'
+    parent: null
+    uri: 'internal:/vehicle-services'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -47
+    langcode: en-gb
+    uuid: 61ad6cdd-519c-43c2-9bda-6b67e99d5a07
+    options: {  }
+  -
+    menu_name: footer
+    title: 'Travel Services'
+    parent: null
+    uri: 'internal:/travel-services'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en-gb
+    uuid: 1b0564d9-a69e-4573-9d73-81583122365b
+    options: {  }
+  -
+    menu_name: footer
+    title: 'About Us'
+    parent: null
+    uri: 'internal:/about-us'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en-gb
+    uuid: 5a9d2191-888f-4e2d-926b-11ffc684e61d
+    options: {  }
+  -
+    menu_name: footer
+    title: Contact
+    parent: null
+    uri: 'internal:/contact-us'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en-gb
+    uuid: dd5408d7-502b-43db-804f-1df73b3f4ea0
+    options: {  }
+  -
+    menu_name: footer-2
+    title: 'Personal Loan'
+    parent: null
+    uri: 'internal:/loan/personal-loan'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -49
+    langcode: en-gb
+    uuid: 1c98c5f9-f7dc-48c4-82bb-0f077e9b1395
+    options: {  }
+  -
+    menu_name: footer-2
+    title: 'Home Loan'
+    parent: null
+    uri: 'internal:/loan/home-loan'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -50
+    langcode: en-gb
+    uuid: 0e4dcad2-5fc3-41e7-aa31-b850cbff1166
+    options: {  }
+  -
+    menu_name: footer-2
+    title: 'Gold Loan'
+    parent: null
+    uri: 'internal:/loan/gold-loan'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -48
+    langcode: en-gb
+    uuid: 12a1e8e8-195b-41a1-8cd4-fe6a9f3b5533
+    options: {  }
+  -
+    menu_name: footer-2
+    title: 'Against Property Loan'
+    parent: null
+    uri: 'internal:/loan/against-property-Loan'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -47
+    langcode: en-gb
+    uuid: 696a754b-40d2-48a1-b6f4-17acad3b9c11
+    options: {  }
+  -
+    menu_name: footer-2
+    title: OD
+    parent: null
+    uri: 'internal:/loan/od'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en-gb
+    uuid: 9cfeea9b-1453-48df-b1de-b53d769133e2
+    options: {  }
+  -
+    menu_name: footer-2
+    title: 'Car Loan'
+    parent: null
+    uri: 'internal:/loan/car-loan'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en-gb
+    uuid: bc1c1054-a60b-4415-8dcc-0e3609410e54
+    options: {  }
+  -
+    menu_name: main
+    title: Loans
+    parent: null
+    uri: 'internal:/Loan'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -49
+    langcode: en-gb
+    uuid: 99622e09-7a4f-4ff3-a292-7111db935796
+    options: {  }
+  -
+    menu_name: main
+    title: Property
+    parent: null
+    uri: 'entity:node/6'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -48
+    langcode: en-gb
+    uuid: aeb6d5c6-ee55-4660-ad6c-e021ffeda093
+    options: {  }
+  -
+    menu_name: main
+    title: 'Vehicle Services'
+    parent: null
+    uri: 'internal:/vehicle-services'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -47
+    langcode: en-gb
+    uuid: 311a4340-e7ed-490f-8ccd-93e8b7d3af35
+    options: {  }
+  -
+    menu_name: main
+    title: 'Travel Services'
+    parent: null
+    uri: 'internal:/travel-services'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -46
+    langcode: en-gb
+    uuid: fa813d77-3f46-479d-9647-c92ebcdca296
+    options: {  }
+  -
+    menu_name: main
+    title: About-us
+    parent: null
+    uri: 'internal:/about-us'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -45
+    langcode: en-gb
+    uuid: edeb2d5f-be06-4681-adad-eac43b81bd0a
+    options: {  }
+  -
+    menu_name: main
+    title: 'Contact Us'
+    parent: null
+    uri: 'internal:/contact-us'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: -44
+    langcode: en-gb
+    uuid: 0f87e632-f58c-45f7-be10-1fe73f2e7816
+    options: {  }
+taxonomies:
+  loan_type:
+    -
+      vid: loan_type
+      tid: '129'
+      langcode: en-gb
+      name: 'Business Loan'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 045fb54a-a3b3-451b-825f-481c9caea61c
+    -
+      vid: loan_type
+      tid: '127'
+      langcode: en-gb
+      name: 'Car Loan'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 87a33646-e05f-433b-a26b-deb0447f7053
+    -
+      vid: loan_type
+      tid: '125'
+      langcode: en-gb
+      name: 'Gold Loan'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5eb5f1a8-3ba7-445c-86cd-b6750583167f
+    -
+      vid: loan_type
+      tid: '124'
+      langcode: en-gb
+      name: 'Home Loan'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6d119bce-0d89-4d4c-af4a-8fdd6b46a65f
+    -
+      vid: loan_type
+      tid: '126'
+      langcode: en-gb
+      name: 'Loan Against Property'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: eb8f4864-99fb-48cc-809d-7a0b81936895
+    -
+      vid: loan_type
+      tid: '130'
+      langcode: en-gb
+      name: 'Overdraft (OD)'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 83f807f4-55e9-43be-baa6-9119ee233ba8
+    -
+      vid: loan_type
+      tid: '128'
+      langcode: en-gb
+      name: 'Personal Loan'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 9cbdc76b-bfdd-4ccb-98a2-d9fe33ae047b
+  properties:
+    -
+      vid: properties
+      tid: '45'
+      langcode: en-gb
+      name: 'Agricultural Land'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: 762c0a71-aef4-49e2-bf4f-83967770049d
+    -
+      vid: properties
+      tid: '68'
+      langcode: en-gb
+      name: 'Agricultural Plot'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '64'
+      uuid: dd012d72-f647-4f0f-b5a1-8c84866bf53c
+    -
+      vid: properties
+      tid: '44'
+      langcode: en-gb
+      name: 'Agricultural Properties'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: cdb58394-8c82-4539-b40d-a15620a8a86f
+    -
+      vid: properties
+      tid: '8'
+      langcode: en-gb
+      name: 'Builder Floor'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '1'
+      uuid: e764abca-c120-4096-af32-27df7a41e925
+    -
+      vid: properties
+      tid: '56'
+      langcode: en-gb
+      name: 'Coffee Estate'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: 06fd3fed-f35c-4bc3-a723-4571e8dc6027
+    -
+      vid: properties
+      tid: '63'
+      langcode: en-gb
+      name: 'Cold Storage'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: dfbd5821-27b5-409f-9724-db51a1930448
+    -
+      vid: properties
+      tid: '66'
+      langcode: en-gb
+      name: 'Commercial Plot'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '64'
+      uuid: b7ada285-890b-47a7-958c-dec2a01ad0ba
+    -
+      vid: properties
+      tid: '20'
+      langcode: en-gb
+      name: 'Commercial Properties'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 35fcf757-1005-4e0c-ab28-1ee59fc99948
+    -
+      vid: properties
+      tid: '71'
+      langcode: en-gb
+      name: 'Corner Plot'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '64'
+      uuid: 9182427f-9f9b-451e-8314-ecda89666368
+    -
+      vid: properties
+      tid: '50'
+      langcode: en-gb
+      name: 'Dairy Farm'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: ce941fbd-ff25-49e9-9cda-50184af59e92
+    -
+      vid: properties
+      tid: '59'
+      langcode: en-gb
+      name: Factory
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: 920e1966-593c-45f5-903d-008f7a1d595f
+    -
+      vid: properties
+      tid: '46'
+      langcode: en-gb
+      name: 'Farm Land'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: d7b65fec-c81e-4c87-a125-94008d2aacb7
+    -
+      vid: properties
+      tid: '70'
+      langcode: en-gb
+      name: 'Farm Land'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '64'
+      uuid: d43abda9-a619-46e7-8fb1-be91f93cfb07
+    -
+      vid: properties
+      tid: '52'
+      langcode: en-gb
+      name: 'Fish Farm'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: 50c89410-11a9-41a6-b90f-b5ade810d98d
+    -
+      vid: properties
+      tid: '54'
+      langcode: en-gb
+      name: 'Greenhouse Farm'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: 25545d5c-02b0-452f-92dc-f4a8779822e5
+    -
+      vid: properties
+      tid: '67'
+      langcode: en-gb
+      name: 'Industrial Plot'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '64'
+      uuid: 36fbe470-f0bc-4d49-a9b4-7ab21e16b4d7
+    -
+      vid: properties
+      tid: '58'
+      langcode: en-gb
+      name: 'Industrial Properties'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7a17a7a1-2fcd-4210-b201-85e8dc90c43b
+    -
+      vid: properties
+      tid: '47'
+      langcode: en-gb
+      name: 'Irrigated Land'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: ca65c469-32d4-4cba-a745-493d783051a4
+    -
+      vid: properties
+      tid: '64'
+      langcode: en-gb
+      name: 'Land / Plot'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: b85f60be-5943-49ef-a060-b8f49859c285
+    -
+      vid: properties
+      tid: '62'
+      langcode: en-gb
+      name: 'Manufacturing Unit'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: f6ba855b-041e-420e-8115-57e8e7fb2c21
+    -
+      vid: properties
+      tid: '48'
+      langcode: en-gb
+      name: Orchard
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: da1aa1f6-c83a-4a36-a900-32734cce0979
+    -
+      vid: properties
+      tid: '53'
+      langcode: en-gb
+      name: 'Organic Farm'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: 12b26e4d-37aa-4d83-8deb-186528fad44c
+    -
+      vid: properties
+      tid: '49'
+      langcode: en-gb
+      name: 'Plantation Land'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: 733fecc8-bae5-49fc-8721-a54a667d1531
+    -
+      vid: properties
+      tid: '51'
+      langcode: en-gb
+      name: 'Poultry Farm'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: cc349283-acb1-43d0-b729-c5e39c7ee183
+    -
+      vid: properties
+      tid: '65'
+      langcode: en-gb
+      name: 'Residential Plot'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '64'
+      uuid: f0b24124-f919-4fe0-a603-3afe0efe8453
+    -
+      vid: properties
+      tid: '43'
+      langcode: en-gb
+      name: 'School Building'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '20'
+      uuid: ad3276dd-cadc-439e-9045-e638643fc111
+    -
+      vid: properties
+      tid: '55'
+      langcode: en-gb
+      name: 'Tea Garden'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: 164d8161-0da5-4570-a3a5-160ecd2cffa8
+    -
+      vid: properties
+      tid: '57'
+      langcode: en-gb
+      name: Vineyard
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '44'
+      uuid: 6a67746b-afb5-4930-8bc7-017788ddc1fd
+    -
+      vid: properties
+      tid: '61'
+      langcode: en-gb
+      name: Warehouse
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '58'
+      uuid: effa4d37-168d-4553-89c1-264be6c82bda
+    -
+      vid: properties
+      tid: '69'
+      langcode: en-gb
+      name: 'Agricultural Plot'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '64'
+      uuid: 4fb28597-84c5-4e3e-8158-2c18d7c25d7e
+    -
+      vid: properties
+      tid: '39'
+      langcode: en-gb
+      name: 'Banquet Hall'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '20'
+      uuid: f7e820e0-562b-4052-9246-27f08e5f6704
+    -
+      vid: properties
+      tid: '14'
+      langcode: en-gb
+      name: Bungalow
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '1'
+      uuid: a746a7f6-e315-47c3-84c7-fd4fca7c10ba
+    -
+      vid: properties
+      tid: '60'
+      langcode: en-gb
+      name: 'Industrial Plot'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '58'
+      uuid: c03ba267-4cf9-4397-9631-4adb46fd089b
+    -
+      vid: properties
+      tid: '31'
+      langcode: en-gb
+      name: 'Business Center'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '20'
+      uuid: d41accc8-4614-4483-a99e-43891df68c27
+    -
+      vid: properties
+      tid: '10'
+      langcode: en-gb
+      name: 'Duplex House'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '1'
+      uuid: da0249b0-747a-4d9b-be80-8fd192b2532c
+    -
+      vid: properties
+      tid: '40'
+      langcode: en-gb
+      name: 'Cinema Hall'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '20'
+      uuid: ef13fa51-490b-4408-a33f-cb28880d454e
+    -
+      vid: properties
+      tid: '13'
+      langcode: en-gb
+      name: Cottage
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '1'
+      uuid: 31ecf9ea-8d3a-4d19-8055-619b184520ab
+    -
+      vid: properties
+      tid: '26'
+      langcode: en-gb
+      name: 'Commercial Land'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '20'
+      uuid: f708d2b5-9a40-4dc8-8511-6b329b28e724
+    -
+      vid: properties
+      tid: '9'
+      langcode: en-gb
+      name: 'Farm House'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '1'
+      uuid: 2cb1d4d9-e428-49f4-b817-ed0c106eb6c9
+    -
+      vid: properties
+      tid: '1'
+      langcode: en-gb
+      name: 'Residential Properties'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: bdc94c9e-a899-4dd7-97a5-2ec0b3fc013d
+    -
+      vid: properties
+      tid: '25'
+      langcode: en-gb
+      name: 'Commercial Plot'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '20'
+      uuid: 01c5a33e-e3d1-445e-8451-8332a0c11efb
+    -
+      vid: properties
+      tid: '5'
+      langcode: en-gb
+      name: 'Flat / Apartment'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '1'
+      uuid: 15c5bb97-5356-410a-b9a3-e810248498fc
+    -
+      vid: properties
+      tid: '23'
+      langcode: en-gb
+      name: 'Coworking Space'
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '20'
+      uuid: b588eb1d-80ae-4568-9442-7002bbeb7d63
+    -
+      vid: properties
+      tid: '18'
+      langcode: en-gb
+      name: Hostel
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '1'
+      uuid: 3ada8cc7-4d7b-4491-8669-d1e453b4907b
+    -
+      vid: properties
+      tid: '29'
+      langcode: en-gb
+      name: Factory
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '20'
+      uuid: b0b31513-c89e-4950-8aa6-3415d3ff4ce2
+    -
+      vid: properties
+      tid: '2'
+      langcode: en-gb
+      name: House
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '1'
+      uuid: 88d4ba4b-8940-4319-95e3-de37f2a4bc45
+    -
+      vid: properties
+      tid: '28'
+      langcode: en-gb
+      name: Godown
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '20'
+      uuid: 10abafb0-6778-4703-b3ed-e6aec62fe8fb
+    -
+      vid: properties
+      tid: '3'
+      langcode: en-gb
+      name: 'Independent House'
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '1'
+      uuid: ea1dc581-06fa-4b13-bc87-f837dde4f0d0
+    -
+      vid: properties
+      tid: '42'
+      langcode: en-gb
+      name: 'Hospital Building'
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '20'
+      uuid: 50ddf31d-e200-4f3e-a088-2834bcb24b41
+    -
+      vid: properties
+      tid: '7'
+      langcode: en-gb
+      name: Penthouse
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '1'
+      uuid: 74e319c6-327a-4a14-840d-2867301893d5
+    -
+      vid: properties
+      tid: '35'
+      langcode: en-gb
+      name: Hotel
+      description__value: null
+      description__format: null
+      weight: '10'
+      parent: '20'
+      uuid: a43860ff-9710-46ef-9320-2213715f2f6a
+    -
+      vid: properties
+      tid: '17'
+      langcode: en-gb
+      name: 'PG Accommodation'
+      description__value: null
+      description__format: null
+      weight: '10'
+      parent: '1'
+      uuid: 77f62a8a-a19b-4f9b-84b9-8e9608e65563
+    -
+      vid: properties
+      tid: '30'
+      langcode: en-gb
+      name: 'Industrial Shed'
+      description__value: null
+      description__format: null
+      weight: '11'
+      parent: '20'
+      uuid: 150930e3-5e88-4f14-881f-c98b62650dd3
+    -
+      vid: properties
+      tid: '16'
+      langcode: en-gb
+      name: 'Residential Land'
+      description__value: null
+      description__format: null
+      weight: '11'
+      parent: '1'
+      uuid: 23838d4c-70b1-44b0-8d91-68e91320e8e4
+    -
+      vid: properties
+      tid: '34'
+      langcode: en-gb
+      name: 'Mall Space'
+      description__value: null
+      description__format: null
+      weight: '12'
+      parent: '20'
+      uuid: 432f14f2-0e3b-4430-9dc1-a81fbb66e11d
+    -
+      vid: properties
+      tid: '15'
+      langcode: en-gb
+      name: 'Residential Plot'
+      description__value: null
+      description__format: null
+      weight: '12'
+      parent: '1'
+      uuid: 85bef649-8bfd-4a47-ae2e-2395ea358a0c
+    -
+      vid: properties
+      tid: '36'
+      langcode: en-gb
+      name: Motel
+      description__value: null
+      description__format: null
+      weight: '13'
+      parent: '20'
+      uuid: d4eb48de-a120-4d02-96f4-d4c6868f6d34
+    -
+      vid: properties
+      tid: '12'
+      langcode: en-gb
+      name: 'Row House'
+      description__value: null
+      description__format: null
+      weight: '13'
+      parent: '1'
+      uuid: 3e6b2f05-f33a-47ca-a62d-2dea99c62da5
+    -
+      vid: properties
+      tid: '22'
+      langcode: en-gb
+      name: 'Office Space'
+      description__value: null
+      description__format: null
+      weight: '14'
+      parent: '20'
+      uuid: 814104c5-292d-4882-8660-cb482a107ca9
+    -
+      vid: properties
+      tid: '19'
+      langcode: en-gb
+      name: 'Service Apartment'
+      description__value: null
+      description__format: null
+      weight: '14'
+      parent: '1'
+      uuid: 46b30ff7-4191-4ccd-8211-b9dff2dc3b9c
+    -
+      vid: properties
+      tid: '41'
+      langcode: en-gb
+      name: 'Petrol Pump'
+      description__value: null
+      description__format: null
+      weight: '15'
+      parent: '20'
+      uuid: ce200d52-8974-409e-95fa-ccf1f0065265
+    -
+      vid: properties
+      tid: '6'
+      langcode: en-gb
+      name: 'Studio Apartment'
+      description__value: null
+      description__format: null
+      weight: '15'
+      parent: '1'
+      uuid: b1a07f39-5423-448e-822c-69e1f1bea6a5
+    -
+      vid: properties
+      tid: '37'
+      langcode: en-gb
+      name: Resort
+      description__value: null
+      description__format: null
+      weight: '16'
+      parent: '20'
+      uuid: ba31e9d1-781e-4f49-876f-30f2c01ee56c
+    -
+      vid: properties
+      tid: '4'
+      langcode: en-gb
+      name: Villa
+      description__value: null
+      description__format: null
+      weight: '16'
+      parent: '1'
+      uuid: 12dddd3c-75b2-4770-aa1d-41327e0a0ad1
+    -
+      vid: properties
+      tid: '38'
+      langcode: en-gb
+      name: Restaurant
+      description__value: null
+      description__format: null
+      weight: '17'
+      parent: '20'
+      uuid: fdb2391e-a7e2-41a8-b05f-1e4f79bbff47
+    -
+      vid: properties
+      tid: '11'
+      langcode: en-gb
+      name: 'Triplex House'
+      description__value: null
+      description__format: null
+      weight: '17'
+      parent: '1'
+      uuid: 24f91a6f-2974-4f82-b0f3-d8975a034495
+    -
+      vid: properties
+      tid: '32'
+      langcode: en-gb
+      name: 'Retail Space'
+      description__value: null
+      description__format: null
+      weight: '18'
+      parent: '20'
+      uuid: feb7fcbe-8ed5-4cd7-ac2f-1a2e061a85d9
+    -
+      vid: properties
+      tid: '21'
+      langcode: en-gb
+      name: Shop
+      description__value: null
+      description__format: null
+      weight: '19'
+      parent: '20'
+      uuid: f654e30b-249a-469e-be4b-6049a554b855
+    -
+      vid: properties
+      tid: '33'
+      langcode: en-gb
+      name: 'Shopping Complex'
+      description__value: null
+      description__format: null
+      weight: '20'
+      parent: '20'
+      uuid: aad4fc42-ed07-4a35-9fb6-0542e69dd497
+    -
+      vid: properties
+      tid: '24'
+      langcode: en-gb
+      name: Showroom
+      description__value: null
+      description__format: null
+      weight: '21'
+      parent: '20'
+      uuid: f5db1ce6-869a-487c-b318-5e8cbe57e8d7
+    -
+      vid: properties
+      tid: '27'
+      langcode: en-gb
+      name: Warehouse
+      description__value: null
+      description__format: null
+      weight: '22'
+      parent: '20'
+      uuid: 5c9f8f41-5aee-4ce5-b8dc-c8b45bd6f1cc
+  purpose_of_property:
+    -
+      vid: purpose_of_property
+      tid: '73'
+      langcode: en-gb
+      name: Rent
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7bdd09e0-d563-4eb9-a974-ce5b0a26e67f
+    -
+      vid: purpose_of_property
+      tid: '72'
+      langcode: en-gb
+      name: Sell
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 38099d00-4bd2-4b1a-8e9f-a7dddc803511
+  purpose_of_vehicle:
+    -
+      vid: purpose_of_vehicle
+      tid: '123'
+      langcode: en-gb
+      name: 'Rent/attach/tour&travel'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5efa6868-4115-4bf8-90df-4c7ee3b3869a
+    -
+      vid: purpose_of_vehicle
+      tid: '122'
+      langcode: en-gb
+      name: Sell
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 3ba51a48-9827-40ae-9e6f-c2a2ae1115b1
+  tags: {  }
+  vehicle_category_for_sell:
+    -
+      vid: vehicle_category_for_sell
+      tid: '87'
+      langcode: en-gb
+      name: 'Adventure Bike'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '83'
+      uuid: 7cb9ab1c-ae60-437d-9cdd-36c4a6d274c9
+    -
+      vid: vehicle_category_for_sell
+      tid: '104'
+      langcode: en-gb
+      name: 'Agricultural Equipment'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '101'
+      uuid: b137a28e-acd1-4f6f-81e6-92a06c226fc2
+    -
+      vid: vehicle_category_for_sell
+      tid: '110'
+      langcode: en-gb
+      name: 'Auto Rickshaws'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 65ab3499-25db-4459-82ee-d27fce3caaa7
+    -
+      vid: vehicle_category_for_sell
+      tid: '114'
+      langcode: en-gb
+      name: Bicycle
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '113'
+      uuid: ee0f3b74-b1d0-4acc-a77a-a21ef7c7fceb
+    -
+      vid: vehicle_category_for_sell
+      tid: '83'
+      langcode: en-gb
+      name: 'Bikes / Motorcycles'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: bce11910-52f4-43e4-8e23-f3bb9e527525
+    -
+      vid: vehicle_category_for_sell
+      tid: '97'
+      langcode: en-gb
+      name: Buses
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 43430e94-d148-480b-bfe0-b7ab1d8c2564
+    -
+      vid: vehicle_category_for_sell
+      tid: '108'
+      langcode: en-gb
+      name: 'Cargo Van'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '105'
+      uuid: 6e663ebb-77cb-4cd3-8d50-a0502908d89d
+    -
+      vid: vehicle_category_for_sell
+      tid: '74'
+      langcode: en-gb
+      name: Cars
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 68e4918a-5a90-4c82-9ec5-56ed440cdf2f
+    -
+      vid: vehicle_category_for_sell
+      tid: '92'
+      langcode: en-gb
+      name: 'Commercial Vehicles'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5c3282a5-47ea-463d-9144-842edf7aa726
+    -
+      vid: vehicle_category_for_sell
+      tid: '84'
+      langcode: en-gb
+      name: Commuter
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '83'
+      uuid: 71ea9439-5b6f-47c6-aebc-27b2e5904cab
+    -
+      vid: vehicle_category_for_sell
+      tid: '80'
+      langcode: en-gb
+      name: Convertible
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '74'
+      uuid: 8e49201f-f60c-4c4f-b50f-96f0930ff82a
+    -
+      vid: vehicle_category_for_sell
+      tid: '79'
+      langcode: en-gb
+      name: Coupe
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '74'
+      uuid: 43914efc-d278-431c-a1a3-c620092c12b4
+    -
+      vid: vehicle_category_for_sell
+      tid: '86'
+      langcode: en-gb
+      name: Cruiser
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '83'
+      uuid: a5df107d-165f-4ceb-a2e9-e0821b09cf3c
+    -
+      vid: vehicle_category_for_sell
+      tid: '113'
+      langcode: en-gb
+      name: Cycles
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: bb7b6386-9137-43f3-832c-dfd37572998b
+    -
+      vid: vehicle_category_for_sell
+      tid: '112'
+      langcode: en-gb
+      name: 'Electric Auto'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '110'
+      uuid: 2b220cd2-0d63-46d3-b8c2-9f1810ebdd0c
+    -
+      vid: vehicle_category_for_sell
+      tid: '115'
+      langcode: en-gb
+      name: 'Electric Bicycle'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '113'
+      uuid: 22b3a5fa-0aac-4666-a5ed-b29c00fe3429
+    -
+      vid: vehicle_category_for_sell
+      tid: '88'
+      langcode: en-gb
+      name: 'Electric Bike'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '83'
+      uuid: 8b73bba5-99ed-43e4-8b1d-ce2efbcf7eab
+    -
+      vid: vehicle_category_for_sell
+      tid: '82'
+      langcode: en-gb
+      name: 'Electric Cars'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '74'
+      uuid: 23236869-5c55-4d1b-a721-6b22f88362c1
+    -
+      vid: vehicle_category_for_sell
+      tid: '91'
+      langcode: en-gb
+      name: 'Electric Scooter'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '89'
+      uuid: 8cf26909-7dd6-46db-8751-46fba3d1837c
+    -
+      vid: vehicle_category_for_sell
+      tid: '103'
+      langcode: en-gb
+      name: Harvester
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '101'
+      uuid: e55caba2-b0a2-4ee1-ba04-7236bae66a0f
+    -
+      vid: vehicle_category_for_sell
+      tid: '75'
+      langcode: en-gb
+      name: Hatchback
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '74'
+      uuid: d5aedb94-eaad-4d9f-b95a-4b691de9c141
+    -
+      vid: vehicle_category_for_sell
+      tid: '95'
+      langcode: en-gb
+      name: 'Heavy Trucks'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '92'
+      uuid: 6c3a0667-e0f1-4c0e-871b-aafbf162e564
+    -
+      vid: vehicle_category_for_sell
+      tid: '81'
+      langcode: en-gb
+      name: 'Luxury Cars'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '74'
+      uuid: 7cf0925e-2022-4310-aac8-11970b2ee73d
+    -
+      vid: vehicle_category_for_sell
+      tid: '94'
+      langcode: en-gb
+      name: 'Mini Trucks'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '92'
+      uuid: 08f089b6-ca56-49f5-98f7-b236078b3948
+    -
+      vid: vehicle_category_for_sell
+      tid: '78'
+      langcode: en-gb
+      name: MUV/MPV
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '74'
+      uuid: 028d6ee9-0b5c-48ca-a927-f4cd0f025c01
+    -
+      vid: vehicle_category_for_sell
+      tid: '99'
+      langcode: en-gb
+      name: 'Passenger Bus'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '97'
+      uuid: bc3c676e-75c1-4880-9c3f-74368a54600e
+    -
+      vid: vehicle_category_for_sell
+      tid: '107'
+      langcode: en-gb
+      name: 'Passenger Van'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '105'
+      uuid: 48703107-0aff-4ce8-bea6-bf3e8ce0bcc5
+    -
+      vid: vehicle_category_for_sell
+      tid: '90'
+      langcode: en-gb
+      name: 'Petrol Scooter'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '89'
+      uuid: bccf53d4-6000-42b3-b88a-788c70a0dc67
+    -
+      vid: vehicle_category_for_sell
+      tid: '111'
+      langcode: en-gb
+      name: 'Petrol/CNG Auto'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '110'
+      uuid: c4f84781-ab5c-4e0a-9798-b16727b67eda
+    -
+      vid: vehicle_category_for_sell
+      tid: '93'
+      langcode: en-gb
+      name: 'Pickup Trucks'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '92'
+      uuid: e41f133f-37df-4c17-be9e-32502f4d72b0
+    -
+      vid: vehicle_category_for_sell
+      tid: '98'
+      langcode: en-gb
+      name: 'School Bus'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '97'
+      uuid: 371813b0-8f74-4ea7-936f-39d173ed7658
+    -
+      vid: vehicle_category_for_sell
+      tid: '89'
+      langcode: en-gb
+      name: Scooters
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7fc6d3ce-6a94-4af0-a556-c883d926c86e
+    -
+      vid: vehicle_category_for_sell
+      tid: '76'
+      langcode: en-gb
+      name: Sedan
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '74'
+      uuid: 0e088047-adc1-4caa-a7d6-4e2a42e82f98
+    -
+      vid: vehicle_category_for_sell
+      tid: '85'
+      langcode: en-gb
+      name: 'Sports Bike'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '83'
+      uuid: 8bdb9f66-9bce-448b-b175-d1d5147f0eee
+    -
+      vid: vehicle_category_for_sell
+      tid: '77'
+      langcode: en-gb
+      name: SUV
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '74'
+      uuid: 9668a9a0-75bc-4b67-ba1d-3474c25f8aec
+    -
+      vid: vehicle_category_for_sell
+      tid: '96'
+      langcode: en-gb
+      name: Tippers
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '92'
+      uuid: 194322c3-ba89-4e38-b7fe-0c1daed33fd1
+    -
+      vid: vehicle_category_for_sell
+      tid: '100'
+      langcode: en-gb
+      name: 'Tourist Bus'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '97'
+      uuid: 46adc160-985b-4c2a-9de5-764a6370ac1f
+    -
+      vid: vehicle_category_for_sell
+      tid: '102'
+      langcode: en-gb
+      name: Tractor
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '101'
+      uuid: c8347c48-f185-49a6-aa5d-b31f2610621b
+    -
+      vid: vehicle_category_for_sell
+      tid: '101'
+      langcode: en-gb
+      name: 'Tractors & Farm Vehicles'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 082b5824-c666-4387-861b-27efbea96818
+    -
+      vid: vehicle_category_for_sell
+      tid: '109'
+      langcode: en-gb
+      name: 'Trailers & Containers'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 2eef503e-e997-471d-b4b1-ee1421a3ad32
+    -
+      vid: vehicle_category_for_sell
+      tid: '105'
+      langcode: en-gb
+      name: Vans
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7ec94c2f-37c8-49e5-8483-190ee0e0add6
+  vehicle_feul_type:
+    -
+      vid: vehicle_feul_type
+      tid: '118'
+      langcode: en-gb
+      name: CNG
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5101a0ad-210d-440e-8e49-52a8bd83647f
+    -
+      vid: vehicle_feul_type
+      tid: '117'
+      langcode: en-gb
+      name: Diesel
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1bbe66dd-7368-469b-9767-2a507b5737a2
+    -
+      vid: vehicle_feul_type
+      tid: '120'
+      langcode: en-gb
+      name: Electric
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 64f40a0c-dc95-4a0b-b3f6-e0599d4821fc
+    -
+      vid: vehicle_feul_type
+      tid: '121'
+      langcode: en-gb
+      name: Hybrid
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6d193c7d-53ee-4743-8acc-7a2bd519ab4f
+    -
+      vid: vehicle_feul_type
+      tid: '119'
+      langcode: en-gb
+      name: LPG
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 615e0154-c980-4c93-a8cd-4a9715614c83
+    -
+      vid: vehicle_feul_type
+      tid: '116'
+      langcode: en-gb
+      name: Petrol
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 734173a1-9b67-465a-8036-581d6273cf17
