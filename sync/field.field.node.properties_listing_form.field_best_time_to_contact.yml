@@ -1,0 +1,21 @@
+uuid: 24e97ae7-54a3-4145-aa68-ee255cc9e03a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_best_time_to_contact
+    - node.type.properties_listing_form
+  module:
+    - options
+id: node.properties_listing_form.field_best_time_to_contact
+field_name: field_best_time_to_contact
+entity_type: node
+bundle: properties_listing_form
+label: 'Best Time To Contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

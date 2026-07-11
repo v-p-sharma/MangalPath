@@ -1,0 +1,30 @@
+uuid: 4aad7bfe-5dba-4d9b-9fac-183e6182721d
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_ownership_type
+field_name: field_ownership_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: freehold
+      label: Freehold
+    -
+      value: leasehold
+      label: Leasehold
+    -
+      value: power_of_attorney
+      label: 'Power of Attorney'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

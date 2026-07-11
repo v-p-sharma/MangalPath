@@ -1,0 +1,19 @@
+uuid: 8ccfebab-1d37-48ad-b12f-1a5e495ef910
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_purpose_of_loan
+    - node.type.loan_section
+id: node.loan_section.field_purpose_of_loan
+field_name: field_purpose_of_loan
+entity_type: node
+bundle: loan_section
+label: 'Purpose of Loan '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,24 @@
+uuid: 5cfdd623-ed80-4b6e-8f14-80368994f8c7
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.common_banner
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.common_banner.body
+field_name: body
+entity_type: block_content
+bundle: common_banner
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

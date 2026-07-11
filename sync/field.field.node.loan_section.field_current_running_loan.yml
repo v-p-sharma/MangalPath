@@ -1,0 +1,19 @@
+uuid: bdfe7bc3-ca71-427d-9106-fc4bb5ee1566
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_current_running_loan
+    - node.type.loan_section
+id: node.loan_section.field_current_running_loan
+field_name: field_current_running_loan
+entity_type: node
+bundle: loan_section
+label: 'Current Running Loan?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

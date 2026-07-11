@@ -1,0 +1,20 @@
+uuid: a4791f5e-5b63-4219-b3d0-cff82e526742
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bedrooms
+field_name: field_bedrooms
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

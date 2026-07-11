@@ -1,0 +1,18 @@
+uuid: 06b9bbce-aa59-42e8-ad36-c15ff13f2d0a
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_fitness_certificate
+field_name: field_fitness_certificate
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

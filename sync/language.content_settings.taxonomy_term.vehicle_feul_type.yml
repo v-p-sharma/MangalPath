@@ -1,0 +1,11 @@
+uuid: 28b199f2-3b1f-49ed-b7d5-639adf407dd3
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.vehicle_feul_type
+id: taxonomy_term.vehicle_feul_type
+target_entity_type_id: taxonomy_term
+target_bundle: vehicle_feul_type
+default_langcode: site_default
+language_alterable: false

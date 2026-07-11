@@ -1,0 +1,19 @@
+uuid: 45172d73-2d4f-47fd-b447-2f978b2e7eca
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.bottom_footer
+    - field.storage.block_content.field_sub_title
+id: block_content.bottom_footer.field_sub_title
+field_name: field_sub_title
+entity_type: block_content
+bundle: bottom_footer
+label: 'Sub Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

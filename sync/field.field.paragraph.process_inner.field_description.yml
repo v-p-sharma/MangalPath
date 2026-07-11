@@ -1,0 +1,19 @@
+uuid: 7fafb0dc-416f-4017-ad2a-7592633c433f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.process_inner
+id: paragraph.process_inner.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: process_inner
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

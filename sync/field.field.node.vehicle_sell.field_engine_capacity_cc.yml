@@ -1,0 +1,19 @@
+uuid: 54cc9366-c9e2-4a44-9583-b2f08b8051cb
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_engine_capacity_cc
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_engine_capacity_cc
+field_name: field_engine_capacity_cc
+entity_type: node
+bundle: vehicle_sell
+label: 'Engine Capacity (CC)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,9 @@
+uuid: 39956c25-be0e-47e9-b1d9-8f0e22443ccd
+langcode: en-gb
+status: true
+dependencies: {  }
+name: 'Purpose of Property'
+vid: purpose_of_property
+description: 'Purpose of Property Listing'
+weight: 0
+new_revision: false

@@ -1,0 +1,10 @@
+uuid: 852dcf69-db0f-45e0-a9c1-3df98e82366f
+langcode: en-gb
+status: true
+dependencies: {  }
+id: our_services_inner
+label: 'Our Services Inner'
+icon_uuid: null
+icon_default: null
+description: 'title subtitle  icon list'
+behavior_plugins: {  }

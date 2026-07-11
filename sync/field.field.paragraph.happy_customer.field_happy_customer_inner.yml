@@ -1,0 +1,61 @@
+uuid: b28a4b11-0e2e-4f87-b360-9f5c52ea1652
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_happy_customer_inner
+    - paragraphs.paragraphs_type.happy_customer
+    - paragraphs.paragraphs_type.happy_customer_inner
+  module:
+    - entity_reference_revisions
+id: paragraph.happy_customer.field_happy_customer_inner
+field_name: field_happy_customer_inner
+entity_type: paragraph
+bundle: happy_customer
+label: 'Happy Customer Inner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      happy_customer_inner: happy_customer_inner
+    negate: 0
+    target_bundles_drag_drop:
+      happy_customer:
+        weight: 13
+        enabled: false
+      happy_customer_inner:
+        weight: 12
+        enabled: true
+      home_page_banner_inner_box:
+        weight: 14
+        enabled: false
+      home_page_banner_section:
+        weight: 15
+        enabled: false
+      home_why_choose_us:
+        weight: 16
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 17
+        enabled: false
+      our_services:
+        weight: 18
+        enabled: false
+      our_services_inner:
+        weight: 19
+        enabled: false
+      process:
+        weight: 20
+        enabled: false
+      process_inner:
+        weight: 21
+        enabled: false
+      single_title:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

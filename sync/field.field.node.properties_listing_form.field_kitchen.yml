@@ -1,0 +1,23 @@
+uuid: 039a1a6b-84b1-4349-928f-b13c0834a41e
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kitchen
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_kitchen
+field_name: field_kitchen
+entity_type: node
+bundle: properties_listing_form
+label: Kitchen
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

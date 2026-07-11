@@ -1,0 +1,18 @@
+uuid: 4d9e9931-c137-431d-a0a8-d25bb3c662a1
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_exchange_possible
+field_name: field_exchange_possible
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

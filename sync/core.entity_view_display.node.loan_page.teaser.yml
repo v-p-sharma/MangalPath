@@ -1,0 +1,33 @@
+uuid: 3573f324-3c1e-4435-85c2-8cbb32293d8e
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.loan_page.body
+    - field.field.node.loan_page.field_loan_components
+    - node.type.loan_page
+  module:
+    - text
+    - user
+id: node.loan_page.teaser
+targetEntityType: node
+bundle: loan_page
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_loan_components: true
+  langcode: true

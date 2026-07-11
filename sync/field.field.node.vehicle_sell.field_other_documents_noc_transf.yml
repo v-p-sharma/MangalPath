@@ -1,0 +1,38 @@
+uuid: 6fe7942f-daec-479d-9105-cd58e5c6e7ff
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_other_documents_noc_transf
+    - node.type.vehicle_sell
+  module:
+    - image
+id: node.vehicle_sell.field_other_documents_noc_transf
+field_name: field_other_documents_noc_transf
+entity_type: node
+bundle: vehicle_sell
+label: 'Other Documents (NOC, Transfer)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

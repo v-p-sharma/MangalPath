@@ -1,0 +1,21 @@
+uuid: 41b6b044-9504-4cf5-b135-8a513e956105
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ag_land_type
+    - node.type.properties_listing_form
+  module:
+    - options
+id: node.properties_listing_form.field_ag_land_type
+field_name: field_ag_land_type
+entity_type: node
+bundle: properties_listing_form
+label: 'Ag Land Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,35 @@
+uuid: af53680c-5d69-4d05-9bde-64c9495ad28f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.who_is_eligible.field_eligible_inner
+    - paragraphs.paragraphs_type.who_is_eligible
+  module:
+    - paragraphs
+id: paragraph.who_is_eligible.default
+targetEntityType: paragraph
+bundle: who_is_eligible
+mode: default
+content:
+  field_eligible_inner:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

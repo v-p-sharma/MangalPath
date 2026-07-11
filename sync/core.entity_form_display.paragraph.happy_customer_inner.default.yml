@@ -1,0 +1,41 @@
+uuid: 2c27349b-7297-4000-92bb-2ef5e5521296
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.happy_customer_inner.field_icon_class
+    - field.field.paragraph.happy_customer_inner.field_sub_title
+    - field.field.paragraph.happy_customer_inner.field_title
+    - paragraphs.paragraphs_type.happy_customer_inner
+id: paragraph.happy_customer_inner.default
+targetEntityType: paragraph
+bundle: happy_customer_inner
+mode: default
+content:
+  field_icon_class:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sub_title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

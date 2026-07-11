@@ -1,0 +1,19 @@
+uuid: 947f802b-0a0f-46bc-8d97-bb4dcd748c33
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_variant
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_variant
+field_name: field_variant
+entity_type: node
+bundle: vehicle_sell
+label: Variant
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

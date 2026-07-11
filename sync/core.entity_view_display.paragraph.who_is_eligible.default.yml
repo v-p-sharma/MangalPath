@@ -1,0 +1,24 @@
+uuid: b9618dec-c452-47f6-8c1c-603e9dd605bd
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.who_is_eligible.field_eligible_inner
+    - paragraphs.paragraphs_type.who_is_eligible
+  module:
+    - entity_reference_revisions
+id: paragraph.who_is_eligible.default
+targetEntityType: paragraph
+bundle: who_is_eligible
+mode: default
+content:
+  field_eligible_inner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

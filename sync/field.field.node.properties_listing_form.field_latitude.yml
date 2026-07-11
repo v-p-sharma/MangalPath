@@ -1,0 +1,19 @@
+uuid: 4d29b59a-cb60-450f-b9c0-197f2772f7b8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_latitude
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_latitude
+field_name: field_latitude
+entity_type: node
+bundle: properties_listing_form
+label: Latitude
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

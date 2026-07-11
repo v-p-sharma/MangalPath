@@ -1,0 +1,19 @@
+uuid: b5c685bd-fad7-43b5-9a58-f1c775b684d5
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vehi_complete_address
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_vehi_complete_address
+field_name: field_vehi_complete_address
+entity_type: node
+bundle: vehicle_sell
+label: 'Complete Address'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,35 @@
+uuid: 98da149c-fc88-45c0-b533-8ebb8262d9cd
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documents_loan.field_eligible_inner
+    - paragraphs.paragraphs_type.documents_loan
+  module:
+    - paragraphs
+id: paragraph.documents_loan.default
+targetEntityType: paragraph
+bundle: documents_loan
+mode: default
+content:
+  field_eligible_inner:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

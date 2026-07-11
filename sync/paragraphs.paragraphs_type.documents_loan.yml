@@ -1,0 +1,10 @@
+uuid: a3a452ec-d57d-417c-9456-687e5784e51f
+langcode: en-gb
+status: true
+dependencies: {  }
+id: documents_loan
+label: 'Documents Loan'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

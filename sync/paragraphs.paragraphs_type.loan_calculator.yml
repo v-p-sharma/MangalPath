@@ -1,0 +1,10 @@
+uuid: 4cf1006f-9d61-4c9d-b3e2-64f6122a6d7f
+langcode: en-gb
+status: true
+dependencies: {  }
+id: loan_calculator
+label: 'Loan Calculator'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

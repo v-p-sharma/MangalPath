@@ -1,0 +1,10 @@
+uuid: 2e375963-2cb5-47ca-8071-11164d7053c3
+langcode: en-gb
+status: true
+dependencies: {  }
+id: personal_loan_form
+label: 'Personal Loan Form'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,10 @@
+uuid: aa11b6e4-c802-4f95-acff-8aa078831c87
+langcode: en-gb
+status: true
+dependencies: {  }
+id: bottom_banner
+label: 'Bottom Banner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,33 @@
+uuid: 5c9fffad-f83f-49da-8c59-b04b2c255036
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.property_listing_page.body
+    - field.field.node.property_listing_page.field_property_listing_component
+    - node.type.property_listing_page
+  module:
+    - text
+    - user
+id: node.property_listing_page.teaser
+targetEntityType: node
+bundle: property_listing_page
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_property_listing_component: true
+  langcode: true

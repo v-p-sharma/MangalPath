@@ -1,0 +1,19 @@
+uuid: 2f24f1be-e7a6-49c0-95f3-47f1c55cfaff
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.icon_class_title
+id: paragraph.icon_class_title.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: icon_class_title
+label: 'Address title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

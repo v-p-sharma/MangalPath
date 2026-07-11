@@ -1,0 +1,9 @@
+uuid: 45982623-0294-47b0-9625-7e8f55f58308
+langcode: en-gb
+status: true
+dependencies: {  }
+id: sub_admin
+label: 'Sub Admin'
+weight: 5
+is_admin: null
+permissions: {  }

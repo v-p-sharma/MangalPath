@@ -1,0 +1,25 @@
+uuid: 698780a3-f291-4337-936e-69748a88c948
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.single_links.field_links
+    - paragraphs.paragraphs_type.single_links
+  module:
+    - link
+id: paragraph.single_links.default
+targetEntityType: paragraph
+bundle: single_links
+mode: default
+content:
+  field_links:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

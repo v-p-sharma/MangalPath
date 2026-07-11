@@ -1,0 +1,10 @@
+uuid: 0d7d9c3e-0081-4311-ad9a-e7af7dcc526d
+langcode: en-gb
+status: true
+dependencies: {  }
+id: happy_customer
+label: 'Happy Customer'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

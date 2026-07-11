@@ -1,0 +1,11 @@
+uuid: 8c15389e-c755-481a-b84d-167b334bdbea
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.purpose_of_property
+id: taxonomy_term.purpose_of_property
+target_entity_type_id: taxonomy_term
+target_bundle: purpose_of_property
+default_langcode: site_default
+language_alterable: false

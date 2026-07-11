@@ -1,0 +1,30 @@
+uuid: 6f13a41e-58aa-4474-baf5-1079c74692c8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_full
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.get_in_touch
+  module:
+    - text
+id: paragraph.get_in_touch.field_title_full
+field_name: field_title_full
+entity_type: paragraph
+bundle: get_in_touch
+label: title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - basic_html
+    - full_html
+    - plain_text
+field_type: text_with_summary

@@ -1,0 +1,10 @@
+uuid: cd7eaa11-f0da-46f3-b312-cdbc56517ffc
+langcode: en-gb
+status: true
+dependencies: {  }
+id: home_why_choose_us
+label: 'Home Why Choose Us'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

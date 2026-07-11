@@ -1,0 +1,55 @@
+uuid: b8b7bd20-87f8-44ba-9b29-b1d0e3a11f2a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_process_inner
+    - paragraphs.paragraphs_type.process
+    - paragraphs.paragraphs_type.process_inner
+  module:
+    - entity_reference_revisions
+id: paragraph.process.field_process_inner
+field_name: field_process_inner
+entity_type: paragraph
+bundle: process
+label: 'Process Inner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      process_inner: process_inner
+    negate: 0
+    target_bundles_drag_drop:
+      home_page_banner_inner_box:
+        weight: 11
+        enabled: false
+      home_page_banner_section:
+        weight: 12
+        enabled: false
+      home_why_choose_us:
+        weight: 13
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 14
+        enabled: false
+      our_services:
+        weight: 15
+        enabled: false
+      our_services_inner:
+        weight: 16
+        enabled: false
+      process:
+        weight: 17
+        enabled: false
+      process_inner:
+        weight: 10
+        enabled: true
+      single_title:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

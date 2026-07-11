@@ -1,0 +1,19 @@
+uuid: 65a347b3-a03d-49b4-88a6-cece7730280b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_country
+field_name: field_country
+entity_type: node
+bundle: vehicle_sell
+label: Country
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

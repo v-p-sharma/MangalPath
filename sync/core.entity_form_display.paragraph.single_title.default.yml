@@ -1,0 +1,23 @@
+uuid: 60c57d07-f804-4995-a61f-72a58e6a2527
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.single_title.field_titles
+    - paragraphs.paragraphs_type.single_title
+id: paragraph.single_title.default
+targetEntityType: paragraph
+bundle: single_title
+mode: default
+content:
+  field_titles:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,10 @@
+uuid: a65d915c-3a18-404a-a544-9dc8267b191e
+langcode: en-gb
+status: true
+dependencies: {  }
+id: explore_our_loan_inner
+label: 'Explore Our Loan Inner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

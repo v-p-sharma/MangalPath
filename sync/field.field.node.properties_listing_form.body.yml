@@ -1,0 +1,24 @@
+uuid: 6998becd-c0de-49a5-acf7-788321027f7c
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.properties_listing_form
+  module:
+    - text
+id: node.properties_listing_form.body
+field_name: body
+entity_type: node
+bundle: properties_listing_form
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

@@ -1,0 +1,25 @@
+uuid: 87edf379-1965-427b-b08d-bf5ac5e8a30e
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - mangalpath
+id: mangalpath_mainnavigation
+theme: mangalpath
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

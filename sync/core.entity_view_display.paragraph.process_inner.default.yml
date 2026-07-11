@@ -1,0 +1,47 @@
+uuid: 5e04881a-efb0-4495-b7ab-037f575a634f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.process_inner.field_color
+    - field.field.paragraph.process_inner.field_description
+    - field.field.paragraph.process_inner.field_icon_class
+    - field.field.paragraph.process_inner.field_title
+    - paragraphs.paragraphs_type.process_inner
+id: paragraph.process_inner.default
+targetEntityType: paragraph
+bundle: process_inner
+mode: default
+content:
+  field_color:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_icon_class:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

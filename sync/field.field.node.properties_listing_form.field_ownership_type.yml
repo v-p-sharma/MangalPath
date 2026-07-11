@@ -1,0 +1,21 @@
+uuid: 0becff3b-c623-4a89-9821-9ace244eb255
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ownership_type
+    - node.type.properties_listing_form
+  module:
+    - options
+id: node.properties_listing_form.field_ownership_type
+field_name: field_ownership_type
+entity_type: node
+bundle: properties_listing_form
+label: 'Ownership Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

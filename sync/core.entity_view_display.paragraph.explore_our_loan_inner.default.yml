@@ -1,0 +1,73 @@
+uuid: d3b5ddb8-aafb-4664-ad50-db58d087b43d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.explore_our_loan_inner.field_color
+    - field.field.paragraph.explore_our_loan_inner.field_description
+    - field.field.paragraph.explore_our_loan_inner.field_icon_class
+    - field.field.paragraph.explore_our_loan_inner.field_know_more
+    - field.field.paragraph.explore_our_loan_inner.field_list
+    - field.field.paragraph.explore_our_loan_inner.field_title
+    - paragraphs.paragraphs_type.explore_our_loan_inner
+  module:
+    - entity_reference_revisions
+    - link
+id: paragraph.explore_our_loan_inner.default
+targetEntityType: paragraph
+bundle: explore_our_loan_inner
+mode: default
+content:
+  field_color:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_icon_class:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_know_more:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_list:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

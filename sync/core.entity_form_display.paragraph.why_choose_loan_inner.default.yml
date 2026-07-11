@@ -1,0 +1,41 @@
+uuid: 2caa8df9-e873-4417-93c1-c30a011a6d0a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.why_choose_loan_inner.field_color
+    - field.field.paragraph.why_choose_loan_inner.field_description
+    - field.field.paragraph.why_choose_loan_inner.field_icon_class
+    - paragraphs.paragraphs_type.why_choose_loan_inner
+id: paragraph.why_choose_loan_inner.default
+targetEntityType: paragraph
+bundle: why_choose_loan_inner
+mode: default
+content:
+  field_color:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_icon_class:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

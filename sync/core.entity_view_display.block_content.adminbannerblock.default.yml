@@ -1,0 +1,59 @@
+uuid: 9bc79648-b74d-4f6e-bd86-db8e2df84b5d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.adminbannerblock
+    - field.field.block_content.adminbannerblock.body
+    - field.field.block_content.adminbannerblock.field_active_listing
+    - field.field.block_content.adminbannerblock.field_satisfaction
+    - field.field.block_content.adminbannerblock.field_sub_title
+    - field.field.block_content.adminbannerblock.field_verifiedbuyer
+  module:
+    - text
+id: block_content.adminbannerblock.default
+targetEntityType: block_content
+bundle: adminbannerblock
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_active_listing:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_satisfaction:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_verifiedbuyer:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,19 @@
+uuid: 4046cd9f-3054-4b4a-91ac-a3058e6b5ee2
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_connect_des
+    - paragraphs.paragraphs_type.get_in_touch
+id: paragraph.get_in_touch.field_connect_des
+field_name: field_connect_des
+entity_type: paragraph
+bundle: get_in_touch
+label: 'connect des'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

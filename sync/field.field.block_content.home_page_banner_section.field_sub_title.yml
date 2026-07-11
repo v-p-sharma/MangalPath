@@ -1,0 +1,19 @@
+uuid: cfcabd8c-489d-4900-b2d8-743b36a75391
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.home_page_banner_section
+    - field.storage.block_content.field_sub_title
+id: block_content.home_page_banner_section.field_sub_title
+field_name: field_sub_title
+entity_type: block_content
+bundle: home_page_banner_section
+label: 'Sub Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

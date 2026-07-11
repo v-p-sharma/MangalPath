@@ -1,0 +1,25 @@
+uuid: 1623b1dc-ba49-46d1-9907-0bcaa4c9b3c2
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - system.menu.footer-2
+  module:
+    - system
+  theme:
+    - mangalpath
+id: mangalpath_footer2
+theme: mangalpath
+region: footer_third
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-2'
+settings:
+  id: 'system_menu_block:footer-2'
+  label: 'Footer 2'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,19 @@
+uuid: 7ce66024-7a49-464f-b5e5-9c3e6fcbd450
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_if_yes_loan_amount
+    - node.type.loan_section
+id: node.loan_section.field_if_yes_loan_amount
+field_name: field_if_yes_loan_amount
+entity_type: node
+bundle: loan_section
+label: 'If Yes, Loan Amount (₹)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

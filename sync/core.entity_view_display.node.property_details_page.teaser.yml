@@ -1,0 +1,31 @@
+uuid: ac0ef452-6510-4261-a30f-0115c6edbb81
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.property_details_page.body
+    - node.type.property_details_page
+  module:
+    - text
+    - user
+id: node.property_details_page.teaser
+targetEntityType: node
+bundle: property_details_page
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

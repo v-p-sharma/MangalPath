@@ -1,0 +1,25 @@
+uuid: 689c5cba-59f5-4fd5-993c-bcc58ba64545
+langcode: en-gb
+status: false
+dependencies:
+  content:
+    - 'block_content:adminbannerblock:0559031c-74ac-4056-a489-cffe15ed3b09'
+  module:
+    - block_content
+  theme:
+    - mangalpath
+id: mangalpath_getthebestvalueforyourproperty
+theme: mangalpath
+region: banner
+weight: 0
+provider: null
+plugin: 'block_content:0559031c-74ac-4056-a489-cffe15ed3b09'
+settings:
+  id: 'block_content:0559031c-74ac-4056-a489-cffe15ed3b09'
+  label: 'Get the Best Value for Your Property'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: 193852e9-a22f-4334-b162-a418e05be317
+langcode: en-gb
+status: true
+dependencies:
+  content:
+    - 'block_content:copy_right_section:fea2d764-3acd-44ab-93c5-fe70edd2c302'
+  module:
+    - block_content
+  theme:
+    - mangalpath
+id: mangalpath_copyrightsection
+theme: mangalpath
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'block_content:fea2d764-3acd-44ab-93c5-fe70edd2c302'
+settings:
+  id: 'block_content:fea2d764-3acd-44ab-93c5-fe70edd2c302'
+  label: 'Copy Right Section '
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

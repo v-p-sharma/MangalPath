@@ -1,0 +1,23 @@
+uuid: c606ec10-05d0-4fa6-a77d-f3a336002190
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_floors
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_total_floors
+field_name: field_total_floors
+entity_type: node
+bundle: properties_listing_form
+label: 'Total Floors'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

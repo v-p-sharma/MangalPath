@@ -1,0 +1,21 @@
+uuid: 231f6971-e40e-4d63-aa2c-ac43f9277533
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_maintenance_charges
+field_name: field_maintenance_charges
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

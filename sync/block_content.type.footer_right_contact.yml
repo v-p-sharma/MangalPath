@@ -1,0 +1,8 @@
+uuid: 13f4806b-fa5a-40a7-8da5-c81ef2b6e710
+langcode: en-gb
+status: true
+dependencies: {  }
+id: footer_right_contact
+label: 'Footer Right Contact '
+revision: false
+description: null

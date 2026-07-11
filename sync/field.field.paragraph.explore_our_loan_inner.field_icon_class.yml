@@ -1,0 +1,19 @@
+uuid: 88144046-ae47-422c-8bc6-ab499d7b73b2
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_class
+    - paragraphs.paragraphs_type.explore_our_loan_inner
+id: paragraph.explore_our_loan_inner.field_icon_class
+field_name: field_icon_class
+entity_type: paragraph
+bundle: explore_our_loan_inner
+label: 'Icon Class'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

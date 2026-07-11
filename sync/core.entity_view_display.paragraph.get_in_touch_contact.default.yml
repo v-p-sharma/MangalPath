@@ -1,0 +1,38 @@
+uuid: 61211a39-53c6-4317-abaa-ffe83ed10013
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.get_in_touch_contact.field_description
+    - field.field.paragraph.get_in_touch_contact.field_icon_class
+    - field.field.paragraph.get_in_touch_contact.field_title
+    - paragraphs.paragraphs_type.get_in_touch_contact
+id: paragraph.get_in_touch_contact.default
+targetEntityType: paragraph
+bundle: get_in_touch_contact
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_icon_class:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

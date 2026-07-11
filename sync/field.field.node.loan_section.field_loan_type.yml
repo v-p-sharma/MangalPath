@@ -1,0 +1,29 @@
+uuid: 960ffacf-49c4-4bec-8b80-86f10c8b671b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loan_type
+    - node.type.loan_section
+    - taxonomy.vocabulary.loan_type
+id: node.loan_section.field_loan_type
+field_name: field_loan_type
+entity_type: node
+bundle: loan_section
+label: 'Loan Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      loan_type: loan_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

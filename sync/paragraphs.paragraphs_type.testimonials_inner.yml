@@ -1,0 +1,10 @@
+uuid: cd60c5ae-4ed6-44db-9f57-e0a9083373d7
+langcode: en-gb
+status: true
+dependencies: {  }
+id: testimonials_inner
+label: 'Testimonials Inner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

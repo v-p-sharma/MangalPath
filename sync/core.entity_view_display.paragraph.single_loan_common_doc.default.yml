@@ -1,0 +1,24 @@
+uuid: 9f930e38-0235-4ccf-97f4-c5c806fe310a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.single_loan_common_doc.field_loan_doc
+    - paragraphs.paragraphs_type.single_loan_common_doc
+  module:
+    - entity_reference_revisions
+id: paragraph.single_loan_common_doc.default
+targetEntityType: paragraph
+bundle: single_loan_common_doc
+mode: default
+content:
+  field_loan_doc:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

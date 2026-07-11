@@ -1,0 +1,24 @@
+uuid: fb3b3225-0973-4fd5-9dc7-a064157193e9
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_page_banner_section.field_inner_box
+    - paragraphs.paragraphs_type.home_page_banner_section
+  module:
+    - entity_reference_revisions
+id: paragraph.home_page_banner_section.default
+targetEntityType: paragraph
+bundle: home_page_banner_section
+mode: default
+content:
+  field_inner_box:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,9 @@
+uuid: dd4487d1-f300-4ec1-b301-7673e72f9d8b
+langcode: en-gb
+status: true
+dependencies: {  }
+name: 'Loan Type'
+vid: loan_type
+description: null
+weight: 0
+new_revision: false

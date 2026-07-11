@@ -1,0 +1,19 @@
+uuid: 4c451cb2-238f-4e42-8c6d-a7d73ff7adf4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_class
+    - paragraphs.paragraphs_type.happy_customer_inner
+id: paragraph.happy_customer_inner.field_icon_class
+field_name: field_icon_class
+entity_type: paragraph
+bundle: happy_customer_inner
+label: 'Icon Class'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: af518119-25c5-4e81-a1e8-50e496a30870
+langcode: en-gb
+status: true
+dependencies:
+  theme:
+    - mangalpath
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: mangalpath_secondary_local_tasks
+theme: mangalpath
+region: nothing
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

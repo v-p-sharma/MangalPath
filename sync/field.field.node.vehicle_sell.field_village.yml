@@ -1,0 +1,19 @@
+uuid: 0b365adb-36a8-49b4-80dc-e74dc3713a34
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_village
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_village
+field_name: field_village
+entity_type: node
+bundle: vehicle_sell
+label: 'VIN Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

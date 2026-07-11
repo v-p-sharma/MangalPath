@@ -1,0 +1,11 @@
+uuid: aeb27721-8483-4a44-bc95-b5c07d4e8d6f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.single_vehicle_details_page
+id: node.single_vehicle_details_page
+target_entity_type_id: node
+target_bundle: single_vehicle_details_page
+default_langcode: site_default
+language_alterable: false

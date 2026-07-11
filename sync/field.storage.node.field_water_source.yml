@@ -1,0 +1,33 @@
+uuid: 0a54bafe-9054-4a62-ab06-27282600a24f
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_water_source
+field_name: field_water_source
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: canal
+      label: Canal
+    -
+      value: river
+      label: River
+    -
+      value: tube_well
+      label: 'Tube Well'
+    -
+      value: pond
+      label: Pond
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 37c230a6-d947-49b2-b997-fd9cc83d3d63
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loan_available
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_loan_available
+field_name: field_loan_available
+entity_type: node
+bundle: vehicle_sell
+label: 'Insurance Available?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

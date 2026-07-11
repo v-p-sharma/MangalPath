@@ -1,0 +1,35 @@
+uuid: 97157433-6637-41e8-a792-2d0b2b1918a1
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_page_banner_section.field_inner_box
+    - paragraphs.paragraphs_type.home_page_banner_section
+  module:
+    - paragraphs
+id: paragraph.home_page_banner_section.default
+targetEntityType: paragraph
+bundle: home_page_banner_section
+mode: default
+content:
+  field_inner_box:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

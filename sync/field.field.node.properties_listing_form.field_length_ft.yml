@@ -1,0 +1,19 @@
+uuid: 77ea6ca4-8da5-48bb-8429-43418a5d3b5a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_length_ft
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_length_ft
+field_name: field_length_ft
+entity_type: node
+bundle: properties_listing_form
+label: 'Length (Ft)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,24 @@
+uuid: 79638cd6-cfe9-4a12-b51c-8c1d539e7c44
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.loan_section
+  module:
+    - text
+id: node.loan_section.body
+field_name: body
+entity_type: node
+bundle: loan_section
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

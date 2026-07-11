@@ -1,0 +1,20 @@
+uuid: 1c10c3dd-2b80-4206-9af8-c74f17585d2d
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_storage_area_sq_ft
+field_name: field_storage_area_sq_ft
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

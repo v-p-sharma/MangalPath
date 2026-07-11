@@ -1,0 +1,23 @@
+uuid: 8a8f8e6f-a787-4c58-bec4-d2bb13fb642d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bedrooms
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_bedrooms
+field_name: field_bedrooms
+entity_type: node
+bundle: properties_listing_form
+label: Bedrooms
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

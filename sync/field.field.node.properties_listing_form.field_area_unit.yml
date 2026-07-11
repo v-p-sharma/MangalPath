@@ -1,0 +1,21 @@
+uuid: 1cf43879-a25b-4f5e-915d-c6dfcb09083d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_area_unit
+    - node.type.properties_listing_form
+  module:
+    - options
+id: node.properties_listing_form.field_area_unit
+field_name: field_area_unit
+entity_type: node
+bundle: properties_listing_form
+label: 'Area Unit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

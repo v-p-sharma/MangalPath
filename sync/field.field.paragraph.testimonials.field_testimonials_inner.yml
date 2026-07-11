@@ -1,0 +1,67 @@
+uuid: ab1e837a-7ea4-405f-90a5-04b6d253d2cc
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testimonials_inner
+    - paragraphs.paragraphs_type.testimonials
+    - paragraphs.paragraphs_type.testimonials_inner
+  module:
+    - entity_reference_revisions
+id: paragraph.testimonials.field_testimonials_inner
+field_name: field_testimonials_inner
+entity_type: paragraph
+bundle: testimonials
+label: 'Testimonials Inner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      testimonials_inner: testimonials_inner
+    negate: 0
+    target_bundles_drag_drop:
+      happy_customer:
+        weight: 15
+        enabled: false
+      happy_customer_inner:
+        weight: 16
+        enabled: false
+      home_page_banner_inner_box:
+        weight: 17
+        enabled: false
+      home_page_banner_section:
+        weight: 18
+        enabled: false
+      home_why_choose_us:
+        weight: 19
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 20
+        enabled: false
+      our_services:
+        weight: 21
+        enabled: false
+      our_services_inner:
+        weight: 22
+        enabled: false
+      process:
+        weight: 23
+        enabled: false
+      process_inner:
+        weight: 24
+        enabled: false
+      single_title:
+        weight: 25
+        enabled: false
+      testimonials:
+        weight: 26
+        enabled: false
+      testimonials_inner:
+        weight: 14
+        enabled: true
+field_type: entity_reference_revisions

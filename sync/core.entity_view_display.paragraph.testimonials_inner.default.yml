@@ -1,0 +1,66 @@
+uuid: 772b30ef-a0b9-4a6c-970a-42f018849553
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimonials_inner.field_description
+    - field.field.paragraph.testimonials_inner.field_icon_class
+    - field.field.paragraph.testimonials_inner.field_name_letter
+    - field.field.paragraph.testimonials_inner.field_rating
+    - field.field.paragraph.testimonials_inner.field_sub_title
+    - field.field.paragraph.testimonials_inner.field_title
+    - paragraphs.paragraphs_type.testimonials_inner
+id: paragraph.testimonials_inner.default
+targetEntityType: paragraph
+bundle: testimonials_inner
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_icon_class:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_name_letter:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_rating:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

@@ -1,0 +1,19 @@
+uuid: 9c08fbac-e3fc-41e7-a7e2-959101925d7c
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_name
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_contact_name
+field_name: field_contact_name
+entity_type: node
+bundle: properties_listing_form
+label: 'Contact Name '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

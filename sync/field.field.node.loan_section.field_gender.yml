@@ -1,0 +1,21 @@
+uuid: e8457bf4-901f-4b2f-8837-bae4ae70db7f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gender
+    - node.type.loan_section
+  module:
+    - options
+id: node.loan_section.field_gender
+field_name: field_gender
+entity_type: node
+bundle: loan_section
+label: Gender
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

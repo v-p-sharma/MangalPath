@@ -1,0 +1,11 @@
+uuid: 36fe3c7f-f98e-4092-908a-63688425e41c
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.property_listing_page
+id: node.property_listing_page
+target_entity_type_id: node
+target_bundle: property_listing_page
+default_langcode: site_default
+language_alterable: false

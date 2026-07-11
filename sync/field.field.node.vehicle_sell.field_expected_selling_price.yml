@@ -1,0 +1,19 @@
+uuid: 4b34145f-ae91-4277-8f7f-4da03645cf74
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_expected_selling_price
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_expected_selling_price
+field_name: field_expected_selling_price
+entity_type: node
+bundle: vehicle_sell
+label: 'Expected Selling Price (₹) *'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

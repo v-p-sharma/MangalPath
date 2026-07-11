@@ -1,0 +1,18 @@
+uuid: b51433d5-f524-41f0-8d2b-e926e7bfabcb
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_price_negotiable
+field_name: field_price_negotiable
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

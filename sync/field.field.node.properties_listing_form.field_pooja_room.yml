@@ -1,0 +1,21 @@
+uuid: c83de037-66a3-4665-9f25-3a63858fecdd
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pooja_room
+    - node.type.properties_listing_form
+  module:
+    - options
+id: node.properties_listing_form.field_pooja_room
+field_name: field_pooja_room
+entity_type: node
+bundle: properties_listing_form
+label: ' Pooja Room'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

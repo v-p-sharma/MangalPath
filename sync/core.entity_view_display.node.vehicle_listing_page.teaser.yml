@@ -1,0 +1,31 @@
+uuid: d19e8fb4-bbd5-489c-9484-0c0fb475484f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.vehicle_listing_page.body
+    - node.type.vehicle_listing_page
+  module:
+    - text
+    - user
+id: node.vehicle_listing_page.teaser
+targetEntityType: node
+bundle: vehicle_listing_page
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

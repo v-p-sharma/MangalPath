@@ -1,0 +1,19 @@
+uuid: 8ca649bd-f2cf-4b83-ae51-35cd8af35535
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_area
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_total_area
+field_name: field_total_area
+entity_type: node
+bundle: properties_listing_form
+label: 'Total Area '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

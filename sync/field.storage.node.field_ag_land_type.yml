@@ -1,0 +1,33 @@
+uuid: 07be8c69-468d-413e-825c-721a401b0087
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_ag_land_type
+field_name: field_ag_land_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: agricultural
+      label: Agricultural
+    -
+      value: farm_land
+      label: 'Farm Land'
+    -
+      value: orchard
+      label: Orchard
+    -
+      value: plantation
+      label: Plantation
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

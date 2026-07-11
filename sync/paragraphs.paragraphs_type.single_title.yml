@@ -1,0 +1,10 @@
+uuid: 661429f4-bb76-4b14-9a3b-c66cdd598629
+langcode: en-gb
+status: true
+dependencies: {  }
+id: single_title
+label: 'Single Title'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

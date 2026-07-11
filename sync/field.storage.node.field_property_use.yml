@@ -1,0 +1,36 @@
+uuid: c90a3856-b8ba-487e-87a2-f8761945b2f1
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_property_use
+field_name: field_property_use
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: office
+      label: Office
+    -
+      value: shop
+      label: Shop
+    -
+      value: factory
+      label: Factory
+    -
+      value: warehouse
+      label: Warehouse
+    -
+      value: showroom
+      label: Showroom
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

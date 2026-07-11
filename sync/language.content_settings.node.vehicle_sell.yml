@@ -1,0 +1,11 @@
+uuid: 5f06276b-ecb6-4b70-bf1e-1bde757c79b3
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.vehicle_sell
+id: node.vehicle_sell
+target_entity_type_id: node
+target_bundle: vehicle_sell
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,85 @@
+uuid: 0cf783d2-9e74-4cda-a4d2-86e62f7d1612
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.get_in_touch.field_common_get_in_touch
+    - field.field.paragraph.get_in_touch.field_connect_des
+    - field.field.paragraph.get_in_touch.field_contact_des
+    - field.field.paragraph.get_in_touch.field_description
+    - field.field.paragraph.get_in_touch.field_sub_title
+    - field.field.paragraph.get_in_touch.field_title
+    - field.field.paragraph.get_in_touch.field_title_full
+    - field.field.paragraph.get_in_touch.field_titles
+    - paragraphs.paragraphs_type.get_in_touch
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.get_in_touch.default
+targetEntityType: paragraph
+bundle: get_in_touch
+mode: default
+content:
+  field_common_get_in_touch:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_connect_des:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_contact_des:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title_full:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_titles:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

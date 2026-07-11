@@ -1,0 +1,25 @@
+uuid: 16052c1e-2f3c-42d2-ba95-b0c750943739
+langcode: en-gb
+status: true
+dependencies:
+  content:
+    - 'block_content:social_media_links_and_title:1cf04729-2142-4e62-ab87-8ac568d190af'
+  module:
+    - block_content
+  theme:
+    - mangalpath
+id: mangalpath_headertopsection
+theme: mangalpath
+region: top_header
+weight: 0
+provider: null
+plugin: 'block_content:1cf04729-2142-4e62-ab87-8ac568d190af'
+settings:
+  id: 'block_content:1cf04729-2142-4e62-ab87-8ac568d190af'
+  label: 'Header Top Section'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: c364c9a3-a6c6-42cd-bb33-7617f6b4f218
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registry_available
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_registry_available
+field_name: field_registry_available
+entity_type: node
+bundle: vehicle_sell
+label: 'Service History Available?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

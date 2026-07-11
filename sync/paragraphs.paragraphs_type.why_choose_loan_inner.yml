@@ -1,0 +1,10 @@
+uuid: 2c24b04d-c810-48f8-a5a6-1c4472156590
+langcode: en-gb
+status: true
+dependencies: {  }
+id: why_choose_loan_inner
+label: 'Why Choose  Loan Inner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

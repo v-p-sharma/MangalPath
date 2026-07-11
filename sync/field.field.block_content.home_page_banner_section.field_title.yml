@@ -1,0 +1,28 @@
+uuid: db691dce-3987-49f8-902d-bba7d55578be
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.home_page_banner_section
+    - field.storage.block_content.field_title
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.home_page_banner_section.field_title
+field_name: field_title
+entity_type: block_content
+bundle: home_page_banner_section
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_with_summary

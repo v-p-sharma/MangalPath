@@ -1,0 +1,21 @@
+uuid: 8ea140fb-b51b-4d77-8ab0-f7747a5e4f3d
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_property_id_number
+field_name: field_property_id_number
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

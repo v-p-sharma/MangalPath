@@ -1,0 +1,19 @@
+uuid: 07af76ad-1f8f-42bc-8c08-129f919ea682
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.social_media_links_and_title
+    - field.storage.block_content.field_time
+id: block_content.social_media_links_and_title.field_time
+field_name: field_time
+entity_type: block_content
+bundle: social_media_links_and_title
+label: Time
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

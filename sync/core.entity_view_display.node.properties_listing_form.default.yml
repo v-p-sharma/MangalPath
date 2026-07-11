@@ -1,0 +1,731 @@
+uuid: f5c3c229-936d-4a9a-978e-fb09c3f4ec74
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.properties_listing_form.body
+    - field.field.node.properties_listing_form.field_ag_land_area
+    - field.field.node.properties_listing_form.field_ag_land_type
+    - field.field.node.properties_listing_form.field_ag_land_unit
+    - field.field.node.properties_listing_form.field_annual_property_tax
+    - field.field.node.properties_listing_form.field_approved_map
+    - field.field.node.properties_listing_form.field_area_unit
+    - field.field.node.properties_listing_form.field_balconies
+    - field.field.node.properties_listing_form.field_bathrooms
+    - field.field.node.properties_listing_form.field_bedrooms
+    - field.field.node.properties_listing_form.field_best_time_to_contact
+    - field.field.node.properties_listing_form.field_bhk_type
+    - field.field.node.properties_listing_form.field_built_up_area
+    - field.field.node.properties_listing_form.field_carpet_area
+    - field.field.node.properties_listing_form.field_city
+    - field.field.node.properties_listing_form.field_cm_floor_number
+    - field.field.node.properties_listing_form.field_commercial_total_floors
+    - field.field.node.properties_listing_form.field_complete_address
+    - field.field.node.properties_listing_form.field_contact_name
+    - field.field.node.properties_listing_form.field_contact_number
+    - field.field.node.properties_listing_form.field_corner_property
+    - field.field.node.properties_listing_form.field_country
+    - field.field.node.properties_listing_form.field_crop_type
+    - field.field.node.properties_listing_form.field_dining_room
+    - field.field.node.properties_listing_form.field_district
+    - field.field.node.properties_listing_form.field_drawing_room
+    - field.field.node.properties_listing_form.field_electricity_available
+    - field.field.node.properties_listing_form.field_email_address
+    - field.field.node.properties_listing_form.field_expected_price
+    - field.field.node.properties_listing_form.field_featured_image
+    - field.field.node.properties_listing_form.field_floor_number
+    - field.field.node.properties_listing_form.field_front_width_ft
+    - field.field.node.properties_listing_form.field_khasra_number
+    - field.field.node.properties_listing_form.field_khata_number
+    - field.field.node.properties_listing_form.field_kitchen
+    - field.field.node.properties_listing_form.field_landmark
+    - field.field.node.properties_listing_form.field_latitude
+    - field.field.node.properties_listing_form.field_length_ft
+    - field.field.node.properties_listing_form.field_loading_area_sq_ft
+    - field.field.node.properties_listing_form.field_loan_available
+    - field.field.node.properties_listing_form.field_locality
+    - field.field.node.properties_listing_form.field_longitude
+    - field.field.node.properties_listing_form.field_maintenance_charges
+    - field.field.node.properties_listing_form.field_monthly_rent
+    - field.field.node.properties_listing_form.field_mutation_available
+    - field.field.node.properties_listing_form.field_owner_name
+    - field.field.node.properties_listing_form.field_ownership_type
+    - field.field.node.properties_listing_form.field_parking_capacity
+    - field.field.node.properties_listing_form.field_pincode
+    - field.field.node.properties_listing_form.field_pooja_room
+    - field.field.node.properties_listing_form.field_power_backup
+    - field.field.node.properties_listing_form.field_price_negotiable
+    - field.field.node.properties_listing_form.field_property_gallery
+    - field.field.node.properties_listing_form.field_property_highlights
+    - field.field.node.properties_listing_form.field_property_id_number
+    - field.field.node.properties_listing_form.field_property_type
+    - field.field.node.properties_listing_form.field_property_use
+    - field.field.node.properties_listing_form.field_purpose_of
+    - field.field.node.properties_listing_form.field_registry_available
+    - field.field.node.properties_listing_form.field_road_access
+    - field.field.node.properties_listing_form.field_road_width_ft
+    - field.field.node.properties_listing_form.field_security_deposit
+    - field.field.node.properties_listing_form.field_soil_type
+    - field.field.node.properties_listing_form.field_state
+    - field.field.node.properties_listing_form.field_storage_area_sq_ft
+    - field.field.node.properties_listing_form.field_store_room
+    - field.field.node.properties_listing_form.field_study_room
+    - field.field.node.properties_listing_form.field_super_area
+    - field.field.node.properties_listing_form.field_survey_number
+    - field.field.node.properties_listing_form.field_total_area
+    - field.field.node.properties_listing_form.field_total_floors
+    - field.field.node.properties_listing_form.field_upload_documents
+    - field.field.node.properties_listing_form.field_village
+    - field.field.node.properties_listing_form.field_water_source
+    - field.field.node.properties_listing_form.field_whatsapp_number
+    - field.field.node.properties_listing_form.field_width_ft
+    - node.type.properties_listing_form
+  module:
+    - file
+    - image
+    - options
+    - text
+    - user
+id: node.properties_listing_form.default
+targetEntityType: node
+bundle: properties_listing_form
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_ag_land_area:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  field_ag_land_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 140
+    region: content
+  field_ag_land_unit:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 177
+    region: content
+  field_annual_property_tax:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 158
+    region: content
+  field_approved_map:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 167
+    region: content
+  field_area_unit:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_balconies:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_bathrooms:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  field_bedrooms:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 127
+    region: content
+  field_best_time_to_contact:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 176
+    region: content
+  field_bhk_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 126
+    region: content
+  field_built_up_area:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_carpet_area:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_city:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_cm_floor_number:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 151
+    region: content
+  field_commercial_total_floors:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 152
+    region: content
+  field_complete_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_contact_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 172
+    region: content
+  field_contact_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 173
+    region: content
+  field_corner_property:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_country:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_crop_type:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 145
+    region: content
+  field_dining_room:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 132
+    region: content
+  field_district:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_drawing_room:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 131
+    region: content
+  field_electricity_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 142
+    region: content
+  field_email_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 175
+    region: content
+  field_expected_price:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 153
+    region: content
+  field_featured_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 169
+    region: content
+  field_floor_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 136
+    region: content
+  field_front_width_ft:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_khasra_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 163
+    region: content
+  field_khata_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 164
+    region: content
+  field_kitchen:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  field_landmark:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_latitude:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_length_ft:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_loading_area_sq_ft:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 148
+    region: content
+  field_loan_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 168
+    region: content
+  field_locality:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_longitude:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_maintenance_charges:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 157
+    region: content
+  field_monthly_rent:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 155
+    region: content
+  field_mutation_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 166
+    region: content
+  field_owner_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 160
+    region: content
+  field_ownership_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 159
+    region: content
+  field_parking_capacity:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 147
+    region: content
+  field_pincode:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_pooja_room:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 134
+    region: content
+  field_power_backup:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 150
+    region: content
+  field_price_negotiable:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 154
+    region: content
+  field_property_gallery:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 170
+    region: content
+  field_property_highlights:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_property_id_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 161
+    region: content
+  field_property_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_property_use:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 146
+    region: content
+  field_purpose_of:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_registry_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 165
+    region: content
+  field_road_access:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 143
+    region: content
+  field_road_width_ft:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_security_deposit:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 156
+    region: content
+  field_soil_type:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 144
+    region: content
+  field_state:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_storage_area_sq_ft:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 149
+    region: content
+  field_store_room:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  field_study_room:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 135
+    region: content
+  field_super_area:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_survey_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 162
+    region: content
+  field_total_area:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_total_floors:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  field_upload_documents:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 171
+    region: content
+  field_village:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_water_source:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 141
+    region: content
+  field_whatsapp_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 174
+    region: content
+  field_width_ft:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

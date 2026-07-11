@@ -1,0 +1,19 @@
+uuid: 60df962b-0f9a-4a04-8635-60c039b6963c
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_district
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_district
+field_name: field_district
+entity_type: node
+bundle: properties_listing_form
+label: District
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

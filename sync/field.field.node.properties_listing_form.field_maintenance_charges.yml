@@ -1,0 +1,19 @@
+uuid: 1ae8ed5b-fc3a-4858-9586-740db0a4707a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_maintenance_charges
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_maintenance_charges
+field_name: field_maintenance_charges
+entity_type: node
+bundle: properties_listing_form
+label: 'Maintenance Charges (₹)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

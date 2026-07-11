@@ -1,0 +1,22 @@
+uuid: cc102427-564e-471c-9fde-9cfb6b85c48b
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mangalpath
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: mangalpath_powered
+theme: mangalpath
+region: nothing
+weight: -2
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

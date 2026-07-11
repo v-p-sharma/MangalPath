@@ -1,0 +1,27 @@
+uuid: c73837ff-9d78-4f65-ba2b-80a6ddac625f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_upload_documents
+    - node.type.properties_listing_form
+  module:
+    - file
+id: node.properties_listing_form.field_upload_documents
+field_name: field_upload_documents
+entity_type: node
+bundle: properties_listing_form
+label: 'Upload Documents'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+field_type: file

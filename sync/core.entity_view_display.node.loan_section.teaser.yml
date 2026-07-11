@@ -1,0 +1,73 @@
+uuid: cffe29f7-df38-46ef-9663-e9130bbf5035
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.loan_section.body
+    - field.field.node.loan_section.field_aadhar_card
+    - field.field.node.loan_section.field_annual_income
+    - field.field.node.loan_section.field_caste_category
+    - field.field.node.loan_section.field_current_address
+    - field.field.node.loan_section.field_current_running_loan
+    - field.field.node.loan_section.field_date_of_birth
+    - field.field.node.loan_section.field_employee_type
+    - field.field.node.loan_section.field_father_s_name
+    - field.field.node.loan_section.field_first_name
+    - field.field.node.loan_section.field_gender
+    - field.field.node.loan_section.field_if_yes_loan_amount
+    - field.field.node.loan_section.field_last_name
+    - field.field.node.loan_section.field_loan_email_address
+    - field.field.node.loan_section.field_loan_type
+    - field.field.node.loan_section.field_mother_s_name
+    - field.field.node.loan_section.field_pancard
+    - field.field.node.loan_section.field_password_photo
+    - field.field.node.loan_section.field_permanent_address
+    - field.field.node.loan_section.field_phone_number
+    - field.field.node.loan_section.field_purpose_of_loan
+    - field.field.node.loan_section.field_required_amount
+    - node.type.loan_section
+  module:
+    - text
+    - user
+id: node.loan_section.teaser
+targetEntityType: node
+bundle: loan_section
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_aadhar_card: true
+  field_annual_income: true
+  field_caste_category: true
+  field_current_address: true
+  field_current_running_loan: true
+  field_date_of_birth: true
+  field_employee_type: true
+  field_father_s_name: true
+  field_first_name: true
+  field_gender: true
+  field_if_yes_loan_amount: true
+  field_last_name: true
+  field_loan_email_address: true
+  field_loan_type: true
+  field_mother_s_name: true
+  field_pancard: true
+  field_password_photo: true
+  field_permanent_address: true
+  field_phone_number: true
+  field_purpose_of_loan: true
+  field_required_amount: true
+  langcode: true

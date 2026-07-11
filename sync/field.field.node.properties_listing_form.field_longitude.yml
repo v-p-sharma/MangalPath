@@ -1,0 +1,19 @@
+uuid: ab8a750c-cd45-472e-be30-79c60ac080cc
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_longitude
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_longitude
+field_name: field_longitude
+entity_type: node
+bundle: properties_listing_form
+label: Longitude
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

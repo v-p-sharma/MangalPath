@@ -1,0 +1,19 @@
+uuid: 9ede9cdc-cac3-473b-80cf-4dd3cdffc041
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_des
+    - paragraphs.paragraphs_type.get_in_touch
+id: paragraph.get_in_touch.field_contact_des
+field_name: field_contact_des
+entity_type: paragraph
+bundle: get_in_touch
+label: 'contact des'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

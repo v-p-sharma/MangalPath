@@ -1,0 +1,23 @@
+uuid: 93d4a504-e653-42a5-b847-3643d0fc0fea
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_links
+    - paragraphs.paragraphs_type.bottom_banner
+  module:
+    - link
+id: paragraph.bottom_banner.field_links
+field_name: field_links
+entity_type: paragraph
+bundle: bottom_banner
+label: Links
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

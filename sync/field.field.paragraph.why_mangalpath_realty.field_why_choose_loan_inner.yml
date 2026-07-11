@@ -1,0 +1,103 @@
+uuid: 1de2041c-6309-484e-8788-d47755c3ad8a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_why_choose_loan_inner
+    - paragraphs.paragraphs_type.home_why_choose_us_inner
+    - paragraphs.paragraphs_type.why_mangalpath_realty
+  module:
+    - entity_reference_revisions
+id: paragraph.why_mangalpath_realty.field_why_choose_loan_inner
+field_name: field_why_choose_loan_inner
+entity_type: paragraph
+bundle: why_mangalpath_realty
+label: 'why choose loan inner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      home_why_choose_us_inner: home_why_choose_us_inner
+    negate: 0
+    target_bundles_drag_drop:
+      bottom_banner:
+        weight: 26
+        enabled: false
+      documents_loan:
+        weight: 27
+        enabled: false
+      eligible_inner_section:
+        weight: 28
+        enabled: false
+      explore_our_loan:
+        weight: 29
+        enabled: false
+      explore_our_loan_inner:
+        weight: 30
+        enabled: false
+      get_in_touch:
+        weight: 31
+        enabled: false
+      get_in_touch_contact:
+        weight: 32
+        enabled: false
+      happy_customer:
+        weight: 33
+        enabled: false
+      happy_customer_inner:
+        weight: 34
+        enabled: false
+      home_page_banner_inner_box:
+        weight: 35
+        enabled: false
+      home_page_banner_section:
+        weight: 36
+        enabled: false
+      home_why_choose_us:
+        weight: 37
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 38
+        enabled: true
+      our_services:
+        weight: 39
+        enabled: false
+      our_services_inner:
+        weight: 40
+        enabled: false
+      process:
+        weight: 41
+        enabled: false
+      process_inner:
+        weight: 42
+        enabled: false
+      single_links:
+        weight: 43
+        enabled: false
+      single_title:
+        weight: 44
+        enabled: false
+      testimonials:
+        weight: 45
+        enabled: false
+      testimonials_inner:
+        weight: 46
+        enabled: false
+      who_is_eligible:
+        weight: 47
+        enabled: false
+      why_choose_loan_inner:
+        weight: 25
+        enabled: false
+      why_choose_loan_page:
+        weight: 48
+        enabled: false
+      why_mangalpath_realty:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

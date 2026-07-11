@@ -1,0 +1,19 @@
+uuid: 8e710f1d-9aa1-44eb-9ac4-8685ea1e2d54
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.home_page_banner_inner_box
+id: paragraph.home_page_banner_inner_box.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: home_page_banner_inner_box
+label: title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

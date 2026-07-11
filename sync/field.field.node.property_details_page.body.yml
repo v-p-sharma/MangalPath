@@ -1,0 +1,24 @@
+uuid: c33db320-efaa-4ab8-a967-9bdb65549c04
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.property_details_page
+  module:
+    - text
+id: node.property_details_page.body
+field_name: body
+entity_type: node
+bundle: property_details_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

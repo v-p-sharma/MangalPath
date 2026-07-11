@@ -1,0 +1,33 @@
+uuid: 84ec8ea6-7c03-48bb-bfe2-df117bf7f506
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_seller_type
+field_name: field_seller_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: individual_owner
+      label: 'Individual Owner'
+    -
+      value: dealer
+      label: Dealer
+    -
+      value: broker
+      label: Broker
+    -
+      value: showroom
+      label: Showroom
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

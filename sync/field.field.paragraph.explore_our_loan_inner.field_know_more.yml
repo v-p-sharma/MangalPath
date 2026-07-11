@@ -1,0 +1,23 @@
+uuid: aef50a52-b92e-4730-855e-619a180ffe2d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_know_more
+    - paragraphs.paragraphs_type.explore_our_loan_inner
+  module:
+    - link
+id: paragraph.explore_our_loan_inner.field_know_more
+field_name: field_know_more
+entity_type: paragraph
+bundle: explore_our_loan_inner
+label: 'Check Eligibility'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

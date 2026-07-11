@@ -1,0 +1,41 @@
+uuid: a2e34209-be7f-473d-aae9-fc5da49fc543
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.why_mangalpath_realty.field_description
+    - field.field.paragraph.why_mangalpath_realty.field_title_full
+    - field.field.paragraph.why_mangalpath_realty.field_why_choose_loan_inner
+    - paragraphs.paragraphs_type.why_mangalpath_realty
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.why_mangalpath_realty.default
+targetEntityType: paragraph
+bundle: why_mangalpath_realty
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title_full:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_why_choose_loan_inner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden: {  }

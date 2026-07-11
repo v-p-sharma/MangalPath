@@ -1,0 +1,20 @@
+uuid: 2e23d85b-8905-4433-b504-827a86fb3dd5
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_commercial_total_floors
+field_name: field_commercial_total_floors
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

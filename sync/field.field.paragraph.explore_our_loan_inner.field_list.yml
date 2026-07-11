@@ -1,0 +1,85 @@
+uuid: a8182258-8ae3-4cda-8e4d-065e205a2ff8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list
+    - paragraphs.paragraphs_type.explore_our_loan_inner
+    - paragraphs.paragraphs_type.single_title
+  module:
+    - entity_reference_revisions
+id: paragraph.explore_our_loan_inner.field_list
+field_name: field_list
+entity_type: paragraph
+bundle: explore_our_loan_inner
+label: List
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      single_title: single_title
+    negate: 0
+    target_bundles_drag_drop:
+      bottom_banner:
+        weight: 21
+        enabled: false
+      explore_our_loan:
+        weight: 22
+        enabled: false
+      explore_our_loan_inner:
+        weight: 20
+        enabled: false
+      get_in_touch:
+        weight: 23
+        enabled: false
+      get_in_touch_contact:
+        weight: 24
+        enabled: false
+      happy_customer:
+        weight: 25
+        enabled: false
+      happy_customer_inner:
+        weight: 26
+        enabled: false
+      home_page_banner_inner_box:
+        weight: 9
+        enabled: false
+      home_page_banner_section:
+        weight: 10
+        enabled: false
+      home_why_choose_us:
+        weight: 11
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 12
+        enabled: false
+      our_services:
+        weight: 13
+        enabled: false
+      our_services_inner:
+        weight: 14
+        enabled: false
+      process:
+        weight: 33
+        enabled: false
+      process_inner:
+        weight: 34
+        enabled: false
+      single_links:
+        weight: 35
+        enabled: false
+      single_title:
+        weight: 8
+        enabled: true
+      testimonials:
+        weight: 37
+        enabled: false
+      testimonials_inner:
+        weight: 38
+        enabled: false
+field_type: entity_reference_revisions

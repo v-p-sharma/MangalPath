@@ -1,0 +1,19 @@
+uuid: a7eeb36d-e309-4dbe-a440-1d88dc88ecd0
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_width_ft
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_width_ft
+field_name: field_width_ft
+entity_type: node
+bundle: vehicle_sell
+label: 'Chassis Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

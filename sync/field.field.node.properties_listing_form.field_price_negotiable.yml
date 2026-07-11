@@ -1,0 +1,21 @@
+uuid: 0682c1ae-3c7e-40cc-b14d-7a74b33650a9
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price_negotiable
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_price_negotiable
+field_name: field_price_negotiable
+entity_type: node
+bundle: properties_listing_form
+label: 'Price Negotiable'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

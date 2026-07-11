@@ -1,0 +1,10 @@
+uuid: a0e7a37d-9ef1-4a88-ac60-08db81b3fa8a
+langcode: en-gb
+status: true
+dependencies: {  }
+id: why_mangalpath_realty
+label: 'Why Mangalpath Realty'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

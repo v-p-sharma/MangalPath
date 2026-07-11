@@ -1,0 +1,23 @@
+uuid: 1a13ec0a-ced1-4c33-97f3-ee63f1b80332
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dining_room
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_dining_room
+field_name: field_dining_room
+entity_type: node
+bundle: properties_listing_form
+label: 'Dining Room'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

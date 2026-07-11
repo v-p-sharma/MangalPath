@@ -1,0 +1,91 @@
+uuid: a816dde2-9368-4281-8ba5-8002523bfd81
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_home_page_components
+    - node.type.home_page
+    - paragraphs.paragraphs_type.bottom_banner
+    - paragraphs.paragraphs_type.get_in_touch
+    - paragraphs.paragraphs_type.happy_customer
+    - paragraphs.paragraphs_type.home_why_choose_us
+    - paragraphs.paragraphs_type.our_services
+    - paragraphs.paragraphs_type.process
+    - paragraphs.paragraphs_type.testimonials
+  module:
+    - entity_reference_revisions
+id: node.home_page.field_home_page_components
+field_name: field_home_page_components
+entity_type: node
+bundle: home_page
+label: 'Home page Components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      home_why_choose_us: home_why_choose_us
+      bottom_banner: bottom_banner
+      get_in_touch: get_in_touch
+      happy_customer: happy_customer
+      our_services: our_services
+      process: process
+      testimonials: testimonials
+    negate: 0
+    target_bundles_drag_drop:
+      bottom_banner:
+        weight: 18
+        enabled: true
+      get_in_touch:
+        weight: 19
+        enabled: true
+      get_in_touch_contact:
+        weight: 20
+        enabled: false
+      happy_customer:
+        weight: 21
+        enabled: true
+      happy_customer_inner:
+        weight: 22
+        enabled: false
+      home_page_banner_inner_box:
+        weight: 5
+        enabled: false
+      home_page_banner_section:
+        weight: 6
+        enabled: false
+      home_why_choose_us:
+        weight: 7
+        enabled: true
+      home_why_choose_us_inner:
+        weight: 8
+        enabled: false
+      our_services:
+        weight: 27
+        enabled: true
+      our_services_inner:
+        weight: 28
+        enabled: false
+      process:
+        weight: 29
+        enabled: true
+      process_inner:
+        weight: 30
+        enabled: false
+      single_links:
+        weight: 31
+        enabled: false
+      single_title:
+        weight: 32
+        enabled: false
+      testimonials:
+        weight: 33
+        enabled: true
+      testimonials_inner:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

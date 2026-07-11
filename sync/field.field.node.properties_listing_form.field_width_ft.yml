@@ -1,0 +1,19 @@
+uuid: 57de1a96-5f5a-47af-89f2-af2cdf6c6ce4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_width_ft
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_width_ft
+field_name: field_width_ft
+entity_type: node
+bundle: properties_listing_form
+label: 'Width (Ft)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

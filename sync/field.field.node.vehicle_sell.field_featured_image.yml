@@ -1,0 +1,38 @@
+uuid: 9d991b20-6119-4e36-9135-6fc936187893
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_image
+    - node.type.vehicle_sell
+  module:
+    - image
+id: node.vehicle_sell.field_featured_image
+field_name: field_featured_image
+entity_type: node
+bundle: vehicle_sell
+label: 'Featured Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

@@ -1,0 +1,33 @@
+uuid: 9cbf4547-a1cb-44e4-a8be-d0d04b123714
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_best_time_to_contact
+field_name: field_best_time_to_contact
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: anytime
+      label: Anytime
+    -
+      value: morning_9am_12pm
+      label: 'Morning (9AM - 12PM)'
+    -
+      value: afternoon_12pm_5pm
+      label: 'Afternoon (12PM - 5PM)'
+    -
+      value: evening_5pm_9pm
+      label: 'Evening (5PM - 9PM)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

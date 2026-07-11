@@ -1,0 +1,25 @@
+uuid: 0b6c0c18-9114-44e6-8a62-72d6e4d5cbec
+langcode: en-gb
+status: true
+dependencies:
+  content:
+    - 'block_content:footer_right_contact:1341bded-939a-4476-a81a-24ee64bc21b1'
+  module:
+    - block_content
+  theme:
+    - mangalpath
+id: mangalpath_contactinformation
+theme: mangalpath
+region: footer_fourth
+weight: 0
+provider: null
+plugin: 'block_content:1341bded-939a-4476-a81a-24ee64bc21b1'
+settings:
+  id: 'block_content:1341bded-939a-4476-a81a-24ee64bc21b1'
+  label: 'Contact Information'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,19 @@
+uuid: ed5320e6-61f9-4596-b349-cdfbf669f0fa
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carpet_area
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_carpet_area
+field_name: field_carpet_area
+entity_type: node
+bundle: vehicle_sell
+label: 'Area / Locality'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

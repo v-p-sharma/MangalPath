@@ -1,0 +1,11 @@
+uuid: a85d93dd-8374-4963-bfa4-6d9073cee4c5
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.vehicle_listing_page
+id: node.vehicle_listing_page
+target_entity_type_id: node
+target_bundle: vehicle_listing_page
+default_langcode: site_default
+language_alterable: false

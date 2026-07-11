@@ -1,0 +1,21 @@
+uuid: 097a881d-3070-4ee9-bac6-7ec8002be2e1
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_study_room
+    - node.type.properties_listing_form
+  module:
+    - options
+id: node.properties_listing_form.field_study_room
+field_name: field_study_room
+entity_type: node
+bundle: properties_listing_form
+label: 'Study Room'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

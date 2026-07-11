@@ -1,0 +1,23 @@
+uuid: 7e1d37aa-43a8-4b26-b91a-adb8f1242215
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - mangalpath
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: mangalpath_search_form_wide
+theme: mangalpath
+region: nothing
+weight: -8
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

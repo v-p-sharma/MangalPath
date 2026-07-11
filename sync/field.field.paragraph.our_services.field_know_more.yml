@@ -1,0 +1,23 @@
+uuid: 8df610e4-e5b0-4bca-85d4-8db4f59604d3
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_know_more
+    - paragraphs.paragraphs_type.our_services
+  module:
+    - link
+id: paragraph.our_services.field_know_more
+field_name: field_know_more
+entity_type: paragraph
+bundle: our_services
+label: 'Know More'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

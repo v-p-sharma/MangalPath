@@ -1,0 +1,181 @@
+uuid: 4e280ec9-38dc-46e9-8783-12ad10de219b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.properties_listing_form.body
+    - field.field.node.properties_listing_form.field_ag_land_area
+    - field.field.node.properties_listing_form.field_ag_land_type
+    - field.field.node.properties_listing_form.field_ag_land_unit
+    - field.field.node.properties_listing_form.field_annual_property_tax
+    - field.field.node.properties_listing_form.field_approved_map
+    - field.field.node.properties_listing_form.field_area_unit
+    - field.field.node.properties_listing_form.field_balconies
+    - field.field.node.properties_listing_form.field_bathrooms
+    - field.field.node.properties_listing_form.field_bedrooms
+    - field.field.node.properties_listing_form.field_best_time_to_contact
+    - field.field.node.properties_listing_form.field_bhk_type
+    - field.field.node.properties_listing_form.field_built_up_area
+    - field.field.node.properties_listing_form.field_carpet_area
+    - field.field.node.properties_listing_form.field_city
+    - field.field.node.properties_listing_form.field_cm_floor_number
+    - field.field.node.properties_listing_form.field_commercial_total_floors
+    - field.field.node.properties_listing_form.field_complete_address
+    - field.field.node.properties_listing_form.field_contact_name
+    - field.field.node.properties_listing_form.field_contact_number
+    - field.field.node.properties_listing_form.field_corner_property
+    - field.field.node.properties_listing_form.field_country
+    - field.field.node.properties_listing_form.field_crop_type
+    - field.field.node.properties_listing_form.field_dining_room
+    - field.field.node.properties_listing_form.field_district
+    - field.field.node.properties_listing_form.field_drawing_room
+    - field.field.node.properties_listing_form.field_electricity_available
+    - field.field.node.properties_listing_form.field_email_address
+    - field.field.node.properties_listing_form.field_expected_price
+    - field.field.node.properties_listing_form.field_featured_image
+    - field.field.node.properties_listing_form.field_floor_number
+    - field.field.node.properties_listing_form.field_front_width_ft
+    - field.field.node.properties_listing_form.field_khasra_number
+    - field.field.node.properties_listing_form.field_khata_number
+    - field.field.node.properties_listing_form.field_kitchen
+    - field.field.node.properties_listing_form.field_landmark
+    - field.field.node.properties_listing_form.field_latitude
+    - field.field.node.properties_listing_form.field_length_ft
+    - field.field.node.properties_listing_form.field_loading_area_sq_ft
+    - field.field.node.properties_listing_form.field_loan_available
+    - field.field.node.properties_listing_form.field_locality
+    - field.field.node.properties_listing_form.field_longitude
+    - field.field.node.properties_listing_form.field_maintenance_charges
+    - field.field.node.properties_listing_form.field_monthly_rent
+    - field.field.node.properties_listing_form.field_mutation_available
+    - field.field.node.properties_listing_form.field_owner_name
+    - field.field.node.properties_listing_form.field_ownership_type
+    - field.field.node.properties_listing_form.field_parking_capacity
+    - field.field.node.properties_listing_form.field_pincode
+    - field.field.node.properties_listing_form.field_pooja_room
+    - field.field.node.properties_listing_form.field_power_backup
+    - field.field.node.properties_listing_form.field_price_negotiable
+    - field.field.node.properties_listing_form.field_property_gallery
+    - field.field.node.properties_listing_form.field_property_highlights
+    - field.field.node.properties_listing_form.field_property_id_number
+    - field.field.node.properties_listing_form.field_property_type
+    - field.field.node.properties_listing_form.field_property_use
+    - field.field.node.properties_listing_form.field_purpose_of
+    - field.field.node.properties_listing_form.field_registry_available
+    - field.field.node.properties_listing_form.field_road_access
+    - field.field.node.properties_listing_form.field_road_width_ft
+    - field.field.node.properties_listing_form.field_security_deposit
+    - field.field.node.properties_listing_form.field_soil_type
+    - field.field.node.properties_listing_form.field_state
+    - field.field.node.properties_listing_form.field_storage_area_sq_ft
+    - field.field.node.properties_listing_form.field_store_room
+    - field.field.node.properties_listing_form.field_study_room
+    - field.field.node.properties_listing_form.field_super_area
+    - field.field.node.properties_listing_form.field_survey_number
+    - field.field.node.properties_listing_form.field_total_area
+    - field.field.node.properties_listing_form.field_total_floors
+    - field.field.node.properties_listing_form.field_upload_documents
+    - field.field.node.properties_listing_form.field_village
+    - field.field.node.properties_listing_form.field_water_source
+    - field.field.node.properties_listing_form.field_whatsapp_number
+    - field.field.node.properties_listing_form.field_width_ft
+    - node.type.properties_listing_form
+  module:
+    - text
+    - user
+id: node.properties_listing_form.teaser
+targetEntityType: node
+bundle: properties_listing_form
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_ag_land_area: true
+  field_ag_land_type: true
+  field_ag_land_unit: true
+  field_annual_property_tax: true
+  field_approved_map: true
+  field_area_unit: true
+  field_balconies: true
+  field_bathrooms: true
+  field_bedrooms: true
+  field_best_time_to_contact: true
+  field_bhk_type: true
+  field_built_up_area: true
+  field_carpet_area: true
+  field_city: true
+  field_cm_floor_number: true
+  field_commercial_total_floors: true
+  field_complete_address: true
+  field_contact_name: true
+  field_contact_number: true
+  field_corner_property: true
+  field_country: true
+  field_crop_type: true
+  field_dining_room: true
+  field_district: true
+  field_drawing_room: true
+  field_electricity_available: true
+  field_email_address: true
+  field_expected_price: true
+  field_featured_image: true
+  field_floor_number: true
+  field_front_width_ft: true
+  field_khasra_number: true
+  field_khata_number: true
+  field_kitchen: true
+  field_landmark: true
+  field_latitude: true
+  field_length_ft: true
+  field_loading_area_sq_ft: true
+  field_loan_available: true
+  field_locality: true
+  field_longitude: true
+  field_maintenance_charges: true
+  field_monthly_rent: true
+  field_mutation_available: true
+  field_owner_name: true
+  field_ownership_type: true
+  field_parking_capacity: true
+  field_pincode: true
+  field_pooja_room: true
+  field_power_backup: true
+  field_price_negotiable: true
+  field_property_gallery: true
+  field_property_highlights: true
+  field_property_id_number: true
+  field_property_type: true
+  field_property_use: true
+  field_purpose_of: true
+  field_registry_available: true
+  field_road_access: true
+  field_road_width_ft: true
+  field_security_deposit: true
+  field_soil_type: true
+  field_state: true
+  field_storage_area_sq_ft: true
+  field_store_room: true
+  field_study_room: true
+  field_super_area: true
+  field_survey_number: true
+  field_total_area: true
+  field_total_floors: true
+  field_upload_documents: true
+  field_village: true
+  field_water_source: true
+  field_whatsapp_number: true
+  field_width_ft: true
+  langcode: true

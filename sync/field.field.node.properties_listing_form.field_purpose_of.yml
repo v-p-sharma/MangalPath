@@ -1,0 +1,29 @@
+uuid: c65deff2-c267-41c9-89e1-f550afce4aed
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_purpose_of
+    - node.type.properties_listing_form
+    - taxonomy.vocabulary.purpose_of_property
+id: node.properties_listing_form.field_purpose_of
+field_name: field_purpose_of
+entity_type: node
+bundle: properties_listing_form
+label: 'purpose of'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      purpose_of_property: purpose_of_property
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

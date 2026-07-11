@@ -1,0 +1,19 @@
+uuid: caabece4-bea0-4c9b-8d09-523d3b8150b1
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_locality
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_locality
+field_name: field_locality
+entity_type: node
+bundle: properties_listing_form
+label: Locality
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

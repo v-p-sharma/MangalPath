@@ -1,0 +1,19 @@
+uuid: 565a70d4-45f2-468b-bf05-9cba90a43dc8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_permanent_address
+    - node.type.loan_section
+id: node.loan_section.field_permanent_address
+field_name: field_permanent_address
+entity_type: node
+bundle: loan_section
+label: 'Permanent Address '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

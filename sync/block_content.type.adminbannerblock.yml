@@ -1,0 +1,8 @@
+uuid: f9f88596-df2e-48b9-abb4-4fea6d428b0c
+langcode: en-gb
+status: true
+dependencies: {  }
+id: adminbannerblock
+label: AdminBannerBlock
+revision: false
+description: null

@@ -1,0 +1,106 @@
+uuid: 10e766a4-8faf-4c36-a849-909a32df82bc
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_right_contact
+    - field.storage.block_content.field_contact_details
+    - paragraphs.paragraphs_type.icon_class_title
+  module:
+    - entity_reference_revisions
+id: block_content.footer_right_contact.field_contact_details
+field_name: field_contact_details
+entity_type: block_content
+bundle: footer_right_contact
+label: 'Contact Details'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      icon_class_title: icon_class_title
+    negate: 0
+    target_bundles_drag_drop:
+      bottom_banner:
+        weight: 27
+        enabled: false
+      documents_loan:
+        weight: 28
+        enabled: false
+      eligible_inner_section:
+        weight: 29
+        enabled: false
+      explore_our_loan:
+        weight: 30
+        enabled: false
+      explore_our_loan_inner:
+        weight: 31
+        enabled: false
+      get_in_touch:
+        weight: 32
+        enabled: false
+      get_in_touch_contact:
+        weight: 33
+        enabled: false
+      happy_customer:
+        weight: 34
+        enabled: false
+      happy_customer_inner:
+        weight: 35
+        enabled: false
+      home_page_banner_inner_box:
+        weight: 36
+        enabled: false
+      home_page_banner_section:
+        weight: 37
+        enabled: false
+      home_why_choose_us:
+        weight: 38
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 39
+        enabled: false
+      icon_class_title:
+        weight: 40
+        enabled: true
+      our_services:
+        weight: 41
+        enabled: false
+      our_services_inner:
+        weight: 42
+        enabled: false
+      process:
+        weight: 43
+        enabled: false
+      process_inner:
+        weight: 44
+        enabled: false
+      single_links:
+        weight: 45
+        enabled: false
+      single_title:
+        weight: 46
+        enabled: false
+      testimonials:
+        weight: 47
+        enabled: false
+      testimonials_inner:
+        weight: 48
+        enabled: false
+      who_is_eligible:
+        weight: 49
+        enabled: false
+      why_choose_loan_inner:
+        weight: 50
+        enabled: false
+      why_choose_loan_page:
+        weight: 51
+        enabled: false
+      why_mangalpath_realty:
+        weight: 52
+        enabled: false
+field_type: entity_reference_revisions

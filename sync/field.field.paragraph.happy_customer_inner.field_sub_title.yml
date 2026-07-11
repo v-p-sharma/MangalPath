@@ -1,0 +1,19 @@
+uuid: e706a043-0302-4d08-8fb4-5e65f4da6222
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sub_title
+    - paragraphs.paragraphs_type.happy_customer_inner
+id: paragraph.happy_customer_inner.field_sub_title
+field_name: field_sub_title
+entity_type: paragraph
+bundle: happy_customer_inner
+label: 'Sub Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

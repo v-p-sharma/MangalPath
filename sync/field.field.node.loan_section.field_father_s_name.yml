@@ -1,0 +1,19 @@
+uuid: 3592c40a-4e3a-41ab-a56f-95399e8c675f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_father_s_name
+    - node.type.loan_section
+id: node.loan_section.field_father_s_name
+field_name: field_father_s_name
+entity_type: node
+bundle: loan_section
+label: "Father's Name "
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

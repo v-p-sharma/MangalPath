@@ -1,0 +1,40 @@
+uuid: f31a5d57-f5da-4bb2-9edc-9b8363bc84e7
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.property_listing_page.body
+    - field.field.node.property_listing_page.field_property_listing_component
+    - node.type.property_listing_page
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.property_listing_page.default
+targetEntityType: node
+bundle: property_listing_page
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_property_listing_component:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

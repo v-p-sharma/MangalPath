@@ -1,0 +1,10 @@
+uuid: 43227018-7c49-4531-a732-22ba2f52ccd5
+langcode: en-gb
+status: true
+dependencies: {  }
+id: home_page_banner_section
+label: 'Home page Banner Section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

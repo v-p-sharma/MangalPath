@@ -1,0 +1,19 @@
+uuid: d71d72c2-23da-4460-9ff4-d52ca2e8c72a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_whatsapp_number
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_whatsapp_number
+field_name: field_whatsapp_number
+entity_type: node
+bundle: vehicle_sell
+label: 'Engine Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

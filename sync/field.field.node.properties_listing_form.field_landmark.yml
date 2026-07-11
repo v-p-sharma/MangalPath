@@ -1,0 +1,19 @@
+uuid: 11170057-da94-46e7-bf40-06569b5cf6e6
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_landmark
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_landmark
+field_name: field_landmark
+entity_type: node
+bundle: properties_listing_form
+label: Landmark
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

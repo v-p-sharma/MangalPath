@@ -1,0 +1,8 @@
+uuid: ce3fad2d-f8a6-4008-8ce8-8cc0f0bc4d80
+langcode: en-gb
+status: true
+dependencies: {  }
+id: bottom_footer
+label: 'Bottom Footer'
+revision: false
+description: 'image title subtitle description tag1 tag2'

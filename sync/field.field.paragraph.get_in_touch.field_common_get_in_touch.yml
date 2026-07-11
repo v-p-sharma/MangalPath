@@ -1,0 +1,78 @@
+uuid: bf469804-7cc6-4942-b8bb-a1c045164c0f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_common_get_in_touch
+    - paragraphs.paragraphs_type.get_in_touch
+    - paragraphs.paragraphs_type.get_in_touch_contact
+    - paragraphs.paragraphs_type.single_links
+  module:
+    - entity_reference_revisions
+id: paragraph.get_in_touch.field_common_get_in_touch
+field_name: field_common_get_in_touch
+entity_type: paragraph
+bundle: get_in_touch
+label: 'Common get in touch'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      single_links: single_links
+      get_in_touch_contact: get_in_touch_contact
+    negate: 0
+    target_bundles_drag_drop:
+      get_in_touch:
+        weight: 17
+        enabled: false
+      get_in_touch_contact:
+        weight: 17
+        enabled: true
+      happy_customer:
+        weight: 18
+        enabled: false
+      happy_customer_inner:
+        weight: 19
+        enabled: false
+      home_page_banner_inner_box:
+        weight: 20
+        enabled: false
+      home_page_banner_section:
+        weight: 21
+        enabled: false
+      home_why_choose_us:
+        weight: 22
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 23
+        enabled: false
+      our_services:
+        weight: 24
+        enabled: false
+      our_services_inner:
+        weight: 25
+        enabled: false
+      process:
+        weight: 26
+        enabled: false
+      process_inner:
+        weight: 27
+        enabled: false
+      single_links:
+        weight: 16
+        enabled: true
+      single_title:
+        weight: 28
+        enabled: false
+      testimonials:
+        weight: 29
+        enabled: false
+      testimonials_inner:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

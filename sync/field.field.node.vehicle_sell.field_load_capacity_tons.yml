@@ -1,0 +1,19 @@
+uuid: 2f60f598-f7f8-4919-a3a9-64ed29903e30
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_load_capacity_tons
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_load_capacity_tons
+field_name: field_load_capacity_tons
+entity_type: node
+bundle: vehicle_sell
+label: 'Load Capacity (Tons)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

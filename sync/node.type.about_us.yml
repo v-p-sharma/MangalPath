@@ -1,0 +1,18 @@
+uuid: 44ee6030-2a3f-4e17-8920-0960475e7047
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'About Us'
+type: about_us
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

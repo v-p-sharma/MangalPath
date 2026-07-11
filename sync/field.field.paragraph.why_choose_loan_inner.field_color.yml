@@ -1,0 +1,19 @@
+uuid: 77e9ff3a-e19f-4060-8ca9-1d773d8a34b4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_color
+    - paragraphs.paragraphs_type.why_choose_loan_inner
+id: paragraph.why_choose_loan_inner.field_color
+field_name: field_color
+entity_type: paragraph
+bundle: why_choose_loan_inner
+label: Color
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

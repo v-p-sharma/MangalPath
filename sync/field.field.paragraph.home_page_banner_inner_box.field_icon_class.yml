@@ -1,0 +1,19 @@
+uuid: 8e0121cf-0e0d-4fd0-b2d8-2cba8e334334
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_class
+    - paragraphs.paragraphs_type.home_page_banner_inner_box
+id: paragraph.home_page_banner_inner_box.field_icon_class
+field_name: field_icon_class
+entity_type: paragraph
+bundle: home_page_banner_inner_box
+label: 'Icon Class'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,29 @@
+uuid: 8d203bb6-f06c-409a-aef0-f970104cd6bf
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vehical_type
+    - node.type.vehicle_sell
+    - taxonomy.vocabulary.vehicle_category_for_sell
+id: node.vehicle_sell.field_vehical_type
+field_name: field_vehical_type
+entity_type: node
+bundle: vehicle_sell
+label: 'Vehical Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      vehicle_category_for_sell: vehicle_category_for_sell
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

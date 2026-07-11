@@ -1,0 +1,39 @@
+uuid: a42db26b-b697-495d-aeec-b7f5581d11a0
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_page_banner_inner_box.field_icon_class
+    - field.field.paragraph.home_page_banner_inner_box.field_sub_title
+    - field.field.paragraph.home_page_banner_inner_box.field_title
+    - paragraphs.paragraphs_type.home_page_banner_inner_box
+id: paragraph.home_page_banner_inner_box.default
+targetEntityType: paragraph
+bundle: home_page_banner_inner_box
+mode: default
+content:
+  field_icon_class:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

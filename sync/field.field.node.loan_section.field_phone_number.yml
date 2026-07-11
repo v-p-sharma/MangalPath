@@ -1,0 +1,19 @@
+uuid: d1b5d30c-76ce-454c-b61f-ac02e9f003c7
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone_number
+    - node.type.loan_section
+id: node.loan_section.field_phone_number
+field_name: field_phone_number
+entity_type: node
+bundle: loan_section
+label: 'Phone Number '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

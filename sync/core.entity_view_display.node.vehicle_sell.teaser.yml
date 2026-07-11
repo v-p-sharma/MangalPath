@@ -1,0 +1,157 @@
+uuid: 3003cca0-4325-4f21-84dc-635ea8c2a0f5
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.vehicle_sell.body
+    - field.field.node.vehicle_sell.comment
+    - field.field.node.vehicle_sell.field_best_time_to_contact
+    - field.field.node.vehicle_sell.field_carpet_area
+    - field.field.node.vehicle_sell.field_city
+    - field.field.node.vehicle_sell.field_commercial_insurance
+    - field.field.node.vehicle_sell.field_contact_number
+    - field.field.node.vehicle_sell.field_country
+    - field.field.node.vehicle_sell.field_district
+    - field.field.node.vehicle_sell.field_drive_type
+    - field.field.node.vehicle_sell.field_electricity_available
+    - field.field.node.vehicle_sell.field_email_address
+    - field.field.node.vehicle_sell.field_emi_available
+    - field.field.node.vehicle_sell.field_engine_capacity_cc
+    - field.field.node.vehicle_sell.field_exchange_possible
+    - field.field.node.vehicle_sell.field_expected_selling_price
+    - field.field.node.vehicle_sell.field_featured_image
+    - field.field.node.vehicle_sell.field_fitness_certificate
+    - field.field.node.vehicle_sell.field_fuel_type
+    - field.field.node.vehicle_sell.field_insurance_copy
+    - field.field.node.vehicle_sell.field_load_capacity_tons
+    - field.field.node.vehicle_sell.field_loan_available
+    - field.field.node.vehicle_sell.field_manufacturing_year
+    - field.field.node.vehicle_sell.field_mileage_km_l
+    - field.field.node.vehicle_sell.field_model
+    - field.field.node.vehicle_sell.field_mutation_available
+    - field.field.node.vehicle_sell.field_national_permit
+    - field.field.node.vehicle_sell.field_odometer_reading_km
+    - field.field.node.vehicle_sell.field_other_documents_noc_transf
+    - field.field.node.vehicle_sell.field_owner_name
+    - field.field.node.vehicle_sell.field_permit_type
+    - field.field.node.vehicle_sell.field_pincode
+    - field.field.node.vehicle_sell.field_power_backup
+    - field.field.node.vehicle_sell.field_price_negotiable
+    - field.field.node.vehicle_sell.field_property_gallery
+    - field.field.node.vehicle_sell.field_property_highlights
+    - field.field.node.vehicle_sell.field_property_id_number
+    - field.field.node.vehicle_sell.field_puc_certificate
+    - field.field.node.vehicle_sell.field_rc
+    - field.field.node.vehicle_sell.field_registration_number
+    - field.field.node.vehicle_sell.field_registration_year
+    - field.field.node.vehicle_sell.field_registry_available
+    - field.field.node.vehicle_sell.field_road_access
+    - field.field.node.vehicle_sell.field_road_width_ft
+    - field.field.node.vehicle_sell.field_security_deposit
+    - field.field.node.vehicle_sell.field_seller_name
+    - field.field.node.vehicle_sell.field_seller_type
+    - field.field.node.vehicle_sell.field_soil_type
+    - field.field.node.vehicle_sell.field_state
+    - field.field.node.vehicle_sell.field_super_area
+    - field.field.node.vehicle_sell.field_survey_number
+    - field.field.node.vehicle_sell.field_total_area
+    - field.field.node.vehicle_sell.field_transmission
+    - field.field.node.vehicle_sell.field_variant
+    - field.field.node.vehicle_sell.field_vehi_complete_address
+    - field.field.node.vehicle_sell.field_vehical_type
+    - field.field.node.vehicle_sell.field_vehicle_brand
+    - field.field.node.vehicle_sell.field_vehicle_condition
+    - field.field.node.vehicle_sell.field_vehicle_loan_available
+    - field.field.node.vehicle_sell.field_vehicle_price_negotiable
+    - field.field.node.vehicle_sell.field_vehicle_purpose
+    - field.field.node.vehicle_sell.field_village
+    - field.field.node.vehicle_sell.field_whatsapp_number
+    - field.field.node.vehicle_sell.field_width_ft
+    - node.type.vehicle_sell
+  module:
+    - text
+    - user
+id: node.vehicle_sell.teaser
+targetEntityType: node
+bundle: vehicle_sell
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  comment: true
+  field_best_time_to_contact: true
+  field_carpet_area: true
+  field_city: true
+  field_commercial_insurance: true
+  field_contact_number: true
+  field_country: true
+  field_district: true
+  field_drive_type: true
+  field_electricity_available: true
+  field_email_address: true
+  field_emi_available: true
+  field_engine_capacity_cc: true
+  field_exchange_possible: true
+  field_expected_selling_price: true
+  field_featured_image: true
+  field_fitness_certificate: true
+  field_fuel_type: true
+  field_insurance_copy: true
+  field_load_capacity_tons: true
+  field_loan_available: true
+  field_manufacturing_year: true
+  field_mileage_km_l: true
+  field_model: true
+  field_mutation_available: true
+  field_national_permit: true
+  field_odometer_reading_km: true
+  field_other_documents_noc_transf: true
+  field_owner_name: true
+  field_permit_type: true
+  field_pincode: true
+  field_power_backup: true
+  field_price_negotiable: true
+  field_property_gallery: true
+  field_property_highlights: true
+  field_property_id_number: true
+  field_puc_certificate: true
+  field_rc: true
+  field_registration_number: true
+  field_registration_year: true
+  field_registry_available: true
+  field_road_access: true
+  field_road_width_ft: true
+  field_security_deposit: true
+  field_seller_name: true
+  field_seller_type: true
+  field_soil_type: true
+  field_state: true
+  field_super_area: true
+  field_survey_number: true
+  field_total_area: true
+  field_transmission: true
+  field_variant: true
+  field_vehi_complete_address: true
+  field_vehical_type: true
+  field_vehicle_brand: true
+  field_vehicle_condition: true
+  field_vehicle_loan_available: true
+  field_vehicle_price_negotiable: true
+  field_vehicle_purpose: true
+  field_village: true
+  field_whatsapp_number: true
+  field_width_ft: true
+  langcode: true

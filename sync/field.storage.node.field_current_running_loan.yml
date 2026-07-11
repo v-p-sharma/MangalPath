@@ -1,0 +1,21 @@
+uuid: e160c5d7-1506-4ba1-9e8d-08ff6331b852
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_current_running_loan
+field_name: field_current_running_loan
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

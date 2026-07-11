@@ -1,0 +1,29 @@
+uuid: e0d2c4c1-8f36-4ca4-8eb0-cf1c985faafb
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.contact_us.body
+    - node.type.contact_us
+  module:
+    - text
+    - user
+id: node.contact_us.default
+targetEntityType: node
+bundle: contact_us
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

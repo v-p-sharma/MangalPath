@@ -1,0 +1,22 @@
+uuid: cfc8d09e-0c48-45fc-86c3-512b64679f00
+langcode: en-gb
+status: true
+dependencies:
+  theme:
+    - mangalpath
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: mangalpath_primary_local_tasks
+theme: mangalpath
+region: nothing
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

@@ -1,0 +1,29 @@
+uuid: 412a86bf-71e1-4321-9e26-17d8c6fe9ee4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.tour_vehicle_listing.body
+    - node.type.tour_vehicle_listing
+  module:
+    - text
+    - user
+id: node.tour_vehicle_listing.default
+targetEntityType: node
+bundle: tour_vehicle_listing
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

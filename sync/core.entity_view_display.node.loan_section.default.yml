@@ -1,0 +1,224 @@
+uuid: 96e79640-73a4-496f-a9b8-70c707d43dd6
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.loan_section.body
+    - field.field.node.loan_section.field_aadhar_card
+    - field.field.node.loan_section.field_annual_income
+    - field.field.node.loan_section.field_caste_category
+    - field.field.node.loan_section.field_current_address
+    - field.field.node.loan_section.field_current_running_loan
+    - field.field.node.loan_section.field_date_of_birth
+    - field.field.node.loan_section.field_employee_type
+    - field.field.node.loan_section.field_father_s_name
+    - field.field.node.loan_section.field_first_name
+    - field.field.node.loan_section.field_gender
+    - field.field.node.loan_section.field_if_yes_loan_amount
+    - field.field.node.loan_section.field_last_name
+    - field.field.node.loan_section.field_loan_email_address
+    - field.field.node.loan_section.field_loan_type
+    - field.field.node.loan_section.field_mother_s_name
+    - field.field.node.loan_section.field_pancard
+    - field.field.node.loan_section.field_password_photo
+    - field.field.node.loan_section.field_permanent_address
+    - field.field.node.loan_section.field_phone_number
+    - field.field.node.loan_section.field_purpose_of_loan
+    - field.field.node.loan_section.field_required_amount
+    - node.type.loan_section
+  module:
+    - datetime
+    - image
+    - options
+    - text
+    - user
+id: node.loan_section.default
+targetEntityType: node
+bundle: loan_section
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_aadhar_card:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_annual_income:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_caste_category:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_current_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_current_running_loan:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_date_of_birth:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_employee_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_father_s_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_first_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_gender:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_if_yes_loan_amount:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_last_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_loan_email_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_loan_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_mother_s_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_pancard:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_password_photo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_permanent_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_phone_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_purpose_of_loan:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_required_amount:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

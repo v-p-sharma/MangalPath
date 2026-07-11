@@ -1,0 +1,20 @@
+uuid: 7350ef17-3a0e-4e04-9442-f3b285989777
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_vehicle_purpose
+field_name: field_vehicle_purpose
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 280a74bf-41e7-4d11-8bd9-a7328be1ae65
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_power_backup
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_power_backup
+field_name: field_power_backup
+entity_type: node
+bundle: properties_listing_form
+label: 'Power Backup'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,23 @@
+uuid: c7ecc79d-a16f-4fd2-95ec-a55a2e72e787
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_storage_area_sq_ft
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_storage_area_sq_ft
+field_name: field_storage_area_sq_ft
+entity_type: node
+bundle: properties_listing_form
+label: 'Storage Area (Sq Ft)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

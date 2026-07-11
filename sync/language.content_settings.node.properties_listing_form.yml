@@ -1,0 +1,11 @@
+uuid: 5746a2a5-39cf-4442-a169-29233072a87e
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.properties_listing_form
+id: node.properties_listing_form
+target_entity_type_id: node
+target_bundle: properties_listing_form
+default_langcode: site_default
+language_alterable: false

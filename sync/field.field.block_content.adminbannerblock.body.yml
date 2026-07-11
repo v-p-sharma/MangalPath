@@ -1,0 +1,24 @@
+uuid: 845867f5-027d-406f-8363-9f4f96b0e3e1
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.adminbannerblock
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.adminbannerblock.body
+field_name: body
+entity_type: block_content
+bundle: adminbannerblock
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

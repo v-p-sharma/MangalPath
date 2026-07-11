@@ -1,0 +1,23 @@
+uuid: 3298d09b-4a4b-45ac-8381-7b8882e32580
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ag_land_area
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_ag_land_area
+field_name: field_ag_land_area
+entity_type: node
+bundle: properties_listing_form
+label: 'Ag Land Area '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

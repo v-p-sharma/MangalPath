@@ -1,0 +1,19 @@
+uuid: effd89c9-06a2-4f54-a992-0e9495828d7a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_khata_number
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_khata_number
+field_name: field_khata_number
+entity_type: node
+bundle: properties_listing_form
+label: 'Khata Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

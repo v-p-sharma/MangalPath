@@ -1,0 +1,10 @@
+uuid: 4b6b2307-b117-4cf4-a229-4452d5e58cc4
+langcode: en-gb
+status: true
+dependencies: {  }
+id: our_services
+label: 'Our Services'
+icon_uuid: null
+icon_default: null
+description: 'title subtitle description and inner paragraph(icon, title, subtile list)'
+behavior_plugins: {  }

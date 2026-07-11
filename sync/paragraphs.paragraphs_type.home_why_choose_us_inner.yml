@@ -1,0 +1,10 @@
+uuid: eab2bb3d-d0c9-42c2-a400-68b62ba11d2f
+langcode: en-gb
+status: true
+dependencies: {  }
+id: home_why_choose_us_inner
+label: 'Home Why Choose Us Inner'
+icon_uuid: null
+icon_default: null
+description: 'icon class , title , description'
+behavior_plugins: {  }

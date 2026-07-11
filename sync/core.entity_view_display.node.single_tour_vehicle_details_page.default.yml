@@ -1,0 +1,29 @@
+uuid: 0947598c-2cf2-49b3-84eb-2e93e096982b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.single_tour_vehicle_details_page.body
+    - node.type.single_tour_vehicle_details_page
+  module:
+    - text
+    - user
+id: node.single_tour_vehicle_details_page.default
+targetEntityType: node
+bundle: single_tour_vehicle_details_page
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

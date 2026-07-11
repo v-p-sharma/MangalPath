@@ -1,0 +1,94 @@
+uuid: 66b7ebc4-6f38-4667-84b7-1cb3fc809a0e
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_eligible_inner
+    - paragraphs.paragraphs_type.documents_loan
+    - paragraphs.paragraphs_type.eligible_inner_section
+  module:
+    - entity_reference_revisions
+id: paragraph.documents_loan.field_eligible_inner
+field_name: field_eligible_inner
+entity_type: paragraph
+bundle: documents_loan
+label: 'Eligible Inner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      eligible_inner_section: eligible_inner_section
+    negate: 0
+    target_bundles_drag_drop:
+      bottom_banner:
+        weight: 23
+        enabled: false
+      documents_loan:
+        weight: 23
+        enabled: false
+      eligible_inner_section:
+        weight: 22
+        enabled: true
+      explore_our_loan:
+        weight: 24
+        enabled: false
+      explore_our_loan_inner:
+        weight: 25
+        enabled: false
+      get_in_touch:
+        weight: 26
+        enabled: false
+      get_in_touch_contact:
+        weight: 27
+        enabled: false
+      happy_customer:
+        weight: 28
+        enabled: false
+      happy_customer_inner:
+        weight: 29
+        enabled: false
+      home_page_banner_inner_box:
+        weight: 30
+        enabled: false
+      home_page_banner_section:
+        weight: 31
+        enabled: false
+      home_why_choose_us:
+        weight: 32
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 33
+        enabled: false
+      our_services:
+        weight: 34
+        enabled: false
+      our_services_inner:
+        weight: 35
+        enabled: false
+      process:
+        weight: 36
+        enabled: false
+      process_inner:
+        weight: 37
+        enabled: false
+      single_links:
+        weight: 38
+        enabled: false
+      single_title:
+        weight: 39
+        enabled: false
+      testimonials:
+        weight: 40
+        enabled: false
+      testimonials_inner:
+        weight: 41
+        enabled: false
+      who_is_eligible:
+        weight: 42
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,49 @@
+uuid: 95075659-b638-40a2-b3aa-5a16b3f88218
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list
+    - paragraphs.paragraphs_type.our_services_inner
+    - paragraphs.paragraphs_type.single_title
+  module:
+    - entity_reference_revisions
+id: paragraph.our_services_inner.field_list
+field_name: field_list
+entity_type: paragraph
+bundle: our_services_inner
+label: List
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      single_title: single_title
+    negate: 0
+    target_bundles_drag_drop:
+      home_page_banner_inner_box:
+        weight: 9
+        enabled: false
+      home_page_banner_section:
+        weight: 10
+        enabled: false
+      home_why_choose_us:
+        weight: 11
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 12
+        enabled: false
+      our_services:
+        weight: 13
+        enabled: false
+      our_services_inner:
+        weight: 14
+        enabled: false
+      single_title:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions

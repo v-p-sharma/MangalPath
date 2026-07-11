@@ -1,0 +1,50 @@
+uuid: af875c35-570d-4fc1-87ab-612bc348a5a5
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_why_choose_us.field_description
+    - field.field.paragraph.home_why_choose_us.field_sub_title
+    - field.field.paragraph.home_why_choose_us.field_title_full
+    - field.field.paragraph.home_why_choose_us.field_why_we_choose_inner_conne
+    - paragraphs.paragraphs_type.home_why_choose_us
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.home_why_choose_us.default
+targetEntityType: paragraph
+bundle: home_why_choose_us
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title_full:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_why_we_choose_inner_conne:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden: {  }

@@ -1,0 +1,11 @@
+uuid: 37a72dc8-5c98-4d95-bedc-b501456247c2
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.tour_vehicle_listing
+id: node.tour_vehicle_listing
+target_entity_type_id: node
+target_bundle: tour_vehicle_listing
+default_langcode: site_default
+language_alterable: false

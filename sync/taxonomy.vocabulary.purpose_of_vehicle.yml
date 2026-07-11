@@ -1,0 +1,9 @@
+uuid: 5e6fafd2-65e6-484c-950f-42e33851c25c
+langcode: en-gb
+status: true
+dependencies: {  }
+name: 'Purpose of Vehicle'
+vid: purpose_of_vehicle
+description: null
+weight: 0
+new_revision: false

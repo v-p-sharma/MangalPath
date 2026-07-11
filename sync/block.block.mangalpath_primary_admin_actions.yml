@@ -1,0 +1,20 @@
+uuid: 282d9067-e25e-4f90-8b20-c25cc2828a62
+langcode: en-gb
+status: false
+dependencies:
+  theme:
+    - mangalpath
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: mangalpath_primary_admin_actions
+theme: mangalpath
+region: nothing
+weight: 6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

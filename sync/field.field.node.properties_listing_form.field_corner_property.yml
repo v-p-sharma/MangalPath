@@ -1,0 +1,19 @@
+uuid: d988f50a-8486-4f72-83a9-a653f33d8a15
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_corner_property
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_corner_property
+field_name: field_corner_property
+entity_type: node
+bundle: properties_listing_form
+label: 'Corner Property'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

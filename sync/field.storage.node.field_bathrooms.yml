@@ -1,0 +1,20 @@
+uuid: 76cd0f60-47a8-4cb1-be3b-1ae4ff1f73b0
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bathrooms
+field_name: field_bathrooms
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 4683e084-9582-44de-829a-1f62b9a01bc6
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cm_floor_number
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_cm_floor_number
+field_name: field_cm_floor_number
+entity_type: node
+bundle: properties_listing_form
+label: 'Commercial Floor Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

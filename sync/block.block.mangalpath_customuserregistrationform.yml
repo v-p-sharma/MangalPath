@@ -1,0 +1,20 @@
+uuid: 844c3047-ad9f-472c-acdf-dcebe23cefc3
+langcode: en-gb
+status: false
+dependencies:
+  module:
+    - mangalpath_module
+  theme:
+    - mangalpath
+id: mangalpath_customuserregistrationform
+theme: mangalpath
+region: nothing
+weight: 4
+provider: null
+plugin: custom_user_registration_form
+settings:
+  id: custom_user_registration_form
+  label: 'Custom User Registration Form'
+  label_display: visible
+  provider: mangalpath_module
+visibility: {  }

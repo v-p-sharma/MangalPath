@@ -1,0 +1,23 @@
+uuid: 4d01fbaf-c5a5-4153-bbdb-36d99e60adee
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parking_capacity
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_parking_capacity
+field_name: field_parking_capacity
+entity_type: node
+bundle: properties_listing_form
+label: 'Parking Capacity'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

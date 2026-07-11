@@ -1,0 +1,19 @@
+uuid: 9e777f72-0cd7-481c-897d-3709c6620b77
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_city
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_city
+field_name: field_city
+entity_type: node
+bundle: vehicle_sell
+label: ' City '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,50 @@
+uuid: 38bb8f0e-42ac-4aae-84a9-e183bf3c978b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.process.field_description
+    - field.field.paragraph.process.field_process_inner
+    - field.field.paragraph.process.field_sub_title
+    - field.field.paragraph.process.field_title_full
+    - paragraphs.paragraphs_type.process
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.process.default
+targetEntityType: paragraph
+bundle: process
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_process_inner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title_full:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }

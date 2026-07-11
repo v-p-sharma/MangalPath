@@ -1,0 +1,30 @@
+uuid: ffb44381-9189-4ed3-8c45-5a56eb815a39
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - node
+id: node.field_insurance_copy
+field_name: field_insurance_copy
+entity_type: node
+type: image
+settings:
+  target_type: file
+  display_field: false
+  display_default: true
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+module: image
+locked: false
+cardinality: 5
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,24 @@
+uuid: aba2a199-0362-4856-b263-e968d9e52dd1
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.vehicle_listing_page
+  module:
+    - text
+id: node.vehicle_listing_page.body
+field_name: body
+entity_type: node
+bundle: vehicle_listing_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

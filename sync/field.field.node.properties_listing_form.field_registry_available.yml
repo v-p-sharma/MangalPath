@@ -1,0 +1,21 @@
+uuid: 5b26ca52-0cb4-43ce-b526-e2d5a2754478
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registry_available
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_registry_available
+field_name: field_registry_available
+entity_type: node
+bundle: properties_listing_form
+label: 'Registry Available'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

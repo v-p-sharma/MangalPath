@@ -1,0 +1,8 @@
+uuid: 53ca772f-f2ac-49b0-bf36-58627708444e
+langcode: en-gb
+status: true
+dependencies: {  }
+id: copy_right_section
+label: 'Copy Right Section '
+revision: false
+description: null

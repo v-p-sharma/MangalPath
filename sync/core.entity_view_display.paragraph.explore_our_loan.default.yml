@@ -1,0 +1,41 @@
+uuid: 04f1f507-c601-4592-8328-3dbb3cb0c5b8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.explore_our_loan.field_description
+    - field.field.paragraph.explore_our_loan.field_loan_inner
+    - field.field.paragraph.explore_our_loan.field_title_full
+    - paragraphs.paragraphs_type.explore_our_loan
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.explore_our_loan.default
+targetEntityType: paragraph
+bundle: explore_our_loan
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_loan_inner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_title_full:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }

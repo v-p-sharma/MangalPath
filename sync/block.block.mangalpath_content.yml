@@ -1,0 +1,22 @@
+uuid: f37ebfdb-7c27-45ea-9d37-57513f95cecc
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mangalpath
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: mangalpath_content
+theme: mangalpath
+region: content
+weight: -8
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

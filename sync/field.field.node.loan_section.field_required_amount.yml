@@ -1,0 +1,19 @@
+uuid: 9856dab9-001b-49fb-99fc-64f1ec24c050
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_required_amount
+    - node.type.loan_section
+id: node.loan_section.field_required_amount
+field_name: field_required_amount
+entity_type: node
+bundle: loan_section
+label: 'Required Amount (₹) '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

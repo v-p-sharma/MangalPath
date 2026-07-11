@@ -1,0 +1,19 @@
+uuid: 84aead89-7e75-4eca-9a3c-c530698e9837
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_security_deposit
+    - node.type.vehicle_sell
+id: node.vehicle_sell.field_security_deposit
+field_name: field_security_deposit
+entity_type: node
+bundle: vehicle_sell
+label: 'Number of Previous Owners'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

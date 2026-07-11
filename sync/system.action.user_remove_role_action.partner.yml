@@ -1,0 +1,14 @@
+uuid: 1d8b93ec-f11e-4ec8-b3ba-6ec11a131bf8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - user.role.partner
+  module:
+    - user
+id: user_remove_role_action.partner
+label: 'Remove the Partner role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: partner

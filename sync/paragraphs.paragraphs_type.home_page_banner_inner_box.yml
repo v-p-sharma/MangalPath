@@ -1,0 +1,10 @@
+uuid: 058fc066-65f8-4c1d-a28f-e8eff18a7f2f
+langcode: en-gb
+status: true
+dependencies: {  }
+id: home_page_banner_inner_box
+label: 'Home page Banner Inner box'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

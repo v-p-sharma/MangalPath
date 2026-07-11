@@ -1,0 +1,21 @@
+uuid: 4acf23df-e72a-4a63-8632-9ca49684542d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_permit_type
+    - node.type.vehicle_sell
+  module:
+    - options
+id: node.vehicle_sell.field_permit_type
+field_name: field_permit_type
+entity_type: node
+bundle: vehicle_sell
+label: 'Permit Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

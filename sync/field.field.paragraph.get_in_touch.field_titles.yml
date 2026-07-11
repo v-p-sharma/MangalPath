@@ -1,0 +1,19 @@
+uuid: 0daa3c50-e844-4e11-8273-0c6c74f45de9
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_titles
+    - paragraphs.paragraphs_type.get_in_touch
+id: paragraph.get_in_touch.field_titles
+field_name: field_titles
+entity_type: paragraph
+bundle: get_in_touch
+label: 'contact title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

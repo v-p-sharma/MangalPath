@@ -1,0 +1,18 @@
+uuid: 34407863-0ddf-4ad2-9b9e-ba3ffe15d4c7
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Property Listing Page'
+type: property_listing_page
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

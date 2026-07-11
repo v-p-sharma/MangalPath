@@ -1,0 +1,24 @@
+uuid: ff497aeb-c334-4d34-af05-dc6ab24e17fb
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.documents_loan.field_eligible_inner
+    - paragraphs.paragraphs_type.documents_loan
+  module:
+    - entity_reference_revisions
+id: paragraph.documents_loan.default
+targetEntityType: paragraph
+bundle: documents_loan
+mode: default
+content:
+  field_eligible_inner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

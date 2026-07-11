@@ -1,0 +1,30 @@
+uuid: 65e62e16-fb64-4077-8365-c83a759a1bb0
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_drive_type
+field_name: field_drive_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: fwd_front_wheel_drive
+      label: 'FWD (Front Wheel Drive)'
+    -
+      value: rwd_rear_wheel_drive
+      label: 'RWD (Rear Wheel Drive)'
+    -
+      value: awd_all_wheel_drive
+      label: 'AWD (All Wheel Drive)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

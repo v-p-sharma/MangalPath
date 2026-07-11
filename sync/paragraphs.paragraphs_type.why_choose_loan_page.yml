@@ -1,0 +1,10 @@
+uuid: 1257628e-f56a-4276-b052-00fa07067e21
+langcode: en-gb
+status: true
+dependencies: {  }
+id: why_choose_loan_page
+label: 'Why Choose  Loan Page'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

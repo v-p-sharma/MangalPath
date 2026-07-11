@@ -1,0 +1,24 @@
+uuid: 586a5ced-c485-4940-82db-4074d94d0412
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.happy_customer.field_happy_customer_inner
+    - paragraphs.paragraphs_type.happy_customer
+  module:
+    - entity_reference_revisions
+id: paragraph.happy_customer.default
+targetEntityType: paragraph
+bundle: happy_customer
+mode: default
+content:
+  field_happy_customer_inner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

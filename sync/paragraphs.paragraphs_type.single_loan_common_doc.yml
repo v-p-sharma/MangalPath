@@ -1,0 +1,10 @@
+uuid: bd7db3ff-8305-4ae2-9f6d-c56473e76920
+langcode: en-gb
+status: true
+dependencies: {  }
+id: single_loan_common_doc
+label: 'Single Loan Common Doc'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

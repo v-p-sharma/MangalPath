@@ -1,0 +1,8 @@
+uuid: 6e7a04f4-8ca7-4acd-8c2e-cc8e0f7b68a9
+langcode: en-gb
+status: true
+dependencies: {  }
+id: common_banner
+label: 'Common Banner'
+revision: false
+description: null

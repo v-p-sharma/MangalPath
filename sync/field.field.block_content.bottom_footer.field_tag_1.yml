@@ -1,0 +1,19 @@
+uuid: 1a6422ee-6ba5-4d12-9812-309163f963d5
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.bottom_footer
+    - field.storage.block_content.field_tag_1
+id: block_content.bottom_footer.field_tag_1
+field_name: field_tag_1
+entity_type: block_content
+bundle: bottom_footer
+label: 'Tag 1'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

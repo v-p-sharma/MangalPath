@@ -1,0 +1,21 @@
+uuid: 4032e18e-5599-4605-8325-6b8c851202e1
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_manufacturing_year
+    - node.type.vehicle_sell
+  module:
+    - datetime
+id: node.vehicle_sell.field_manufacturing_year
+field_name: field_manufacturing_year
+entity_type: node
+bundle: vehicle_sell
+label: 'Manufacturing Year '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

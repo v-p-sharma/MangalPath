@@ -1,0 +1,19 @@
+uuid: 764b1f3e-76f8-42ef-a291-ab16e38694a4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_property_highlights
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_property_highlights
+field_name: field_property_highlights
+entity_type: node
+bundle: properties_listing_form
+label: 'Property Highlights'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

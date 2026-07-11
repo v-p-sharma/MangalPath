@@ -1,0 +1,19 @@
+uuid: 9b5c9224-73ab-4c5b-8fd9-b0e082b2a9a4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_monthly_rent
+    - node.type.properties_listing_form
+id: node.properties_listing_form.field_monthly_rent
+field_name: field_monthly_rent
+entity_type: node
+bundle: properties_listing_form
+label: 'Monthly Rent (₹)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

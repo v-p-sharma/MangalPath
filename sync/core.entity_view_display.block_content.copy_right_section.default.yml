@@ -1,0 +1,34 @@
+uuid: 65fee212-9c4d-4e2b-acaa-2b0f7ea5119c
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.copy_right_section
+    - field.field.block_content.copy_right_section.body
+    - field.field.block_content.copy_right_section.field_social_media_links_and_tit
+  module:
+    - entity_reference_revisions
+    - text
+id: block_content.copy_right_section.default
+targetEntityType: block_content
+bundle: copy_right_section
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_social_media_links_and_tit:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

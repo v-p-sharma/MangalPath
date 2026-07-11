@@ -1,0 +1,49 @@
+uuid: b19a20ea-9074-4e2c-8a2b-22227bfbb40d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_our_service_inner
+    - paragraphs.paragraphs_type.our_services
+    - paragraphs.paragraphs_type.our_services_inner
+  module:
+    - entity_reference_revisions
+id: paragraph.our_services.field_our_service_inner
+field_name: field_our_service_inner
+entity_type: paragraph
+bundle: our_services
+label: 'Our Service Inner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      our_services_inner: our_services_inner
+    negate: 0
+    target_bundles_drag_drop:
+      home_page_banner_inner_box:
+        weight: 9
+        enabled: false
+      home_page_banner_section:
+        weight: 10
+        enabled: false
+      home_why_choose_us:
+        weight: 11
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 12
+        enabled: false
+      our_services:
+        weight: 13
+        enabled: false
+      our_services_inner:
+        weight: 14
+        enabled: true
+      single_title:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

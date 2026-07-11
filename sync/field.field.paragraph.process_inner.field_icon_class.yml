@@ -1,0 +1,19 @@
+uuid: 2473efdc-6aa1-4f33-93bd-77b328045482
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_class
+    - paragraphs.paragraphs_type.process_inner
+id: paragraph.process_inner.field_icon_class
+field_name: field_icon_class
+entity_type: paragraph
+bundle: process_inner
+label: 'Icon Class'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

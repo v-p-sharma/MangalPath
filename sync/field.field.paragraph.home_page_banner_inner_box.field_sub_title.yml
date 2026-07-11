@@ -1,0 +1,19 @@
+uuid: 00a8fe76-5159-4d1b-9f7f-d60cf2b6b7e4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sub_title
+    - paragraphs.paragraphs_type.home_page_banner_inner_box
+id: paragraph.home_page_banner_inner_box.field_sub_title
+field_name: field_sub_title
+entity_type: paragraph
+bundle: home_page_banner_inner_box
+label: 'Sub Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

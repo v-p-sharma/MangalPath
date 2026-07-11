@@ -1,0 +1,643 @@
+uuid: a9cf1ae8-aeb7-41c0-af9e-e142e94c4d0d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.vehicle_sell.body
+    - field.field.node.vehicle_sell.comment
+    - field.field.node.vehicle_sell.field_best_time_to_contact
+    - field.field.node.vehicle_sell.field_carpet_area
+    - field.field.node.vehicle_sell.field_city
+    - field.field.node.vehicle_sell.field_commercial_insurance
+    - field.field.node.vehicle_sell.field_contact_number
+    - field.field.node.vehicle_sell.field_country
+    - field.field.node.vehicle_sell.field_district
+    - field.field.node.vehicle_sell.field_drive_type
+    - field.field.node.vehicle_sell.field_electricity_available
+    - field.field.node.vehicle_sell.field_email_address
+    - field.field.node.vehicle_sell.field_emi_available
+    - field.field.node.vehicle_sell.field_engine_capacity_cc
+    - field.field.node.vehicle_sell.field_exchange_possible
+    - field.field.node.vehicle_sell.field_expected_selling_price
+    - field.field.node.vehicle_sell.field_featured_image
+    - field.field.node.vehicle_sell.field_fitness_certificate
+    - field.field.node.vehicle_sell.field_fuel_type
+    - field.field.node.vehicle_sell.field_insurance_copy
+    - field.field.node.vehicle_sell.field_load_capacity_tons
+    - field.field.node.vehicle_sell.field_loan_available
+    - field.field.node.vehicle_sell.field_manufacturing_year
+    - field.field.node.vehicle_sell.field_mileage_km_l
+    - field.field.node.vehicle_sell.field_model
+    - field.field.node.vehicle_sell.field_mutation_available
+    - field.field.node.vehicle_sell.field_national_permit
+    - field.field.node.vehicle_sell.field_odometer_reading_km
+    - field.field.node.vehicle_sell.field_other_documents_noc_transf
+    - field.field.node.vehicle_sell.field_owner_name
+    - field.field.node.vehicle_sell.field_permit_type
+    - field.field.node.vehicle_sell.field_pincode
+    - field.field.node.vehicle_sell.field_power_backup
+    - field.field.node.vehicle_sell.field_price_negotiable
+    - field.field.node.vehicle_sell.field_property_gallery
+    - field.field.node.vehicle_sell.field_property_highlights
+    - field.field.node.vehicle_sell.field_property_id_number
+    - field.field.node.vehicle_sell.field_puc_certificate
+    - field.field.node.vehicle_sell.field_rc
+    - field.field.node.vehicle_sell.field_registration_number
+    - field.field.node.vehicle_sell.field_registration_year
+    - field.field.node.vehicle_sell.field_registry_available
+    - field.field.node.vehicle_sell.field_road_access
+    - field.field.node.vehicle_sell.field_road_width_ft
+    - field.field.node.vehicle_sell.field_security_deposit
+    - field.field.node.vehicle_sell.field_seller_name
+    - field.field.node.vehicle_sell.field_seller_type
+    - field.field.node.vehicle_sell.field_soil_type
+    - field.field.node.vehicle_sell.field_state
+    - field.field.node.vehicle_sell.field_super_area
+    - field.field.node.vehicle_sell.field_survey_number
+    - field.field.node.vehicle_sell.field_total_area
+    - field.field.node.vehicle_sell.field_transmission
+    - field.field.node.vehicle_sell.field_variant
+    - field.field.node.vehicle_sell.field_vehi_complete_address
+    - field.field.node.vehicle_sell.field_vehical_type
+    - field.field.node.vehicle_sell.field_vehicle_brand
+    - field.field.node.vehicle_sell.field_vehicle_condition
+    - field.field.node.vehicle_sell.field_vehicle_loan_available
+    - field.field.node.vehicle_sell.field_vehicle_price_negotiable
+    - field.field.node.vehicle_sell.field_vehicle_purpose
+    - field.field.node.vehicle_sell.field_village
+    - field.field.node.vehicle_sell.field_whatsapp_number
+    - field.field.node.vehicle_sell.field_width_ft
+    - node.type.vehicle_sell
+  module:
+    - comment
+    - datetime
+    - image
+    - options
+    - text
+    - user
+id: node.vehicle_sell.default
+targetEntityType: node
+bundle: vehicle_sell
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  comment:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_best_time_to_contact:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 176
+    region: content
+  field_carpet_area:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_city:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_commercial_insurance:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 191
+    region: content
+  field_contact_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 173
+    region: content
+  field_country:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_district:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_drive_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 179
+    region: content
+  field_electricity_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 142
+    region: content
+  field_email_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 175
+    region: content
+  field_emi_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 185
+    region: content
+  field_engine_capacity_cc:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 177
+    region: content
+  field_exchange_possible:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 186
+    region: content
+  field_expected_selling_price:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 182
+    region: content
+  field_featured_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 169
+    region: content
+  field_fitness_certificate:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 190
+    region: content
+  field_fuel_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 175
+    region: content
+  field_insurance_copy:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 193
+    region: content
+  field_load_capacity_tons:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 187
+    region: content
+  field_loan_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 168
+    region: content
+  field_manufacturing_year:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_mileage_km_l:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 178
+    region: content
+  field_model:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_mutation_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 166
+    region: content
+  field_national_permit:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 189
+    region: content
+  field_odometer_reading_km:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 181
+    region: content
+  field_other_documents_noc_transf:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 196
+    region: content
+  field_owner_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 160
+    region: content
+  field_permit_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 188
+    region: content
+  field_pincode:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_power_backup:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 150
+    region: content
+  field_price_negotiable:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 154
+    region: content
+  field_property_gallery:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 170
+    region: content
+  field_property_highlights:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_property_id_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 161
+    region: content
+  field_puc_certificate:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 195
+    region: content
+  field_rc:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 194
+    region: content
+  field_registration_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_registration_year:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_registry_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 165
+    region: content
+  field_road_access:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 143
+    region: content
+  field_road_width_ft:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_security_deposit:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 156
+    region: content
+  field_seller_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 200
+    region: content
+  field_seller_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 199
+    region: content
+  field_soil_type:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 144
+    region: content
+  field_state:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_super_area:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_survey_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 162
+    region: content
+  field_total_area:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_transmission:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 176
+    region: content
+  field_variant:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_vehi_complete_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 197
+    region: content
+  field_vehical_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_vehicle_brand:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_vehicle_condition:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 180
+    region: content
+  field_vehicle_loan_available:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 184
+    region: content
+  field_vehicle_price_negotiable:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 183
+    region: content
+  field_vehicle_purpose:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 198
+    region: content
+  field_village:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_whatsapp_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 174
+    region: content
+  field_width_ft:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,20 @@
+uuid: c182c74d-1500-4027-bc0d-531d8399a54c
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dining_room
+field_name: field_dining_room
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
