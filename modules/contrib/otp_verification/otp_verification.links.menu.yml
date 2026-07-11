@@ -1,0 +1,29 @@
+otp_verification.customer_setup:
+  route_name: otp_verification.customer_setup
+  title: 'miniOrange OTP Verification Configuration'
+  description: 'Provides OTP verification during user registration using both email and phone for enhanced account security.'
+  parent: user.admin_index
+
+otp_verification.settings:
+  route_name: otp_verification.settings
+  title: 'Configurations'
+  description: 'Settings Tab'
+  parent: otp_verification.customer_setup
+
+#otp_verification.configuration:
+#  route_name: otp_verification.configuration
+#  title: 'Configurations'
+#  description: 'Configurations Tab'
+#  parent: otp_verification.customer_setup
+
+#otp_verification.templates:
+#  route_name: otp_verification.templates
+#  title: 'Custom Templates'
+#  description: 'Custom Templates Tab'
+#  parent: otp_verification.customer_setup
+
+otp_verification.licensing:
+  route_name: otp_verification.licensing
+  title: 'Upgrade Plans'
+  description: 'Upgrade Plans Tab'
+  parent: otp_verification.customer_setup

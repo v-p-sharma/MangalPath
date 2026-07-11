@@ -1,0 +1,23 @@
+otp_verification.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    miniorange_otp_verification_customer_admin_email:
+      type: 'NULL'
+    miniorange_otp_verification_customer_id:
+      type: string
+    miniorange_otp_verification_customer_admin_token:
+      type: string
+    miniorange_otp_verification_customer_api_key:
+      type: string
+    miniorange_otp_verification_status:
+      type: string
+    miniorange_otp_verification_customer_admin_phone:
+      type: 'NULL'
+    miniorange_otp_verification_tx_id:
+      type: 'NULL'
+    miniorange_otp_verification_customer_admin_password:
+      type: string
+    miniorange_otp_options:
+      type: string
+      label: 'Verification Method'

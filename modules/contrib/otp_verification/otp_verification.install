@@ -1,0 +1,11 @@
+<?php
+/**
+ * @file
+ * Installation file for miniOrange OTP Verification Module.
+ */
+use \Drupal\otp_verification\MiniorangeOtpUtilities;
+
+
+function otp_verification_install(){
+	\Drupal::configFactory()->getEditable('otp_verification.settings')->set('miniorange_otp_verification_uninstall_status', '0')->save();
+}

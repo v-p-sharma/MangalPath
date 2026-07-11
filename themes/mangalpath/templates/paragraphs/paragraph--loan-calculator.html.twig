@@ -1,0 +1,58 @@
+<!-- CALCULATOR SECTION -->
+<section class="py-section calc-section">
+  <div class="container">
+    <div class="calc-wrapper">
+      <div class="row g-0">
+        <!-- Inputs -->
+        <div class="col-lg-7 calc-range-wrap">
+          <h3 class="mb-4" style="font-weight:800; color:var(--primary-dark);">EMI Calculator</h3>
+          
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-2">
+              <label class="form-label">Loan Amount</label>
+              <span class="fw-bold text-primary">₹ <span id="amount-disp">10,00,000</span></span>
+            </div>
+            <input type="range" class="range-slider" min="100000" max="10000000" value="1000000" step="50000" id="loan-amount">
+          </div>
+
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-2">
+              <label class="form-label">Interest Rate (ROI)</label>
+              <span class="fw-bold text-primary"><span id="rate-disp">8.5</span>%</span>
+            </div>
+            <input type="range" class="range-slider" min="5" max="20" value="8.5" step="0.1" id="interest-rate">
+          </div>
+
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-2">
+              <label class="form-label">Loan Tenure</label>
+              <span class="fw-bold text-primary"><span id="year-disp">5</span> Years</span>
+            </div>
+            <input type="range" class="range-slider" min="1" max="30" value="5" step="1" id="loan-tenure">
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="col-lg-5 calc-result-wrap">
+          <h4 class="mb-4 text-white">Loan Summary</h4>
+          <div class="result-row">
+            <span>Monthly EMI</span>
+            <span class="result-val">₹ <span id="emi-val">20,507</span></span>
+          </div>
+          <div class="result-row">
+            <span>Total Interest</span>
+            <span class="result-val">₹ <span id="total-interest">2,30,420</span></span>
+          </div>
+          <div class="result-row" style="border:none;">
+            <span>Total Payable</span>
+            <span class="result-val">₹ <span id="total-amount">12,30,420</span></span>
+          </div>
+          <div class="mt-4 text-center">
+            <small class="opacity-75">Estimated Payable Amount</small>
+            <div class="emi-display">₹ <span id="emi-big">20,507</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

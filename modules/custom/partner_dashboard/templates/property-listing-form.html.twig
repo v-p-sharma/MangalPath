@@ -1,0 +1,215 @@
+ <!-- Toast Notification -->
+
+ 
+ <div style="overflow:auto">       
+ <div id="toast" class="toast">Action Successful</div>
+
+        <div class="container">
+
+            <!-- Header -->
+            <div class="header-wizard">
+                <div class="wizard-header">
+                    <h2 style="font-size: 20px; font-weight: 800; color: var(--primary);">Add New Property</h2>
+                    <span class="step-indicator" id="stepIndicator">Step 1 of 10</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+            </div>
+            {{ form }}
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <button type="button" class="btn btn-secondary" id="prevBtn" disabled>Previous</button>
+            <button type="button" class="btn btn-primary" id="nextBtn">Next Step</button>
+
+        </div>
+
+        <script>
+            let currentStep = 1;
+            const totalSteps = 10;
+
+            // Logic to handle Category specific visibility
+            function handleCategoryChange() {
+                const category = document.getElementById('propCategory').value;
+                const step4 = document.getElementById('step-4'); // Residential
+                const step5 = document.getElementById('step-5'); // Agricultural
+                const step6 = document.getElementById('step-6'); // Commercial
+
+                // Hide all specific steps first
+                step4.classList.add('hidden');
+                step5.classList.add('hidden');
+                step6.classList.add('hidden');
+
+                // Show relevant step based on category
+                if (category === 'residential') step4.classList.remove('hidden');
+                if (category === 'agricultural' || category === 'industrial') step5.classList.remove('hidden');
+                if (category === 'commercial') step6.classList.remove('hidden');
+            }
+
+            // Logic to toggle Price fields based on Purpose (Sell vs Rent)
+            function togglePriceFields() {
+                const purpose = document.getElementById('propPurpose').value;
+                const rentFields = document.querySelectorAll('.rent-field');
+                const saleFields = document.querySelectorAll('.sale-field');
+                const priceLabel = document.querySelector('label[for="expectedPrice"]'); // Note: I used ID in input not label, using DOM traversal
+
+                if (purpose === 'rent' || purpose === 'lease') {
+                    rentFields.forEach(el => el.classList.remove('hidden'));
+                    saleFields.forEach(el => el.classList.add('hidden'));
+                } else {
+                    rentFields.forEach(el => el.classList.add('hidden'));
+                    saleFields.forEach(el => el.classList.remove('hidden'));
+                }
+            }
+
+            // Main Navigation Logic
+            function changeStep(direction) {
+                // Validation for current step before moving next
+                if (direction === 1 && !validateStep(currentStep)) {
+                    return false;
+                }
+
+                const currentCard = document.getElementById(`step-${currentStep}`);
+                if (currentCard) {
+                    currentCard.classList.remove('active');
+                }
+
+                // Update Step Count
+                currentStep += direction;
+
+                // Boundary check
+                if (currentStep < 1) currentStep = 1;
+                if (currentStep > totalSteps) currentStep = totalSteps;
+
+                const nextCard = document.getElementById(`step-${currentStep}`);
+                if (nextCard) {
+                    nextCard.classList.add('active');
+                }
+
+                // Update UI (Progress & Buttons)
+                updateUI();
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return true;
+            }
+
+            function updateUI() {
+                // Progress Bar
+                const percentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+                document.getElementById('progressBar').style.width = percentage + '%';
+                document.getElementById('stepIndicator').innerText = `Step ${currentStep} of ${totalSteps}`;
+
+                // Buttons
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                prevBtn.disabled = (currentStep === 1);
+
+                if (currentStep === totalSteps) {
+                    nextBtn.innerHTML = 'Publish Property <i class="fa fa-check"></i>';
+                    nextBtn.classList.remove('btn-primary');
+                    nextBtn.classList.add('btn-accent');
+                } else {
+
+                    nextBtn.innerHTML = 'Next Step <i class="fa fa-arrow-right"></i>';
+                    nextBtn.classList.add('btn-primary');
+                    nextBtn.classList.remove('btn-accent');
+                }
+            }
+
+            // Basic Validation
+            function validateStep(step) {
+                const currentCard = document.getElementById(`step-${step}`);
+                if (!currentCard) {
+                    return false;
+                }
+                const inputs = currentCard.querySelectorAll('input[required], select[required]');
+                let isValid = true;
+
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        input.style.borderColor = '#ef4444';
+                        // Shake effect or toast could go here
+                        input.focus();
+                    } else {
+                        input.style.borderColor = '#e0e8f4';
+                    }
+                });
+
+                if (!isValid) showToast('Please fill all required fields');
+                return isValid;
+            }
+
+            function submitPropertyForm() {
+                const formIdInput = document.querySelector('input[name="form_id"][value="property_selling_form"]');
+                const formEl = formIdInput ? formIdInput.closest('form') : document.querySelector('form[id^="property-selling-form"], form[data-drupal-selector^="property-selling-form"]');
+
+                if (!formEl) {
+                    showToast('Property form not found. Please refresh and try again.');
+                    return;
+                }
+
+                const submitButton = formEl.querySelector('input[type="submit"], button[type="submit"]');
+                if (submitButton) {
+                    submitButton.click();
+                    return;
+                }
+
+                if (formEl.requestSubmit) {
+                    formEl.requestSubmit();
+                    return;
+                }
+
+                formEl.submit();
+            }
+
+            // Image Preview Logic
+            function previewImage(input) {
+                if (input.files) {
+                    const galleryId = input.id === 'featImg' ? 'featPreview' : 'galleryPreview';
+                    const container = document.getElementById(galleryId);
+
+                    Array.from(input.files).forEach(file => {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.className = 'preview-img';
+                            container.appendChild(img);
+                        }
+                        reader.readAsDataURL(file);
+                    });
+                }
+            }
+
+            // Toast Notification
+            function showToast(message) {
+                const toast = document.getElementById('toast');
+                toast.innerText = message;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+
+            document.getElementById('prevBtn').addEventListener('click', function () {
+                changeStep(-1);
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                if (currentStep >= totalSteps) {
+                    if (validateStep(currentStep)) {
+                        submitPropertyForm();
+                    }
+                    return;
+                }
+
+                changeStep(1);
+            });
+
+        </script>
+
+
+        </div>

@@ -1,0 +1,431 @@
+<div id="propertyFormScroll" class="property-form-scroll">
+  {{ form.form_build_id }}
+  {{ form.form_token }}
+  {{ form.form_id }}
+
+  <div class="form-card active" id="step-1">
+    <h3 class="section-title">Property Basic Details</h3>
+    <div class="form-grid">
+      <div class="form-group full-width">
+        <label>Property Title <span class="required">*</span></label>
+        {{ form.propTitle }}
+      </div>
+      <div class="form-group">
+        <label>Property Purpose <span class="required">*</span></label>
+        {{ form.propPurpose }}
+      </div>
+      <div class="form-group">
+        <label>Property Category <span class="required">*</span></label>
+        {{ form.propCategory }}
+      </div>
+      <div class="form-group full-width">
+        <label>Property Type <span class="required">*</span></label>
+        {{ form.propTypeWrapper }}
+      </div>
+      <div class="form-group full-width">
+        <label>Property Description</label>
+        {{ form.propDescription }}
+      </div>
+      <div class="form-group full-width">
+        <label>Property Highlights</label>
+        {{ form.propHighlights }}
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: LOCATION DETAILS -->
+  <div class="form-card" id="step-2">
+    <h3 class="section-title">Location Details</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Country</label>
+        {{ form.country }}
+      </div>
+      <div class="form-group">
+        <label>State <span class="required">*</span></label
+        >{{ form.state }}
+      </div>
+      <div class="form-group"><label>District</label> {{ form.district }}</div>
+      <div class="form-group">
+        <label>City <span class="required">*</span></label
+        >{{ form.city }}
+      </div>
+      <div class="form-group">
+        <label>Locality <span class="required">*</span></label
+        >{{ form.locality }}
+      </div>
+      <div class="form-group"><label>Village</label>{{ form.village }}</div>
+      <div class="form-group"><label>Landmark</label> {{ form.landmark }}</div>
+      <div class="form-group">
+        <label>Pincode <span class="required">*</span></label
+        >{{ form.pincode }}
+      </div>
+      <div class="form-group full-width">
+        <label>Complete Address</label>{{ form.address }}
+      </div>
+      <div class="form-group"><label>Latitude</label> {{ form.latitude }}</div>
+      <div class="form-group"><label>Longitude</label>{{ form.longitude }}</div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <!-- STEP 3: SIZE DETAILS -->
+  <div class="form-card" id="step-3">
+    <h3 class="section-title">Property Size Details</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Area Unit <span class="required">*</span></label>
+        {{ form.areaUnit }}
+      </div>
+      <div class="form-group">
+        <label>Total Area <span class="required">*</span></label>
+        {{ form.totalArea }}
+      </div>
+      <div class="form-group">
+        <label>Built-up Area</label>
+        {{ form.builtupArea }}
+      </div>
+      <div class="form-group">
+        <label>Carpet Area</label>
+        {{ form.carpetArea }}
+      </div>
+      <div class="form-group">
+        <label>Super Area</label>
+        {{ form.superArea }}
+      </div>
+      <div class="form-group">
+        <label>Front Width (Ft)</label>
+        {{ form.frontWidth }}
+      </div>
+      <div class="form-group">
+        <label>Road Width (Ft)</label>
+        {{ form.roadWidth }}
+      </div>
+      <div class="form-group">
+        <label>Length (Ft)</label>
+        {{ form.length }}
+      </div>
+      <div class="form-group">
+        <label>Width (Ft)</label>
+        {{ form.width }}
+      </div>
+      <div class="form-group">
+        <label>Corner Property</label>
+        {{ form.cornerProperty }}
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="form-card" id="step-4" data-prop-category-step="residential">
+    <h3 class="section-title">Residential Details</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>BHK Type</label>
+        {{ form.bhkType }}
+      </div>
+      <div class="form-group">
+        <label>Bedrooms</label>
+        {{ form.bedrooms }}
+      </div>
+      <div class="form-group">
+        <label>Bathrooms</label>
+        {{ form.bathrooms }}
+      </div>
+      <div class="form-group">
+        <label>Balconies</label>
+        {{ form.balconies }}
+      </div>
+      <div class="form-group">
+        <label>Kitchen</label>
+        {{ form.kitchen }}
+      </div>
+      <div class="form-group">
+        <label>Drawing Room</label>
+        {{ form.drawingRoom }}
+      </div>
+      <div class="form-group">
+        <label>Dining Room</label>
+        {{ form.diningRoom }}
+      </div>
+      <div class="form-group">
+        <label>Store Room</label>
+        {{ form.storeRoom }}
+      </div>
+      <div class="form-group">
+        <label>Servant Room</label>
+        {{ form.servantRoom }}
+      </div>
+      <div class="form-group">
+        <label>Pooja Room</label>
+        {{ form.poojaRoom }}
+      </div>
+      <div class="form-group">
+        <label>Study Room</label>
+        {{ form.studyRoom }}
+      </div>
+      <div class="form-group">
+        <label>Floor Number</label>
+        {{ form.floorNumber }}
+      </div>
+      <div class="form-group">
+        <label>Total Floors</label>
+        {{ form.totalFloors }}
+      </div>
+      <div class="form-group full-width">
+        <label>Property Facing</label>
+        <div class="full-width">{{ form.propertyFacing }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card" id="step-5" data-prop-category-step="agricultural">
+    <h3 class="section-title">Agricultural Land Details</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Land Area <span class="required">*</span></label>
+        {{ form.landArea }}
+      </div>
+      <div class="form-group">
+        <label>Land Unit</label>
+        {{ form.landUnit }}
+      </div>
+      <div class="form-group">
+        <label>Land Type</label>
+        {{ form.landType }}
+      </div>
+      <div class="form-group">
+        <label>Water Source</label>
+        {{ form.waterSource }}
+      </div>
+      <div class="form-group">
+        <label>Electricity Available</label>
+        {{ form.electricityAvailable }}
+      </div>
+      <div class="form-group">
+        <label>Road Access</label>
+        {{ form.roadAccess }}
+      </div>
+      <div class="form-group">
+        <label>Soil Type</label>
+        {{ form.soilType }}
+      </div>
+      <div class="form-group">
+        <label>Crop Type</label>
+        {{ form.cropType }}
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="form-card" id="step-6" data-prop-category-step="commercial">
+    <h3 class="section-title">Commercial Property Details</h3>
+    <div class="form-grid">
+      <div class="form-group full-width">
+        <label>Property Use</label>
+        {{ form.propertyUse }}
+      </div>
+      <div class="form-group">
+        <label>Parking Capacity</label>
+        {{ form.parkingCapacity }}
+      </div>
+      <div class="form-group">
+        <label>Loading Area (Sq Ft)</label>
+        {{ form.loadingArea }}
+      </div>
+      <div class="form-group">
+        <label>Storage Area (Sq Ft)</label>
+        {{ form.storageArea }}
+      </div>
+      <div class="form-group">
+        <label>Power Backup</label>
+        {{ form.powerBackup }}
+      </div>
+      <div class="form-group">
+        <label>Floor Number</label>
+        {{ form.field_cm_floor_number }}
+      </div>
+      <div class="form-group">
+        <label>Total Floors</label>
+        {{ form.field_commercial_total_floors }}
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="form-card" id="step-7">
+    <h3 class="section-title">Price Details</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Expected Price (₹) <span class="required">*</span></label>
+        {{ form.expectedPrice }}
+      </div>
+      <div class="form-group">
+        <label>Price Negotiable</label>
+        {{ form.priceNegotiable }}
+      </div>
+
+      <!-- Rent/Lease Only Fields -->
+      <div class="rent-field form-group">
+        <label>Monthly Rent (₹)</label>
+        {{ form.monthlyRent }}
+      </div>
+      <div class="rent-field form-group">
+        <label>Security Deposit (₹)</label>
+        {{ form.securityDeposit }}
+      </div>
+
+      <!-- Sale Only Fields -->
+      <div class="sale-field form-group">
+        <label>Booking Amount (₹)</label>
+        {{ form.bookingAmount }}
+      </div>
+      <div class="sale-field form-group">
+        <label>Token Amount (₹)</label>
+        {{ form.tokenAmount }}
+      </div>
+
+      <div class="form-group">
+        <label>Maintenance Charges (₹)</label>
+        {{ form.maintenanceCharges }}
+      </div>
+      <div class="form-group">
+        <label>Annual Property Tax (₹)</label>
+        {{ form.annualPropertyTax }}
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="form-card" id="step-8">
+    <h3 class="section-title">Document Details</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Ownership Type</label>
+        {{ form.ownershipType }}
+      </div>
+      <div class="form-group">
+        <label>Owner Name <span class="required">*</span></label>
+        {{ form.ownerName }}
+      </div>
+      <div class="form-group">
+        <label>Property ID Number</label>
+        {{ form.propertyIdNumber }}
+      </div>
+      <div class="form-group">
+        <label>Survey Number</label>
+        {{ form.surveyNumber }}
+      </div>
+      <div class="form-group">
+        <label>Khasra Number</label>
+        {{ form.khasraNumber }}
+      </div>
+      <div class="form-group">
+        <label>Khata Number</label>
+        {{ form.khataNumber }}
+      </div>
+      <div class="form-group">
+        <label>Registry Available</label>
+        {{ form.registryAvailable }}
+      </div>
+      <div class="form-group">
+        <label>Mutation Available</label>
+        {{ form.mutationAvailable }}
+      </div>
+      <div class="form-group">
+        <label>Approved Map</label>
+        {{ form.approvedMap }}
+      </div>
+      <div class="form-group">
+        <label>RERA Registered</label>
+        {{ form.reraRegistered }}
+      </div>
+      <div class="form-group">
+        <label>Property Dispute</label>
+        {{ form.propertyDispute }}
+      </div>
+      <div class="form-group">
+        <label>Loan Available</label>
+        {{ form.loanAvailable }}
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="form-card" id="step-9">
+    <h3 class="section-title">Media Upload</h3>
+    <div class="form-grid">
+      <div class="form-group full-width">
+        <label>Featured Image <span class="required">*</span></label>
+        <div class="full-width">{{ form.featuredImage }}</div>
+      </div>
+      <div class="form-group full-width">
+        <label>Property Gallery</label>
+        <div class="full-width">{{ form.propertyGallery }}</div>
+      </div>
+      <div class="form-group full-width">
+        <label>Property Video (URL)</label>
+        <div class="full-width">{{ form.propertyVideo }}</div>
+      </div>
+      <div class="form-group full-width">
+        <label>Upload Documents (Registry, Tax, Map)</label>
+        <div class="full-width">{{ form.documentsUpload }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 11 -->
+  <div class="form-card" id="step-10">
+    <h3 class="section-title">Contact Details</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Contact Name <span class="required">*</span></label>
+        {{ form.contactName }}
+      </div>
+      <div class="form-group">
+        <label>Contact Number <span class="required">*</span></label>
+        {{ form.contactNumber }}
+      </div>
+      <div class="form-group">
+        <label>WhatsApp Number</label>
+        {{ form.whatsappNumber }}
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        {{ form.emailAddress }}
+      </div>
+      <div class="form-group full-width">
+        <label>Best Time To Contact</label>
+        <div class="full-width">
+          {{ form.bestTimeToContact }}
+        </div>
+      </div>
+    </div>
+    <div class="full-width form-submit-wrapper">
+      {{ form.submit }}
+    </div>
+  </div>
+
+  <!-- IMPORTANT: Render remaining hidden/system elements -->
+  {{ form|without(
+    'propTitle','propPurpose','propCategory','propTypeWrapper',
+    'propDescription','propHighlights','country','state','district','city',
+    'locality','village','landmark','pincode','address','latitude','longitude',
+    'fetch_location','areaUnit','totalArea','builtupArea','carpetArea',
+    'superArea','frontWidth','roadWidth','length','width','cornerProperty',
+    'bhkType','bedrooms','bathrooms','balconies','kitchen','drawingRoom',
+    'diningRoom','storeRoom','servantRoom','poojaRoom','studyRoom',
+    'floorNumber','totalFloors','propertyFacing',
+    'landArea','landUnit','landType','waterSource','electricityAvailable',
+    'roadAccess','soilType','cropType',
+    'propertyUse','parkingCapacity','loadingArea','storageArea','powerBackup',
+    'field_cm_floor_number','field_commercial_total_floors',
+    'expectedPrice','priceNegotiable','monthlyRent','securityDeposit',
+    'bookingAmount','tokenAmount','maintenanceCharges','annualPropertyTax',
+    'amenities','ownershipType','ownerName','propertyIdNumber','surveyNumber',
+    'khasraNumber','khataNumber','registryAvailable','mutationAvailable',
+    'approvedMap','reraRegistered','propertyDispute','loanAvailable',
+    'featuredImage','propertyGallery','propertyVideo','documentsUpload',
+    'contactName','contactNumber','whatsappNumber','emailAddress','bestTimeToContact' ,  'submit'
+  ) }}
+</div>

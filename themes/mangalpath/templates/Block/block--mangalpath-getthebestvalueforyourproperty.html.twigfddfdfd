@@ -1,0 +1,50 @@
+<section class="property-hero">
+  <!-- Background Image -->
+  <div class="property-hero-bg"></div>
+  
+  <!-- Grid Pattern -->
+  <div class="hero-grid-pattern"></div>
+  
+  <!-- Floating Shapes -->
+  <div class="hero-shapes">
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="hero-shape hero-shape-3"></div>
+    <div class="hero-shape hero-shape-4"></div>
+  </div>
+
+  <div class="container">
+    <div class="property-hero-content">
+      <!-- Badge -->
+      <div class="hero-badge">
+        <i class="fa fa-plus-circle"></i> List Your Property
+      </div>
+      
+      <!-- Heading -->
+      <h1>Get the <span>Best Value</span><br>for Your Property</h1>
+      
+      <!-- Description -->
+      <p class="hero-desc">
+        Sell, Rent, or Lease your property faster with mangalpath. Reach thousands of genuine buyers across Rajasthan with zero brokerage hassles.
+      </p>
+      
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-val">10K+</div>
+          <div class="hero-stat-label">Active Listings</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-val">5K+</div>
+          <div class="hero-stat-label">Verified Buyers</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-val">98%</div>
+          <div class="hero-stat-label">Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>

@@ -1,0 +1,12 @@
+name: 'miniOrange OTP Verification'
+type: module
+package: OTP Verification
+core: 8.x
+core_version_requirement: ^8 || ^9.4 || ^10 || ^11
+description: 'Verifies Email Address/Mobile Number of users by sending verification code (OTP) during registration.'
+configure: otp_verification.customer_setup
+
+# Information added by Drupal.org packaging script on 2026-01-23
+version: '8.x-2.3'
+project: 'otp_verification'
+datestamp: 1769165296

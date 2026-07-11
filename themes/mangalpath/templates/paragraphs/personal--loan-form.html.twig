@@ -1,0 +1,186 @@
+<section class="py-section" id="enquiry-form">
+  <div class="container">
+    <div class="enq-card">
+      <h2 class="section-title text-start">Loan Application Form</h2>
+      <p class="section-sub text-start mb-4">Fill in the complete details below to apply for any type of loan (Home, Gold, Property, OD, etc.).</p>
+      
+      <!-- Form Container -->
+      <div id="applicationFormContainer">
+        <form id="loanForm">
+          
+          <!-- SECTION 1: APPLICANT DETAILS -->
+          <h5 class="text-primary fw-bold mb-3 border-bottom pb-2">Applicant Details</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">First Name *</label>
+              <input type="text" class="form-control" placeholder="Enter first name" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Last Name *</label>
+              <input type="text" class="form-control" placeholder="Enter last name" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Father's Name *</label>
+              <input type="text" class="form-control" placeholder="Enter father's name" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Mother's Name *</label>
+              <input type="text" class="form-control" placeholder="Enter mother's name" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Date of Birth</label>
+              <input type="date" class="form-control">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Gender</label>
+              <select class="form-control">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Caste / Category</label>
+              <select class="form-control">
+                <option>General</option>
+                <option>OBC</option>
+                <option>SC</option>
+                <option>ST</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email Address *</label>
+              <input type="email" class="form-control" placeholder="your@email.com" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Phone Number *</label>
+              <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+
+          <!-- SECTION 2: ADDRESS DETAILS -->
+          <h5 class="text-primary fw-bold mb-3 mt-4 border-bottom pb-2">Address Details</h5>
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label">Current Address *</label>
+              <textarea class="form-control" rows="2" placeholder="Full current address" required></textarea>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Permanent Address *</label>
+              <textarea class="form-control" rows="2" placeholder="Permanent address" required></textarea>
+            </div>
+          </div>
+
+          <!-- SECTION 3: PROFESSIONAL & FINANCIAL DETAILS -->
+          <h5 class="text-primary fw-bold mb-3 mt-4 border-bottom pb-2">Employment & Financial Details</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Employee Type *</label>
+              <select class="form-control">
+                <option value="">Select Type</option>
+                <option>Salaried</option>
+                <option>Self-Employed</option>
+                <option>Business Owner</option>
+                <option>Agriculturist</option>
+                <option>Student</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Annual Income (₹) *</label>
+              <input type="number" class="form-control" placeholder="e.g. 500000">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Current Running Loan?</label>
+              <div class="d-flex gap-4 mt-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="runningLoan" id="loanNo" value="no" checked onclick="toggleRunningLoan(false)">
+                  <label class="form-check-label" for="loanNo">No</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="runningLoan" id="loanYes" value="yes" onclick="toggleRunningLoan(true)">
+                  <label class="form-check-label" for="loanYes">Yes</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" id="existingLoanAmount" style="display: none;">
+              <label class="form-label">If Yes, Loan Amount (₹)</label>
+              <input type="number" class="form-control" placeholder="Enter outstanding amount">
+            </div>
+          </div>
+
+          <!-- SECTION 4: LOAN REQUIREMENTS -->
+          <h5 class="text-primary fw-bold mb-3 mt-4 border-bottom pb-2">Loan Requirements</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Type of Loan Applied For *</label>
+              <select class="form-control">
+                <option value="">Select Loan Type</option>
+                <option>Home Loan</option>
+                <option>Gold Loan</option>
+                <option>Loan Against Property</option>
+                <option>Car Loan</option>
+                <option>Personal Loan</option>
+                <option>Business Loan</option>
+                <option>Overdraft (OD)</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Required Amount (₹) *</label>
+              <input type="number" class="form-control" placeholder="e.g. 1000000">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Purpose of Loan *</label>
+              <input type="text" class="form-control" placeholder="Briefly describe why you need this loan">
+            </div>
+          </div>
+
+          <!-- SECTION 5: DOCUMENTS -->
+          <div class="row g-3 mt-2">
+            <div class="col-12">
+              <label class="form-label fw-bold text-primary">Upload Documents</label>
+            </div>
+            <div class="col-md-4">
+              <label for="pan-upload" class="file-upload-label">
+                <i class="fa fa-id-card mb-2 d-block" style="font-size:24px;"></i>
+                Upload PAN Card
+              </label>
+              <input type="file" id="pan-upload" class="d-none">
+            </div>
+            <div class="col-md-4">
+              <label for="aadhar-upload" class="file-upload-label">
+                <i class="fa fa-address-card mb-2 d-block" style="font-size:24px;"></i>
+                Upload Aadhar Card
+              </label>
+              <input type="file" id="aadhar-upload" class="d-none">
+            </div>
+            <div class="col-md-4">
+              <label for="photo-upload" class="file-upload-label">
+                <i class="fa fa-user mb-2 d-block" style="font-size:24px;"></i>
+                Upload Photo
+              </label>
+              <input type="file" id="photo-upload" class="d-none">
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <button type="submit" class="btn-submit">
+              <i class="fa fa-paper-plane me-2"></i> Submit Application
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Success Message (Hidden by default) -->
+      <div id="successMessage" class="success-message">
+        <div class="success-icon"><i class="fa fa-check-circle"></i></div>
+        <h3 class="fw-bold text-primary">Application Submitted!</h3>
+        <p class="text-muted mt-3">Thank you for applying with mangalpath. Our loan experts will review your details and contact you shortly.</p>
+        <button class="btn btn-outline-primary mt-3 rounded-pill px-4" onclick="resetForm()">Apply Another</button>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+name: Mangalpath
+description: "Mangalpath theme to design Mangalpath website"
+type: theme
+package: Custom
+core_version_requirement: ^9 || ^10 || ^11
+base theme: false 
+libraries:
+  - mangalpath/global-styling
+regions:
+  top_header: 'Top Header'
+  header: 'Header'
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  breadcrumb: 'Breadcrumb'
+  page_title: 'Page Title'
+  highlighted: 'Highlighted'
+  banner: 'Banner / Hero'
+  featured: 'Featured'
+  content_top: 'Content Top'
+  content: 'Content'
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  content_bottom: 'Content Bottom'
+  call_to_action: 'Call To Action'
+  pre_footer: 'Pre Footer'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+  footer_bottom: 'Footer Bottom'
+  nothing: "Nothing"

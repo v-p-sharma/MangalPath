@@ -1,0 +1,29 @@
+otp_verification.customer_setup:
+  route_name: otp_verification.customer_setup
+  title: 'Login'
+  weight: 10
+  base_route: otp_verification.customer_setup
+
+otp_verification.settings:
+  route_name: otp_verification.settings
+  title: 'Configurations'
+  weight: 20
+  base_route: otp_verification.customer_setup
+
+#otp_verification.configuration:
+#  route_name: otp_verification.configuration
+#  title: 'Configurations'
+#  weight: 30
+#  base_route: otp_verification.customer_setup
+
+#otp_verification.templates:
+#  route_name: otp_verification.templates
+#  title: 'Custom Templates'
+#  weight: 40
+#  base_route: otp_verification.customer_setup
+
+otp_verification.licensing:
+  route_name: otp_verification.licensing
+  title: 'Upgrade Plans'
+  weight: 30
+  base_route: otp_verification.customer_setup

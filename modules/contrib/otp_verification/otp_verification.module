@@ -1,0 +1,532 @@
+<?php
+use Drupal\Core\Form\FormStateInterface;
+/**
+ * @file
+ * Module file for miniOrange OTP Verification Module.
+ */
+use Drupal\otp_verification\MiniorangeOTPVerificationConstants;
+use Drupal\otp_verification\MiniorangeOTPVerificationCustomer;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\otp_verification\MiniorangeOtpUtilities;
+use Drupal\user\Entity\User;
+
+
+/**
+ * Implements hook_form_id_alter().
+ */
+function otp_verification_form_user_register_form_alter(&$form, &$form_state, $form_id)
+{
+
+    global $base_url;
+    $config = \Drupal::config('otp_verification.settings');
+
+    if (MiniorangeOtpUtilities::isCustomerRegistered()) {
+
+        MiniorangeOtpUtilities::isSessionStarted();
+
+        drupal_flush_all_caches();
+
+        $otp_options_email = $config->get('miniorange_otp_options_email');
+        $otp_options_phone = $config->get('miniorange_otp_options_phone');
+
+
+        $otp_options = $config->get('miniorange_otp_options');
+
+        $machine_name_of_phone_field = $config->get('machine_name_of_phone_field');
+        $domain_restriction_value = $config->get('miniorange_block_domain_value');
+
+        if (MiniorangeOtpUtilities::isCustomerRegistered() && ($domain_restriction_value == TRUE) && $otp_options === NULL) {
+            $email = isset($_POST['mail']) ? $_POST['mail'] : '';
+            if (!empty($email)) {
+                if (MiniorangeOtpUtilities::Is_Restricted_Domain($email) === TRUE) {
+
+                    $blocked_email_msg = $config->get('miniorange_blocked_email_message');
+                    if (!empty($blocked_email_msg))
+                        $response = new RedirectResponse($base_url . '/user/register?q=' . $blocked_email_msg);
+                    else
+                        $response = new RedirectResponse($base_url . '/user/register?q=You are not allowed to register. Please Contact your administrator. Your domain may be blocked by admin');
+
+                    $response->send();
+                    exit;
+
+                }
+            }
+        }
+
+        $form['actions']['#attributes']['class'][] = 'element-invisible';
+        $query_parameters = $_GET;
+
+        if (isset($query_parameters['q'])) {
+            \Drupal::messenger()->deleteAll();
+            \Drupal::messenger()->addMessage(t($query_parameters['q']), 'error');
+        }
+
+        // if( $otp_during_register == 1 && $otp_options == 0 ){
+        //     $form[$machine_name_of_phone_field]['#access'] = FALSE;
+        // }
+
+        if (!empty($otp_options)) {
+            $form[$machine_name_of_phone_field]['widget']['0']['value']['#description'] = t('Please enter the phone number with country code.');
+            $form[$machine_name_of_phone_field]['widget']['0']['value']['#attributes'] = array(
+                'class' => array('query_phone'),
+            );
+            $form[$machine_name_of_phone_field]['widget']['0']['value']['#id'] = 'query_phone';
+            $form[$machine_name_of_phone_field]['#attached'] = array(
+                'library' => 'otp_verification/otp_verification.phone',
+            );
+        }
+
+        // $form['actions']['submit']['#submit'][] = 'otp_verification_form_alter_submit';
+        array_unshift($form['#validate'], 'otp_verification_form_alter_submit');
+        return $form;
+    }
+}
+
+function otp_verification_form_user_admin_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+  $form['registration_cancellation']['user_email_verification']['#description'] = t('Require e-mail verification is enabled in form of OTP as you have enabled OTP Verification module. New user can set password on registration but the account will be created only on entering the OTP received.');
+  $form['registration_cancellation']['user_email_verification']['#disabled'] = TRUE;
+}
+
+function user_account_delete($uid)
+{
+    // Delete multiple.
+    $user_storage = \Drupal::entityTypeManager()->getStorage('user');
+    $users = $user_storage->loadMultiple(array($uid));
+    $user_storage->delete($users);
+}
+
+/**
+ * Implements hook_form_alter_submit().
+ */
+function otp_verification_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+    if ($form_id != 'user_register_form') {
+
+        MiniorangeOtpUtilities::set_otp_cookie('is_it_updation', 1);
+        $config = \Drupal::config('otp_verification.settings');
+        $machine_name_of_phone_field = $config->get('machine_name_of_phone_field');
+        $form[$machine_name_of_phone_field]['widget']['0']['value']['#description'] = t('Please enter the phone number with country code.');
+        $form[$machine_name_of_phone_field]['widget']['0']['value']['#attributes'] = array(
+            'class' => array('query_phone'),
+        );
+        $form[$machine_name_of_phone_field]['widget']['0']['value']['#id'] = 'query_phone';
+        $form[$machine_name_of_phone_field]['#attached'] = array(
+            'library' => 'otp_verification/otp_verification.phone',
+        );
+
+        $form['#validate'][] = 'update_profile_entry_in_table';
+
+    }
+}
+
+function update_profile_entry_in_table(&$form, FormStateInterface $form_state)
+{
+    global $base_url;
+    if (!array_key_exists('field_phone_number', $form_state->getValues())) {
+        return;
+    }
+    $current_phone_number = $form_state->getValues()['field_phone_number'][0]['value'];
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $phone = $user->get('field_phone_number')->value;
+    $email = $user->get('mail')->value;
+    $config = \Drupal::config('otp_verification.settings');
+    MiniorangeOtpUtilities::set_otp_cookie('current_phone_number', $current_phone_number);
+    $email = $form_state->getValue('mail');
+    if ($current_phone_number != '+' && $current_phone_number != $phone) {
+
+        global $_miniorange_otp_x, $invalidPhNo;
+        $current_phone_number = str_replace(" ", "", $current_phone_number);
+        $phone = $current_phone_number;
+        MiniorangeOtpUtilities::set_otp_cookie('phone_during_register', $phone);
+        $email = $form_state->getValue('mail');
+        if (MiniorangeOtpUtilities::Is_Restricted_Domain($email) === TRUE) {
+
+            $blocked_email_msg = $config->get('miniorange_blocked_email_message', '');
+            if (!empty($blocked_email_msg))
+                $response = new RedirectResponse($base_url . '/user?q=' . $blocked_email_msg);
+            else
+                $response = new RedirectResponse($base_url . '/user/register?q=You are not allowed to register. Please Contact your administrator. Your domain may be blocked by admin');
+
+            $response->send();
+            exit;
+        }
+
+        if (MiniorangeOtpUtilities::Is_Restricted_Country_Code($phone) === TRUE) {
+            $blocked_country_code_msg = $config->get('miniorange_blocked_phone_message', '');
+            if (!empty($blocked_country_code_msg))
+                $response = new RedirectResponse($base_url . '/user/register?q=' . $blocked_country_code_msg);
+            else
+                $response = new RedirectResponse($base_url . '/user/register?q=You are not allowed to register. Please contact your site administrator. Your country code may be blocked by admin.');
+
+            $response->send();
+            exit;
+        }
+
+        $ph_no = substr_count($phone, ' ');
+        $phno = mb_strlen($phone);
+        $phbr0 = mb_substr($phone, 0, 1);
+        $phbr1 = mb_substr($phone, 0, 4);
+        $phbr2 = mb_substr($phone, $phno - 2, $phno);
+
+        for ($i = 5; $i <= $phno - 2; $i++) {
+            $_miniorange_otp_x = "X" . $_miniorange_otp_x;
+        }
+
+        $ph_code = $phbr1 . $_miniorange_otp_x . $phbr2;
+
+        if ($ph_no > 0) {
+            $form['actions']['#disabled'] = TRUE;
+            $error = 'Remove spaces in the phone number field.';
+            $invalidPhNo = 1;
+        } elseif (!is_numeric($phone)) {
+            $invalidPhNo = 1;
+        } elseif ($phno < 9) {
+            $form['actions']['#disabled'] = TRUE;
+            $invalid_format_msg = $config->get('miniorange_invalid_format_message', '');
+
+            if (!empty($invalid_format_msg))
+                $error = $invalid_format_msg;
+            else
+                $error = 'Enter a valid phone number.';
+
+            $invalidPhNo = 1;
+        } elseif ($phbr0 != '+') {
+            $form['actions']['#disabled'] = TRUE;
+            $error = 'Enter a valid country code.';
+            $invalidPhNo = 1;
+        }
+
+        if ($invalidPhNo == 1) {
+            $form_state->setErrorByName('field_phone_number', t('The phone number is invalid.'));
+            return;
+        }
+
+        if (!$invalidPhNo == 1) {
+            if (!MiniorangeOtpUtilities::isCurlInstalled()) {
+                return json_encode(array(
+                    "status" => 'CURL_ERROR',
+                    "statusMessage" => '<a href="http://php.net/manual/en/curl.installation.php">PHP cURL extension</a> is not installed or disabled.',
+                ));
+            }
+            //$otp_options = 1;
+            list($trans_status, $tx_id) = MiniorangeOtpUtilities::sendToken($email, $phone);
+            \Drupal::messenger()->deleteAll();
+            if ($trans_status == "SUCCESS") {
+                MiniorangeOtpUtilities::isSessionStarted();
+                MiniorangeOtpUtilities::set_otp_cookie('trans_id', $tx_id);
+                MiniorangeOtpUtilities::set_otp_cookie('otp_status', 1);
+                $tx_id = base64_encode($tx_id);
+                $code = $ph_code;
+                unset($_GET['destination']);
+                $response = new RedirectResponse($base_url . '/register/user/otp?otpto=' . $code . '&tx_id=' . $tx_id);
+                $response->send();
+                exit;
+            } else {
+                $error_phone_msg = $config->get('miniorange_error_phone_otp_message', '');
+                if (!empty($error_phone_msg))
+                    $response = new RedirectResponse($base_url . '/user/register?q=' . $error_phone_msg);
+                else
+                    $response = new RedirectResponse($base_url . '/user/register?q=There was an error in sending the OTP.');
+                $response->send();
+                exit;
+            }
+        }
+    }
+
+}
+
+function otp_verification_form_alter_submit(&$form, FormStateInterface $form_state)
+{
+    if (user_load_by_name($form_state->getValue('name'))) {
+        return;
+    }
+
+    if (user_load_by_mail($form_state->getValue('mail'))) {
+        return;
+    }
+    if ($_POST['pass']['pass1'] != $_POST['pass']['pass2']) {
+        $form_state->setErrorByName('pass1', t('The specified passwords do not match.'));
+        return;
+    }
+    global $base_url;
+
+    MiniorangeOtpUtilities::set_otp_cookie('is_it_updation', 0);
+    $config = \Drupal::config('otp_verification.settings');
+    $db_var = \Drupal::configFactory()->getEditable('otp_verification.settings');
+
+    $machine_name_of_phone_field = $config->get('machine_name_of_phone_field');
+    $phone_during_register = isset($form[$machine_name_of_phone_field]['widget']['0']['value']['#value']) ? $form[$machine_name_of_phone_field]['widget']['0']['value']['#value'] : '';
+    $phone_during_register = str_replace(" ", "", $phone_during_register);
+   // $otp_duging_register = $config->get('miniorange_otp_during_registration');
+    $otp_options = $config->get('miniorange_otp_options');
+
+       if ($otp_options) {
+        global $_miniorange_otp_x, $invalidPhNo;
+       // $otp_options = $config->get('miniorange_otp_options');
+        unset($_GET['destination']);
+
+        MiniorangeOtpUtilities::isSessionStarted();
+
+        MiniorangeOtpUtilities::set_otp_cookie('arr2', $form_state->getUserInput());
+        if ($otp_options == 'email' || $otp_options == 'both') {
+            $email = $form_state->getValue('mail');
+            $phone = NULL;
+
+            if (MiniorangeOtpUtilities::Is_Restricted_Domain($email) === TRUE) {
+
+                $blocked_email_msg = $config->get('miniorange_blocked_email_message', '');
+                if (!empty($blocked_email_msg))
+                    $response = new RedirectResponse($base_url . '/user/register?q=' . $blocked_email_msg);
+                else
+                    $response = new RedirectResponse($base_url . '/user/register?q=You are not allowed to register. Please Contact your administrator. Your domain may be blocked by admin');
+
+                $response->send();
+                exit;
+            }
+
+            $form_state->set(['storage', 'miniorange_otp_uname'], $form_state->getValue('name'));
+            $form_state->set(['storage', 'miniorange_otp_mail'], $email);
+            $form_state->set(['storage', 'miniorange_otp_phone'], $form_state->getValue('phone'));
+            $form_state->set(['storage', 'miniorange_otp_pwd'], !empty($form_state->getValue('pass')) ? $form_state->getValue('pass') : '');
+            $form_state->set(['storage', 'rebuild'], TRUE);
+
+            $emailcount = mb_strlen($email);
+            $emailc1 = mb_substr($email, 0, 3);
+            $emailc2 = mb_substr($email, $emailcount - 4, $emailcount);
+
+            for ($i = 4; $i <= $emailcount - 4; $i++) {
+                $_miniorange_otp_x = "X" . $_miniorange_otp_x;
+            }
+            $email_code = $emailc1 . $_miniorange_otp_x . $emailc2;
+        }
+
+        if ($otp_options == 'phone' || $otp_options == 'both') {
+            $phone = $phone_during_register;
+
+            MiniorangeOtpUtilities::set_otp_cookie('phone_during_register', $phone);
+            $email = $form_state->getValue('mail');
+
+            if (MiniorangeOtpUtilities::Is_Restricted_Domain($email) === TRUE) {
+                $blocked_email_msg = $config->get('miniorange_blocked_email_message', '');
+                if (!empty($blocked_email_msg))
+                    $response = new RedirectResponse($base_url . '/user/register?q=' . $blocked_email_msg);
+                else
+                    $response = new RedirectResponse($base_url . '/user/register?q=You are not allowed to register. Please Contact your administrator. Your domain may be blocked by admin');
+
+                $response->send();
+                exit;
+            }
+
+            if (MiniorangeOtpUtilities::Is_Restricted_Country_Code($phone) === TRUE) {
+                $blocked_country_code_msg = $config->get('miniorange_blocked_phone_message', '');
+                if (!empty($blocked_country_code_msg))
+                    $response = new RedirectResponse($base_url . '/user/register?q=' . $blocked_country_code_msg);
+                else
+                    $response = new RedirectResponse($base_url . '/user/register?q=You are not allowed to register. Please contact your site administrator. Your country code may be blocked by admin.');
+
+                $response->send();
+                exit;
+            }
+
+            $ph_no = substr_count($phone, ' ');
+            $phno = mb_strlen($phone);
+            $phbr0 = mb_substr($phone, 0, 1);
+            $phbr1 = mb_substr($phone, 0, 4);
+            $phbr2 = mb_substr($phone, $phno - 2, $phno);
+
+            for ($i = 5; $i <= $phno - 2; $i++) {
+                $_miniorange_otp_x = "X" . $_miniorange_otp_x;
+            }
+
+            $ph_code = $phbr1 . $_miniorange_otp_x . $phbr2;
+
+            if ($ph_no > 0) {
+                $form['actions']['#disabled'] = TRUE;
+                $error = 'Remove spaces in the phone number field.';
+                $invalidPhNo = 1;
+            } elseif (!is_numeric($phone)) {
+                $invalidPhNo = 1;
+            } elseif ($phno < 9) {
+                $form['actions']['#disabled'] = TRUE;
+                $invalid_format_msg = $config->get('miniorange_invalid_format_message', '');
+
+                if (!empty($invalid_format_msg))
+                    $error = $invalid_format_msg;
+                else
+                    $error = 'Enter a valid phone number.';
+
+                $invalidPhNo = 1;
+            } elseif ($phbr0 != '+') {
+                $form['actions']['#disabled'] = TRUE;
+                $error = 'Enter a valid country code.';
+                $invalidPhNo = 1;
+            } else {
+                $form_state->set(['storage', 'miniorange_otp_uname'], $form_state->getValue('name'));
+                $form_state->set(['storage', 'miniorange_otp_mail'], $form_state->getValue('mail'));
+                $form_state->set(['storage', 'miniorange_otp_phone'], $form_state->getValue('phone'));
+                $form_state->set(['storage', 'miniorange_otp_pwd'], !empty($form_state->getValue('pass')) ? $form_state->getValue('pass') : '');
+                $form_state->set(['storage', 'rebuild'], TRUE);
+            }
+        }
+        if ($invalidPhNo == 1) {
+            $form_state->setErrorByName('field_phone_number', t('The phone number is invalid.'));
+            return;
+        }
+
+        if (!$invalidPhNo == 1) {
+            if (!MiniorangeOtpUtilities::isCurlInstalled()) {
+                return json_encode(array(
+                    "status" => 'CURL_ERROR',
+                    "statusMessage" => '<a href="http://php.net/manual/en/curl.installation.php">PHP cURL extension</a> is not installed or disabled.',
+                ));
+            }
+
+            list($trans_status, $tx_id) = MiniorangeOtpUtilities::sendToken($email, $phone);
+
+            \Drupal::messenger()->deleteAll();
+
+            if ($trans_status == "SUCCESS") {
+
+
+                MiniorangeOtpUtilities::isSessionStarted();
+
+                MiniorangeOtpUtilities::set_otp_cookie('trans_id', $tx_id);
+                MiniorangeOtpUtilities::set_otp_cookie('otp_status', 1);
+
+              $existing_roles = $form_state->getValue('roles') ?? [];
+
+              $assigned_roles = [];
+              $roles = \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
+
+              foreach ($roles as $role_id => $role) {
+                if ($form_state->hasValue($role_id) && $form_state->getValue($role_id)) {
+                  $assigned_roles[] = $role_id;
+                }
+              }
+
+              $final_roles = array_unique(array_merge($existing_roles, $assigned_roles));
+
+              $name = $form_state->getValue('name');
+              $email = $form_state->getValue('mail');
+              $password = $form_state->getValue('pass');
+
+              $user = User::create([
+                'name' => $name,
+                'mail' => $email,
+                'pass' => $password,
+                'status' => 0,
+                'roles' => $final_roles,
+              ]);
+
+              $user_fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('user', 'user');
+
+              foreach ($user_fields as $field_name => $field_definition) {
+                if (in_array($field_name, ['uid', 'name', 'mail', 'pass', 'status', 'roles'])) {
+                  continue;
+                }
+                if ($form_state->hasValue($field_name)) {
+                  $user->set($field_name, $form_state->getValue($field_name));
+                }
+              }
+              $user->save();
+
+                $tx_id = base64_encode($tx_id);
+
+                if($otp_options == 'both'){
+                  $code = $email_code.$ph_code;
+                }
+                if ($otp_options == 'email'){
+                  $code = $email_code;
+                }
+                if ($otp_options == 'phone'){
+                  $code = $ph_code;
+                }
+
+                unset($_GET['destination']);
+
+                global $base_url;
+
+                $response = new RedirectResponse($base_url . '/register/user/otp?otpto=' . $code . '&tx_id=' . $tx_id);
+
+                $response->send();
+
+                exit;
+
+            } else {
+
+                if ($otp_options == 'email') {
+                    $error_email_msg = $config->get('miniorange_error_email_otp_message', '');
+                    if (!empty($error_email_msg))
+                        $response = new RedirectResponse($base_url . '/user/register?q=' . $error_email_msg);
+                    else
+                        $response = new RedirectResponse($base_url . '/user/register?q=There was an error in sending the OTP.');
+                    $response->send();
+                    exit;
+                }
+
+                if ($otp_options == 'phone') {
+                    $error_phone_msg = $config->get('miniorange_error_phone_otp_message', '');
+                    if (!empty($error_phone_msg))
+                        $response = new RedirectResponse($base_url . '/user/register?q=' . $error_phone_msg);
+                    else
+                        $response = new RedirectResponse($base_url . '/user/register?q=There was an error in sending the OTP.');
+
+                    $response->send();
+                    exit;
+                }
+
+            }
+        } else {
+            $response = new RedirectResponse($base_url . '/user/register?q=' . $error);
+            $response->send();
+            exit;
+        }
+    }
+}
+
+function otp_verification_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'send_otp':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+
+/**
+ * The hook is implemented for MedImpact
+ * Sends OTP
+ */
+function otp_verification_sendOTP($phoneNumber, $Email)
+{
+    $response = list($trans_status, $tx_id) = MiniorangeOtpUtilities::sendToken('1', $Email, $phoneNumber);
+    return $trans_status == 'SUCCESS' ? $response : 'FAILED';
+}
+
+/**
+ * The hook is implemented for MedImpact
+ * Verifies OTP
+ */
+function otp_verification_verifyOTP($otp, $tx_id, $Email)
+{
+    $config = \Drupal::config('otp_verification.settings');
+    $url = MiniorangeOTPVerificationConstants::BASE_URL . '/moas/api/auth/validate';
+
+    $customer_key = $config->get('miniorange_otp_verification_customer_id');
+    $api_key = $config->get('miniorange_otp_verification_customer_api_key');
+
+    $fields = array(
+        'txId' => $tx_id,
+        'token' => $otp,
+        'customerKey' => $customer_key,
+        'username' => $Email,
+        'authType' => 'PHONE',
+    );
+
+    $mo_otp_verification_customer = new MiniorangeOTPVerificationCustomer(null, null, null, null, $customer_key, $api_key);
+    $content = $mo_otp_verification_customer->callService($url, $fields, true);
+    if (json_decode($content)->status != 'SUCCESS') {
+        \Drupal::logger('otp_verification')->error($content);
+    }
+    return json_decode($content)->status;
+}

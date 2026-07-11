@@ -1,0 +1,8 @@
+services:
+  plugin.manager.otp_sender:
+    class: Drupal\otp_verification\OtpSenderManager
+    arguments: ['@container.namespaces', '@cache.default', '@module_handler']
+
+  plugin.manager.otp_validation:
+    class: Drupal\otp_verification\OtpValidationPluginManager
+    arguments: [ '@container.namespaces', '@cache.default', '@module_handler' ]
