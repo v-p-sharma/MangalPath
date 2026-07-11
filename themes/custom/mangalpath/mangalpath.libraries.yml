@@ -11,4 +11,6 @@ global-styling:
     js/custom.js: {}
     
   dependencies:
+    - core/drupal
     - core/jquery
+    - core/once
