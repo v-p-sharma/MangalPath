@@ -7,6 +7,7 @@ dependencies:
     - node.type.property_listing_page
     - paragraphs.paragraphs_type.bottom_banner
     - paragraphs.paragraphs_type.get_in_touch
+    - paragraphs.paragraphs_type.property_view_filter_block
     - paragraphs.paragraphs_type.testimonials
     - paragraphs.paragraphs_type.why_mangalpath_realty
   module:
@@ -26,6 +27,7 @@ settings:
   handler_settings:
     target_bundles:
       bottom_banner: bottom_banner
+      property_view_filter_block: property_view_filter_block
       get_in_touch: get_in_touch
       testimonials: testimonials
       why_mangalpath_realty: why_mangalpath_realty
@@ -70,11 +72,20 @@ settings:
       home_why_choose_us_inner:
         weight: 38
         enabled: false
+      icon_class_title:
+        weight: 45
+        enabled: false
+      loan_calculator:
+        weight: 46
+        enabled: false
       our_services:
         weight: 39
         enabled: false
       our_services_inner:
         weight: 40
+        enabled: false
+      personal_loan_form:
+        weight: 49
         enabled: false
       process:
         weight: 41
@@ -82,8 +93,14 @@ settings:
       process_inner:
         weight: 42
         enabled: false
+      property_view_filter_block:
+        weight: 31
+        enabled: true
       single_links:
         weight: 43
+        enabled: false
+      single_loan_common_doc:
+        weight: 53
         enabled: false
       single_title:
         weight: 44
