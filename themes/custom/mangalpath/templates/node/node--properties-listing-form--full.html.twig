@@ -1,0 +1,1564 @@
+{{ attach_library('mangalpath/single-styling') }}
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home me-1"></i>Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Property</a></li>
+                <li class="breadcrumb-item"><a href="#">Residential</a></li>
+                <li class="breadcrumb-item"><a href="#">Flat / Apartment</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Luxury 3BHK Flat in Civil Lines</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- GALLERY -->
+<!-- <section class="gallery-section">
+    <div class="container">
+        <div class="gallery-main-wrap" data-aos="fade-up">
+            <img src="https://picsum.photos/seed/prop-main-1/1200/675.jpg" alt="Luxury 3BHK Flat" class="gallery-main" id="mainImage" onclick="openLightbox(0)">
+            <div class="gallery-badge-wrap">
+                <span class="gallery-badge badge-sell"><i class="fa fa-tag"></i> For Sale</span>
+                <span class="gallery-badge badge-featured"><i class="fa fa-star"></i> Featured</span>
+            </div>
+            <div class="gallery-count" onclick="openLightbox(0)"><i class="fa fa-images me-1"></i> View All 8 Photos</div>
+        </div>
+        <div class="gallery-thumbs" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://picsum.photos/seed/prop-main-1/300/200.jpg" alt="Thumb 1" class="gallery-thumb active" onclick="changeImage(this, 0)">
+            <img src="https://picsum.photos/seed/prop-kitchen-2/300/200.jpg" alt="Thumb 2" class="gallery-thumb" onclick="changeImage(this, 1)">
+            <img src="https://picsum.photos/seed/prop-bedroom-3/300/200.jpg" alt="Thumb 3" class="gallery-thumb" onclick="changeImage(this, 2)">
+            <img src="https://picsum.photos/seed/prop-living-4/300/200.jpg" alt="Thumb 4" class="gallery-thumb" onclick="changeImage(this, 3)">
+            <img src="https://picsum.photos/seed/prop-bath-5/300/200.jpg" alt="Thumb 5" class="gallery-thumb" onclick="changeImage(this, 4)">
+            <img src="https://picsum.photos/seed/prop-balcony-6/300/200.jpg" alt="Thumb 6" class="gallery-thumb" onclick="changeImage(this, 5)">
+            <img src="https://picsum.photos/seed/prop-exterior-7/300/200.jpg" alt="Thumb 7" class="gallery-thumb" onclick="changeImage(this, 6)">
+            <img src="https://picsum.photos/seed/prop-lobby-8/300/200.jpg" alt="Thumb 8" class="gallery-thumb" onclick="changeImage(this, 7)">
+        </div>
+    </div>
+</section> -->
+
+<section class="gallery-section">
+    <div class="container">
+
+        {% set featured_image = node.field_featured_image.entity %}
+        {% set gallery_images = node.field_property_gallery %}
+        {% set purpose = node.field_purpose_of.entity %}
+
+        <div class="gallery-main-wrap" data-aos="fade-up">
+
+            {% if featured_image %}
+            <img src="{{ file_url(featured_image.uri.value) }}" alt="{{ node.label }}" class="gallery-main"
+                id="mainImage" onclick="openLightbox(0)">
+            {% endif %}
+
+            <div class="gallery-badge-wrap">
+
+                {% if purpose %}
+                <span class="gallery-badge badge-sell">
+                    <i class="fa fa-tag"></i>
+                    {{ purpose.name.value }}
+                </span>
+                {% endif %}
+
+                <span class="gallery-badge badge-featured">
+                    <i class="fa fa-star"></i> Featured
+                </span>
+
+            </div>
+
+            <div class="gallery-count" onclick="openLightbox(0)">
+                <i class="fa fa-images me-1"></i>
+                View All {{ gallery_images|length + (featured_image ? 1 : 0) }} Photos
+            </div>
+
+        </div>
+
+        <div class="gallery-thumbs" data-aos="fade-up" data-aos-delay="100">
+
+            {% if featured_image %}
+            <img src="{{ file_url(featured_image.uri.value) }}" alt="{{ node.label }}" class="gallery-thumb active"
+                onclick="changeImage(this, 0)">
+            {% endif %}
+
+            {% for item in gallery_images %}
+
+            <img src="{{ file_url(item.entity.uri.value) }}" alt="{{ node.label }} {{ loop.index }}"
+                class="gallery-thumb" onclick="changeImage(this, {{ loop.index }})">
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<!-- PROPERTY HEADER + PRICE SIDEBAR -->
+<section class="prop-header">
+    <div class="container">
+        <div class="row g-4">
+            <!-- LEFT: Details -->
+            <div class="col-lg-8">
+                <div data-aos="fade-right">
+
+                    {% set property_type = node.field_property_type.entity %}
+                    {% set property_parent = property_type.parent.entity ?? null %}
+                    {% set ownership = node.field_ownership_type.value %}
+                    {% set purpose = node.field_purpose_of.entity %}
+
+                    <div class="prop-id-bar">
+                        <div class="prop-id">
+                            Property ID:
+                            <strong>{{ node.field_property_id_number.value }}</strong>
+                        </div>
+
+                        <div class="prop-posted">
+                            <i class="fa fa-calendar"></i>
+                            Posted on {{ node.getCreatedTime|date('d M Y') }}
+                        </div>
+                    </div>
+
+                    <h1 class="prop-title">{{ node.label }}</h1>
+
+                    <div class="prop-location">
+                        <i class="fa fa-map-marker-alt" style="color:var(--accent)"></i>
+
+                        <span>
+
+                            {% if node.field_locality.value %}
+                            {{ node.field_locality.value }},
+                            {% endif %}
+
+                            {% if node.field_city.value %}
+                            <a href="#">{{ node.field_city.value }}</a>,
+                            {% endif %}
+
+                            {% if node.field_state.value %}
+                            <a href="#">{{ node.field_state.value }}</a>
+                            {% endif %}
+
+                            {% if node.field_pincode.value %}
+                            — {{ node.field_pincode.value }}
+                            {% endif %}
+
+                        </span>
+                    </div>
+
+                    <div class="prop-tags">
+
+                        {% if property_type %}
+                        <span class="prop-tag">
+                            <i class="fa fa-home me-1"></i>
+                            {{ property_type.name.value }}
+                        </span>
+                        {% endif %}
+
+                        {% if property_parent %}
+                        <span class="prop-tag">
+                            <i class="fa fa-building me-1"></i>
+                            {{ property_parent.name.value }}
+                        </span>
+                        {% endif %}
+
+                        {# East Facing (No field available yet) #}
+                        <span class="prop-tag orange">
+                            <i class="fa fa-compass me-1"></i>
+                            East Facing
+                        </span>
+
+                        {% if node.field_floor_number.value %}
+                        <span class="prop-tag">
+                            <i class="fa fa-layer-group me-1"></i>
+                            {{ node.field_floor_number.value }}
+                        </span>
+                        {% endif %}
+
+                        {# RERA Registered (No field available yet) #}
+                        <span class="prop-tag orange">
+                            <i class="fa fa-certificate me-1"></i>
+                            RERA Registered
+                        </span>
+
+                        {% if ownership %}
+                        <span class="prop-tag">
+                            <i class="fa fa-key me-1"></i>
+                            {{ ownership }}
+                        </span>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="prop-actions">
+                        <button class="btn-action" id="likeBtn" onclick="toggleLike()">
+                            <i class="fa fa-heart"></i> Save
+                        </button>
+
+                        <button class="btn-action" id="shareBtn" onclick="shareProperty()">
+                            <i class="fa fa-share-nodes"></i> Share
+                        </button>
+
+                        <button class="btn-action" onclick="printPage()">
+                            <i class="fa fa-print"></i> Print
+                        </button>
+
+                        <button class="btn-action"
+                            onclick="showToast('Report submitted. We will review this listing.','fa-flag')">
+                            <i class="fa fa-flag"></i> Report
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- QUICK STATS -->
+                {% set property_parent = node.field_property_type.entity.parent.entity.name.value ?? '' %}
+
+                <div class="quick-stats" data-aos="fade-up" data-aos-delay="100">
+
+                    {# ================= Residential ================= #}
+                    {% if property_parent == 'Residential Properties' %}
+
+                    {% if node.field_bhk_type.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-bed"></i>
+                        <div class="qs-val">{{ node.field_bhk_type.value }}</div>
+                        <div class="qs-label">BHK</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_bathrooms.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-bath"></i>
+                        <div class="qs-val">{{ node.field_bathrooms.value }}</div>
+                        <div class="qs-label">Bathrooms</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_built_up_area.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-ruler-combined"></i>
+                        <div class="qs-val">{{ node.field_built_up_area.value }}</div>
+                        <div class="qs-label">Built-up Area</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_parking_capacity.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-car"></i>
+                        <div class="qs-val">{{ node.field_parking_capacity.value }}</div>
+                        <div class="qs-label">Parking</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_floor_number.value or node.field_total_floors.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-layer-group"></i>
+                        <div class="qs-val">{{ node.field_floor_number.value }} / {{ node.field_total_floors.value }}
+                        </div>
+                        <div class="qs-label">Floor</div>
+                    </div>
+                    {% endif %}
+
+                    {# Facing field not available #}
+                    <div class="qs-item">
+                        <i class="fa fa-compass"></i>
+                        <div class="qs-val">East</div>
+                        <div class="qs-label">Facing</div>
+                    </div>
+
+                    {% if node.field_carpet_area.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-couch"></i>
+                        <div class="qs-val">{{ node.field_carpet_area.value }}</div>
+                        <div class="qs-label">Carpet Area</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_super_area.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-expand"></i>
+                        <div class="qs-val">{{ node.field_super_area.value }}</div>
+                        <div class="qs-label">Super Area</div>
+                    </div>
+                    {% endif %}
+
+                    {# ================= Commercial ================= #}
+
+                    {% elseif property_parent == 'Commercial Properties' %}
+
+                    {% if node.field_built_up_area.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-ruler-combined"></i>
+                        <div class="qs-val">{{ node.field_built_up_area.value }}</div>
+                        <div class="qs-label">Built-up Area</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_loading_area_sq_ft.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-truck-loading"></i>
+                        <div class="qs-val">{{ node.field_loading_area_sq_ft.value }}</div>
+                        <div class="qs-label">Loading Area</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_storage_area_sq_ft.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-warehouse"></i>
+                        <div class="qs-val">{{ node.field_storage_area_sq_ft.value }}</div>
+                        <div class="qs-label">Storage Area</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_parking_capacity.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-car"></i>
+                        <div class="qs-val">{{ node.field_parking_capacity.value }}</div>
+                        <div class="qs-label">Parking</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_cm_floor_number.value or node.field_commercial_total_floors.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-layer-group"></i>
+                        <div class="qs-val">{{ node.field_cm_floor_number.value }} / {{
+                            node.field_commercial_total_floors.value }}</div>
+                        <div class="qs-label">Floor</div>
+                    </div>
+                    {% endif %}
+
+                    {# ================= Agricultural ================= #}
+
+                    {% elseif property_parent == 'Agricultural Properties' %}
+
+                    {% if node.field_ag_land_area.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-ruler-combined"></i>
+                        <div class="qs-val">{{ node.field_ag_land_area.value }} {{ node.field_ag_land_unit.value }}
+                        </div>
+                        <div class="qs-label">Land Area</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_ag_land_type.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-seedling"></i>
+                        <div class="qs-val">{{ node.field_ag_land_type.value }}</div>
+                        <div class="qs-label">Land Type</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_crop_type.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-leaf"></i>
+                        <div class="qs-val">{{ node.field_crop_type.value }}</div>
+                        <div class="qs-label">Crop Type</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_water_source.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-tint"></i>
+                        <div class="qs-val">{{ node.field_water_source.value }}</div>
+                        <div class="qs-label">Water Source</div>
+                    </div>
+                    {% endif %}
+
+                    {# ================= Land / Plot ================= #}
+
+                    {% elseif property_parent == 'Land / Plot' %}
+
+                    {% if node.field_total_area.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-ruler-combined"></i>
+                        <div class="qs-val">{{ node.field_total_area.value }}</div>
+                        <div class="qs-label">Total Area</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_length_ft.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-arrows-alt-h"></i>
+                        <div class="qs-val">{{ node.field_length_ft.value }}</div>
+                        <div class="qs-label">Length (Ft)</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_width_ft.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-arrows-alt-v"></i>
+                        <div class="qs-val">{{ node.field_width_ft.value }}</div>
+                        <div class="qs-label">Width (Ft)</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_road_width_ft.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-road"></i>
+                        <div class="qs-val">{{ node.field_road_width_ft.value }}</div>
+                        <div class="qs-label">Road Width</div>
+                    </div>
+                    {% endif %}
+
+                    {% endif %}
+
+                </div>
+
+                <!-- DETAIL TABS -->
+                <div data-aos="fade-up" data-aos-delay="150">
+                    <div class="detail-tabs">
+                        <button class="detail-tab active" onclick="switchTab('overview', this)"><i
+                                class="fa fa-info-circle"></i> Overview</button>
+                        <button class="detail-tab" onclick="switchTab('specs', this)"><i class="fa fa-list-check"></i>
+                            Specifications</button>
+                        <button class="detail-tab" onclick="switchTab('amenities', this)"><i class="fa fa-star"></i>
+                            Amenities</button>
+                        <button class="detail-tab" onclick="switchTab('location', this)"><i
+                                class="fa fa-map-location-dot"></i> Location</button>
+                        <button class="detail-tab" onclick="switchTab('documents', this)"><i
+                                class="fa fa-file-shield"></i> Documents</button>
+                    </div>
+
+                    <!-- TAB: OVERVIEW -->
+                    <div class="tab-panel active" id="tab-overview">
+                        <div class="info-card">
+                            <div class="info-card-title"><i class="fa fa-align-left"></i> Property Description</div>
+
+                            {% if node.body.value %}
+                            <div class="desc-text">
+                                {{ node.body.value|raw }}
+                            </div>
+                            {% endif %}
+
+                            {% if node.field_property_highlights.value %}
+                            <div class="highlight-box">
+                                <h6><i class="fa fa-bolt me-1"></i> Property Highlights</h6>
+
+                                <ul class="highlight-list">
+                                    {% for highlight in node.field_property_highlights.value|split(',') %}
+                                    {% if highlight|trim %}
+                                    <li>
+                                        <i class="fa fa-check"></i>
+                                        {{ highlight|trim }}
+                                    </li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- RENT SECTION (Hidden for Sale - shown as example structure) -->
+                        <!-- For rent properties, monthly rent & security deposit would appear here -->
+
+                        {% if node.field_purpose_of.entity and node.field_purpose_of.entity.name.value|lower == 'rent'
+                        %}
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-money-bill-wave"></i> Rental Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_monthly_rent.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Monthly Rent</span>
+                                    <span class="spec-value">₹{{ node.field_monthly_rent.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_security_deposit.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Security Deposit</span>
+                                    <span class="spec-value">₹{{ node.field_security_deposit.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_maintenance_charges.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Maintenance Charges</span>
+                                    <span class="spec-value">₹{{ node.field_maintenance_charges.value }}</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- SIZE OVERVIEW -->
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-ruler-combined"></i> Area Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_total_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Total Area</span>
+                                    <span class="spec-value">{{ node.field_total_area.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_carpet_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Carpet Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_carpet_area.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_built_up_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Built-up Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_built_up_area.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_super_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Super Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_super_area.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_ag_land_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Agricultural Land Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_ag_land_area.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_area_unit.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Area Unit</span>
+                                    <span class="spec-value">
+                                        {{ node.field_area_unit.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_expected_price.value and node.field_total_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Price</span>
+                                    <span class="spec-value" style="color:var(--accent)">
+                                        ₹{{ node.field_expected_price.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB: SPECIFICATIONS -->
+                    <div class="tab-panel" id="tab-specs">
+                        {% set property_parent = node.field_property_type.entity.parent.entity.name.value ?? '' %}
+
+                        {% if property_parent == 'Residential Properties' %}
+
+                        <div class="info-card">
+                            <div class="info-card-title"><i class="fa fa-bed"></i> Residential Details</div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_bhk_type.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">BHK Type</span>
+                                    <span class="spec-value">{{ node.field_bhk_type.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_bedrooms.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Bedrooms</span>
+                                    <span class="spec-value">{{ node.field_bedrooms.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_bathrooms.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Bathrooms</span>
+                                    <span class="spec-value">{{ node.field_bathrooms.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_balconies.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Balconies</span>
+                                    <span class="spec-value">{{ node.field_balconies.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_kitchen.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Kitchen</span>
+                                    <span class="spec-value">{{ node.field_kitchen.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_drawing_room.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Drawing Room</span>
+                                    <span class="spec-value">{{ node.field_drawing_room.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_dining_room.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Dining Room</span>
+                                    <span class="spec-value">{{ node.field_dining_room.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_store_room.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Store Room</span>
+                                    <span class="spec-value">{{ node.field_store_room.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_pooja_room.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Pooja Room</span>
+                                    <span class="spec-value">{{ node.field_pooja_room.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_study_room.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Study Room</span>
+                                    <span class="spec-value">{{ node.field_study_room.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_floor_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Floor Number</span>
+                                    <span class="spec-value">{{ node.field_floor_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_total_floors.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Total Floors</span>
+                                    <span class="spec-value">{{ node.field_total_floors.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {# Facing field not available in current content type #}
+
+                                {% if node.field_corner_property.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Corner Property</span>
+                                    <span class="spec-value">{{ node.field_corner_property.value }}</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+                        {% if property_parent == 'Commercial Properties' or property_parent == 'Industrial Properties'
+                        %}
+
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-building"></i> Commercial Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_cm_floor_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Floor Number</span>
+                                    <span class="spec-value">{{ node.field_cm_floor_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_commercial_total_floors.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Total Floors</span>
+                                    <span class="spec-value">{{ node.field_commercial_total_floors.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_loading_area_sq_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Loading Area</span>
+                                    <span class="spec-value">{{ node.field_loading_area_sq_ft.value }} Sq. Ft.</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_storage_area_sq_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Storage Area</span>
+                                    <span class="spec-value">{{ node.field_storage_area_sq_ft.value }} Sq. Ft.</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_parking_capacity.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Parking Capacity</span>
+                                    <span class="spec-value">{{ node.field_parking_capacity.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                <div class="spec-item">
+                                    <span class="spec-label">Electricity Available</span>
+                                    <span class="spec-value">
+                                        {{ node.field_electricity_available.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+
+                                <div class="spec-item">
+                                    <span class="spec-label">Power Backup</span>
+                                    <span class="spec-value">
+                                        {{ node.field_power_backup.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+
+                                <div class="spec-item">
+                                    <span class="spec-label">Road Access</span>
+                                    <span class="spec-value">
+                                        {{ node.field_road_access.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+
+                                <div class="spec-item">
+                                    <span class="spec-label">Loan Available</span>
+                                    <span class="spec-value">
+                                        {{ node.field_loan_available.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+
+                                {% if node.field_approved_map.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Approved Map</span>
+                                    <span class="spec-value">{{ node.field_approved_map.value }}</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        {% endif %}
+                        {% if property_parent == 'Agricultural Properties' %}
+
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-seedling"></i> Agricultural Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_ag_land_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Agricultural Land Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_ag_land_area.value }}
+                                        {% if node.field_ag_land_unit.value %}
+                                        {{ node.field_ag_land_unit.value }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_ag_land_type.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Land Type</span>
+                                    <span class="spec-value">{{ node.field_ag_land_type.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_crop_type.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Crop Type</span>
+                                    <span class="spec-value">{{ node.field_crop_type.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_soil_type.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Soil Type</span>
+                                    <span class="spec-value">{{ node.field_soil_type.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_water_source.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Water Source</span>
+                                    <span class="spec-value">{{ node.field_water_source.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_khasra_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Khasra Number</span>
+                                    <span class="spec-value">{{ node.field_khasra_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_khata_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Khata Number</span>
+                                    <span class="spec-value">{{ node.field_khata_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_survey_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Survey Number</span>
+                                    <span class="spec-value">{{ node.field_survey_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                <div class="spec-item">
+                                    <span class="spec-label">Electricity Available</span>
+                                    <span class="spec-value">
+                                        {{ node.field_electricity_available.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+
+                                <div class="spec-item">
+                                    <span class="spec-label">Road Access</span>
+                                    <span class="spec-value">
+                                        {{ node.field_road_access.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+
+                                <div class="spec-item">
+                                    <span class="spec-label">Mutation Available</span>
+                                    <span class="spec-value">
+                                        {{ node.field_mutation_available.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+
+                                <div class="spec-item">
+                                    <span class="spec-label">Registry Available</span>
+                                    <span class="spec-value">
+                                        {{ node.field_registry_available.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {% endif %}
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-ruler-combined"></i> Size Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_total_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Total Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_total_area.value }}
+                                        {% if node.field_area_unit.value %}
+                                        {{ node.field_area_unit.value }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_carpet_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Carpet Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_carpet_area.value }}
+                                        {% if node.field_area_unit.value %}
+                                        {{ node.field_area_unit.value }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_built_up_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Built-up Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_built_up_area.value }}
+                                        {% if node.field_area_unit.value %}
+                                        {{ node.field_area_unit.value }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_super_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Super Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_super_area.value }}
+                                        {% if node.field_area_unit.value %}
+                                        {{ node.field_area_unit.value }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_ag_land_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Agricultural Land Area</span>
+                                    <span class="spec-value">
+                                        {{ node.field_ag_land_area.value }}
+                                        {% if node.field_ag_land_unit.value %}
+                                        {{ node.field_ag_land_unit.value }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_front_width_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Front Width</span>
+                                    <span class="spec-value">
+                                        {{ node.field_front_width_ft.value }} Ft.
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_width_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Width</span>
+                                    <span class="spec-value">
+                                        {{ node.field_width_ft.value }} Ft.
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_length_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Length</span>
+                                    <span class="spec-value">
+                                        {{ node.field_length_ft.value }} Ft.
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_road_width_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Road Width</span>
+                                    <span class="spec-value">
+                                        {{ node.field_road_width_ft.value }} Ft.
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_area_unit.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Area Unit</span>
+                                    <span class="spec-value">
+                                        {{ node.field_area_unit.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- TAB: AMENITIES -->
+                    <div class="tab-panel" id="tab-amenities">
+                        <div class="info-card">
+                            <div class="info-card-title"><i class="fa fa-star"></i> Amenities & Features</div>
+                            <div class="amenities-grid">
+                                <div class="amenity-item"><i class="fa fa-car"></i> Parking</div>
+                                <div class="amenity-item"><i class="fa fa-elevator"></i> Lift</div>
+                                <div class="amenity-item"><i class="fa fa-bolt"></i> Power Backup</div>
+                                <div class="amenity-item"><i class="fa fa-swimmer"></i> Swimming Pool</div>
+                                <div class="amenity-item"><i class="fa fa-dumbbell"></i> Gym</div>
+                                <div class="amenity-item"><i class="fa fa-tree"></i> Garden</div>
+                                <div class="amenity-item"><i class="fa fa-users"></i> Club House</div>
+                                <div class="amenity-item"><i class="fa fa-shield-alt"></i> Security</div>
+                                <div class="amenity-item"><i class="fa fa-video"></i> CCTV</div>
+                                <div class="amenity-item"><i class="fa fa-child"></i> Play Area</div>
+                                <div class="amenity-item"><i class="fa fa-wifi"></i> Internet</div>
+                                <div class="amenity-item"><i class="fa fa-tint"></i> Water Supply</div>
+                                <div class="amenity-item"><i class="fa fa-fire"></i> Gas Pipeline</div>
+                                <div class="amenity-item"><i class="fa fa-cloud-rain"></i> Rain Harvesting</div>
+                                <div class="amenity-item"><i class="fa fa-solar-panel"></i> Solar System</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB: LOCATION -->
+                    <div class="tab-panel" id="tab-location">
+
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-map-location-dot"></i> Location on Map
+                            </div>
+
+                            {% if node.field_latitude.value and node.field_longitude.value %}
+
+                            <div class="map-placeholder">
+                                <iframe width="100%" height="350" frameborder="0" style="border:0;border-radius:12px;"
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                    src="https://maps.google.com/maps?q={{ node.field_latitude.value }},{{ node.field_longitude.value }}&z=15&output=embed">
+                                </iframe>
+
+                                <span style="font-size:11px;color:var(--text-muted);font-weight:600;">
+                                    Lat: {{ node.field_latitude.value }} |
+                                    Lng: {{ node.field_longitude.value }}
+                                </span>
+                            </div>
+
+                            {% else %}
+
+                            <div class="map-placeholder">
+                                <i class="fa fa-map-marked-alt"></i>
+                                <p>Location not available</p>
+                            </div>
+
+                            {% endif %}
+
+                            <div class="location-addr">
+                                <i class="fa fa-map-pin"></i>
+
+                                <div class="addr-text">
+
+                                    {% if node.field_complete_address.value %}
+                                    {{ node.field_complete_address.value }}
+                                    {% endif %}
+
+                                    <span>
+
+                                        {% if node.field_locality.value %}
+                                        {{ node.field_locality.value }},
+                                        {% endif %}
+
+                                        {% if node.field_city.value %}
+                                        {{ node.field_city.value }},
+                                        {% endif %}
+
+                                        {% if node.field_state.value %}
+                                        {{ node.field_state.value }}
+                                        {% endif %}
+
+                                        {% if node.field_pincode.value %}
+                                        — {{ node.field_pincode.value }}
+                                        {% endif %}
+
+                                    </span>
+
+                                    {% if node.field_landmark.value %}
+                                    <span>
+                                        Landmark: {{ node.field_landmark.value }}
+                                    </span>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-location-crosshairs"></i> Location Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_country.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Country</span>
+                                    <span class="spec-value">{{ node.field_country.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_state.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">State</span>
+                                    <span class="spec-value">{{ node.field_state.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_district.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">District</span>
+                                    <span class="spec-value">{{ node.field_district.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_city.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">City</span>
+                                    <span class="spec-value">{{ node.field_city.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_locality.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Locality</span>
+                                    <span class="spec-value">{{ node.field_locality.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_village.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Village</span>
+                                    <span class="spec-value">{{ node.field_village.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_pincode.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Pincode</span>
+                                    <span class="spec-value">{{ node.field_pincode.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_landmark.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Landmark</span>
+                                    <span class="spec-value">{{ node.field_landmark.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_latitude.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Latitude</span>
+                                    <span class="spec-value">{{ node.field_latitude.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_longitude.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Longitude</span>
+                                    <span class="spec-value">{{ node.field_longitude.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_road_width_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Road Width</span>
+                                    <span class="spec-value">{{ node.field_road_width_ft.value }} Ft.</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- TAB: DOCUMENTS -->
+                    <div class="tab-panel" id="tab-documents">
+                        <div class="info-card">
+
+                            <div class="info-card-title">
+                                <i class="fa fa-file-shield"></i> Document & Legal Status
+                            </div>
+
+                            <div class="spec-grid" style="margin-bottom:20px;">
+
+                                {% if node.field_ownership_type.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Ownership Type</span>
+                                    <span class="spec-value">{{ node.field_ownership_type.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_owner_name.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Owner Name</span>
+                                    <span class="spec-value">{{ node.field_owner_name.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_property_id_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Property ID</span>
+                                    <span class="spec-value">{{ node.field_property_id_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_survey_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Survey Number</span>
+                                    <span class="spec-value">{{ node.field_survey_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_khasra_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Khasra Number</span>
+                                    <span class="spec-value">{{ node.field_khasra_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_khata_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Khata Number</span>
+                                    <span class="spec-value">{{ node.field_khata_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+
+                            <h6 style="font-size:15px;font-weight:800;color:var(--primary-dark);margin-bottom:14px;">
+                                Document Availability
+                            </h6>
+
+                            <div class="doc-grid">
+
+                                <div class="doc-item {{ node.field_registry_available.value ? 'available' : '' }}">
+                                    <i
+                                        class="fa {{ node.field_registry_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="doc-label">Registry Available</span>
+                                </div>
+
+                                <div class="doc-item {{ node.field_mutation_available.value ? 'available' : '' }}">
+                                    <i
+                                        class="fa {{ node.field_mutation_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="doc-label">Mutation Done</span>
+                                </div>
+
+                                {% if node.field_approved_map.value %}
+                                <div class="doc-item available">
+                                    <i class="fa fa-circle-check"></i>
+                                    <span class="doc-label">Approved Map</span>
+                                </div>
+                                {% endif %}
+
+                                <div class="doc-item {{ node.field_loan_available.value ? 'available' : '' }}">
+                                    <i
+                                        class="fa {{ node.field_loan_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="doc-label">Loan Available</span>
+                                </div>
+
+                                {% if node.field_upload_documents.entity %}
+                                <div class="doc-item available">
+                                    <i class="fa fa-file-arrow-down"></i>
+                                    <span class="doc-label">
+                                        <a href="{{ file_url(node.field_upload_documents.entity.fileuri) }}"
+                                            target="_blank">
+                                            View Uploaded Document
+                                        </a>
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: SIDEBAR -->
+            <div class="col-lg-4">
+                <div data-aos="fade-left">
+
+                    <!-- PRICE CARD -->
+                    <div class="price-card">
+
+                        {% if node.field_purpose_of.entity.name.value|lower == 'rent' %}
+
+                        <div class="price-main">
+                            ₹{{ node.field_monthly_rent.value }}
+                            <small style="font-size:18px;">/ Month</small>
+                        </div>
+
+                        {% else %}
+
+                        <div class="price-main">
+                            ₹{{ node.field_expected_price.value }}
+                        </div>
+
+                        {% endif %}
+
+                        {# Price Per Sq Ft (No calculation because no business logic should be added) #}
+                        {#
+                        <div class="price-per-sqft">
+                            ₹3,793 per Sq. Ft.
+                        </div>
+                        #}
+
+                        {% if node.field_price_negotiable.value %}
+                        <div class="price-negotiable">
+                            <i class="fa fa-handshake"></i>
+                            Price Negotiable
+                        </div>
+                        {% endif %}
+
+                        <div class="price-breakdown">
+
+                            {% if node.field_expected_price.value %}
+                            <div class="price-row">
+                                <span class="label">Expected Price</span>
+                                <span class="value">₹{{ node.field_expected_price.value }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if node.field_monthly_rent.value %}
+                            <div class="price-row">
+                                <span class="label">Monthly Rent</span>
+                                <span class="value">₹{{ node.field_monthly_rent.value }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if node.field_security_deposit.value %}
+                            <div class="price-row">
+                                <span class="label">Security Deposit</span>
+                                <span class="value">₹{{ node.field_security_deposit.value }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if node.field_maintenance_charges.value %}
+                            <div class="price-divider"></div>
+
+                            <div class="price-row">
+                                <span class="label">Maintenance / Month</span>
+                                <span class="value">
+                                    ₹{{ node.field_maintenance_charges.value }}
+                                </span>
+                            </div>
+                            {% endif %}
+
+                            {% if node.field_annual_property_tax.value %}
+                            <div class="price-row">
+                                <span class="label">Annual Property Tax</span>
+                                <span class="value">
+                                    ₹{{ node.field_annual_property_tax.value }}
+                                </span>
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                        {# EMI field not available in current content type #}
+
+                    </div>
+
+                    <!-- AGENT CARD -->
+                    <div class="agent-card">
+
+                        <div class="agent-header">
+
+                            <div class="agent-avatar">
+                                {{ node.field_owner_name.value|first|upper }}
+                            </div>
+
+                            <div class="agent-name">
+                                {{ node.field_owner_name.value }}
+                            </div>
+
+                            <div class="agent-role">
+                                Property Owner
+                            </div>
+
+                        </div>
+
+                        <div class="agent-body">
+
+                            {% if node.field_contact_number.value %}
+                            <div class="agent-contact-item">
+                                <div class="ac-icon blue">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+
+                                <a href="tel:+91{{ node.field_contact_number.value }}">
+                                    +91 {{ node.field_contact_number.value }}
+                                </a>
+                            </div>
+                            {% endif %}
+
+                            {% if node.field_whatsapp_number.value %}
+                            <div class="agent-contact-item">
+                                <div class="ac-icon green">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+
+                                <a href="https://wa.me/91{{ node.field_whatsapp_number.value }}">
+                                    +91 {{ node.field_whatsapp_number.value }}
+                                </a>
+                            </div>
+                            {% endif %}
+
+                            {% if node.field_email_address.value %}
+                            <div class="agent-contact-item">
+                                <div class="ac-icon orange">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+
+                                <a href="mailto:{{ node.field_email_address.value }}">
+                                    {{ node.field_email_address.value }}
+                                </a>
+                            </div>
+                            {% endif %}
+
+                            <button class="btn-enquiry" onclick="openEnquiry()">
+                                <i class="fa fa-comment-dots me-2"></i>Send Enquiry
+                            </button>
+
+                            {% if node.field_whatsapp_number.value %}
+                            <a href="https://wa.me/91{{ node.field_whatsapp_number.value }}?text=Hi, I'm interested in your property: {{ node.label|url_encode }} ({{ node.field_property_id_number.value|url_encode }}). Please share more details."
+                                class="btn-whatsapp-agent" target="_blank">
+
+                                <i class="fab fa-whatsapp me-2"></i>
+                                Chat on WhatsApp
+                            </a>
+                            {% endif %}
+
+                            {% if node.field_best_time_to_contact.value %}
+                            <div class="best-time">
+                                <i class="fa fa-clock"></i>
+                                Best time to contact:
+                                {{ node.field_best_time_to_contact.value }}
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SIMILAR PROPERTIES -->
+<section class="similar-section">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <div class="section-badge">Similar Properties</div>
+            <h2 class="section-title">Properties You May <span>Like</span></h2>
+            <div class="section-line center"></div>
+            <p class="section-sub mt-3">Explore more options matching your requirements in Jaipur.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                <div class="sim-card">
+                    <img src="https://picsum.photos/seed/sim-prop-1/600/375.jpg" alt="Similar Property"
+                        class="sim-card-img">
+                    <div class="sim-card-body">
+                        <h5>Modern 2BHK Flat in Vaishali Nagar</h5>
+                        <div class="sim-loc"><i class="fa fa-map-marker-alt"></i> Vaishali Nagar, Jaipur</div>
+                        <div class="sim-stats-row">
+                            <span class="sim-stat"><i class="fa fa-bed"></i> 2 BHK</span>
+                            <span class="sim-stat"><i class="fa fa-ruler-combined"></i> 1,100 Sq Ft</span>
+                            <span class="sim-stat"><i class="fa fa-layer-group"></i> 5th Floor</span>
+                        </div>
+                        <div class="sim-price">₹38,00,000 <span>| ₹3,455/sqft</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+                <div class="sim-card">
+                    <img src="https://picsum.photos/seed/sim-prop-2/600/375.jpg" alt="Similar Property"
+                        class="sim-card-img">
+                    <div class="sim-card-body">
+                        <h5>Premium 3BHK in Mansarovar</h5>
+                        <div class="sim-loc"><i class="fa fa-map-marker-alt"></i> Mansarovar, Jaipur</div>
+                        <div class="sim-stats-row">
+                            <span class="sim-stat"><i class="fa fa-bed"></i> 3 BHK</span>
+                            <span class="sim-stat"><i class="fa fa-ruler-combined"></i> 1,500 Sq Ft</span>
+                            <span class="sim-stat"><i class="fa fa-layer-group"></i> 3rd Floor</span>
+                        </div>
+                        <div class="sim-price">₹52,00,000 <span>| ₹3,467/sqft</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+                <div class="sim-card">
+                    <img src="https://picsum.photos/seed/sim-prop-3/600/375.jpg" alt="Similar Property"
+                        class="sim-card-img">
+                    <div class="sim-card-body">
+                        <h5>Luxury 4BHK Villa in Tonk Road</h5>
+                        <div class="sim-loc"><i class="fa fa-map-marker-alt"></i> Tonk Road, Jaipur</div>
+                        <div class="sim-stats-row">
+                            <span class="sim-stat"><i class="fa fa-bed"></i> 4 BHK</span>
+                            <span class="sim-stat"><i class="fa fa-ruler-combined"></i> 2,200 Sq Ft</span>
+                            <span class="sim-stat"><i class="fa fa-car"></i> 2 Parking</span>
+                        </div>
+                        <div class="sim-price">₹85,00,000 <span>| ₹3,864/sqft</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+                <div class="sim-card">
+                    <img src="https://picsum.photos/seed/sim-prop-4/600/375.jpg" alt="Similar Property"
+                        class="sim-card-img">
+                    <div class="sim-card-body">
+                        <h5>Affordable 1BHK Near Jagatpura</h5>
+                        <div class="sim-loc"><i class="fa fa-map-marker-alt"></i> Jagatpura, Jaipur</div>
+                        <div class="sim-stats-row">
+                            <span class="sim-stat"><i class="fa fa-bed"></i> 1 BHK</span>
+                            <span class="sim-stat"><i class="fa fa-ruler-combined"></i> 650 Sq Ft</span>
+                            <span class="sim-stat"><i class="fa fa-layer-group"></i> 8th Floor</span>
+                        </div>
+                        <div class="sim-price">₹22,00,000 <span>| ₹3,385/sqft</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="fa fa-times"></i></button>
+    <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)"><i class="fa fa-chevron-left"></i></button>
+    <img src="" alt="Property Image" class="lightbox-img" id="lightboxImg">
+    <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)"><i class="fa fa-chevron-right"></i></button>
+    <div class="lightbox-counter" id="lightboxCounter">1 / 8</div>
+</div>
+
+<div class="modal-overlay" id="enquiryModal">
+    <div class="modal-box">
+        <div class="modal-header-bar">
+            <h3><i class="fa fa-comment-dots me-2"></i>Send Enquiry</h3>
+            <button class="modal-close" onclick="closeEnquiry()"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <p style="font-size:13px;color:var(--text-muted);font-weight:600;margin-bottom:18px;">
+                Property: <strong style="color:var(--primary-dark)">Luxury 3BHK Flat in Civil Lines, Jaipur</strong><br>
+                Price: <strong style="color:var(--accent)">₹55,00,000</strong>
+            </p>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+                <div>
+                    <label class="form-label">Full Name <span style="color:#ef4444">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter your full name" id="eqName">
+                </div>
+                <div>
+                    <label class="form-label">Phone Number <span style="color:#ef4444">*</span></label>
+                    <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" id="eqPhone">
+                </div>
+                <div>
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" placeholder="your@email.com" id="eqEmail">
+                </div>
+                <div>
+                    <label class="form-label">Your Message</label>
+                    <textarea class="form-control" rows="3"
+                        placeholder="I'm interested in this property. Please share more details..." id="eqMsg"
+                        style="resize:vertical;"></textarea>
+                </div>
+                <div>
+                    <label class="form-label">When do you plan to visit?</label>
+                    <select class="form-select" id="eqVisit">
+                        <option value="">Select</option>
+                        <option>This Week</option>
+                        <option>Next Week</option>
+                        <option>This Month</option>
+                        <option>Not Sure Yet</option>
+                    </select>
+                </div>
+                <button class="btn-submit-enquiry" onclick="submitEnquiry()"><i class="fa fa-paper-plane me-2"></i>Send
+                    Enquiry</button>
+            </div>
+        </div>
+    </div>
+</div>
+

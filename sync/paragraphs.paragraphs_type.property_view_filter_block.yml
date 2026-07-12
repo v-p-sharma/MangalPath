@@ -1,0 +1,10 @@
+uuid: 719717d0-dc51-4beb-979b-73fb2efc0b3a
+langcode: en-gb
+status: true
+dependencies: {  }
+id: property_view_filter_block
+label: 'Property view filter block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

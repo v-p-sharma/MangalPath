@@ -1,0 +1,23 @@
+uuid: c3aea36e-e77d-4538-8f35-becd93e7ea92
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.vehicle_sell
+  module:
+    - node
+id: vehicle_details_page
+label: 'Vehicle Details page'
+type: 'canonical_entities:node'
+pattern: '/vehicles/[node:title]/[node:nid]'
+selection_criteria:
+  3d5b74c3-f000-4c93-9d29-08bfa24cb278:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      vehicle_sell: vehicle_sell
+selection_logic: and
+weight: -5
+relationships: {  }
