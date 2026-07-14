@@ -1,0 +1,1244 @@
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home me-1"></i>Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Buy Vehicles</a></li>
+                <li class="breadcrumb-item"><a href="#">Sedan</a></li>
+                <li class="breadcrumb-item"><a href="#">Honda</a></li>
+                <li class="breadcrumb-item active" aria-current="page">2022 Honda City ZX CVT</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- GALLERY -->
+{% set featured_image = node.field_featured_image.entity %}
+{% set gallery = node.field_property_gallery %}
+{% set purpose = node.field_vehicle_purpose.entity %}
+{% set condition = node.field_vehicle_condition.value %}
+
+<section class="gallery-section">
+    <div class="container">
+
+        <div class="gallery-main-wrap" data-aos="fade-up">
+
+            {% if featured_image %}
+            <img src="{{ file_url(featured_image.uri.value) }}" alt="{{ node.label }}" class="gallery-main"
+                id="mainImage" onclick="openLightbox(0)">
+            {% endif %}
+
+            <div class="gallery-badge-wrap">
+
+                {% if purpose %}
+                <span class="gallery-badge badge-sell">
+                    <i class="fa fa-tag"></i>
+
+                    {% if purpose.name.value|lower == 'rent' %}
+                    For Rent
+                    {% else %}
+                    For Sale
+                    {% endif %}
+                </span>
+                {% endif %}
+
+                {% if node.isPromoted() %}
+                <span class="gallery-badge badge-featured">
+                    <i class="fa fa-star"></i>
+                    Featured
+                </span>
+                {% endif %}
+
+                {% if condition %}
+                <span class="gallery-badge badge-condition">
+                    <i class="fa fa-circle-check"></i>
+                    {{ condition }}
+                </span>
+                {% endif %}
+
+            </div>
+
+            {% set total_images = gallery|length + (featured_image ? 1 : 0) %}
+
+            {% if total_images > 1 %}
+            <div class="gallery-count" onclick="openLightbox(0)">
+                <i class="fa fa-images me-1"></i>
+                View All {{ total_images }} Photos
+            </div>
+            {% endif %}
+
+        </div>
+
+        {% if featured_image or gallery %}
+        <div class="gallery-thumbs" data-aos="fade-up" data-aos-delay="100">
+
+            {% if featured_image %}
+            <img src="{{ file_url(featured_image.uri.value) }}" alt="{{ node.label }}" class="gallery-thumb active"
+                onclick="changeImage(this,0)">
+            {% endif %}
+
+            {% for item in gallery %}
+            {% if item.entity %}
+            <img src="{{ file_url(item.entity.uri.value) }}" alt="{{ node.label }}" class="gallery-thumb"
+                onclick="changeImage(this,{{ loop.index }})">
+            {% endif %}
+            {% endfor %}
+
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+<!-- VEHICLE HEADER + SIDEBAR -->
+<section class="v-header">
+    <div class="container">
+        <div class="row g-4">
+            <!-- LEFT -->
+            <div class="col-lg-8">
+                {# Vehicle Purpose #}
+                {% set purpose = node.field_vehicle_purpose.entity ? node.field_vehicle_purpose.entity.name.value|lower
+                : '' %}
+                {% set is_rent = purpose == 'rent' %}
+                {% set is_sale = purpose == 'sale' %}
+                <div data-aos="fade-right">
+
+                    <div class="v-id-bar">
+                        <div class="v-id">
+                            Listing ID:
+                            <strong>{{ node.field_property_id_number.value ?: node.id }}</strong>
+                        </div>
+
+                        <div class="v-posted">
+                            <i class="fa fa-calendar"></i>
+                            Posted on {{ node.getCreatedTime|date('d M Y') }}
+                        </div>
+                    </div>
+
+                    <h1 class="v-title">{{ node.label }}</h1>
+
+                    <div class="v-reg-row">
+
+                        {% if node.field_registration_number.value %}
+                        <div class="reg-plate">
+                            <i class="fa fa-id-card"></i>
+                            {{ node.field_registration_number.value }}
+                        </div>
+                        {% endif %}
+
+                        {% if node.field_city.value or node.field_road_width_ft.value %}
+                        <div class="v-location">
+                            <i class="fa fa-map-marker-alt" style="color:var(--accent)"></i>
+
+                            {% if node.field_city.value %}
+                            <a href="#">{{ node.field_city.value }}</a>
+                            {% endif %}
+
+                            {% if node.field_road_width_ft.value %}
+                            , <a href="#">{{ node.field_road_width_ft.value }}</a>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="v-tags">
+
+                        {% if node.field_vehical_type.entity %}
+                        <span class="v-tag">
+                            <i class="fa fa-car me-1"></i>
+                            {{ node.field_vehical_type.entity.name.value }}
+                        </span>
+                        {% endif %}
+
+                        {% if node.field_fuel_type.entity %}
+                        <span class="v-tag orange">
+                            <i class="fa fa-gas-pump me-1"></i>
+                            {{ node.field_fuel_type.entity.name.value }}
+                        </span>
+                        {% endif %}
+
+                        {% if node.field_transmission.value %}
+                        <span class="v-tag">
+                            <i class="fa fa-gear me-1"></i>
+                            {{ node.field_transmission.value }}
+                        </span>
+                        {% endif %}
+
+                        {% if is_sale and node.field_security_deposit.value %}
+                        <span class="v-tag green">
+                            <i class="fa fa-user me-1"></i>
+                            {{ node.field_security_deposit.value }}
+                        </span>
+                        {% endif %}
+
+                        {% if node.field_vehicle_condition.value %}
+                        <span class="v-tag">
+                            <i class="fa fa-star me-1"></i>
+                            {{ node.field_vehicle_condition.value }}
+                        </span>
+                        {% endif %}
+
+                        {% if is_sale and node.field_loan_available.value %}
+                        <span class="v-tag orange">
+                            <i class="fa fa-shield-halved me-1"></i>
+                            Insurance Available
+                        </span>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="v-actions">
+                        <button class="btn-action" id="likeBtn" onclick="toggleLike()">
+                            <i class="fa fa-heart"></i> Save
+                        </button>
+
+                        <button class="btn-action" id="shareBtn" onclick="shareProperty()">
+                            <i class="fa fa-share-nodes"></i> Share
+                        </button>
+
+                        <button class="btn-action" onclick="printPage()">
+                            <i class="fa fa-print"></i> Print
+                        </button>
+
+                        <button class="btn-action"
+                            onclick="showToast('Report submitted. We will review this listing.','fa-flag')">
+                            <i class="fa fa-flag"></i> Report
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- QUICK STATS -->
+                <div class="quick-stats" data-aos="fade-up" data-aos-delay="100">
+
+                    {% if node.field_fuel_type.entity %}
+                    <div class="qs-item">
+                        <i class="fa fa-gas-pump"></i>
+                        <div class="qs-val">{{ node.field_fuel_type.entity.name.value }}</div>
+                        <div class="qs-label">Fuel Type</div>
+                    </div>
+                    {% endif %}
+
+                    {% if node.field_transmission.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-gear"></i>
+                        <div class="qs-val">{{ node.field_transmission.value }}</div>
+                        <div class="qs-label">Transmission</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_sale and node.field_odometer_reading_km.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-road"></i>
+                        <div class="qs-val">{{ node.field_odometer_reading_km.value }}</div>
+                        <div class="qs-label">KM Driven</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_sale and node.field_manufacturing_year.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-calendar"></i>
+                        <div class="qs-val">{{ node.field_manufacturing_year.value|date('Y') }}</div>
+                        <div class="qs-label">Year</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_sale and node.field_engine_capacity_cc.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-gauge-high"></i>
+                        <div class="qs-val">{{ node.field_engine_capacity_cc.value }}</div>
+                        <div class="qs-label">Engine</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_sale and node.field_mileage_km_l.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-tachometer-alt"></i>
+                        <div class="qs-val">{{ node.field_mileage_km_l.value }}</div>
+                        <div class="qs-label">Mileage</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_sale and node.field_security_deposit.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-user"></i>
+                        <div class="qs-val">{{ node.field_security_deposit.value }}</div>
+                        <div class="qs-label">Ownership</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_sale and node.field_super_area.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-palette"></i>
+                        <div class="qs-val">{{ node.field_super_area.value }}</div>
+                        <div class="qs-label">Color</div>
+                    </div>
+                    {% endif %}
+
+                    {# Rent Specific Stats #}
+
+                    {% if is_rent and node.field_driver_included.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-id-badge"></i>
+                        <div class="qs-val">{{ node.field_driver_included.value ? 'Yes' : 'No' }}</div>
+                        <div class="qs-label">Driver Included</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_rent and node.field_rent_price_day.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-indian-rupee-sign"></i>
+                        <div class="qs-val">₹{{ node.field_rent_price_day.value }}</div>
+                        <div class="qs-label">Per Day</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_rent and node.field_rent_price_km.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-road"></i>
+                        <div class="qs-val">₹{{ node.field_rent_price_km.value }}</div>
+                        <div class="qs-label">Per KM</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_rent and node.field_available_from.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-calendar-check"></i>
+                        <div class="qs-val">{{ node.field_available_from.value|date('d M Y') }}</div>
+                        <div class="qs-label">Available From</div>
+                    </div>
+                    {% endif %}
+
+                    {% if is_rent and node.field_available_to.value %}
+                    <div class="qs-item">
+                        <i class="fa fa-calendar-xmark"></i>
+                        <div class="qs-val">{{ node.field_available_to.value|date('d M Y') }}</div>
+                        <div class="qs-label">Available To</div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+                <!-- TABS -->
+                <div data-aos="fade-up" data-aos-delay="150">
+                    {% if is_sale %}
+
+                    <div class="detail-tabs">
+
+                        <button class="detail-tab active" onclick="switchTab('overview',this)">
+                            <i class="fa fa-info-circle"></i> Overview
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('specs',this)">
+                            <i class="fa fa-list-check"></i> Specifications
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('features',this)">
+                            <i class="fa fa-star"></i> Features
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('condition',this)">
+                            <i class="fa fa-shield-halved"></i> Condition
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('documents',this)">
+                            <i class="fa fa-file-shield"></i> Documents
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('location',this)">
+                            <i class="fa fa-map-location-dot"></i> Location
+                        </button>
+
+                    </div>
+
+                    {% else %}
+
+                    <div class="detail-tabs">
+
+                        <button class="detail-tab active" onclick="switchTab('overview',this)">
+                            <i class="fa fa-info-circle"></i> Overview
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('specs',this)">
+                            <i class="fa fa-list-check"></i> Specifications
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('rental',this)">
+                            <i class="fa fa-calendar-check"></i> Rental Details
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('features',this)">
+                            <i class="fa fa-star"></i> Features
+                        </button>
+
+                        <button class="detail-tab" onclick="switchTab('location',this)">
+                            <i class="fa fa-map-location-dot"></i> Location
+                        </button>
+
+                    </div>
+
+                    {% endif %}
+
+                    <!-- TAB: OVERVIEW -->
+                    <div class="tab-panel active" id="tab-overview">
+
+                        <div class="info-card">
+
+                            <div class="info-card-title">
+                                <i class="fa fa-align-left"></i>
+                                Vehicle Description
+                            </div>
+
+                            {% if node.body.value %}
+                            <div class="desc-text">
+                                {{ content.body }}
+                            </div>
+                            {% endif %}
+
+                            {% if node.field_property_highlights.value %}
+                            <div class="highlight-box">
+
+                                <h6>
+                                    <i class="fa fa-bolt me-1"></i>
+                                    {% if is_rent %}
+                                    Rental Highlights
+                                    {% else %}
+                                    Key Highlights
+                                    {% endif %}
+                                </h6>
+
+                                <ul class="highlight-list">
+
+                                    {% for item in node.field_property_highlights.value|split(',') %}
+                                    {% if item|trim %}
+                                    <li>
+                                        <i class="fa fa-check"></i>
+                                        {{ item|trim }}
+                                    </li>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                </ul>
+
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                    <!-- TAB: SPECIFICATIONS -->
+                    <div class="tab-panel" id="tab-specs">
+
+                        <!-- Basic Details -->
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-car"></i> Basic Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_vehicle_brand.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Brand</span>
+                                    <span class="spec-value">{{ node.field_vehicle_brand.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_model.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Model</span>
+                                    <span class="spec-value">{{ node.field_model.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_variant.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Variant</span>
+                                    <span class="spec-value">{{ node.field_variant.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_vehical_type.entity %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Category</span>
+                                    <span class="spec-value">{{ node.field_vehical_type.entity.name.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_manufacturing_year.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Manufacturing Year</span>
+                                    <span class="spec-value">{{ node.field_manufacturing_year.value|date('Y') }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_registration_year.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Registration Year</span>
+                                    <span class="spec-value">{{ node.field_registration_year.value|date('Y') }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_registration_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Registration No.</span>
+                                    <span class="spec-value">{{ node.field_registration_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_super_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Color</span>
+                                    <span class="spec-value">{{ node.field_super_area.value }}</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <!-- Engine & Performance -->
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-gauge-high"></i> Engine & Performance
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_fuel_type.entity %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Fuel Type</span>
+                                    <span class="spec-value">{{ node.field_fuel_type.entity.name.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_engine_capacity_cc.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Engine Capacity</span>
+                                    <span class="spec-value">{{ node.field_engine_capacity_cc.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_transmission.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Transmission</span>
+                                    <span class="spec-value">{{ node.field_transmission.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_mileage_km_l.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Mileage</span>
+                                    <span class="spec-value">{{ node.field_mileage_km_l.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_drive_type.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Drive Type</span>
+                                    <span class="spec-value">{{ node.field_drive_type.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {# EV Only #}
+                                {% if node.field_total_area.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Battery Capacity</span>
+                                    <span class="spec-value">{{ node.field_total_area.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_survey_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Range</span>
+                                    <span class="spec-value">{{ node.field_survey_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <!-- Dimensions & Capacity -->
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-ruler-combined"></i> Dimensions & Capacity
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_state.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Seating Capacity</span>
+                                    <span class="spec-value">{{ node.field_state.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_soil_type.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">No. of Doors</span>
+                                    <span class="spec-value">{{ node.field_soil_type.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_load_capacity_tons.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Load Capacity</span>
+                                    <span class="spec-value">{{ node.field_load_capacity_tons.value }}</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <!-- Usage Details -->
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-road"></i> Usage Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_odometer_reading_km.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Odometer Reading</span>
+                                    <span class="spec-value">{{ node.field_odometer_reading_km.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if is_sale and node.field_security_deposit.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">No. of Owners</span>
+                                    <span class="spec-value">{{ node.field_security_deposit.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_vehicle_condition.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Vehicle Condition</span>
+                                    <span class="spec-value">{{ node.field_vehicle_condition.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_power_backup.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Accidental History</span>
+                                    <span class="spec-value">
+                                        {{ node.field_power_backup.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- TAB: FEATURES -->
+                    <div class="tab-panel" id="tab-features">
+
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-star"></i>
+                                {% if is_rent %}
+                                Rental Information
+                                {% else %}
+                                Vehicle Information
+                                {% endif %}
+                            </div>
+
+                            <div class="alert alert-light mb-0">
+                                <i class="fa fa-circle-info me-2 text-primary"></i>
+
+                                {% if is_rent %}
+                                The owner has not added any additional rental features or amenities for this vehicle.
+                                {% else %}
+                                No additional vehicle features or accessories have been provided by the seller.
+                                {% endif %}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- TAB: CONDITION -->
+                    <div class="tab-panel" id="tab-condition">
+
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-star-half-stroke"></i> Vehicle Condition
+                            </div>
+
+                            <div class="cond-grid">
+
+                                {% if node.field_power_backup is not empty %}
+                                <div class="cond-item {{ node.field_power_backup.value ? 'no' : 'yes' }}">
+                                    <i
+                                        class="fa {{ node.field_power_backup.value ? 'fa-circle-xmark' : 'fa-circle-check' }}"></i>
+                                    <span class="cond-label">
+                                        {{ node.field_power_backup.value ? 'Accidental History Found' : 'No Accident
+                                        History' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_price_negotiable is not empty %}
+                                <div class="cond-item {{ node.field_price_negotiable.value ? 'no' : 'yes' }}">
+                                    <i
+                                        class="fa {{ node.field_price_negotiable.value ? 'fa-circle-xmark' : 'fa-circle-check' }}"></i>
+                                    <span class="cond-label">
+                                        {{ node.field_price_negotiable.value ? 'Flood Damage Reported' : 'No Flood
+                                        Damage' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_registry_available is not empty %}
+                                <div class="cond-item {{ node.field_registry_available.value ? 'yes' : 'no' }}">
+                                    <i
+                                        class="fa {{ node.field_registry_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="cond-label">
+                                        Service History {{ node.field_registry_available.value ? 'Available' : 'Not
+                                        Available' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_road_access is not empty %}
+                                <div class="cond-item {{ node.field_road_access.value ? 'yes' : 'no' }}">
+                                    <i
+                                        class="fa {{ node.field_road_access.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="cond-label">
+                                        Warranty {{ node.field_road_access.value ? 'Available' : 'Not Available' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-card-title">
+                                <i class="fa fa-clipboard-list"></i> Condition Summary
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_vehicle_condition.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Overall Condition</span>
+                                    <span class="spec-value" style="color:var(--green)">
+                                        {{ node.field_vehicle_condition.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_odometer_reading_km.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Odometer Reading</span>
+                                    <span class="spec-value">
+                                        {{ node.field_odometer_reading_km.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_security_deposit.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">No. of Owners</span>
+                                    <span class="spec-value">
+                                        {{ node.field_security_deposit.value }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_power_backup is not empty %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Accidental</span>
+                                    <span class="spec-value">
+                                        {{ node.field_power_backup.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_price_negotiable is not empty %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Flood Damage</span>
+                                    <span class="spec-value">
+                                        {{ node.field_price_negotiable.value ? 'Yes' : 'No' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_registry_available is not empty %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Service Records</span>
+                                    <span class="spec-value">
+                                        {{ node.field_registry_available.value ? 'Available' : 'Not Available' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_road_access is not empty %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Warranty</span>
+                                    <span class="spec-value">
+                                        {{ node.field_road_access.value ? 'Available' : 'Not Available' }}
+                                    </span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- TAB: DOCUMENTS -->
+                    <div class="tab-panel" id="tab-documents">
+
+                        <div class="info-card">
+
+                            <div class="info-card-title">
+                                <i class="fa fa-file-shield"></i> Document Status
+                            </div>
+
+                            <div class="doc-grid">
+
+                                {% if node.field_electricity_available is not empty %}
+                                <div
+                                    class="doc-item {{ node.field_electricity_available.value ? 'available' : 'unavailable' }}">
+                                    <i
+                                        class="fa {{ node.field_electricity_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="doc-label">RC Available</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_loan_available is not empty %}
+                                <div
+                                    class="doc-item {{ node.field_loan_available.value ? 'available' : 'unavailable' }}">
+                                    <i
+                                        class="fa {{ node.field_loan_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="doc-label">Insurance Available</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_mutation_available is not empty %}
+                                <div
+                                    class="doc-item {{ node.field_mutation_available.value ? 'available' : 'unavailable' }}">
+                                    <i
+                                        class="fa {{ node.field_mutation_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="doc-label">PUC Certificate</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_registry_available is not empty %}
+                                <div
+                                    class="doc-item {{ node.field_registry_available.value ? 'available' : 'unavailable' }}">
+                                    <i
+                                        class="fa {{ node.field_registry_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="doc-label">Service Records</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_vehicle_loan_available is not empty %}
+                                <div
+                                    class="doc-item {{ node.field_vehicle_loan_available.value ? 'available' : 'unavailable' }}">
+                                    <i
+                                        class="fa {{ node.field_vehicle_loan_available.value ? 'fa-circle-check' : 'fa-circle-xmark' }}"></i>
+                                    <span class="doc-label">Loan Available</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        <div class="info-card">
+
+                            <div class="info-card-title">
+                                <i class="fa fa-file-lines"></i> Document Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_registration_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Registration No.</span>
+                                    <span class="spec-value">{{ node.field_registration_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_width_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Chassis Number</span>
+                                    <span class="spec-value">{{ node.field_width_ft.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_whatsapp_number.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Engine Number</span>
+                                    <span class="spec-value">{{ node.field_whatsapp_number.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_rc.entity %}
+                                <div class="spec-item">
+                                    <span class="spec-label">RC Copy</span>
+                                    <span class="spec-value">Uploaded</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_insurance_copy.entity %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Insurance Copy</span>
+                                    <span class="spec-value">Uploaded</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_puc_certificate.entity %}
+                                <div class="spec-item">
+                                    <span class="spec-label">PUC Certificate</span>
+                                    <span class="spec-value">Uploaded</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_other_documents_noc_transf.entity %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Other Documents</span>
+                                    <span class="spec-value">Uploaded</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- TAB: LOCATION -->
+                    <div class="tab-panel" id="tab-location">
+
+                        <div class="info-card">
+
+                            <div class="info-card-title">
+                                <i class="fa fa-map-location-dot"></i> Vehicle Location
+                            </div>
+
+                            <div
+                                style="width:100%;height:300px;border-radius:12px;overflow:hidden;background:var(--light-bg);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+
+                                <i class="fa fa-map-marked-alt"
+                                    style="font-size:40px;color:var(--primary);opacity:.3;"></i>
+
+                                <p style="font-size:13px;color:var(--text-muted);font-weight:600;">
+                                    Map location is not available.
+                                </p>
+
+                            </div>
+
+                            {% if node.field_vehi_complete_address.value %}
+                            <div
+                                style="background:var(--light-bg);border-radius:10px;padding:16px 20px;margin-top:14px;display:flex;gap:12px;align-items:flex-start;">
+
+                                <i class="fa fa-map-pin" style="color:var(--accent);font-size:18px;margin-top:2px;"></i>
+
+                                <div style="font-size:13.5px;color:var(--text);font-weight:600;line-height:1.7;">
+
+                                    {{ node.field_vehi_complete_address.value }}
+
+                                </div>
+
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                        <div class="info-card">
+
+                            <div class="info-card-title">
+                                <i class="fa fa-location-crosshairs"></i> Location Details
+                            </div>
+
+                            <div class="spec-grid">
+
+                                {% if node.field_city.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">City</span>
+                                    <span class="spec-value">{{ node.field_city.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_district.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">District</span>
+                                    <span class="spec-value">{{ node.field_district.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_road_width_ft.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">State</span>
+                                    <span class="spec-value">{{ node.field_road_width_ft.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_country.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Country</span>
+                                    <span class="spec-value">{{ node.field_country.value }}</span>
+                                </div>
+                                {% endif %}
+
+                                {% if node.field_pincode.value %}
+                                <div class="spec-item">
+                                    <span class="spec-label">Pincode</span>
+                                    <span class="spec-value">{{ node.field_pincode.value }}</span>
+                                </div>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <div class="col-lg-4">
+                <div data-aos="fade-left">
+                    <!-- PRICE CARD -->
+                    <div class="price-card">
+
+    {% if is_rent %}
+
+        <div class="price-main">
+            ₹{{ node.field_expected_selling_price.value ?: '0' }}
+            <small>/ KM</small>
+        </div>
+
+    {% else %}
+
+        <div class="price-main">
+            ₹{{ node.field_expected_selling_price.value|number_format }}
+        </div>
+
+    {% endif %}
+
+    {% if node.field_vehicle_price_negotiable.value %}
+        <div class="price-negotiable">
+            <i class="fa fa-handshake"></i>
+            Price Negotiable
+        </div>
+    {% endif %}
+
+    <div class="price-tags">
+
+        {% if node.field_vehicle_loan_available.value %}
+            <span class="price-tag yes">
+                <i class="fa fa-circle-check"></i>
+                Loan Available
+            </span>
+        {% endif %}
+
+        {% if node.field_emi_available.value %}
+            <span class="price-tag yes">
+                <i class="fa fa-circle-check"></i>
+                EMI Available
+            </span>
+        {% endif %}
+
+        {% if node.field_exchange_possible.value %}
+            <span class="price-tag yes">
+                <i class="fa fa-circle-check"></i>
+                Exchange Available
+            </span>
+        {% else %}
+            <span class="price-tag no">
+                <i class="fa fa-circle-xmark"></i>
+                No Exchange
+            </span>
+        {% endif %}
+
+    </div>
+
+</div>
+
+                    <!-- SELLER CARD -->
+                    <div class="agent-card">
+
+    <div class="agent-header">
+
+        <div class="agent-avatar">
+            {{ node.field_seller_name.value|first|upper }}
+        </div>
+
+        <div class="agent-name">
+            {{ node.field_seller_name.value }}
+        </div>
+
+        <div class="agent-role">
+            {{ node.field_seller_type.value }}
+        </div>
+
+    </div>
+
+    <div class="agent-body">
+
+        {% if node.field_contact_number.value %}
+        <div class="agent-contact-item">
+            <div class="ac-icon blue">
+                <i class="fa fa-phone"></i>
+            </div>
+
+            <a href="tel:{{ node.field_contact_number.value }}">
+                {{ node.field_contact_number.value }}
+            </a>
+        </div>
+        {% endif %}
+
+        {% if node.field_owner_name.value %}
+        <div class="agent-contact-item">
+
+            <div class="ac-icon green">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+
+            <a target="_blank"
+               href="https://wa.me/91{{ node.field_owner_name.value }}">
+                {{ node.field_owner_name.value }}
+            </a>
+
+        </div>
+        {% endif %}
+
+        <button class="btn-enquiry"
+                onclick="openEnquiry()">
+            <i class="fa fa-comment-dots me-2"></i>
+            Send Enquiry
+        </button>
+
+        {% if node.field_owner_name.value %}
+        <a class="btn-whatsapp-agent"
+           target="_blank"
+           href="https://wa.me/91{{ node.field_owner_name.value }}">
+
+            <i class="fab fa-whatsapp me-2"></i>
+
+            Chat on WhatsApp
+
+        </a>
+        {% endif %}
+
+        {% if node.field_best_time_to_contact.value %}
+        <div class="best-time">
+
+            <i class="fa fa-clock"></i>
+
+            Available :
+
+            {{ node.field_best_time_to_contact.value }}
+
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+                    <!-- SAFETY TIPS -->
+                    <div class="safety-tips">
+                        <h6><i class="fa fa-shield-halved"></i> Safety Tips for Buyers</h6>
+                        <ul>
+                            <li>Always inspect the vehicle in person before making payment</li>
+                            <li>Verify RC, insurance, and PUC documents physically</li>
+                            <li>Take a test drive and check engine performance</li>
+                            <li>Never pay advance before seeing the vehicle</li>
+                            <li>Complete transfer at RTO to avoid legal issues</li>
+                            <li>Get the vehicle inspected by a trusted mechanic</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SIMILAR VEHICLES -->
+<section class="similar-section">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <div class="section-badge">Similar Vehicles</div>
+            <h2 class="section-title">Vehicles You May <span>Like</span></h2>
+            <div class="section-line center"></div>
+            <p class="section-sub mt-3">Explore more sedans and cars in Jaipur matching your budget.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                <div class="sim-card" onclick="showToast('Vehicle detail page will open','fa-car')">
+                    <img src="https://picsum.photos/seed/sim-v-hyundai-verna/600/375.jpg" alt="Similar"
+                        class="sim-card-img">
+                    <div class="sim-card-body">
+                        <h5>2021 Hyundai Verna SX AT</h5>
+                        <div class="sim-loc"><i class="fa fa-map-marker-alt"></i> Vaishali Nagar, Jaipur</div>
+                        <div class="sim-stats-row">
+                            <span class="sim-stat"><i class="fa fa-gas-pump"></i> Petrol</span>
+                            <span class="sim-stat"><i class="fa fa-gear"></i> Auto</span>
+                            <span class="sim-stat"><i class="fa fa-road"></i> 32K KM</span>
+                        </div>
+                        <div class="sim-price">₹11,80,000</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+                <div class="sim-card" onclick="showToast('Vehicle detail page will open','fa-car')">
+                    <img src="https://picsum.photos/seed/sim-v-maruti-ciaz/600/375.jpg" alt="Similar"
+                        class="sim-card-img">
+                    <div class="sim-card-body">
+                        <h5>2023 Maruti Suzuki Ciaz Alpha</h5>
+                        <div class="sim-loc"><i class="fa fa-map-marker-alt"></i> Mansarovar, Jaipur</div>
+                        <div class="sim-stats-row">
+                            <span class="sim-stat"><i class="fa fa-gas-pump"></i> Petrol</span>
+                            <span class="sim-stat"><i class="fa fa-gear"></i> Manual</span>
+                            <span class="sim-stat"><i class="fa fa-road"></i> 14K KM</span>
+                        </div>
+                        <div class="sim-price">₹10,50,000</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+                <div class="sim-card" onclick="showToast('Vehicle detail page will open','fa-car')">
+                    <img src="https://picsum.photos/seed/sim-v-honda-amaze/600/375.jpg" alt="Similar"
+                        class="sim-card-img">
+                    <div class="sim-card-body">
+                        <h5>2022 Honda Amaze ZX CVT</h5>
+                        <div class="sim-loc"><i class="fa fa-map-marker-alt"></i> Tonk Road, Jaipur</div>
+                        <div class="sim-stats-row">
+                            <span class="sim-stat"><i class="fa fa-gas-pump"></i> Diesel</span>
+                            <span class="sim-stat"><i class="fa fa-gear"></i> Auto</span>
+                            <span class="sim-stat"><i class="fa fa-road"></i> 28K KM</span>
+                        </div>
+                        <div class="sim-price">₹9,75,000</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+                <div class="sim-card" onclick="showToast('Vehicle detail page will open','fa-car')">
+                    <img src="https://picsum.photos/seed/sim-v-hyundai-elantra/600/375.jpg" alt="Similar"
+                        class="sim-card-img">
+                    <div class="sim-card-body">
+                        <h5>2021 Hyundai Elantra SX AT</h5>
+                        <div class="sim-loc"><i class="fa fa-map-marker-alt"></i> Civil Lines, Jaipur</div>
+                        <div class="sim-stats-row">
+                            <span class="sim-stat"><i class="fa fa-gas-pump"></i> Diesel</span>
+                            <span class="sim-stat"><i class="fa fa-gear"></i> Auto</span>
+                            <span class="sim-stat"><i class="fa fa-road"></i> 45K KM</span>
+                        </div>
+                        <div class="sim-price">₹14,50,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
