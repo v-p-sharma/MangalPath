@@ -20,15 +20,13 @@
 {% if title %}
 <h3>{{ title }}</h3>
 {% endif %}
-{% for row in rows %}
 {%
 set row_classes = [
 'vehicle-grid',
 ]
 %}
-
 <div {{ row.attributes.addClass(row_classes) }} id="vehicleGrid">
-     
+{% for row in rows %}     
      <div class="vehicle-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="0"
         onclick="showToast('Vehicle detail page will open here','fa-car')">
         <a href="{{ path('entity.node.canonical', {'node': row.content['#row'].nid}) }}" class="btn-prop-outline">
@@ -79,6 +77,5 @@ set row_classes = [
         </div>
        </a>
     </div>
-
-</div>
 {% endfor %}
+</div>
