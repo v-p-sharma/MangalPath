@@ -1,0 +1,83 @@
+{#
+/**
+* @file
+* Default theme implementation to display a view of unformatted rows.
+*
+* Available variables:
+* - title: The title of this group of rows. May be empty.
+* - rows: A list of the view's row items.
+* - attributes: The row's HTML attributes.
+* - content: The row's content.
+* - view: The view object.
+* - default_row_class: A flag indicating whether default classes should be
+* used on rows.
+*
+* @see template_preprocess_views_view_unformatted()
+*
+* @ingroup themeable
+*/
+#}
+{% if title %}
+<h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+{%
+set row_classes = [
+'vehicle-grid',
+]
+%}
+
+<div {{ row.attributes.addClass(row_classes) }} id="vehicleGrid">
+     {{dump(row.content['#row']._entity)}}
+     <div class="vehicle-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="0"
+        onclick="showToast('Vehicle detail page will open here','fa-car')">
+        <div class="vc-img-wrap">
+           
+            <img src="{{ file_url(row.content['#row']._entity.field_featured_image[0].entity.uri[0].value)}}"
+                alt="{{row.content['#row']._entity.title[0].value}}" class="vc-img" loading="lazy">
+            <div class="vc-badges">
+                <span class="vc-badge sell"><i
+                        class="fa fa-tag"></i>{{row.content['#row']._entity.field_vehicle_purpose[0].entity.name[0].value}}</span>
+                <span class="vc-badge featured"><i class="fa fa-star"></i> Featured</span>
+                <span class="vc-badge condition-excellent">Excellent</span>
+            </div>
+            <button class="vc-wishlist" onclick="event.stopPropagation();toggleWishlist(this)" aria-label="Save"><i
+                    class="fa-regular fa-heart"></i></button>
+            <div class="vc-img-count"><i class="fa fa-camera me-1"></i>6</div>
+        </div>
+        <div class="vc-body">
+            <div class="vc-title">{{row.content['#row']._entity.title[0].value}}</div>
+            <div class="vc-reg"><span
+                    class="reg-plate">{{row.content['#row']._entity.field_registration_number[0].value}}</span><span>{{row.content['#row']._entity.field_manufacturing_year[0].value}} • {{row.content['#row']._entity.field_owner_name[0].value}}</span></div>
+            <div class="vc-specs">
+                <span class="vc-spec"><i
+                        class="fa-gas-pump"></i>{{row.content['#row']._entity.field_fuel_type[0].entity.name[0].value}}</span>
+                <span class="vc-spec"><i
+                        class="fa-gear"></i>{{row.content['#row']._entity.field_transmission[0].value}}</span>
+                <span class="vc-spec"><i
+                        class="fa fa-road"></i>{{row.content['#row']._entity.field_odometer_reading_km[0].value}},
+                    KM</span>
+            </div>
+
+            <div class="vc-features">{%if row.content['#row']._entity.field_exchange_possible[0].value %}<span
+                    class="vc-feat">Exchange Available</span>{% endif %}<span class="vc-feat">Mileage:{{
+                    row.content['#row']._entity.field_mileage_km_l[0].value}}</span><span class="vc-feat">Power
+                    Windows</span><span class="vc-feat">{{row.content['#row']._entity.field_state[0].value }}Seater</span><span class="vc-feat">+8
+                    more</span></div>
+            <div class="vc-footer">
+                <div>
+                    <div class="vc-price">₹{{row.content['#row']._entity.field_expected_selling_price[0].value }}</div>
+                    {%if row.content['#row']._entity.field_vehicle_price_negotiable[0].value %}
+                    <div class="vc-negotiable"><i class="fa fa-handshake"></i> Negotiable</div>
+                    {% endif %}
+                </div>
+                <div class="vc-location"><i
+                        class="fa fa-map-marker-alt"></i>{{row.content['#row']._entity.field_city[0].value}},{{row.content['#row']._entity.field_road_width_ft[0].value}}
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endfor %}
