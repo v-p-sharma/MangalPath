@@ -1,0 +1,292 @@
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h1>Buy <span>Vehicles</span></h1>
+                <p><i class="fa fa-car me-1"></i> Verified cars, bikes, SUVs & commercial vehicles at best prices</p>
+            </div>
+            <button class="mobile-filter-btn btn btn-quote" onclick="openDrawer()" style="display:none;">
+                <i class="fa fa-sliders me-2"></i>Filters
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- QUICK FILTER CHIPS -->
+<div class="quick-filters">
+    <div class="container">
+        <div class="qf-scroll" id="quickFilters">
+            <div class="qf-chip active" data-qf="all" onclick="quickFilter('all',this)"><i class="fa fa-border-all"></i>
+                All Vehicles</div>
+            <div class="qf-chip" data-qf="Car" onclick="quickFilter('Car',this)"><i class="fa fa-car"></i> Cars</div>
+            <div class="qf-chip" data-qf="SUV" onclick="quickFilter('SUV',this)"><i class="fa fa-truck-monster"></i>
+                SUVs</div>
+            <div class="qf-chip" data-qf="Hatchback" onclick="quickFilter('Hatchback',this)"><i
+                    class="fa fa-car-side"></i> Hatchbacks</div>
+            <div class="qf-chip" data-qf="Sedan" onclick="quickFilter('Sedan',this)"><i class="fa fa-car-rear"></i>
+                Sedans</div>
+            <div class="qf-chip" data-qf="Luxury Car" onclick="quickFilter('Luxury Car',this)"><i class="fa fa-gem"></i>
+                Luxury</div>
+            <div class="qf-chip" data-qf="Electric Car" onclick="quickFilter('Electric Car',this)"><i
+                    class="fa fa-bolt"></i> Electric</div>
+            <div class="qf-chip" data-qf="Bike" onclick="quickFilter('Bike',this)"><i class="fa fa-motorcycle"></i>
+                Bikes</div>
+            <div class="qf-chip" data-qf="Scooter" onclick="quickFilter('Scooter',this)"><i
+                    class="fa fa-person-biking"></i> Scooters</div>
+            <div class="qf-chip" data-qf="Commercial Vehicle" onclick="quickFilter('Commercial Vehicle',this)"><i
+                    class="fa fa-truck"></i> Commercial</div>
+            <div class="qf-chip" data-qf="Tractor" onclick="quickFilter('Tractor',this)"><i class="fa fa-tractor"></i>
+                Tractors</div>
+        </div>
+    </div>
+</div>
+
+<!-- LISTING LAYOUT -->
+<section class="listing-layout">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- SIDEBAR FILTERS (Desktop) -->
+            <div class="col-lg-3">
+                <div class="filter-sidebar" id="desktopFilters">
+
+                    <!-- Category -->
+                    <div class="filter-card">
+                        <div class="filter-card-header" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-layer-group"></i> Category</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body" id="filterCategory">
+                            <label class="f-option"><input type="checkbox" value="Car" onchange="applyFilters()"> Car
+                                <span class="f-count" data-count="Car">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="SUV" onchange="applyFilters()"> SUV
+                                <span class="f-count" data-count="SUV">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Hatchback" onchange="applyFilters()">
+                                Hatchback <span class="f-count" data-count="Hatchback">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Sedan" onchange="applyFilters()">
+                                Sedan <span class="f-count" data-count="Sedan">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Luxury Car" onchange="applyFilters()">
+                                Luxury Car <span class="f-count" data-count="Luxury Car">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Sports Car" onchange="applyFilters()">
+                                Sports Car <span class="f-count" data-count="Sports Car">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Electric Car"
+                                    onchange="applyFilters()"> Electric Car <span class="f-count"
+                                    data-count="Electric Car">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Bike" onchange="applyFilters()"> Bike
+                                <span class="f-count" data-count="Bike">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Scooter" onchange="applyFilters()">
+                                Scooter <span class="f-count" data-count="Scooter">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Commercial Vehicle"
+                                    onchange="applyFilters()"> Commercial Vehicle <span class="f-count"
+                                    data-count="Commercial Vehicle">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Tractor" onchange="applyFilters()">
+                                Tractor <span class="f-count" data-count="Tractor">0</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Brand -->
+                    <div class="filter-card">
+                        <div class="filter-card-header" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-tag"></i> Brand</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body" id="filterBrand">
+                            <label class="f-option"><input type="checkbox" value="Maruti Suzuki"
+                                    onchange="applyFilters()"> Maruti Suzuki <span class="f-count"
+                                    data-count="Maruti Suzuki">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Hyundai" onchange="applyFilters()">
+                                Hyundai <span class="f-count" data-count="Hyundai">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Tata" onchange="applyFilters()"> Tata
+                                <span class="f-count" data-count="Tata">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Mahindra" onchange="applyFilters()">
+                                Mahindra <span class="f-count" data-count="Mahindra">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Honda" onchange="applyFilters()">
+                                Honda <span class="f-count" data-count="Honda">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Toyota" onchange="applyFilters()">
+                                Toyota <span class="f-count" data-count="Toyota">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Kia" onchange="applyFilters()"> Kia
+                                <span class="f-count" data-count="Kia">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Royal Enfield"
+                                    onchange="applyFilters()"> Royal Enfield <span class="f-count"
+                                    data-count="Royal Enfield">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Hero" onchange="applyFilters()"> Hero
+                                <span class="f-count" data-count="Hero">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Bajaj" onchange="applyFilters()">
+                                Bajaj <span class="f-count" data-count="Bajaj">0</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Price Range -->
+                    <div class="filter-card">
+                        <div class="filter-card-header" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-indian-rupee-sign"></i> Price Range</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body">
+                            <div class="f-range-inputs">
+                                <input type="number" id="priceMin" placeholder="Min" onchange="applyFilters()">
+                                <span>to</span>
+                                <input type="number" id="priceMax" placeholder="Max" onchange="applyFilters()">
+                            </div>
+                            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;">
+                                <button class="qf-chip" style="font-size:11px;padding:5px 10px;"
+                                    onclick="setPriceRange(0,300000)">Under 3L</button>
+                                <button class="qf-chip" style="font-size:11px;padding:5px 10px;"
+                                    onclick="setPriceRange(300000,500000)">3L - 5L</button>
+                                <button class="qf-chip" style="font-size:11px;padding:5px 10px;"
+                                    onclick="setPriceRange(500000,1000000)">5L - 10L</button>
+                                <button class="qf-chip" style="font-size:11px;padding:5px 10px;"
+                                    onclick="setPriceRange(1000000,2000000)">10L - 20L</button>
+                                <button class="qf-chip" style="font-size:11px;padding:5px 10px;"
+                                    onclick="setPriceRange(2000000,99999999)">20L+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Year -->
+                    <div class="filter-card">
+                        <div class="filter-card-header collapsed" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-calendar"></i> Year</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body hidden">
+                            <div class="f-range-inputs">
+                                <input type="number" id="yearMin" placeholder="From" min="2000" max="2025"
+                                    onchange="applyFilters()">
+                                <span>to</span>
+                                <input type="number" id="yearMax" placeholder="To" min="2000" max="2025"
+                                    onchange="applyFilters()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fuel Type -->
+                    <div class="filter-card">
+                        <div class="filter-card-header" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-gas-pump"></i> Fuel Type</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body" id="filterFuel">
+                            <label class="f-option"><input type="checkbox" value="Petrol" onchange="applyFilters()">
+                                Petrol <span class="f-count" data-count="Petrol">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Diesel" onchange="applyFilters()">
+                                Diesel <span class="f-count" data-count="Diesel">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="CNG" onchange="applyFilters()"> CNG
+                                <span class="f-count" data-count="CNG">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Electric" onchange="applyFilters()">
+                                Electric <span class="f-count" data-count="Electric">0</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Transmission -->
+                    <div class="filter-card">
+                        <div class="filter-card-header collapsed" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-gear"></i> Transmission</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body hidden" id="filterTrans">
+                            <label class="f-option"><input type="checkbox" value="Manual" onchange="applyFilters()">
+                                Manual <span class="f-count" data-count="Manual">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Automatic" onchange="applyFilters()">
+                                Automatic <span class="f-count" data-count="Automatic">0</span></label>
+                        </div>
+                    </div>
+
+                    <!-- KM Driven -->
+                    <div class="filter-card">
+                        <div class="filter-card-header collapsed" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-road"></i> KM Driven</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body hidden">
+                            <div class="f-range-inputs">
+                                <input type="number" id="kmMin" placeholder="Min KM" onchange="applyFilters()">
+                                <span>to</span>
+                                <input type="number" id="kmMax" placeholder="Max KM" onchange="applyFilters()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Owner -->
+                    <div class="filter-card">
+                        <div class="filter-card-header collapsed" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-user"></i> Owner</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body hidden" id="filterOwner">
+                            <label class="f-option"><input type="checkbox" value="1st" onchange="applyFilters()"> 1st
+                                Owner <span class="f-count" data-count="1st">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="2nd" onchange="applyFilters()"> 2nd
+                                Owner <span class="f-count" data-count="2nd">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="3rd" onchange="applyFilters()"> 3rd
+                                Owner <span class="f-count" data-count="3rd">0</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Condition -->
+                    <div class="filter-card">
+                        <div class="filter-card-header collapsed" onclick="toggleFilter(this)">
+                            <h5><i class="fa fa-star-half-stroke"></i> Condition</h5>
+                            <i class="fa fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="filter-card-body hidden" id="filterCondition">
+                            <label class="f-option"><input type="checkbox" value="New" onchange="applyFilters()"> New
+                                <span class="f-count" data-count="New">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Like New" onchange="applyFilters()">
+                                Like New <span class="f-count" data-count="Like New">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Excellent" onchange="applyFilters()">
+                                Excellent <span class="f-count" data-count="Excellent">0</span></label>
+                            <label class="f-option"><input type="checkbox" value="Good" onchange="applyFilters()"> Good
+                                <span class="f-count" data-count="Good">0</span></label>
+                        </div>
+                    </div>
+
+                    <button class="btn-clear-filter" onclick="clearAllFilters()"><i class="fa fa-rotate-left me-1"></i>
+                        Clear All Filters</button>
+                </div>
+            </div>
+
+            <!-- RESULTS -->
+            <div class="col-lg-9">
+                <!-- Active Filters Tags -->
+                <div class="active-filters" id="activeFilters"></div>
+
+                <!-- Results Bar -->
+                <div class="results-bar">
+                    <div class="results-count">Showing <strong id="resultCount">0</strong> vehicles</div>
+                    <div class="d-flex align-items-center gap-3">
+                        <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+                            <option value="newest">Newest First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="year-new">Year: Newest First</option>
+                            <option value="km-low">KM: Low to High</option>
+                        </select>
+                        <div class="view-toggles d-none d-md-flex">
+                            <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')"><i
+                                    class="fa fa-grid-2"></i></button>
+                            <button class="view-btn" id="listViewBtn" onclick="setView('list')"><i
+                                    class="fa fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Grid -->
+               {{ drupal_view('vehicle_sell_and_tour', 'block_1') }}
+
+                <!-- No Results -->
+                <div class="no-results" id="noResults" style="display:none;">
+                    <i class="fa fa-car-burst"></i>
+                    <h4>No Vehicles Found</h4>
+                    <p>Try adjusting your filters or search criteria to find more options.</p>
+                    <button class="btn-reset-all" onclick="clearAllFilters()"><i class="fa fa-rotate-left"></i> Reset
+                        All Filters</button>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-wrap" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
