@@ -28,7 +28,7 @@ set row_classes = [
 %}
 
 <div {{ row.attributes.addClass(row_classes) }} id="vehicleGrid">
-     {{dump(row.content['#row']._entity)}}
+     <a href="{{ path('entity.node.canonical', {'node': row.content['#row'].nid}) }}" class="btn-prop-outline">
      <div class="vehicle-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="0"
         onclick="showToast('Vehicle detail page will open here','fa-car')">
         <div class="vc-img-wrap">
@@ -78,6 +78,6 @@ set row_classes = [
         </div>
 
     </div>
-
+ </a>
 </div>
 {% endfor %}
