@@ -399,7 +399,7 @@ menus:
     menu_name: main
     title: Property
     parent: null
-    uri: 'internal:/propery'
+    uri: 'entity:node/6'
     link_title: ''
     description: null
     enabled: true
