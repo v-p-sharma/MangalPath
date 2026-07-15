@@ -2712,7 +2712,7 @@ div[role="alert"] {
 /* vehicle listing page  */
 
  /* ===== VEHICLE CARD - GRID ===== */
-        .vehicle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+        .vehicle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
         .vehicle-card{background:var(--white);border-radius:var(--radius);border:1.5px solid var(--border);overflow:hidden;box-shadow:var(--card-shadow);transition:all .3s;cursor:pointer;position:relative;}
         .vehicle-card:hover{transform:translateY(-5px);box-shadow:0 14px 44px rgba(26,60,110,0.13);border-color:transparent;}
         .vc-img-wrap{position:relative;overflow:hidden;aspect-ratio:16/11;background:var(--light-bg);}
@@ -2863,3 +2863,8 @@ div[role="alert"] {
         @media(min-width:992px){
             .mobile-filter-btn{display:none!important;}
         }
+
+        div#vehicleGrid a {
+    list-style: none;
+    text-decoration: none;
+}

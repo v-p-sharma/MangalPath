@@ -25,16 +25,13 @@ set row_classes = [
 'vehicle-grid',
 ]
 %}
-<div {{ row.attributes.addClass(row_classes) }} id="vehicleGrid">
-{% for row in rows %}
-
-
-
-    <div class="vehicle-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="0"
+<div class="vehicle-grid" id="vehicleGrid">
+{% for row in rows %}     
+     <div class="vehicle-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="0"
         onclick="showToast('Vehicle detail page will open here','fa-car')">
-        <a href="{{ path('entity.node.canonical', {'node': row.content['#row'].nid}) }}" class="btn-prop-outline">
+        <a href="{{ path('entity.node.canonical', {'node': row.content['#row'].nid}) }}">
         <div class="vc-img-wrap">
-
+           
             <img src="{{ file_url(row.content['#row']._entity.field_featured_image[0].entity.uri[0].value)}}"
                 alt="{{row.content['#row']._entity.title[0].value}}" class="vc-img" loading="lazy">
             <div class="vc-badges">
@@ -48,10 +45,9 @@ set row_classes = [
             <div class="vc-img-count"><i class="fa fa-camera me-1"></i>6</div>
         </div>
         <div class="vc-body">
-            <div class="vc-title">{{row.content['#row']._entity.title[0].value}}</div>
+             <div class="vc-title">{{row.content['#row']._entity.title[0].value}}</div>
             <div class="vc-reg"><span
-                    class="reg-plate">{{row.content['#row']._entity.field_registration_number[0].value}}</span><span>{{row.content['#row']._entity.field_manufacturing_year[0].value}}
-                    • {{row.content['#row']._entity.field_owner_name[0].value}}</span></div>
+                    class="reg-plate">{{row.content['#row']._entity.field_registration_number[0].value}}</span><span>{{row.content['#row']._entity.field_manufacturing_year[0].value}} • {{row.content['#row']._entity.field_owner_name[0].value}}</span></div>
             <div class="vc-specs">
                 <span class="vc-spec"><i
                         class="fa-gas-pump"></i>{{row.content['#row']._entity.field_fuel_type[0].entity.name[0].value}}</span>
@@ -65,8 +61,7 @@ set row_classes = [
             <div class="vc-features">{%if row.content['#row']._entity.field_exchange_possible[0].value %}<span
                     class="vc-feat">Exchange Available</span>{% endif %}<span class="vc-feat">Mileage:{{
                     row.content['#row']._entity.field_mileage_km_l[0].value}}</span><span class="vc-feat">Power
-                    Windows</span><span class="vc-feat">{{row.content['#row']._entity.field_state[0].value
-                    }}Seater</span><span class="vc-feat">+8
+                    Windows</span><span class="vc-feat">{{row.content['#row']._entity.field_state[0].value }}Seater</span><span class="vc-feat">+8
                     more</span></div>
             <div class="vc-footer">
                 <div>
@@ -77,13 +72,10 @@ set row_classes = [
                 </div>
                 <div class="vc-location"><i
                         class="fa fa-map-marker-alt"></i>{{row.content['#row']._entity.field_city[0].value}},{{row.content['#row']._entity.field_road_width_ft[0].value}}
-                </div>
+                    </div>
             </div>
         </div>
-        </a>
+       </a>
     </div>
-    
-
-
 {% endfor %}
 </div>

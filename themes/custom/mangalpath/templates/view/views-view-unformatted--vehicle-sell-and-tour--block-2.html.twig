@@ -25,11 +25,11 @@ set row_classes = [
 'vehicle-grid',
 ]
 %}
-<div {{ row.attributes.addClass(row_classes) }} id="vehicleGrid">
+<div class="vehicle-grid" id="vehicleGrid">
 {% for row in rows %}     
      <div class="vehicle-card aos-init aos-animate" data-aos="fade-up" data-aos-delay="0"
         onclick="showToast('Vehicle detail page will open here','fa-car')">
-        <a href="{{ path('entity.node.canonical', {'node': row.content['#row'].nid}) }}" class="btn-prop-outline">
+        <a href="{{ path('entity.node.canonical', {'node': row.content['#row'].nid}) }}">
         <div class="vc-img-wrap">
            
             <img src="{{ file_url(row.content['#row']._entity.field_featured_image[0].entity.uri[0].value)}}"
@@ -45,7 +45,7 @@ set row_classes = [
             <div class="vc-img-count"><i class="fa fa-camera me-1"></i>6</div>
         </div>
         <div class="vc-body">
-            <div class="vc-title">{{row.content['#row']._entity.title[0].value}}</div>
+             <div class="vc-title">{{row.content['#row']._entity.title[0].value}}</div>
             <div class="vc-reg"><span
                     class="reg-plate">{{row.content['#row']._entity.field_registration_number[0].value}}</span><span>{{row.content['#row']._entity.field_manufacturing_year[0].value}} • {{row.content['#row']._entity.field_owner_name[0].value}}</span></div>
             <div class="vc-specs">
