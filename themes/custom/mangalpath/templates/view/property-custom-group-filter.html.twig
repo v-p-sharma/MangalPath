@@ -1,0 +1,54 @@
+{#
+  Themes hierarchical taxonomy terms as nested <ul> elements.
+
+  This template is intended to be called from within another template to provide
+  the "scaffolding" of nested lists while the calling template provides the
+  actual filter element via the 'item' variable.
+
+  Available variables:
+    - current_nesting_level: the nesting level of the most recently printe item.
+    - new_nesting_level: the nesting level of the item to print.
+    - item: The item to print.
+    - loop: The loop variable from the iterator that calls this template.
+      Requires the loop.first and loop.last elements.
+#}
+{#
+  Parent (depth = 0)
+    └── Child (depth = 1)
+#}
+
+{% set previous_level = current_nesting_level %}
+
+{# New Parent #}
+{% if new_nesting_level == 0 %}
+
+  {# Close previous parent #}
+  {% if not loop.first %}
+        </ul>
+    </div>
+  {% endif %}
+
+  <div class="filter-card property-custom-filter-wrapper">
+       
+      <div class="property-parent"   aria-expanded="true" data-bs-toggle="collapse" data-bs-target="#group-{{ParentItemsKey}}">
+        {{ ParentItemsTitle }}
+      </div>
+
+      <ul id ="group-{{ParentItemsKey}}" class="property-group-child-sec collapse show ">
+
+{% endif %}
+
+{# Child #}
+{% if new_nesting_level == 1 %}
+
+    <li class="property-child">
+      {{ item }}
+    </li>
+
+{% endif %}
+
+{# Close last parent #}
+{% if loop.last %}
+      </ul>
+  </div>
+{% endif %}
