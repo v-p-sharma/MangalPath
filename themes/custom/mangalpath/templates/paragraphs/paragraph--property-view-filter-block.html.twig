@@ -1,10 +1,15 @@
-
-
 <section class="py-section" id="listings">
   <div class="container">
-   {#
-{{ drupal_block('views_exposed_filter_block:property_listing_view-block_2') }}
-#}
-    {{ drupal_view('property_listing_view', 'block_1') }}
+    <div class="row g-4">
+      <div class="col-lg-4">
+       {{ drupal_block('views_exposed_filter_block:property_listing_view-block_1') }}
+      </div>
+      <div class="col-lg-8">
+      {{ drupal_view('property_listing_view', 'block_1') }}
+      </div>
+    </div>
+    
+
+    
   </div>
 </section>

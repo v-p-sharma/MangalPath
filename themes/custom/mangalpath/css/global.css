@@ -2845,6 +2845,90 @@ div[role="alert"] {
         .active-filter-tag button:hover{color:var(--red);}
 
 
+        /* ===== SECTIONS ===== */
+.py-section { padding: 70px 0; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: var(--primary-dark); margin-bottom: 15px; text-align: center; }
+.section-sub { text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
+
+/* ===== FILTERS ===== */
+.filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+.filter-tab {
+  background: white; border: 1px solid var(--border); padding: 10px 25px;
+  border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; color: var(--text-muted);
+}
+.filter-tab.active, .filter-tab:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+.chips-container {
+  display: flex; overflow-x: auto; gap: 10px; padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+}
+.chip {
+  flex: 0 0 auto; background: var(--light-bg); border: 1px solid var(--border);
+  padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700;
+  cursor: pointer; white-space: nowrap; transition: 0.2s;
+}
+.chip.active, .chip:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.filter-tab.active a {
+    text-decoration: none;
+    color: white;
+}
+.property-custom-filter-wrapper .js-form-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.property-custom-filter-wrapper .js-form-item.form-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    /* flex-wrap: wrap; */
+}
+.filter-card.property-custom-filter-wrapper ul {
+    list-style: none;
+}
+.property-parent {
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    padding-right: 25px;
+}
+
+.property-parent::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    transition: .3s;
+    font-size: 26px;
+    font-weight: 900;
+    top: -9px;
+}
+
+.property-parent:not(.collapsed)::after {
+    content: "-";
+}
+.filter-card.property-custom-filter-wrapper {
+    padding: 6px 15px;
+}
+.fuel-type-cat-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 3px;
+    padding: 19px;
+
+}
+.fuel-type-cat-filter .js-form-item.form-item{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+
+}
 
         /* ===== RESPONSIVE ===== */
         @media(max-width:991px){
