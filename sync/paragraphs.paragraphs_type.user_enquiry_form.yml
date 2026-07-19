@@ -1,0 +1,10 @@
+uuid: 1a94b810-5b16-4b23-aeb8-855a16e382b1
+langcode: en-gb
+status: true
+dependencies: {  }
+id: user_enquiry_form
+label: 'User Enquiry Form '
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

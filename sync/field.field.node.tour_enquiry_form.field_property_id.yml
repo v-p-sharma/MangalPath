@@ -1,0 +1,19 @@
+uuid: 82b170a6-1c7a-490e-b4f5-1d019e21a8c5
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_property_id
+    - node.type.tour_enquiry_form
+id: node.tour_enquiry_form.field_property_id
+field_name: field_property_id
+entity_type: node
+bundle: tour_enquiry_form
+label: 'Tour Vehicle Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

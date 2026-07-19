@@ -833,6 +833,8 @@ class Property_selling extends FormBase
             'field_property_dispute'      => $values['propertyDispute'] ?? 0,
             'field_pooja_room'            => $values['poojaRoom'] ?? 0,
             'field_study_room'            => $values['studyRoom'] ?? 0,
+            'uid' => \Drupal::currentUser()->id(),
+            'status' => 0, // Unpublished
         ]);
         /** -----------------------------
          * HANDLE FEATURED IMAGE

@@ -1,0 +1,18 @@
+uuid: 4a48c8ee-e4f6-4ddc-bd10-51399d7e541a
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Property Enquiry Form'
+type: property_enquiry_form
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,23 @@
+uuid: a0e50d4c-ce8c-4b11-af39-f97fd68aad4f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.user_enquiry_form.field_user_title
+    - paragraphs.paragraphs_type.user_enquiry_form
+id: paragraph.user_enquiry_form.default
+targetEntityType: paragraph
+bundle: user_enquiry_form
+mode: default
+content:
+  field_user_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

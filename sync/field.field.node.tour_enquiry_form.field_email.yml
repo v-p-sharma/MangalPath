@@ -1,0 +1,19 @@
+uuid: 8d45a13f-e399-4cc8-8da6-9ed679c5846b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.tour_enquiry_form
+id: node.tour_enquiry_form.field_email
+field_name: field_email
+entity_type: node
+bundle: tour_enquiry_form
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

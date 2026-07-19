@@ -1,22 +1,22 @@
-uuid: 87edf379-1965-427b-b08d-bf5ac5e8a30e
+uuid: adffceae-0a70-4a20-9a74-60f337dfcf20
 langcode: en-gb
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.account
   module:
     - system
   theme:
     - mangalpath
-id: mangalpath_mainnavigation
+id: mangalpath_useraccountmenu
 theme: mangalpath
-region: primary_menu
+region: header
 weight: -14
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'system_menu_block:account'
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
+  id: 'system_menu_block:account'
+  label: 'User account menu'
   label_display: '0'
   provider: system
   level: 1

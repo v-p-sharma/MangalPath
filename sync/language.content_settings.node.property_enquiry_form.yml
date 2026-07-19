@@ -1,0 +1,11 @@
+uuid: f5e8f7f4-449f-47f0-9e6f-0a5c4c260132
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.property_enquiry_form
+id: node.property_enquiry_form
+target_entity_type_id: node
+target_bundle: property_enquiry_form
+default_langcode: site_default
+language_alterable: false
