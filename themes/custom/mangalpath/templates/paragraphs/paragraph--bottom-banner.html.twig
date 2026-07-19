@@ -1,9 +1,9 @@
 <section class="cta-section">
   <div class="container position-relative" style="z-index:1">
     <div data-aos="fade-up">
-      <h2>Looking for the Right Solution?</h2>
-      <p>Whether you need a loan, property assistance, vehicle transaction support, or transportation arrangements, mangalpath is here to help — every step of the way.</p>
-      <a href="#contact" class="btn btn-cta"><i class="fa fa-comment-dots me-2"></i>Get Free Consultation</a>
+      <h2>{{paragraph.field_title[0].value}}</h2>
+      <p>{{paragraph.field_description[0].value|striptags}}</p>
+      <a href="{{paragraph.field_links[0].url.toString()}}" class="btn btn-cta"><i class="fa fa-comment-dots me-2"></i>{{paragraph.field_links[0].title}}</a>
     </div>
   </div>
 </section>

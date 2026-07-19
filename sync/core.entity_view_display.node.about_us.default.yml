@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.about_us.body
+    - field.field.node.about_us.field_about_us_components
     - node.type.about_us
   module:
+    - entity_reference_revisions
     - text
     - user
 id: node.about_us.default
@@ -19,6 +21,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_about_us_components:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
     region: content
   links:
     settings: {  }

@@ -1,0 +1,50 @@
+uuid: 6f5a836a-9eb4-48f5-b17f-b78414260491
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.our_leadership.field_description
+    - field.field.paragraph.our_leadership.field_leadership_inner
+    - field.field.paragraph.our_leadership.field_sub_title
+    - field.field.paragraph.our_leadership.field_title_full
+    - paragraphs.paragraphs_type.our_leadership
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.our_leadership.default
+targetEntityType: paragraph
+bundle: our_leadership
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_leadership_inner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title_full:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }

@@ -1,0 +1,10 @@
+uuid: 1217427b-5ecd-4fad-88c5-73b5349c670e
+langcode: en-gb
+status: true
+dependencies: {  }
+id: our_story_about_us
+label: 'Our Story About us'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

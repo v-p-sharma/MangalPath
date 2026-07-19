@@ -1,0 +1,127 @@
+uuid: 15eed3bb-22ee-44d3-a67f-0f030b7d6b2c
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mission_and_vision_inner
+    - paragraphs.paragraphs_type.mission_and_vision_inner
+    - paragraphs.paragraphs_type.mission_vision
+  module:
+    - entity_reference_revisions
+id: paragraph.mission_vision.field_mission_and_vision_inner
+field_name: field_mission_and_vision_inner
+entity_type: paragraph
+bundle: mission_vision
+label: 'mission and vision inner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      mission_and_vision_inner: mission_and_vision_inner
+    negate: 0
+    target_bundles_drag_drop:
+      bottom_banner:
+        weight: 35
+        enabled: false
+      documents_loan:
+        weight: 36
+        enabled: false
+      eligible_inner_section:
+        weight: 37
+        enabled: false
+      explore_our_loan:
+        weight: 38
+        enabled: false
+      explore_our_loan_inner:
+        weight: 39
+        enabled: false
+      get_in_touch:
+        weight: 40
+        enabled: false
+      get_in_touch_contact:
+        weight: 41
+        enabled: false
+      happy_customer:
+        weight: 42
+        enabled: false
+      happy_customer_inner:
+        weight: 43
+        enabled: false
+      home_page_banner_inner_box:
+        weight: 44
+        enabled: false
+      home_page_banner_section:
+        weight: 45
+        enabled: false
+      home_why_choose_us:
+        weight: 46
+        enabled: false
+      home_why_choose_us_inner:
+        weight: 47
+        enabled: false
+      icon_class_title:
+        weight: 48
+        enabled: false
+      loan_calculator:
+        weight: 49
+        enabled: false
+      mission_and_vision_inner:
+        weight: 34
+        enabled: true
+      mission_vision:
+        weight: 50
+        enabled: false
+      our_services:
+        weight: 51
+        enabled: false
+      our_services_inner:
+        weight: 52
+        enabled: false
+      our_story_about_us:
+        weight: 53
+        enabled: false
+      personal_loan_form:
+        weight: 54
+        enabled: false
+      process:
+        weight: 55
+        enabled: false
+      process_inner:
+        weight: 56
+        enabled: false
+      property_view_filter_block:
+        weight: 57
+        enabled: false
+      single_links:
+        weight: 58
+        enabled: false
+      single_loan_common_doc:
+        weight: 59
+        enabled: false
+      single_title:
+        weight: 60
+        enabled: false
+      testimonials:
+        weight: 61
+        enabled: false
+      testimonials_inner:
+        weight: 62
+        enabled: false
+      who_is_eligible:
+        weight: 63
+        enabled: false
+      why_choose_loan_inner:
+        weight: 64
+        enabled: false
+      why_choose_loan_page:
+        weight: 65
+        enabled: false
+      why_mangalpath_realty:
+        weight: 66
+        enabled: false
+field_type: entity_reference_revisions

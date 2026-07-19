@@ -1,0 +1,25 @@
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="container position-relative" style="z-index:1;">
+        <div class="section-badge">{{paragraph.field_sub_title[0].value}}</div>
+        <h1>{{paragraph.field_title[0].value}}</h1>
+        <p>{{paragraph.field_description[0].value|raw}}</p>
+    </div>
+</section>
+
+<!-- QUICK CONTACT BAR -->
+<div class="quick-contact-bar">
+    <div class="container">
+        <div class="qcb-inner">
+            {%for items in paragraph.field_in %}
+            <div class="qcb-item">
+                <div class="qcb-icon blue"><i class="{{items.entity.field_icon_class[0].value}}"></i></div>
+                <div class="qcb-text">
+                    <div class="qcb-label">{{items.entity.field_title[0].value}}</div>
+                    <a href="#">{{items.entity.field_sub_title[0].value}}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

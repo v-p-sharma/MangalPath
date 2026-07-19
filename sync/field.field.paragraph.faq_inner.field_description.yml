@@ -1,0 +1,19 @@
+uuid: b1b79541-1aba-468a-8df6-03773e6485b2
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.faq_inner
+id: paragraph.faq_inner.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: faq_inner
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

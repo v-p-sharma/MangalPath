@@ -1,34 +1,20 @@
 <!-- BETTER APPROACH (WHY CHOOSE US) -->
 <section class="py-section" style="background:var(--light-bg);">
   <div class="container">
-    <h2 class="section-title">Why Choose <span style="color:var(--accent)">Mangalpath?</span></h2>
-    <p class="section-sub">We don't just give loans; we build relationships. Here is why we are your best financial partner.</p>
+    <h2 class="section-title">{{paragraph.field_title_full[0].value|raw}}</h2>
+    <p class="section-sub">{{paragraph.field_description[0].value|striptags}}</p>
     
     <div class="row g-4">
-      <div class="col-md-6">
+      {%for items in paragraph.field_why_choose_loan_inner %}
+     
+<div class="col-md-6">
         <div class="feature-box">
-          <h5><i class="fa fa-bolt text-warning me-2"></i>Instant Disbursal</h5>
-          <p>Get funds in your bank account within 24 hours of approval. No long waiting periods.</p>
+          <h5><i class="{{items.entity.field_icon_class[0].value}}"></i>{{items.entity.field_color[0].value}}</h5>
+          <p>{{items.entity.field_description[0].value|striptags}}</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="feature-box">
-          <h5><i class="fa fa-shield-halved text-primary me-2"></i>100% Digital Process</h5>
-          <p>Apply from the comfort of your home. Upload documents online and track status in real-time.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="feature-box">
-          <h5><i class="fa fa-hand-holding-dollar text-success me-2"></i>Flexible Tenure</h5>
-          <p>Choose repayment tenure from 12 months to 60 months as per your convenience.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="feature-box">
-          <h5><i class="fa fa-lock text-danger me-2"></i>No Hidden Charges</h5>
-          <p>Transparent processing fees and interest rates. What you see is what you pay.</p>
-        </div>
-      </div>
+      {%endfor %}
+    
     </div>
   </div>
 </section>

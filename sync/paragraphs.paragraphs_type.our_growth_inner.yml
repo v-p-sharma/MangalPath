@@ -1,0 +1,10 @@
+uuid: 5d2d48c5-7ab6-4f28-a03a-48910a95dedd
+langcode: en-gb
+status: true
+dependencies: {  }
+id: our_growth_inner
+label: 'Our Growth Inner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

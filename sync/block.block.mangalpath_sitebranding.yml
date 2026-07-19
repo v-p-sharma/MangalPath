@@ -1,0 +1,23 @@
+uuid: e66d13c1-cd72-4a1e-a7b2-3908ebd1c68a
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mangalpath
+id: mangalpath_sitebranding
+theme: mangalpath
+region: logo
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

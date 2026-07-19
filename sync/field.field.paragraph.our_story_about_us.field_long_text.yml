@@ -1,0 +1,28 @@
+uuid: fc32f984-8d0b-446b-85e3-7df530d8eda8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_long_text
+    - filter.format.basic_html
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.our_story_about_us
+  module:
+    - text
+id: paragraph.our_story_about_us.field_long_text
+field_name: field_long_text
+entity_type: paragraph
+bundle: our_story_about_us
+label: 'long text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_with_summary

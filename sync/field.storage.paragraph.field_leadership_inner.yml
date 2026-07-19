@@ -1,0 +1,20 @@
+uuid: abbc7fd3-445f-4c9b-93de-7a14ff481a82
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+id: paragraph.field_leadership_inner
+field_name: field_leadership_inner
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,10 @@
+uuid: f0f13d06-1e51-4a93-9bff-32cabd60258d
+langcode: en-gb
+status: true
+dependencies: {  }
+id: mission_and_vision_inner
+label: 'mission and vision inner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

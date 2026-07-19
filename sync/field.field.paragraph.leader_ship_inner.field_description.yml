@@ -1,0 +1,19 @@
+uuid: 4681281a-db04-4952-8f4e-5371dc733b63
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.leader_ship_inner
+id: paragraph.leader_ship_inner.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: leader_ship_inner
+label: About
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

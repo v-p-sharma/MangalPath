@@ -1,0 +1,52 @@
+uuid: a411644b-cde9-450a-8a77-2e319a374626
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.leader_ship_inner.field_description
+    - field.field.paragraph.leader_ship_inner.field_image
+    - field.field.paragraph.leader_ship_inner.field_sub_title
+    - field.field.paragraph.leader_ship_inner.field_title
+    - paragraphs.paragraphs_type.leader_ship_inner
+  module:
+    - image
+id: paragraph.leader_ship_inner.default
+targetEntityType: paragraph
+bundle: leader_ship_inner
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

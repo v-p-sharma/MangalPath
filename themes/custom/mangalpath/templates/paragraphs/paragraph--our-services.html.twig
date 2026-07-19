@@ -1,110 +1,39 @@
 <section class="services-section" id="services">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-badge">Our Services</div>
-      <h2 class="section-title">Everything You Need, <span>Under One Roof</span></h2>
+      <div class="section-badge">{{paragraph.field_sub_title[0].value}}</div>
+      <h2 class="section-title">{{paragraph.field_title_full[0].value|raw}}</span></h2>
       <div class="section-line center"></div>
-      <p class="section-sub mt-3">Explore our wide range of services crafted to meet your financial, property, vehicle, and travel requirements.</p>
+      <p class="section-sub mt-3">{{paragraph.field_description[0].value|striptags}}</p>
     </div>
     <div class="row g-4">
       <!-- LOANS -->
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="0" id="loans">
+       {% for loanItems in paragraph.field_our_service_inner %}
+
+       <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="0" id="loans">
         <div class="service-card theme-blue">
           <div class="service-card-header">
-            <div class="service-icon-wrap"><i class="fa fa-coins"></i></div>
+            <div class="service-icon-wrap" style="color: {{loanItems.entity.field_color[0].value}};"><i class="{{loanItems.entity.field_icon_class[0].value}}"></i></div>
             <div>
-              <h4>Loan Services</h4>
-              <p>Financial solutions for every need</p>
+              <h4 style="color: {{loanItems.entity.field_color[0].value}};" >{{loanItems.entity.field_sub_title[0].value}}</h4>
+              <p>{{loanItems.entity.field_title[0].value}}</p>
             </div>
           </div>
           <ul class="service-list">
-            <li>Personal Loan</li>
-            <li>Home Loan</li>
-            <li>Property Loan</li>
-            <li>Gold Loan</li>
-            <li>Business Loan</li>
-            <li>Vehicle Loan</li>
-            <li>Education Loan</li>
-            <li>Mortgage / LAP</li>
+        
+          {% for items in loanItems.entity.field_list %}
+            <li style="--bullet-color: {{loanItems.entity.field_color[0].value}};">
+              {{ items.entity.field_titles[0].value }}
+            </li>
+          {% endfor %}
           </ul>
+        
           <div class="service-card-footer">
-            <a href="#contact" class="btn-know-more theme-blue">Know More <i class="fa fa-arrow-right"></i></a>
+            <a href="{{loanItems.entity.field_know_more[0].url.toString()}}" class="btn-know-more theme-blue">{{loanItems.entity.field_know_more[0].title}}<i class="fa fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
-      <!-- PROPERTY -->
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="80" id="property">
-        <div class="service-card theme-orange">
-          <div class="service-card-header">
-            <div class="service-icon-wrap"><i class="fa fa-building"></i></div>
-            <div>
-              <h4>Property Services</h4>
-              <p>Real estate across India</p>
-            </div>
-          </div>
-          <ul class="service-list">
-            <li>Buy Property</li>
-            <li>Sell Property</li>
-            <li>Rent Property</li>
-            <li>Residential Property</li>
-            <li>Commercial Property</li>
-            <li>Land Purchase</li>
-            <li>Plot Selling</li>
-            <li>Property Consultation</li>
-          </ul>
-          <div class="service-card-footer">
-            <a href="#contact" class="btn-know-more theme-orange">Know More <i class="fa fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- VEHICLE -->
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="160" id="vehicles">
-        <div class="service-card theme-green">
-          <div class="service-card-header">
-            <div class="service-icon-wrap"><i class="fa fa-car"></i></div>
-            <div>
-              <h4>Vehicle Buy & Sell</h4>
-              <p>New & used vehicle transactions</p>
-            </div>
-          </div>
-          <ul class="service-list">
-            <li>Used Car Buy / Sell</li>
-            <li>New Vehicle Assistance</li>
-            <li>Commercial Vehicles</li>
-            <li>Two Wheeler Buy/Sell</li>
-            <li>Four Wheeler Buy/Sell</li>
-            <li>Vehicle Consultation</li>
-          </ul>
-          <div class="service-card-footer">
-            <a href="#contact" class="btn-know-more theme-green">Know More <i class="fa fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- TRAVEL -->
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="240" id="travel">
-        <div class="service-card theme-purple">
-          <div class="service-card-header">
-            <div class="service-icon-wrap"><i class="fa fa-van-shuttle"></i></div>
-            <div>
-              <h4>Travel Transport</h4>
-              <p>Vehicle & driver arrangement</p>
-            </div>
-          </div>
-          <ul class="service-list">
-            <li>Cab Arrangement</li>
-            <li>Driver Arrangement</li>
-            <li>Tempo Traveller</li>
-            <li>Corporate Transport</li>
-            <li>Outstation Travel</li>
-            <li>Wedding Transport</li>
-            <li>Group Transportation</li>
-            <li>Business Travel</li>
-          </ul>
-          <div class="service-card-footer">
-            <a href="#contact" class="btn-know-more theme-purple">Know More <i class="fa fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
+       {% endfor %}
     </div>
   </div>
 </section>

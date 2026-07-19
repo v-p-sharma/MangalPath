@@ -51,6 +51,7 @@ label: Admin
 weight: 6
 is_admin: null
 permissions:
+  - 'access administration pages'
   - 'access block library'
   - 'access content overview'
   - 'access files overview'

@@ -1,0 +1,41 @@
+uuid: e97aa90c-f282-4b5f-9654-783b98308856
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.mission_and_vision_inner.field_description
+    - field.field.paragraph.mission_and_vision_inner.field_icon_class
+    - field.field.paragraph.mission_and_vision_inner.field_title
+    - paragraphs.paragraphs_type.mission_and_vision_inner
+id: paragraph.mission_and_vision_inner.default
+targetEntityType: paragraph
+bundle: mission_and_vision_inner
+mode: default
+content:
+  field_description:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_icon_class:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

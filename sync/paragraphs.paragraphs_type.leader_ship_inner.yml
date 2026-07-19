@@ -1,0 +1,10 @@
+uuid: 60189901-7f2d-4897-8fc2-2bccf74f456b
+langcode: en-gb
+status: true
+dependencies: {  }
+id: leader_ship_inner
+label: 'Leader ship inner'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

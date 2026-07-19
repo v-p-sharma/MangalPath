@@ -1,0 +1,38 @@
+uuid: c81740e2-f628-4ef7-8c57-ce1c8a918304
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.our_growth_inner.field_description
+    - field.field.paragraph.our_growth_inner.field_sub_title
+    - field.field.paragraph.our_growth_inner.field_title
+    - paragraphs.paragraphs_type.our_growth_inner
+id: paragraph.our_growth_inner.default
+targetEntityType: paragraph
+bundle: our_growth_inner
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

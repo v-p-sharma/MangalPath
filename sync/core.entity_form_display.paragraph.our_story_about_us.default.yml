@@ -1,0 +1,69 @@
+uuid: 0a420b22-c909-4945-94e1-6fa158dd23c4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.our_story_about_us.field_body
+    - field.field.paragraph.our_story_about_us.field_long_text
+    - field.field.paragraph.our_story_about_us.field_multiple_image
+    - field.field.paragraph.our_story_about_us.field_sub_title
+    - field.field.paragraph.our_story_about_us.field_title_full
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.our_story_about_us
+  module:
+    - image
+    - text
+id: paragraph.our_story_about_us.default
+targetEntityType: paragraph
+bundle: our_story_about_us
+mode: default
+content:
+  field_body:
+    type: text_textarea_with_summary
+    weight: 0
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_long_text:
+    type: text_textarea_with_summary
+    weight: 7
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_multiple_image:
+    type: image_image
+    weight: 6
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_sub_title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title_full:
+    type: text_textarea_with_summary
+    weight: 5
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

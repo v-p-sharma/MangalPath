@@ -1,65 +1,30 @@
 <section class="py-section">
   <div class="container">
-    <h2 class="section-title">Explore Our <span style="color:var(--accent)">Loan Options</span></h2>
-    <p class="section-sub">We offer tailored financial solutions to fit every need with competitive interest rates and quick processing.</p>
+  
+    <h2 class="section-title">{{paragraph.field_title_full[0].value|raw}}</h2>
+    <p class="section-sub">{{paragraph.field_description[0].value|raw}}</p>
     
     <div class="row g-4">
       <!-- Home Loan -->
-      <div class="col-md-6 col-lg-3">
+       {%for items in paragraph.field_loan_inner %}
+         <div class="col-md-6 col-lg-3">
         <div class="loan-card">
-          <div class="loan-icon"><i class="fa fa-home"></i></div>
-          <h4>Home Loan</h4>
-          <p style="font-size:13px; color:var(--text-muted);">Build or buy your dream home with ease.</p>
+          <div class="loan-icon"><i class="{{items.entity.field_icon_class[0].value}}"></i></div>
+          <h4>{{items.entity.field_title[0].value}}</h4>
+          <p style="font-size:13px; color:var(--text-muted);">{{items.entity.field_description[0].value}}</p>
           <ul class="loan-features">
-            <li><i class="fa fa-check"></i> Up to ₹5 Crore</li>
-            <li><i class="fa fa-check"></i> Interest from 8.35%</li>
-            <li><i class="fa fa-check"></i> Tenure up to 30 Years</li>
+            {%for innerItems in items.entity.field_list %}
+             
+           <li><i class="fa fa-check"></i> {{innerItems.entity.field_titles[0].value}}</li>
+            {% endfor %}
+ 
           </ul>
-          <a href="#enquiry-form" class="btn-check-eligibility">Check Eligibility</a>
+          <a href="{{items.entity.field_know_more[0].url.toString()}}" class="btn-check-eligibility">{{items.entity.field_know_more[0].title}}</a>
         </div>
       </div>
-      <!-- Loan Against Property -->
-      <div class="col-md-6 col-lg-3">
-        <div class="loan-card">
-          <div class="loan-icon"><i class="fa fa-building"></i></div>
-          <h4>Loan Against Property</h4>
-          <p style="font-size:13px; color:var(--text-muted);">Unlock the value of your property.</p>
-          <ul class="loan-features">
-            <li><i class="fa fa-check"></i> Up to ₹3 Crore</li>
-            <li><i class="fa fa-check"></i> Interest from 9.50%</li>
-            <li><i class="fa fa-check"></i> Quick Disbursal</li>
-          </ul>
-          <a href="#enquiry-form" class="btn-check-eligibility">Check Eligibility</a>
-        </div>
-      </div>
-      <!-- Gold Loan -->
-      <div class="col-md-6 col-lg-3">
-        <div class="loan-card">
-          <div class="loan-icon"><i class="fa fa-gem"></i></div>
-          <h4>Gold Loan</h4>
-          <p style="font-size:13px; color:var(--text-muted);">Instant cash against your gold ornaments.</p>
-          <ul class="loan-features">
-            <li><i class="fa fa-check"></i> Up to ₹1 Crore</li>
-            <li><i class="fa fa-check"></i> Interest from 7.00%</li>
-            <li><i class="fa fa-check"></i> Minimal Documentation</li>
-          </ul>
-          <a href="#enquiry-form" class="btn-check-eligibility">Check Eligibility</a>
-        </div>
-      </div>
-      <!-- Car Loan -->
-      <div class="col-md-6 col-lg-3">
-        <div class="loan-card">
-          <div class="loan-icon"><i class="fa fa-car"></i></div>
-          <h4>Car Loan</h4>
-          <p style="font-size:13px; color:var(--text-muted);">Drive home your dream car today.</p>
-          <ul class="loan-features">
-            <li><i class="fa fa-check"></i> Up to ₹1 Crore</li>
-            <li><i class="fa fa-check"></i> Interest from 7.50%</li>
-            <li><i class="fa fa-check"></i> 100% On-Road Funding</li>
-          </ul>
-          <a href="#enquiry-form" class="btn-check-eligibility">Check Eligibility</a>
-        </div>
-      </div>
+
+       {% endfor %}
+  
     </div>
   </div>
 </section>
