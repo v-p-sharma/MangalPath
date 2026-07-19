@@ -1,0 +1,19 @@
+uuid: b42658a3-66e6-4eb7-a2af-352a3ef0e71a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sub_title
+    - paragraphs.paragraphs_type.our_leadership
+id: paragraph.our_leadership.field_sub_title
+field_name: field_sub_title
+entity_type: paragraph
+bundle: our_leadership
+label: 'Sub Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

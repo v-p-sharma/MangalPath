@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.paragraph.our_services_inner.field_color
     - field.field.paragraph.our_services_inner.field_icon_class
+    - field.field.paragraph.our_services_inner.field_know_more
     - field.field.paragraph.our_services_inner.field_list
     - field.field.paragraph.our_services_inner.field_sub_title
     - field.field.paragraph.our_services_inner.field_title
     - paragraphs.paragraphs_type.our_services_inner
   module:
+    - link
     - paragraphs
 id: paragraph.our_services_inner.default
 targetEntityType: paragraph
@@ -31,6 +33,14 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_know_more:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_list:
     type: paragraphs

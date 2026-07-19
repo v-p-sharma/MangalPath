@@ -1,0 +1,12 @@
+features:
+  node_user_picture: 1
+  comment_user_picture: 1
+  comment_user_verification: 1
+  favicon: 1
+logo:
+  use_default: 0
+  path: 'public://mangalpathlogo_0.jpg'
+favicon:
+  use_default: 0
+  path: 'public://mangalpath2logo_0.jpg'
+  mimetype: image/jpeg

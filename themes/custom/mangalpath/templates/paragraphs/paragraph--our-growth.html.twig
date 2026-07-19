@@ -1,0 +1,27 @@
+<section class="timeline-section">
+    <div class="container">
+        
+        <div class="text-center mb-5" data-aos="fade-up">
+            <div class="section-badge">{{paragraph.field_sub_title[0].value}}</div>
+            <h2 class="section-title">{{paragraph.field_title_full[0].value|raw}}</h2>
+            <div class="section-line center"></div>
+            <p class="section-sub mt-3">{{paragraph.field_description[0].value|striptags}}</p>
+        </div>
+        <div class="timeline">
+            {% for item in paragraph.field_our_growth_inner %}
+            <div class="tl-item" data-aos="{{ loop.index is odd ? 'fade-right' : 'fade-left' }}">
+
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                    <span class="tl-year">{{item.entity.field_sub_title[0].value}}</span>
+                    <h5>{{item.entity.field_title[0].value}}</h5>
+                    <p>{{item.entity.field_description[0].value|striptags}}</p>
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</section>

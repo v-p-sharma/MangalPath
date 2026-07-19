@@ -1,0 +1,23 @@
+uuid: a1210189-7bba-4411-86d3-6b2cf0c69656
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_know_more
+    - paragraphs.paragraphs_type.map_section
+  module:
+    - link
+id: paragraph.map_section.field_know_more
+field_name: field_know_more
+entity_type: paragraph
+bundle: map_section
+label: 'Map Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

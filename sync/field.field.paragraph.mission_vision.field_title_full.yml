@@ -1,0 +1,30 @@
+uuid: 68f93cda-3315-402d-8671-23b49e401cac
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_full
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.mission_vision
+  module:
+    - text
+id: paragraph.mission_vision.field_title_full
+field_name: field_title_full
+entity_type: paragraph
+bundle: mission_vision
+label: title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - basic_html
+    - full_html
+    - plain_text
+field_type: text_with_summary

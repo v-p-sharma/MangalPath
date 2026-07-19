@@ -1,111 +1,83 @@
 <section class="testimonials-section">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-badge">Testimonials</div>
-      <h2 class="section-title">What Our <span>Customers Say</span></h2>
+      <div class="section-badge">{{paragraph.field_sub_title[0].value}}</div>
+      <h2 class="section-title">{{paragraph.field_title_full[0].value|raw}}</h2>
       <div class="section-line center"></div>
-      <p class="section-sub mt-3">Real stories from real people who trusted mangalpath for their needs.</p>
+      <p class="section-sub mt-3">{{paragraph.field_description[0].value|striptags}}</p>
     </div>
     <div id="testiCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="100">
       <div class="carousel-inner">
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-          <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <div class="testi-quote">"</div>
-                <div class="testi-header">
-                  <div class="testi-avatar" style="background: linear-gradient(135deg,#1a3c6e,#2a5ca8)">R</div>
-                  <div>
-                    <div class="testi-name">Rohit Sharma</div>
-                    <div class="testi-service"><i class="fa fa-coins me-1"></i>Home Loan</div>
+        {# Bootstrap carousel: each carousel-item = one slide.
+           Production me "one slide 3 item" chahiye, so desktop me 3-per-slide.
+           Mobile me 1-per-slide keep karne ke liye we still build 3-per-slide chunks;
+           Bootstrap cols handle stacking via classes below.
+        #}
+
+{% set testiList = paragraph.field_testimonials_inner %}
+{% set total = testiList|length %}
+
+{% if total > 0 %}
+  {# बिना किसी range() एरर के 3-3 के ग्रुप (Slides) में बाँटें #}
+  {% set slides = testiList|batch(3) %}
+  
+  {% for slideItems in slides %}
+    {% set isActive = loop.first %}
+    <div class="carousel-item {% if isActive %}active{% endif %}">
+      <div class="row g-4">
+
+        {# इस स्लाइड के अंदर के (अधिकतम 3) आइटम्स को रेंडर करें #}
+        {% for items in slideItems %}
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="testimonial-card">
+              <div class="testi-quote">"</div>
+              <div class="testi-header">
+                <div class="testi-avatar" style="background: linear-gradient(135deg,#1a3c6e,#2a5ca8)">
+                  {{ items.entity.field_name_letter[0].value }}
+                </div>
+                <div>
+                  <div class="testi-name">{{ items.entity.field_title[0].value }}</div>
+                  <div class="testi-service">
+                    <i class="{{ items.entity.field_icon_class[0].value }}"></i>
+                    {{ items.entity.field_sub_title[0].value }}
                   </div>
                 </div>
-                <div class="testi-stars">★★★★★</div>
-                <p class="testi-text">mangalpath helped me get my home loan approved in just 5 days. Their team handled all the paperwork and kept me informed at every step. Highly recommended!</p>
               </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <div class="testi-quote">"</div>
-                <div class="testi-header">
-                  <div class="testi-avatar" style="background: linear-gradient(135deg,#f5821f,#d96b10)">P</div>
-                  <div>
-                    <div class="testi-name">Priya Gupta</div>
-                    <div class="testi-service"><i class="fa fa-building me-1"></i>Property Purchase</div>
-                  </div>
-                </div>
-                <div class="testi-stars">★★★★★</div>
-                <p class="testi-text">Found my dream apartment through mangalpath. They showed me only verified properties matching my budget. The whole experience was transparent and stress-free.</p>
+              
+              <div class="testi-stars">
+                {# रेटिंग की वैल्यू निकालें, खाली या 0 होने पर डिफ़ॉल्ट 0 सेट करें #}
+                {% set rating_val = items.entity.field_rating[0].value|default(0)|number_format %}
+                {% if rating_val > 0 %}
+                  {% for num in range(1, rating_val) %}★ {% endfor %}
+                {% endif %}
               </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <div class="testi-quote">"</div>
-                <div class="testi-header">
-                  <div class="testi-avatar" style="background: linear-gradient(135deg,#16a34a,#15803d)">A</div>
-                  <div>
-                    <div class="testi-name">Amit Verma</div>
-                    <div class="testi-service"><i class="fa fa-car me-1"></i>Vehicle Purchase</div>
-                  </div>
-                </div>
-                <div class="testi-stars">★★★★★</div>
-                <p class="testi-text">Sold my old car and bought a new one through them. The valuation was fair, the process was fast, and the team was extremely professional throughout.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-          <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <div class="testi-quote">"</div>
-                <div class="testi-header">
-                  <div class="testi-avatar" style="background: linear-gradient(135deg,#6d28d9,#7c3aed)">S</div>
-                  <div>
-                    <div class="testi-name">Sunita Malhotra</div>
-                    <div class="testi-service"><i class="fa fa-van-shuttle me-1"></i>Wedding Transport</div>
-                  </div>
-                </div>
-                <div class="testi-stars">★★★★★</div>
-                <p class="testi-text">Arranged 10 vehicles for our wedding through mangalpath. All vehicles arrived on time, drivers were courteous, and the coordination was excellent. Will definitely use again!</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <div class="testi-quote">"</div>
-                <div class="testi-header">
-                  <div class="testi-avatar" style="background: linear-gradient(135deg,#0891b2,#0e7490)">V</div>
-                  <div>
-                    <div class="testi-name">Vikram Joshi</div>
-                    <div class="testi-service"><i class="fa fa-coins me-1"></i>Business Loan</div>
-                  </div>
-                </div>
-                <div class="testi-stars">★★★★★</div>
-                <p class="testi-text">Got my business loan of ₹20 lakhs processed in under a week. The interest rate was competitive and the process was completely transparent. Truly a reliable partner.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="testimonial-card">
-                <div class="testi-quote">"</div>
-                <div class="testi-header">
-                  <div class="testi-avatar" style="background: linear-gradient(135deg,#be185d,#9d174d)">N</div>
-                  <div>
-                    <div class="testi-name">Neha Kapoor</div>
-                    <div class="testi-service"><i class="fa fa-building me-1"></i>Commercial Property</div>
-                  </div>
-                </div>
-                <div class="testi-stars">★★★★★</div>
-                <p class="testi-text">They helped me rent out my commercial space within 2 weeks. Proper tenant verification, legal assistance, and timely communication. Best property service in town!</p>
-              </div>
+              
+              <p class="testi-text">{{ items.entity.field_description[0].value }}</p>
             </div>
           </div>
-        </div>
+        {% endfor %}
+
       </div>
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="1"></button>
+    </div>
+  {% endfor %}
+{% endif %}
+</div> {# यह आपके कोड का क्लोजिंग div है #}
+
+{# --- Indicators Section (100% Safe) --- #}
+{% set slideCount = slides|length %}
+{% if slideCount > 0 %}
+  <div class="carousel-indicators">
+    {# range(0, 0) में PHP 8 फेल नहीं होता, इसलिए यह पूरी तरह सुरक्षित है #}
+    {% for s in range(0, slideCount - 1) %}
+      <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="{{ s }}" class="{% if s == 0 %}active{% endif %}"></button>
+    {% endfor %}
+  </div>
+{% endif %}
+
+
+
+
+
       </div>
       <div class="carousel-controls-wrap">
         <button class="carousel-control-prev" type="button" data-bs-target="#testiCarousel" data-bs-slide="prev" style="position:static;width:44px;height:44px;border-radius:50%;background:var(--primary);opacity:1;"><i class="fa fa-chevron-left"></i></button>

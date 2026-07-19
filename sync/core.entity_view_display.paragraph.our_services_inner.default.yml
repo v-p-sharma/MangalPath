@@ -5,12 +5,14 @@ dependencies:
   config:
     - field.field.paragraph.our_services_inner.field_color
     - field.field.paragraph.our_services_inner.field_icon_class
+    - field.field.paragraph.our_services_inner.field_know_more
     - field.field.paragraph.our_services_inner.field_list
     - field.field.paragraph.our_services_inner.field_sub_title
     - field.field.paragraph.our_services_inner.field_title
     - paragraphs.paragraphs_type.our_services_inner
   module:
     - entity_reference_revisions
+    - link
 id: paragraph.our_services_inner.default
 targetEntityType: paragraph
 bundle: our_services_inner
@@ -31,6 +33,18 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_know_more:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_list:
     type: entity_reference_revisions_entity_view

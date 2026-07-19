@@ -1,0 +1,23 @@
+<section class="story-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7" data-aos="fade-right">
+                <div class="section-badge">{{paragraph.field_sub_title[0].value}}</div>
+                <h2 class="section-title">{{paragraph.field_title_full[0].value|raw}}</h2>
+                <div class="section-line" style="margin-bottom:24px;"></div>
+                <div class="story-text">
+                    {{paragraph.field_body[0].value|raw}}
+                </div>
+                <div class="story-highlight mt-4" data-aos="fade-up" data-aos-delay="100">
+                    {{paragraph.field_long_text[0].value|raw}}
+                </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-left">
+                <img src="{{file_url(paragraph.field_multiple_image[0].entity.uri[0].value)}}" alt="Our Office" class="story-image mb-4">
+                {% if paragraph.field_multiple_image[1].entity.uri[0].value %}
+                <img src="{{file_url(paragraph.field_multiple_image[1].entity.uri[0].value)}}" alt="Team Meeting" class="story-image">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

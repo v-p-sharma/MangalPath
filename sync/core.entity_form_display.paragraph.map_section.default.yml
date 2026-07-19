@@ -1,0 +1,25 @@
+uuid: 58da85b4-3524-48b8-b42e-982dd37ffe94
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_section.field_know_more
+    - paragraphs.paragraphs_type.map_section
+  module:
+    - link
+id: paragraph.map_section.default
+targetEntityType: paragraph
+bundle: map_section
+mode: default
+content:
+  field_know_more:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

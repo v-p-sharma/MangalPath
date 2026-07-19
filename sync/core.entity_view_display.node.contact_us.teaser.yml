@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.contact_us.body
+    - field.field.node.contact_us.field_contact_us_components
     - node.type.contact_us
   module:
     - text
@@ -28,4 +29,5 @@ content:
     weight: 100
     region: content
 hidden:
+  field_contact_us_components: true
   langcode: true

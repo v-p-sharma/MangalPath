@@ -1,0 +1,23 @@
+uuid: 7bb41185-ff7b-4554-bbdf-e643b872fbf3
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_know_more
+    - paragraphs.paragraphs_type.our_services_inner
+  module:
+    - link
+id: paragraph.our_services_inner.field_know_more
+field_name: field_know_more
+entity_type: paragraph
+bundle: our_services_inner
+label: 'Check Eligibility'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -1,0 +1,41 @@
+uuid: 737eded1-e470-4891-b8fc-8b4de70a7042
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_info_inner.field_icon_class
+    - field.field.paragraph.contact_info_inner.field_sub_title
+    - field.field.paragraph.contact_info_inner.field_title
+    - paragraphs.paragraphs_type.contact_info_inner
+id: paragraph.contact_info_inner.default
+targetEntityType: paragraph
+bundle: contact_info_inner
+mode: default
+content:
+  field_icon_class:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sub_title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

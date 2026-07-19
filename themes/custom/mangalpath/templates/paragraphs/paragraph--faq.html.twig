@@ -1,0 +1,45 @@
+<section class="faq-section">
+    <div class="container">
+        <div class="text-center mb-4" data-aos="fade-up">
+            <div class="section-badge">{{paragraph.field_sub_title[0].value}}</div>
+            <h2 class="section-title">{{paragraph.field_title[0].value}}</h2>
+            <div class="section-line center"></div>
+            <p class="section-sub mt-3">{{paragraph.field_description[0].value}}</p>
+        </div>
+        <div class="faq-card" id="faqAccordion" data-aos="fade-up" data-aos-delay="100">
+
+    {% for item in paragraph.field_faq_inner %}
+        <div class="faq-item">
+
+            <button
+                class="faq-question {{ not loop.first ? 'collapsed' : '' }}"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq{{ loop.index }}"
+                aria-expanded="{{ loop.first ? 'true' : 'false' }}"
+                aria-controls="faq{{ loop.index }}"
+            >
+                <span>{{ item.entity.field_title.value }}</span>
+                <span class="faq-q-icon">
+                    <i class="fa fa-chevron-down"></i>
+                </span>
+            </button>
+
+            <div
+                id="faq{{ loop.index }}"
+                class="collapse {{ loop.first ? 'show' : '' }}"
+                data-bs-parent="#faqAccordion"
+            >
+                <div class="faq-answer-data">
+                    <div class="faq-answer-inner">
+                        {{ item.entity.field_description.value }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+
+</div>
+    </div>
+</section>

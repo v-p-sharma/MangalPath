@@ -1,0 +1,50 @@
+uuid: c3fd1e33-ac69-41c2-b9bc-3767d78643f8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.our_growth.field_description
+    - field.field.paragraph.our_growth.field_our_growth_inner
+    - field.field.paragraph.our_growth.field_sub_title
+    - field.field.paragraph.our_growth.field_title_full
+    - paragraphs.paragraphs_type.our_growth
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.our_growth.default
+targetEntityType: paragraph
+bundle: our_growth
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_our_growth_inner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title_full:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }

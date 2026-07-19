@@ -1,0 +1,20 @@
+<section class="mv-section">
+    <div class="container">
+        <div class="text-center mb-5 aos-init aos-animate" data-aos="fade-up">
+            <div class="section-badge">{{paragraph.field_sub_title[0].value}}</div>
+            {{paragraph.field_title_full[0].value|raw}}
+            <div class="section-line center"></div>
+        </div>
+        <div class="row g-4">
+            {% for items in paragraph.field_mission_and_vision_inner%}
+            <div class="col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">
+                <div class="mv-card mission">
+                    <div class="mv-icon"><i class="{{items.entity.field_icon_class[0].value}}"></i></div>
+                    <h3>{{items.entity.field_title[0].value}}</h3>
+                    <p>{{items.entity.field_description[0].value}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,34 @@
+<section class="team-section">
+    <div class="container">
+        
+        <div class="text-center mb-5" data-aos="fade-up">
+            <div class="section-badge">{{paragraph.field_sub_title[0].value}}</div>
+            <h2 class="section-title">{{paragraph.field_title_full[0].value|raw}}</h2>
+            <div class="section-line center"></div>
+            <p class="section-sub mt-3">{{paragraph.field_description[0].value|striptags}}</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            {% for items in paragraph.field_leadership_inner %}
+                        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="{{file_url(items.entity.field_image[0].entity.uri[0].value)}}" alt="Founder" class="team-img">
+                        <div class="team-social-overlay">
+                            <a href="#" class="team-social-btn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-btn"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <h5>{{items.entity.field_title[0].value}}</h5>
+                        <div class="team-role">{{items.entity.field_sub_title[0].value}}</div>
+                        <p>{{items.entity.field_description[0].value}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+            {% endfor %}
+     
+        </div>
+    </div>
+</section>
