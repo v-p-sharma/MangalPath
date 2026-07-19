@@ -1,0 +1,6 @@
+services:
+  mangalpath_module.redirect_subscriber:
+    class: Drupal\mangalpath_module\EventSubscriber\AnonymousRedirectSubscriber
+    arguments: ['@current_user']
+    tags:
+      - { name: event_subscriber }

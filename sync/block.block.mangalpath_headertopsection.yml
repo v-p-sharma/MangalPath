@@ -11,7 +11,7 @@ dependencies:
 id: mangalpath_headertopsection
 theme: mangalpath
 region: top_header
-weight: 0
+weight: -15
 provider: null
 plugin: 'block_content:1cf04729-2142-4e62-ab87-8ac568d190af'
 settings:

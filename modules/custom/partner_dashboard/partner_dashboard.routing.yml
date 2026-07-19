@@ -4,21 +4,21 @@ partner_dashboard.property_selling:
     _controller: '\Drupal\partner_dashboard\Controller\Property_selling_controller::PropertyForm'
     _title: 'Add New Property for sell or Rent'
   requirements:
-    _permission: 'access content'
+    _permission: 'access Partner form'
 partner_dashboard.vehicle_selling:
   path: '/add/new-vehicle'
   defaults:
     _controller: '\Drupal\partner_dashboard\Controller\Vehicle_selling_controller::VehicleForm'
     _title: 'Add New Property for sell or Rent'
   requirements:
-    _permission: 'access content'
+    _permission: 'access Partner form'
 partner_dashboard.property_selling_form:
   path: '/add/form/new-property'
   defaults:
     _form: '\Drupal\partner_dashboard\Form\Property_selling'
     _title: 'Property Registration'
   requirements:
-    _permission: 'access content'
+    _permission: 'access Partner form'
     _access: 'TRUE'
 partner_dashboard.vehicle_selling_form:
   path: '/add/form/new-vehicles'
@@ -26,7 +26,7 @@ partner_dashboard.vehicle_selling_form:
     _form: '\Drupal\partner_dashboard\Form\Vehicle_selling_rental'
     _title: 'Vehicle Registration'
   requirements:
-    _permission: 'access content'
+    _permission: 'access Partner form'
     _access: 'TRUE'
 partner_dashboard.loan_application:
   path: '/loan-application'
@@ -34,4 +34,4 @@ partner_dashboard.loan_application:
     _title: 'Loan Application'
     _form: '\Drupal\partner_dashboard\Form\LoanApplicationForm'
   requirements:
-    _permission: 'access content'
+    _permission: 'access Partner form'

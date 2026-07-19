@@ -1,0 +1,19 @@
+uuid: 027b511d-a12c-4507-a243-1f32bc21ee40
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_user_title
+    - paragraphs.paragraphs_type.user_enquiry_form
+id: paragraph.user_enquiry_form.field_user_title
+field_name: field_user_title
+entity_type: paragraph
+bundle: user_enquiry_form
+label: 'title '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

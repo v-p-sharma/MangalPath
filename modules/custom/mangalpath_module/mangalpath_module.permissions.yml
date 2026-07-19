@@ -1,0 +1,4 @@
+access Partner form:
+  title: 'Access Partner Form'
+  description: 'Allow users to access the Partner form.'
+  restrict access: false

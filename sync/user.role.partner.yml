@@ -1,9 +1,12 @@
 uuid: 777b125d-663b-475a-8916-2a400261a23b
 langcode: en-gb
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - mangalpath_module
 id: partner
 label: Partner
 weight: 4
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access Partner form'

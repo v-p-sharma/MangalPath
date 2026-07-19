@@ -1,0 +1,11 @@
+uuid: d7498680-bd6e-4d33-820c-0171ca0a53ce
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.vehicle_enquiry_form
+id: node.vehicle_enquiry_form
+target_entity_type_id: node
+target_bundle: vehicle_enquiry_form
+default_langcode: site_default
+language_alterable: false

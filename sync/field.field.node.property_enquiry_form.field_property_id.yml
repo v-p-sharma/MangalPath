@@ -1,0 +1,19 @@
+uuid: 6d6ee5a0-8677-4682-88e0-310af9084d75
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_property_id
+    - node.type.property_enquiry_form
+id: node.property_enquiry_form.field_property_id
+field_name: field_property_id
+entity_type: node
+bundle: property_enquiry_form
+label: 'Property Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

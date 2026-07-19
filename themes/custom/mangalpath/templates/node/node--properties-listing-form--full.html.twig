@@ -1521,43 +1521,8 @@
             <h3><i class="fa fa-comment-dots me-2"></i>Send Enquiry</h3>
             <button class="modal-close" onclick="closeEnquiry()"><i class="fa fa-times"></i></button>
         </div>
-        <div class="modal-body">
-            <p style="font-size:13px;color:var(--text-muted);font-weight:600;margin-bottom:18px;">
-                Property: <strong style="color:var(--primary-dark)">Luxury 3BHK Flat in Civil Lines, Jaipur</strong><br>
-                Price: <strong style="color:var(--accent)">₹55,00,000</strong>
-            </p>
-            <div style="display:flex;flex-direction:column;gap:16px;">
-                <div>
-                    <label class="form-label">Full Name <span style="color:#ef4444">*</span></label>
-                    <input type="text" class="form-control" placeholder="Enter your full name" id="eqName">
-                </div>
-                <div>
-                    <label class="form-label">Phone Number <span style="color:#ef4444">*</span></label>
-                    <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" id="eqPhone">
-                </div>
-                <div>
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-control" placeholder="your@email.com" id="eqEmail">
-                </div>
-                <div>
-                    <label class="form-label">Your Message</label>
-                    <textarea class="form-control" rows="3"
-                        placeholder="I'm interested in this property. Please share more details..." id="eqMsg"
-                        style="resize:vertical;"></textarea>
-                </div>
-                <div>
-                    <label class="form-label">When do you plan to visit?</label>
-                    <select class="form-select" id="eqVisit">
-                        <option value="">Select</option>
-                        <option>This Week</option>
-                        <option>Next Week</option>
-                        <option>This Month</option>
-                        <option>Not Sure Yet</option>
-                    </select>
-                </div>
-                <button class="btn-submit-enquiry" onclick="submitEnquiry()"><i class="fa fa-paper-plane me-2"></i>Send
-                    Enquiry</button>
-            </div>
+        <div class="modal-body" style="padding:20px">
+            {{ drupal_form('Drupal\\partner_dashboard\\Form\\CommonEnquiryForm') }}
         </div>
     </div>
 </div>

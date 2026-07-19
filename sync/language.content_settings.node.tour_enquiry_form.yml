@@ -1,0 +1,11 @@
+uuid: 16c5d877-10eb-45d0-822c-03792e1f3c3d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.tour_enquiry_form
+id: node.tour_enquiry_form
+target_entity_type_id: node
+target_bundle: tour_enquiry_form
+default_langcode: site_default
+language_alterable: false

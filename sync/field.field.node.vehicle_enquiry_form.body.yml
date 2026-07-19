@@ -1,0 +1,24 @@
+uuid: 4c1c95db-2897-4d90-9059-fd77f193f3dc
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.vehicle_enquiry_form
+  module:
+    - text
+id: node.vehicle_enquiry_form.body
+field_name: body
+entity_type: node
+bundle: vehicle_enquiry_form
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

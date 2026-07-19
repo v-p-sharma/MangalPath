@@ -455,7 +455,8 @@ public function submitForm(array &$form, FormStateInterface $form_state) {
   $node = Node::create([
     'type' => 'loan_section',
     'title' => $title,
-    'status' => 1,
+    'uid' => \Drupal::currentUser()->id(),
+    'status' => 0, // Unpublished
   ]);
 
   // Node owner & created time.

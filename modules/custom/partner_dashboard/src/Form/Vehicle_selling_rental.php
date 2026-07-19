@@ -846,6 +846,8 @@ class Vehicle_selling_rental extends FormBase
         $node = Node::create([
             'type'  => 'vehicle_sell',
             'title' => $data['title'] ?? 'Vehicle Listing',
+            'uid' => \Drupal::currentUser()->id(),
+            'status' => 0, // Unpublished
         ]);
 
         foreach ($data as $key => $value) {
