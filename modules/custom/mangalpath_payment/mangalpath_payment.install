@@ -117,8 +117,6 @@ function mangalpath_payment_schema() {
   return $schema;
 
 }
-<?php
-
 /**
  * Implements hook_install().
  */
