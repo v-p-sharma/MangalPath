@@ -1,0 +1,94 @@
+<div class="mangalpath-payment-page">
+
+    <div class="payment-card">
+
+        <h2>
+
+            Complete Listing Payment
+
+        </h2>
+
+        <hr>
+
+        <table class="table">
+
+            <tr>
+
+                <th>
+
+                    Listing
+
+                </th>
+
+                <td>
+
+                    {{ payment.title }}
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>
+
+                    Amount
+
+                </th>
+
+                <td>
+
+                    ₹{{ payment.amount }}
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>
+
+                    Currency
+
+                </th>
+
+                <td>
+
+                    {{ payment.currency }}
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>
+
+                    Order
+
+                </th>
+
+                <td>
+
+                    {{ payment.order_id }}
+
+                </td>
+
+            </tr>
+
+        </table>
+
+        <button
+            id="rzp-pay-btn"
+            class="button button--primary">
+
+            Pay Now
+
+        </button>
+
+    </div>
+
+</div>
+
+{{ attach_library('mangalpath_payment/checkout') }}
+

@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_fitness_certificate
     - field.field.node.vehicle_sell.field_fuel_type
     - field.field.node.vehicle_sell.field_insurance_copy
+    - field.field.node.vehicle_sell.field_is_suscribed
     - field.field.node.vehicle_sell.field_load_capacity_tons
     - field.field.node.vehicle_sell.field_loan_available
     - field.field.node.vehicle_sell.field_manufacturing_year
@@ -33,6 +34,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_odometer_reading_km
     - field.field.node.vehicle_sell.field_other_documents_noc_transf
     - field.field.node.vehicle_sell.field_owner_name
+    - field.field.node.vehicle_sell.field_partner_status
     - field.field.node.vehicle_sell.field_permit_type
     - field.field.node.vehicle_sell.field_pincode
     - field.field.node.vehicle_sell.field_power_backup
@@ -54,6 +56,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_state
     - field.field.node.vehicle_sell.field_super_area
     - field.field.node.vehicle_sell.field_survey_number
+    - field.field.node.vehicle_sell.field_suscribed_amount
     - field.field.node.vehicle_sell.field_total_area
     - field.field.node.vehicle_sell.field_transmission
     - field.field.node.vehicle_sell.field_variant
@@ -239,6 +242,13 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
+  field_is_suscribed:
+    type: boolean_checkbox
+    weight: 199
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_load_capacity_tons:
     type: string_textfield
     weight: 207
@@ -311,6 +321,16 @@ content:
     weight: 180
     region: content
     settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_partner_status:
+    type: entity_reference_autocomplete
+    weight: 198
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -467,6 +487,14 @@ content:
   field_survey_number:
     type: string_textfield
     weight: 182
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_suscribed_amount:
+    type: string_textfield
+    weight: 200
     region: content
     settings:
       size: 60

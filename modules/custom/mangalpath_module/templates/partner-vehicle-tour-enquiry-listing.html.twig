@@ -1,0 +1,119 @@
+<div class="container-fluid py-4">
+
+  <div class="card shadow-sm">
+
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h4 class="mb-0">
+        Property Enquiries
+      </h4>
+    </div>
+
+    <div class="card-body">
+
+      <div class="table-responsive">
+
+        <table class="table table-bordered table-striped table-hover align-middle">
+
+          <thead class="table-dark">
+
+            <tr>
+
+              <th width="60">#</th>
+
+              <th>Name</th>
+
+              <th>Email</th>
+
+              <th>Phone</th>
+
+              <th>Property</th>
+
+              {% if is_admin %}
+                <th>Partner</th>
+              {% endif %}
+
+              <th>Created</th>
+
+              <th width="100">Action</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+          {% if rows %}
+
+            {% for row in rows %}
+
+              <tr>
+
+                <td>{{ loop.index }}</td>
+
+                <td>{{ row.name }}</td>
+
+                <td>
+                  <a href="mailto:{{ row.email }}">
+                    {{ row.email }}
+                  </a>
+                </td>
+
+                <td>
+                  <a href="tel:{{ row.phone }}">
+                    {{ row.phone }}
+                  </a>
+                </td>
+
+                <td>
+                  {{ row.property }}
+                </td>
+
+                {% if is_admin %}
+                  <td>
+                    {{ row.owner }}
+                  </td>
+                {% endif %}
+
+                <td>
+                  {{ row.created }}
+                </td>
+
+                <td>
+                  {{ row.action }}
+                </td>
+
+              </tr>
+
+            {% endfor %}
+
+          {% else %}
+
+            <tr>
+
+              <td colspan="{% if is_admin %}8{% else %}7{% endif %}" class="text-center py-5">
+
+                <strong>No Property Enquiries Found.</strong>
+
+              </td>
+
+            </tr>
+
+          {% endif %}
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="mt-4 d-flex justify-content-center">
+
+        {{ pager }}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_fitness_certificate
     - field.field.node.vehicle_sell.field_fuel_type
     - field.field.node.vehicle_sell.field_insurance_copy
+    - field.field.node.vehicle_sell.field_is_suscribed
     - field.field.node.vehicle_sell.field_load_capacity_tons
     - field.field.node.vehicle_sell.field_loan_available
     - field.field.node.vehicle_sell.field_manufacturing_year
@@ -34,6 +35,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_odometer_reading_km
     - field.field.node.vehicle_sell.field_other_documents_noc_transf
     - field.field.node.vehicle_sell.field_owner_name
+    - field.field.node.vehicle_sell.field_partner_status
     - field.field.node.vehicle_sell.field_permit_type
     - field.field.node.vehicle_sell.field_pincode
     - field.field.node.vehicle_sell.field_power_backup
@@ -55,6 +57,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_state
     - field.field.node.vehicle_sell.field_super_area
     - field.field.node.vehicle_sell.field_survey_number
+    - field.field.node.vehicle_sell.field_suscribed_amount
     - field.field.node.vehicle_sell.field_total_area
     - field.field.node.vehicle_sell.field_transmission
     - field.field.node.vehicle_sell.field_variant
@@ -255,6 +258,16 @@ content:
     third_party_settings: {  }
     weight: 193
     region: content
+  field_is_suscribed:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 179
+    region: content
   field_load_capacity_tons:
     type: string
     label: above
@@ -344,6 +357,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 160
+    region: content
+  field_partner_status:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 178
     region: content
   field_permit_type:
     type: list_default
@@ -528,6 +549,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 162
+    region: content
+  field_suscribed_amount:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 180
     region: content
   field_total_area:
     type: string

@@ -1,0 +1,33 @@
+uuid: 2f5c754b-793e-4da6-aec6-247eb680eb1d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_partner_status
+    - node.type.vehicle_sell
+    - taxonomy.vocabulary.partner_data_status
+  content:
+    - 'taxonomy_term:partner_data_status:da675641-b55a-4048-ba68-cfaca28d4f42'
+id: node.vehicle_sell.field_partner_status
+field_name: field_partner_status
+entity_type: node
+bundle: vehicle_sell
+label: 'partner status'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: da675641-b55a-4048-ba68-cfaca28d4f42
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      partner_data_status: partner_data_status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

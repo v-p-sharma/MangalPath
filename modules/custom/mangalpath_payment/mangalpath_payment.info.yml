@@ -1,0 +1,9 @@
+name: MangalPath Payment
+type: module
+description: 'Custom Razorpay payment integration for MangalPath.'
+package: MangalPath
+core_version_requirement: ^10 || ^11
+
+dependencies:
+  - drupal:node
+  - drupal:user

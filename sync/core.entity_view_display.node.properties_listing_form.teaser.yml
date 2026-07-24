@@ -36,6 +36,7 @@ dependencies:
     - field.field.node.properties_listing_form.field_featured_image
     - field.field.node.properties_listing_form.field_floor_number
     - field.field.node.properties_listing_form.field_front_width_ft
+    - field.field.node.properties_listing_form.field_is_suscribed
     - field.field.node.properties_listing_form.field_khasra_number
     - field.field.node.properties_listing_form.field_khata_number
     - field.field.node.properties_listing_form.field_kitchen
@@ -52,6 +53,7 @@ dependencies:
     - field.field.node.properties_listing_form.field_owner_name
     - field.field.node.properties_listing_form.field_ownership_type
     - field.field.node.properties_listing_form.field_parking_capacity
+    - field.field.node.properties_listing_form.field_partner_status
     - field.field.node.properties_listing_form.field_pincode
     - field.field.node.properties_listing_form.field_pooja_room
     - field.field.node.properties_listing_form.field_power_backup
@@ -73,6 +75,7 @@ dependencies:
     - field.field.node.properties_listing_form.field_study_room
     - field.field.node.properties_listing_form.field_super_area
     - field.field.node.properties_listing_form.field_survey_number
+    - field.field.node.properties_listing_form.field_suscribed_amount
     - field.field.node.properties_listing_form.field_total_area
     - field.field.node.properties_listing_form.field_total_floors
     - field.field.node.properties_listing_form.field_upload_documents
@@ -134,6 +137,7 @@ hidden:
   field_featured_image: true
   field_floor_number: true
   field_front_width_ft: true
+  field_is_suscribed: true
   field_khasra_number: true
   field_khata_number: true
   field_kitchen: true
@@ -150,6 +154,7 @@ hidden:
   field_owner_name: true
   field_ownership_type: true
   field_parking_capacity: true
+  field_partner_status: true
   field_pincode: true
   field_pooja_room: true
   field_power_backup: true
@@ -171,6 +176,7 @@ hidden:
   field_study_room: true
   field_super_area: true
   field_survey_number: true
+  field_suscribed_amount: true
   field_total_area: true
   field_total_floors: true
   field_upload_documents: true

@@ -1,0 +1,33 @@
+mangalpath_payment.settings:
+
+  title: 'MangalPath Payment'
+
+  description: 'Configure Razorpay settings.'
+
+  route_name: mangalpath_payment.settings
+
+  parent: system.admin_config_services
+
+  weight: 100
+mangalpath_payment.history:
+
+  title: 'My Payments'
+
+  description: 'Payment History'
+
+  route_name: mangalpath_payment.history
+
+  parent: system.admin_content
+
+  weight: 20
+mangalpath_payment.admin_transactions:
+
+  title: 'Payment Transactions'
+
+  description: 'Manage payment transactions.'
+
+  parent: system.admin_reports
+
+  route_name: mangalpath_payment.admin_transactions
+
+  weight: 10

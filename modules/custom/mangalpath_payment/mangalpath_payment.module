@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * MangalPath Payment Module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function mangalpath_payment_theme($existing, $type, $theme, $path) {
+
+  return [
+    'mangalpath_payment_checkout' => [
+      'variables' => [
+        'payment' => [],
+      ],
+      'template' => 'mangalpath-payment-checkout',
+    ],
+  ];
+
+}

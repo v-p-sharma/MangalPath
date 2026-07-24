@@ -1,0 +1,23 @@
+administer mangalpath payment:
+
+  title: 'Administer MangalPath Payments'
+
+  description: 'Manage payment settings, transactions and reports.'
+
+view own payment history:
+
+  title: 'View own payment history'
+
+  description: 'View own payment transactions.'
+
+retry own payment:
+
+  title: 'Retry own payment'
+
+  description: 'Retry failed payments.'
+
+view payment reports:
+
+  title: 'View payment reports'
+
+  description: 'View payment reports.'

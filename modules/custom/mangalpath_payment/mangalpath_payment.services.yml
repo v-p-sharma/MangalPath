@@ -1,0 +1,12 @@
+services:
+
+  logger.channel.mangalpath_payment:
+    parent: logger.channel_base
+    arguments: ['mangalpath_payment']
+  mangalpath_payment.payment_service:
+    class: Drupal\mangalpath_payment\Service\PaymentService
+    arguments:
+      - '@config.factory'
+      - '@database'
+      - '@current_user'
+      - '@logger.channel.mangalpath_payment'

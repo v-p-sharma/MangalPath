@@ -1,0 +1,566 @@
+{#
+/**
+ * @file
+ * Partner Dashboard Template.
+ */
+
+ total pending data not show
+#}
+
+
+{% set common = statistics.common %}
+{% set property = statistics.property %}
+{% set vehicle = statistics.vehicle %}
+{% set revenue = common.total_revenue %}
+ 
+     <main class="main-content">
+    
+    <!-- TOP HEADER -->
+    <header class="top-header">
+      <div class="flex items-center gap-4">
+        <button class="toggle-btn" id="toggleSidebar"><i class="fa fa-bars"></i></button>
+        <div>
+          <h2 class="font-extrabold text-primary" style="font-size:20px; line-height:1">Dashboard</h2>
+        </div>
+      </div>
+      
+      <div class="header-right">
+        <div class="user-profile">
+          <div class="user-info text-right">
+          
+            <h4>{{user.account.name}}</h4>
+            <span>{{user.roles[1]}}</span>
+          </div>
+          <img src="https://picsum.photos/seed/rajesh/100/100" alt="User" class="user-avatar">
+        </div>
+        <button class="icon-btn">
+          <i class="fa fa-cog"></i>
+        </button>
+        <button class="icon-btn">
+          <i class="fa fa-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="dashboard-container">
+      
+      <!-- HERO SECTION -->
+      <section class="hero-card">
+        <i class="fa fa-chart-line hero-bg-icon"></i>
+        <div class="hero-content">
+          <h1 class="hero-title">Grow Your Business With Our Marketplace</h1>
+          <p class="hero-desc">Manage your listings, track performance, receive customer enquiries, and increase your revenue through our platform. Monitor your properties, rental vehicles, and vehicle sales from one place.</p>
+          <div class="hero-actions">
+            <a href="/add/new-property" class="btn-hero-action"><i class="fa fa-plus"></i> Add New Property</a>
+            <a href="/add/new-vehicle" class="btn-hero-action"><i class="fa fa-van-shuttle"></i> Add Rental Vehicle</a>
+            <a href="/add/new-vehicle" class="btn-hero-action"><i class="fa fa-car-side"></i> Add Vehicle For Sale</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATISTICS SECTION -->
+      <section class="stats-grid">
+        <!-- 1 -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon blue"><i class="fa fa-list"></i></div>
+            <span class="badge badge-success">+12%</span>
+          </div>
+          <div class="stat-value">{{ common.total_listing }}</div>
+          <div class="stat-label">Total Listings</div>
+        </div>
+        <!-- 2 -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green"><i class="fa fa-check-circle"></i></div>
+            <span class="badge badge-success">+5%</span>
+          </div>
+          <div class="stat-value">{{ common.total_listed }}</div>
+          <div class="stat-label">Active Listings</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green"><i class="fa fa-check-circle"></i></div>
+            <span class="badge badge-success">+5%</span>
+          </div>
+          <div class="stat-value">{{ common.total_pending }}</div>
+          <div class="stat-label">Total Pending </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green"><i class="fa fa-check-circle"></i></div>
+            <span class="badge badge-success">+5%</span>
+          </div>
+          <div class="stat-value">{{ common.total_rejected }}</div>
+          <div class="stat-label">Total Rejected</div>
+        </div>
+        <!-- 3 -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon orange"><i class="fa fa-envelope-open-text"></i></div>
+            <span class="badge badge-warning">Today</span>
+          </div>
+          <div class="stat-value">{{ common.total_enquery }}</div>
+          <div class="stat-label">Customer Enquiries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon orange"><i class="fa fa-envelope-open-text"></i></div>
+            <span class="badge badge-warning">Today</span>
+          </div>
+          <div class="stat-value">{{ common.total_sold }}</div>
+          <div class="stat-label">Total Sold</div>
+        </div>
+        <!-- 4 -->
+          <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon purple"><i class="fa fa-wallet"></i></div>
+            <span class="badge badge-success">+18%</span>
+          </div>
+          <div class="stat-value">{{ common.total_inactive }}</div>
+          <div class="stat-label">Total Inactive</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon purple"><i class="fa fa-wallet"></i></div>
+            <span class="badge badge-success">+18%</span>
+          </div>
+          <div class="stat-value">₹{{ revenue|number_format(0, '.', ',') }}</div>
+          <div class="stat-label">Total Revenue</div>
+        </div>
+        </section>
+        <section class="stats-grid">
+
+
+
+        <!-- 5 -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon blue"><i class="fa fa-building"></i></div>
+          </div>
+          <div class="stat-value">{{ property.total_sell }}</div>
+          <div class="stat-label">Properties Sold</div>
+        </div>
+        <!-- 6 -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green"><i class="fa fa-key"></i></div>
+          </div>
+          <div class="stat-value">{{ property.total_rent }}</div>
+          <div class="stat-label">Properties Rented</div>
+        </div>
+        <!-- 7 -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon orange"><i class="fa fa-car"></i></div>
+          </div>
+          <div class="stat-value">{{ vehicle.total_sell }}</div>
+          <div class="stat-label">Vehicles Sold</div>
+        </div>
+        <!-- 8 -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon purple"><i class="fa fa-van-shuttle"></i></div>
+          </div>
+          <div class="stat-value">{{ vehicle.total_rent }}</div>
+          <div class="stat-label">Rental Bookings</div>
+        </div>
+        <!-- 9 -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green"><i class="fa fa-chart-line"></i></div>
+          </div>
+          <div class="stat-value">₹{{ revenue|number_format(0, '.', ',') }}</div>
+          <div class="stat-label">Total Profit</div>
+        </div>
+      </section>
+
+      <!-- PERFORMANCE ANALYTICS -->
+      <section class="charts-row">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title">Monthly Revenue & Enquiries</h3>
+            <div class="chart-actions">
+              <select style="border:1px solid #ddd; padding:4px 8px; border-radius:4px; font-size:12px">
+                <option>This Year</option>
+                <option>Last Year</option>
+              </select>
+            </div>
+          </div>
+          <div style="height:300px; width:100%">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title">Performance Mix</h3>
+          </div>
+          <div style="height:300px; width:100%; display:flex; justify-content:center">
+            <canvas id="performanceChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUSINESS OVERVIEW SECTIONS -->
+      <section class="business-grid">
+        <!-- Property -->
+        <div class="business-card">
+          <div class="business-header">
+            <h3 class="text-primary"><i class="fa fa-building text-accent"></i> Property Business</h3>
+            <span class="badge badge-info">Active</span>
+          </div>
+          <div class="business-body">
+            <div class="biz-metrics">
+              <div class="biz-metric">
+                <div class="label">Total Listed</div>
+                <div class="val">{{ property.total_listed }} Properties</div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">Active</div>
+                <div class="val text-green">{{ property.total_listed }} </div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">Sold/Rented</div>
+                <div class="val">{{ property.total_sold }}</div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">Revenue</div>
+                <div class="val text-primary">₹{{ property.revenue|number_format(0, '.', ',') }}</div>
+              </div>
+            </div>
+            <div class="biz-actions">
+              <a href="/add/new-property" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Property</a>
+              <a href="#" class="btn btn-outline btn-sm">Manage</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rental -->
+        <div class="business-card">
+          <div class="business-header">
+            <h3 class="text-primary"><i class="fa fa-van-shuttle text-green"></i> Rental Business</h3>
+            <span class="badge badge-success">Growing</span>
+          </div>
+          <div class="business-body">
+            <div class="biz-metrics">
+              <div class="biz-metric">
+                <div class="label">Available</div>
+                <div class="val">{{vehicle.total_rent_vehicle}} Vehicles</div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">On Trip</div>
+                <div class="val text-accent">04</div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">Trips Done</div>
+                <div class="val">145</div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">Distance</div>
+                <div class="val">12k km</div>
+              </div>
+            </div>
+            <div class="biz-actions">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Vehicle</a>
+              <a href="#" class="btn btn-outline btn-sm">Bookings</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales -->
+        <div class="business-card">
+          <div class="business-header">
+            <h3 class="text-primary"><i class="fa fa-car-side text-primary"></i> Vehicle Sales</h3>
+            <span class="badge badge-warning">Pending: 2</span>
+          </div>
+          <div class="business-body">
+            <div class="biz-metrics">
+              <div class="biz-metric">
+                <div class="label">For Sale</div>
+                <div class="val">{{vehicle.total_sell_vehicle}} Vehicles</div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">Sold</div>
+                <div class="val text-green">{{vehicle.total_sell}}</div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">Pending Deals</div>
+                <div class="val text-accent">{{vehicle.total_pending}}</div>
+              </div>
+              <div class="biz-metric">
+                <div class="label">Sales Rev</div>
+                <div class="val text-primary">{{vehicle.revenue}}</div>
+              </div>
+            </div>
+            <div class="biz-actions">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Car</a>
+              <a href="#" class="btn btn-outline btn-sm">Buyer Req</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECENT ENQUIRIES & ACTIVITY -->
+      <section class="data-row">
+        <!-- Table -->
+        <div class="table-card">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="card-title">Recent Enquiries</h3>
+            <a href="#" class="text-primary text-xs font-bold">View All</a>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>property enquiry</th>
+                  <th>Tour & Travel</th>
+                  <th>Vehicle enquiry</th>
+                  <th>Loan enquiry</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> 
+                   <a href="/dashboard/property/enquiry" >More Details</a>
+                  </td>
+                  <td><a href="/dashboard/tour/enquiry" >More Details</a></td>
+                  <td class="text-muted"><a href="/dashboard/vehicle/enquiry" >More Details</a></td>
+                  <td><a href="" >More Details</a></td>
+                  
+                </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="activity-card">
+          <h3 class="card-title">Admin Menu Action</h3>
+            {% if logged_in and ('administrator' in user.roles or 'admin' in user.roles) %}
+            <div class="admin-menu">
+              <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> 
+                   <h6>Get In Touch User</h6>
+                  </td>
+                  <td><a href="/dashboard/admin/getintouch" >More Details</a></td>
+                </tr>
+                <tr>
+                  <td> 
+                   <h6>Partner User</h6>
+                  </td>
+                  <td><a href="/dashboard/admin/partnerList" >More Details</a></td>
+                  
+                </tr>
+               
+              </tbody>
+            </table>
+          
+            </div>
+          {% endif %}
+          </div>
+        </div>
+
+        <!-- Activity -->
+        {#-- <div class="activity-card">
+          <h3 class="card-title">Recent Activity</h3>
+          <div class="timeline">
+            <div class="timeline-item success">
+              <span class="timeline-dot"></span>
+              <span class="t-time">2 hours ago</span>
+              <div class="t-text">Payment received for Property Deal #402 (₹45,000)</div>
+            </div>
+            <div class="timeline-item info">
+              <span class="timeline-dot"></span>
+              <span class="t-time">5 hours ago</span>
+              <div class="t-text">New rental booking: Tempo Traveller for 3 days.</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <span class="t-time">Yesterday</span>
+              <div class="t-text">Property "Luxury Apartment in Jaipur" listed successfully.</div>
+            </div>
+            <div class="timeline-item success">
+              <span class="timeline-dot"></span>
+              <span class="t-time">2 days ago</span>
+              <div class="t-text">Vehicle sold: Honda City (Verified Buyer)</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <span class="t-time">3 days ago</span>
+              <div class="t-text">New enquiry received for 2BHK Flat in Mansarovar.</div>
+            </div>
+          </div>
+        </div> --> #}
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <p>Partner Marketplace Dashboard © 2026 mangalpath. All Rights Reserved.</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+  // Toggle Sidebar
+  const toggleBtn = document.getElementById('toggleSidebar');
+  const sidebar = document.getElementById('sidebar');
+  const mainContent = document.querySelector('.main-content');
+
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+
+  // Close sidebar when clicking outside on mobile
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+        sidebar.classList.remove('active');
+      }
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    //==========================
+    // Revenue & Enquiries Chart
+    //==========================
+    const ctx1 = document.getElementById('revenueChart').getContext('2d');
+
+    let gradientFill = ctx1.createLinearGradient(0, 0, 0, 400);
+    gradientFill.addColorStop(0, 'rgba(26,60,110,.20)');
+    gradientFill.addColorStop(1, 'rgba(26,60,110,0)');
+
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['Dashboard'],
+        datasets: [
+          {
+            type: 'line',
+            label: 'Revenue (₹)',
+            data: [
+              {{ common.total_revenue|default(0) }}
+            ],
+            borderColor: '#1a3c6e',
+            backgroundColor: gradientFill,
+            borderWidth: 3,
+            fill: true,
+            tension: .4,
+            pointRadius: 6,
+            pointHoverRadius: 8,
+            yAxisID: 'y'
+          },
+          {
+            label: 'Enquiries',
+            data: [
+              {{ common.total_enquery|default(0) }}
+            ],
+            backgroundColor: '#16a34a',
+            borderRadius: 6,
+            barThickness: 80,
+            yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              usePointStyle: true,
+              boxWidth: 8
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            position: 'left',
+            beginAtZero: true,
+            ticks: {
+              callback: function(value){
+                return '₹' + Number(value).toLocaleString('en-IN');
+              }
+            }
+          },
+          y1: {
+            position: 'right',
+            beginAtZero: true,
+            grid: {
+              drawOnChartArea: false
+            }
+          }
+        }
+      }
+    });
+
+
+    //==========================
+    // Performance Mix
+    //==========================
+    const ctx2 = document.getElementById('performanceChart').getContext('2d');
+
+    new Chart(ctx2,{
+      type:'doughnut',
+      data:{
+        labels:[
+          'Property Sold',
+          'Property Rent',
+          'Vehicle Sold',
+          'Vehicle Rent'
+        ],
+        datasets:[{
+          data:[
+            {{ property.total_sell|default(0) }},
+            {{ property.total_rent|default(0) }},
+            {{ vehicle.total_sell|default(0) }},
+            {{ vehicle.total_rent|default(0) }}
+          ],
+          backgroundColor:[
+            '#1a3c6e',
+            '#16a34a',
+            '#f5821f',
+            '#e2e8f0'
+          ],
+          borderWidth:0,
+          hoverOffset:8
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        cutout:'70%',
+        plugins:{
+          legend:{
+            position:'bottom',
+            labels:{
+              usePointStyle:true,
+              padding:20
+            }
+          }
+        }
+      }
+    });
+
+  });
+</script>

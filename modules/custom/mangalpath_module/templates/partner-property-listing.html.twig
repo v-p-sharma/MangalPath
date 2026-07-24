@@ -1,0 +1,117 @@
+<div class="card shadow-sm border-0">
+
+    <div class="card-header bg-white">
+        <h4 class="mb-0">
+            Property Listing
+        </h4>
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+          {{ include("@mangalpath_module/partner-status-change.html.twig") }}
+            <table class="table table-bordered table-striped table-hover align-middle">
+
+                <thead class="table-dark">
+
+                <tr>
+
+                    <th width="60">#</th>
+
+                    <th>Title</th>
+
+                    <th>Purpose</th>
+
+                    <th>Property Type</th>
+                    <th>Subscriptions</th>
+
+                    <th>Created</th>
+
+                    <th>Status</th>
+
+                    <th width="120">Action</th>
+                    {% if logged_in and ('administrator' in user.roles or 'admin' in user.roles) %}
+                     <th>Change Status</th>
+                    {% endif %}
+                    
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% if rows %}
+
+                    {% for row in rows %}
+
+                        <tr>
+
+                            <td>{{ loop.index }}</td>
+
+                            <td>{{ row.title }}</td>
+
+                            <td>{{ row.purpose }}</td>
+
+                            <td>{{ row.property_type }}</td>
+                            <td>{{ row.subscriptions }}</td>
+
+                            <td>{{ row.created }}</td>
+
+                            <td>
+
+                                <span class="badge bg-primary">
+
+                                    {{ row.partner_status }}
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                {{ row.action|raw }}
+
+                            </td>
+                             {% if logged_in and ('administrator' in user.roles or 'admin' in user.roles) %}
+                            <td>
+                         <a href="#"
+                        class="btn btn-sm btn-primary js-change-status"
+                        data-node="{{ row.id }}"
+                        data-status="{{ row.partner_statusId }}">
+                        Change Status
+                    </a>
+
+                            </td>
+                         {% endif %}
+
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td colspan="7" class="text-center">
+
+                            No Property Found.
+
+                        </td>
+
+                    </tr>
+
+                {% endif %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {{ pager }}
+
+    </div>
+
+</div>

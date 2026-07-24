@@ -1,0 +1,9 @@
+key_id: ''
+key_secret: ''
+webhook_secret: ''
+
+mode: test
+
+currency: INR
+
+listing_amount: 99

@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.properties_listing_form.field_featured_image
     - field.field.node.properties_listing_form.field_floor_number
     - field.field.node.properties_listing_form.field_front_width_ft
+    - field.field.node.properties_listing_form.field_is_suscribed
     - field.field.node.properties_listing_form.field_khasra_number
     - field.field.node.properties_listing_form.field_khata_number
     - field.field.node.properties_listing_form.field_kitchen
@@ -51,6 +52,7 @@ dependencies:
     - field.field.node.properties_listing_form.field_owner_name
     - field.field.node.properties_listing_form.field_ownership_type
     - field.field.node.properties_listing_form.field_parking_capacity
+    - field.field.node.properties_listing_form.field_partner_status
     - field.field.node.properties_listing_form.field_pincode
     - field.field.node.properties_listing_form.field_pooja_room
     - field.field.node.properties_listing_form.field_power_backup
@@ -72,6 +74,7 @@ dependencies:
     - field.field.node.properties_listing_form.field_study_room
     - field.field.node.properties_listing_form.field_super_area
     - field.field.node.properties_listing_form.field_survey_number
+    - field.field.node.properties_listing_form.field_suscribed_amount
     - field.field.node.properties_listing_form.field_total_area
     - field.field.node.properties_listing_form.field_total_floors
     - field.field.node.properties_listing_form.field_upload_documents
@@ -336,6 +339,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_is_suscribed:
+    type: boolean_checkbox
+    weight: 199
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_khasra_number:
     type: string_textfield
     weight: 183
@@ -455,6 +465,16 @@ content:
     weight: 167
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_partner_status:
+    type: entity_reference_autocomplete
+    weight: 198
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_pincode:
@@ -612,6 +632,14 @@ content:
   field_survey_number:
     type: string_textfield
     weight: 182
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_suscribed_amount:
+    type: string_textfield
+    weight: 200
     region: content
     settings:
       size: 60

@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: o5EXp5V0Rb6bFKrnOV1B5GoUQE-sGNFcFfPXQufXfZU
+key_id: rzp_test_TH07mjja9Wmtit
+key_secret: dSy674IvZkJzQ6DV15rasOhj
+webhook_secret: ''
+mode: test
+currency: INR
+listing_amount: 99

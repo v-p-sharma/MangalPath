@@ -1,0 +1,11 @@
+partner-dashboard:
+  css:
+    theme:
+      css/custom.css: {}
+  js:
+    //cdn.jsdelivr.net/npm/chart.js: {}
+    
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once

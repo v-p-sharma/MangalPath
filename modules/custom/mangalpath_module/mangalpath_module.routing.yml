@@ -1,0 +1,56 @@
+mangalpath_module.dashboard:
+  path: '/partner/dashboard'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\PartnerDashboardController::dashboard'
+    _title: 'Partner Dashboard'
+  requirements:
+    _permission: 'access content'
+mangalpath_module.property-listing:
+  path: '/dashboard/property'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\PropertyListingController::listing'
+    _title: 'Partner Dashboard'
+  requirements:
+    _permission: 'access content'
+mangalpath_module.vehicle-sell-listing:
+  path: '/dashboard/rental-vehicle'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\VehicleTourController::listing'
+    _title: 'Partner Dashboard'
+  requirements:
+    _permission: 'access content'
+mangalpath_module.vehicle-tour-listing:
+  path: '/dashboard/sell-vehicle'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\VehicleListingController::listing'
+    _title: 'Partner Dashboard'
+  requirements:
+    _permission: 'access content'
+mangalpath_module.property-enquiry-listing:
+  path: '/dashboard/property/enquiry'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\PropertyEnquiryListingController::listing'
+    _title: 'Partner Dashboard'
+  requirements:
+    _permission: 'access content'
+mangalpath_module.vehicle-tour-enquiry-listing:
+  path: '/dashboard/tour/enquiry'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\TourEnquiryListingController::listing'
+    _title: 'Partner Dashboard'
+  requirements:
+    _permission: 'access content'
+mangalpath_module.vehicle-enquiry-listing:
+  path: '/dashboard/vehicle/enquiry'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\VehicleEnquiryListingController::listing'
+    _title: 'Partner Dashboard'
+  requirements:
+    _permission: 'access content'
+mangalpath_module.update_status:
+  path: '/partner/update-status'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\PartnerController::updateStatus'
+  requirements:
+    _permission: 'access content'
+
