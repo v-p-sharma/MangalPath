@@ -1,0 +1,131 @@
+mangalpath_payment.settings:
+
+  path: '/admin/config/services/mangalpath-payment'
+
+  defaults:
+    _form: '\Drupal\mangalpath_payment\Form\PaymentSettingsForm'
+    _title: 'MangalPath Payment Settings'
+
+  requirements:
+    _permission: 'administer mangalpath payment'
+
+############################################################
+# Payment Page
+############################################################
+
+mangalpath_payment.payment:
+
+  path: '/payment/{node}'
+
+  defaults:
+    _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::payment'
+    _title: 'Complete Payment'
+
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    node: '\d+'
+
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+############################################################
+# Payment Success
+############################################################
+
+mangalpath_payment.success:
+
+  path: '/payment/success'
+
+  defaults:
+    _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::success'
+    _title: 'Payment Successful'
+
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+############################################################
+# Payment Failed
+############################################################
+
+mangalpath_payment.failed:
+
+  path: '/payment/failed'
+
+  defaults:
+    _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::failed'
+    _title: 'Payment Failed'
+
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+############################################################
+# Razorpay Webhook
+############################################################
+
+############################################################
+# Retry Payment
+############################################################
+
+mangalpath_payment.retry:
+
+  path: '/payment/retry/{node}'
+
+  defaults:
+    _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::retry'
+    _title: 'Retry Payment'
+
+  requirements:
+     _permission: 'retry own payment'
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+############################################################
+# Transaction History
+############################################################
+
+mangalpath_payment.history:
+  path: '/my-payments'
+  defaults:
+    _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::history'
+    _title: 'My Payments'
+  requirements:
+    _permission: 'view own payment history'
+mangalpath_payment.complete:
+  path: '/payment/complete'
+  defaults:
+    _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::complete'
+  methods: [POST]
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+# mangalpath_payment.fail:
+#   path: '/payment/fail'
+#   defaults:
+#     _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::fail'
+#   methods: [POST]
+#   requirements:
+#     _user_is_logged_in: 'TRUE'
+mangalpath_payment.webhook:
+
+  path: '/payment/webhook'
+
+  defaults:
+    _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::webhook'
+
+  methods: [POST]
+
+  requirements:
+    _access: 'TRUE'
+mangalpath_payment.admin_transactions:
+  path: '/admin/reports/mangalpath-payment'
+
+  defaults:
+    _controller: '\Drupal\mangalpath_payment\Controller\PaymentController::adminTransactions'
+    _title: 'Payment Transactions'
+
+  requirements:
+    _permission: 'view payment reports'

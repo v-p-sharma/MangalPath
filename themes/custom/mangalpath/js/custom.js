@@ -332,4 +332,46 @@
     }
   };
 
+
+Drupal.behaviors.partnerStatus = {
+    attach: function (context) {
+
+      once('partner-status', '.js-change-status', context).forEach(function (element) {
+
+        $(element).on('click', function (e) {
+
+          e.preventDefault();
+
+          $('#node-id').val($(this).data('node'));
+          $('#status-select').val($(this).data('status'));
+
+          $('#statusModalChange').modal('show');
+        });
+
+      });
+
+      once('save-status', '#save-status', context).forEach(function (element) {
+
+        $(element).on('click', function () {
+
+          $.ajax({
+            url: '/partner/update-status',
+            type: 'POST',
+            data: {
+              nid: $('#node-id').val(),
+              status: $('#status-select').val()
+            },
+            success: function () {
+              location.reload();
+            }
+          });
+
+        });
+
+      });
+
+    }
+  };
+
+
 })(Drupal, once, jQuery);

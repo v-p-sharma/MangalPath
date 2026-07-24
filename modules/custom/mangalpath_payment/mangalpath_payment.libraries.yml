@@ -1,0 +1,25 @@
+checkout:
+
+  version: 1.x
+
+  js:
+
+    https://checkout.razorpay.com/v1/checkout.js:
+      type: external
+      minified: true
+
+    js/checkout.js: {}
+
+  css:
+
+    theme:
+
+      css/payment.css: {}
+
+  dependencies:
+
+    - core/jquery
+
+    - core/drupal
+
+    - core/once

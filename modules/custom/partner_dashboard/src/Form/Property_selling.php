@@ -934,6 +934,11 @@ class Property_selling extends FormBase
         }
 
         $this->messenger()->addStatus($this->t('Property saved successfully!'));
+        // Redirect to payment page with node id
+        $form_state->setRedirect(
+            'mangalpath_payment.payment',
+            ['node' => $node->id()]
+        );
         }
         catch (\Throwable $e) {
             \Drupal::logger('partner_dashboard')->error('Property form submit failed: @message', [

@@ -1,0 +1,137 @@
+<?php
+
+/**
+ * @file
+ * Install file.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function mangalpath_payment_schema() {
+
+  $schema['mangalpath_payment_transaction'] = [
+
+    'description' => 'Stores Razorpay payment transactions.',
+
+    'fields' => [
+
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+
+      'uid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+
+      'nid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+
+      'listing_type' => [
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+      ],
+
+      'gateway' => [
+        'type' => 'varchar',
+        'length' => 30,
+        'not null' => TRUE,
+        'default' => 'razorpay',
+      ],
+
+      'order_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+
+      'payment_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+
+      'signature' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+
+      'amount' => [
+        'type' => 'numeric',
+        'precision' => 12,
+        'scale' => 2,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+
+      'currency' => [
+        'type' => 'varchar',
+        'length' => 10,
+        'default' => 'INR',
+      ],
+
+      'status' => [
+        'type' => 'varchar',
+        'length' => 30,
+        'default' => 'pending',
+      ],
+
+      'gateway_response' => [
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => FALSE,
+      ],
+
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+
+      'changed' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+
+    ],
+
+    'primary key' => ['id'],
+
+    'indexes' => [
+      'uid' => ['uid'],
+      'nid' => ['nid'],
+      'payment_id' => ['payment_id'],
+      'order_id' => ['order_id'],
+      'status' => ['status'],
+    ],
+
+  ];
+
+  return $schema;
+
+}
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function mangalpath_payment_install() {
+
+  user_role_grant_permissions(
+    'administrator',
+    [
+      'administer mangalpath payment',
+      'view payment reports',
+      'view own payment history',
+      'retry own payment',
+    ]
+  );
+
+}

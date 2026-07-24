@@ -89,7 +89,7 @@ body {
 }
 nav#block-mangalpath-useraccountmenu ul {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     color: #1e2d40;
 }
 nav#block-mangalpath-useraccountmenu ul li {margin: 12px;}
@@ -97,14 +97,14 @@ nav#block-mangalpath-useraccountmenu ul li::marker {    content: "";}
 nav#block-mangalpath-useraccountmenu ul li a {
     font-size: 14px;
     font-weight: 700;
-    color: #fcfdff !important;
+    color: var(--bs-nav-link-hover-color);
     padding: 20px 14px !important;
     transition: color .2s;
     position: relative;
     /* background: linear-gradient(135deg, var(--accent), var(--accent-dark)); */
     border-radius: 10px;
     padding: 20px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    /* background: linear-gradient(135deg, var(--primary), var(--accent)); */
     text-decoration: none;
 }
 nav#block-mangalpath-useraccountmenu ul li a::after{

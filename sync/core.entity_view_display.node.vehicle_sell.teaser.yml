@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_fitness_certificate
     - field.field.node.vehicle_sell.field_fuel_type
     - field.field.node.vehicle_sell.field_insurance_copy
+    - field.field.node.vehicle_sell.field_is_suscribed
     - field.field.node.vehicle_sell.field_load_capacity_tons
     - field.field.node.vehicle_sell.field_loan_available
     - field.field.node.vehicle_sell.field_manufacturing_year
@@ -34,6 +35,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_odometer_reading_km
     - field.field.node.vehicle_sell.field_other_documents_noc_transf
     - field.field.node.vehicle_sell.field_owner_name
+    - field.field.node.vehicle_sell.field_partner_status
     - field.field.node.vehicle_sell.field_permit_type
     - field.field.node.vehicle_sell.field_pincode
     - field.field.node.vehicle_sell.field_power_backup
@@ -55,6 +57,7 @@ dependencies:
     - field.field.node.vehicle_sell.field_state
     - field.field.node.vehicle_sell.field_super_area
     - field.field.node.vehicle_sell.field_survey_number
+    - field.field.node.vehicle_sell.field_suscribed_amount
     - field.field.node.vehicle_sell.field_total_area
     - field.field.node.vehicle_sell.field_transmission
     - field.field.node.vehicle_sell.field_variant
@@ -110,6 +113,7 @@ hidden:
   field_fitness_certificate: true
   field_fuel_type: true
   field_insurance_copy: true
+  field_is_suscribed: true
   field_load_capacity_tons: true
   field_loan_available: true
   field_manufacturing_year: true
@@ -120,6 +124,7 @@ hidden:
   field_odometer_reading_km: true
   field_other_documents_noc_transf: true
   field_owner_name: true
+  field_partner_status: true
   field_permit_type: true
   field_pincode: true
   field_power_backup: true
@@ -141,6 +146,7 @@ hidden:
   field_state: true
   field_super_area: true
   field_survey_number: true
+  field_suscribed_amount: true
   field_total_area: true
   field_transmission: true
   field_variant: true

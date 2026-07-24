@@ -1,0 +1,45 @@
+<div class="modal fade" id="statusModalChange">
+
+    <div class="modal-dialog">
+          
+
+        <div class="modal-content">
+            <button type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close">
+             </button>
+
+            <div class="modal-header">
+                <h5>Change Status</h5>
+            </div>
+           
+
+            <div class="modal-body">
+
+                <input type="hidden" id="node-id">
+
+                <select id="status-select" class="form-select">
+
+                    <option value="131">Pending</option>
+                    <option value="132">Listed</option>
+                    <option value="135">Rejected</option>
+                    <option value="133">Sold</option>
+                    <option value="134">Inactive</option>
+                </select>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-success" id="save-status">
+                    Update
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -29,7 +29,8 @@
         "drupal/structure_sync": "^2.0",
         "drupal/twig_tweak": "^3.4",
         "drupal/webform": "^6.3",
-        "drush/drush": "^13.6"
+        "drush/drush": "^13.6",
+        "razorpay/razorpay": "2.*"
     },
     "conflict": {
         "drupal/drupal": "*"

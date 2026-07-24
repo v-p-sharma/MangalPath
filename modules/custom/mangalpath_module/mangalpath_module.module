@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * Hooks for the Partner Dashboard module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function mangalpath_module_theme($existing, $type, $theme, $path) {
+
+  return [
+
+    'partner_dashboard' => [
+
+      'variables' => [
+        'statistics' => [],
+      ],
+
+      'template' => 'partner-dashboard',
+
+    ],
+    'partner_property_listing' => [
+      'variables' => [
+        'rows' => [],
+        'pager' => []
+      ],
+      'template' => 'partner-property-listing',
+      'path' => $path . '/templates',
+    ],
+    'partner_vehicle_listing' => [
+      'variables' => [
+        'rows' => [],
+        'pager' => NULL,
+      ],
+      'template' => 'partner-vehicle-listing',
+    ],
+    'partner_vehicle_tour_listing' => [
+      'variables' => [
+        'rows' => [],
+        'pager' => NULL,
+      ],
+      'template' => 'partner-vehicle-listing',
+    ],
+    'partner_property_enquiry_listing' => [
+  'variables' => [
+    'rows' => [],
+    'pager' => NULL,
+    'is_admin' => FALSE,
+  ],
+  'template' => 'partner-property-enquiry-listing',
+],
+   'partner_vehicle_enquiry_listing' => [
+  'variables' => [
+    'rows' => [],
+    'pager' => NULL,
+    'is_admin' => FALSE,
+  ],
+  'template' => 'partner-vehicle-enquiry-listing',
+],
+   'partner_vehicle_tour_enquiry_listing' => [
+  'variables' => [
+    'rows' => [],
+    'pager' => NULL,
+    'is_admin' => FALSE,
+  ],
+  'template' => 'partner-vehicle-tour-enquiry-listing',
+],
+
+
+  ];
+
+}

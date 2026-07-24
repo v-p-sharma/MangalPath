@@ -69,6 +69,7 @@ class AnonymousRedirectSubscriber implements EventSubscriberInterface {
       '/',
       '/user/login',
       '/user/password',
+      '/user/register',
     ];
 
     if (in_array($path, $allowed_paths, TRUE)) {

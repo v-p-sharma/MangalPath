@@ -1,0 +1,52 @@
+{{ attach_library('mangalpath_module/partner-dashboard') }}
+<div id="wrapper">
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon">M</div>
+        <div class="brand-text">
+          <span class="brand-name">mangalpath</span>
+          <span class="brand-tag">Partner Panel</span>
+        </div>
+      </a>
+    </div>
+    
+    <nav class="sidebar-menu">
+      <a href="/partner/dashboard" class="menu-link active"><i class="fa fa-th-large"></i> Dashboard</a>
+      
+      <div class="menu-category">General</div>
+      <a href="/user/{{ logged_in ? user.id : 0 }}" class="menu-link"><i class="fa fa-user-circle"></i> My Profile</a>
+      <a href="#" class="menu-link"><i class="fa fa-bell"></i> Notifications</a>
+      <a href="#charts-row-id" class="menu-link"><i class="fa fa-chart-pie"></i> Reports & Analytics</a>
+      
+      <div class="menu-category">Properties</div>
+      <a href="/dashboard/property" class="menu-link"><i class="fa fa-building"></i> My Properties</a>
+      <a href="/dashboard/property/enquiry" class="menu-link"><i class="fa fa-phone"></i> Property Enquiries</a>
+      
+      <div class="menu-category">Rentals</div>
+      <a href="/dashboard/rental-vehicle" class="menu-link"><i class="fa fa-van-shuttle"></i> Rental Vehicles</a>
+      <a href="/dashboard/tour/enquiry" class="menu-link"><i class="fa fa-calendar-check"></i> Rental Bookings</a>
+      
+      <div class="menu-category">Vehicle Sales</div>
+      <a href="/dashboard/sell-vehicle" class="menu-link"><i class="fa fa-car"></i> Vehicles For Sale</a>
+      <a href="/dashboard/vehicle/enquiry" class="menu-link"><i class="fa fa-handshake"></i> Sales Enquiries</a>
+      
+      <div class="menu-category">Support</div>
+      <a href="/user/Logout" class="menu-link text-danger" style="color:#ef4444"><i class="fa fa-sign-out-alt"></i> Logout</a>
+    </nav>
+    
+    <div class="sidebar-footer">
+      <div style="background:#e3edf8; padding:15px; border-radius:10px;">
+        <h6 class="font-bold text-primary mb-1" style="font-size:13px">Need Help?</h6>
+        <p class="text-xs text-muted mb-2">Contact our support team for assistance.</p>
+        <a href="#" class="btn btn-primary btn-sm w-full">Contact Support</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+   {{ page.content }}
+  
+</div>

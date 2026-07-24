@@ -874,8 +874,12 @@ class Vehicle_selling_rental extends FormBase
 
         $this->messenger()->addMessage('Vehicle submitted successfully!');
 
+
         $form_state->set('vehicle_data', []);
-        $form_state->setRedirect('<front>');
+        $form_state->setRedirect(
+            'mangalpath_payment.payment',
+            ['node' => $node->id()]
+        );
     }
     private function makeFilesPermanent($data)
     {

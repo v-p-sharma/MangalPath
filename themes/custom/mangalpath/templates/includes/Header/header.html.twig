@@ -16,6 +16,13 @@
     <div class="collapse navbar-collapse" id="mainNav">
       {% if page.primary_menu %}{{ page.primary_menu }}{% endif %}
      {{page.header}}
+     {% if logged_in and ('administrator' in user.roles or 'admin' in user.roles) %}
+     <ul class="navbar-nav mx-auto menu menu--level-1">
+        <li class="nav-item menu__item--link menu__item--level-1">
+          <a href="/partner/dashboard" class="nav-link menu__link--link menu__link--level-1" data-drupal-link-system-path="&lt;front&gt;" tabindex="-1" aria-current="page">Dashboard</a>
+          </li></ul>
+     
+     {%endif %}
     </div>
     
   </div>
