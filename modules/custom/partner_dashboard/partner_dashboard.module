@@ -1,4 +1,5 @@
 <?php
+use Drupal\Core\Mail\MailFormatHelper;
 
 /**
  * Implements hook_theme().
@@ -28,4 +29,27 @@ function partner_dashboard_theme($existing, $type, $theme, $path) {
       'template' => 'vehicle-selling-form',
     ],
   ];
+}
+
+
+
+/**
+ * Implements hook_mail().
+ */
+function partner_dashboard_mail($key, &$message, $params) {
+
+  switch ($key) {
+
+    // User Thank You Mail
+    case 'user_thank_you':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = MailFormatHelper::htmlToText($params['body']);
+      break;
+
+    // Admin Enquiry Mail
+    case 'admin_enquiry':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = MailFormatHelper::htmlToText($params['body']);
+      break;
+  }
 }

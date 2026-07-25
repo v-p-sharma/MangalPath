@@ -279,32 +279,6 @@ menus:
     uuid: 1b0564d9-a69e-4573-9d73-81583122365b
     options: {  }
   -
-    menu_name: footer
-    title: 'About Us'
-    parent: null
-    uri: 'internal:/about-us'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: 0
-    langcode: en-gb
-    uuid: 5a9d2191-888f-4e2d-926b-11ffc684e61d
-    options: {  }
-  -
-    menu_name: footer
-    title: Contact
-    parent: null
-    uri: 'internal:/contact-us'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: 0
-    langcode: en-gb
-    uuid: dd5408d7-502b-43db-804f-1df73b3f4ea0
-    options: {  }
-  -
     menu_name: footer-2
     title: 'Personal Loan'
     parent: null
@@ -434,32 +408,6 @@ menus:
     langcode: en-gb
     uuid: fa813d77-3f46-479d-9647-c92ebcdca296
     options: {  }
-  -
-    menu_name: main
-    title: About-us
-    parent: null
-    uri: 'internal:/about-us'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: -45
-    langcode: en-gb
-    uuid: edeb2d5f-be06-4681-adad-eac43b81bd0a
-    options: {  }
-  -
-    menu_name: main
-    title: 'Contact Us'
-    parent: null
-    uri: 'internal:/contact-us'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: -44
-    langcode: en-gb
-    uuid: 0f87e632-f58c-45f7-be10-1fe73f2e7816
-    options: {  }
 taxonomies:
   loan_type:
     -
@@ -532,6 +480,57 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: 9cbdc76b-bfdd-4ccb-98a2-d9fe33ae047b
+  partner_data_status:
+    -
+      vid: partner_data_status
+      tid: '134'
+      langcode: en-gb
+      name: Inactive
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: a61b17d7-0888-481c-843c-be12ec16ce01
+    -
+      vid: partner_data_status
+      tid: '132'
+      langcode: en-gb
+      name: Listed
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 587a8f9d-3cfc-47e7-9b4e-e15640f2549f
+    -
+      vid: partner_data_status
+      tid: '131'
+      langcode: en-gb
+      name: Pending
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: da675641-b55a-4048-ba68-cfaca28d4f42
+    -
+      vid: partner_data_status
+      tid: '135'
+      langcode: en-gb
+      name: Rejected
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 8380fc24-0cac-40c5-a6e1-c827b6698c2d
+    -
+      vid: partner_data_status
+      tid: '133'
+      langcode: en-gb
+      name: Sold
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 4692a517-2532-4566-9246-5bdfb09873a4
   properties:
     -
       vid: properties

@@ -55,10 +55,10 @@ body {
   font-weight: 800;
   display: inline-block;
 }
-.badge-success { background: #dcfce7; color: var(--green); }
-.badge-warning { background: #ffedd5; color: var(--accent); }
-.badge-danger { background: #fee2e2; color: #ef4444; }
-.badge-info { background: #e3edf8; color: var(--primary); }
+.badge-success { background: #dcfce7; color: var(--green)  !important; }
+.badge-warning { background: #ffedd5; color: var(--accent) !important; }
+.badge-danger { background: #fee2e2; color: #ef4444 !important; }
+.badge-info { background: #e3edf8; color: var(--primary) !important; }
 
 /* Buttons */
 .btn {
@@ -303,6 +303,7 @@ body {
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   font-size: 18px;
+  opacity: 1 !important;
 }
 .stat-icon.blue { background: #e3edf8; color: var(--primary); }
 .stat-icon.green { background: #dcfce7; color: var(--green); }
@@ -434,6 +435,47 @@ tr:last-child td { border-bottom: none; }
 div#toolbar-administration + div #wrapper .sidebar#sidebar {
     top: 79px;
 }
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.chart-card {
+    overflow: hidden;
+    min-width: 0;
+}
+@media (max-width:768px){
+
+    .charts-row{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .chart-container{
+        height:250px;
+    }
+
+    .chart-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .chart-actions{
+        width:100%;
+    }
+
+    .chart-actions select{
+        width:100%;
+    }
+
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .charts-row, .data-row { grid-template-columns: 1fr; }
@@ -452,8 +494,62 @@ div#toolbar-administration + div #wrapper .sidebar#sidebar {
   .dashboard-container { padding: 15px; }
   .user-info { display: none; } /* Hide name on mobile header to save space */
 }
-
+  #wrapper.dashboard-wrapper {
+   background-color: var(--light-bg);
+  }
+    
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }
   .biz-actions { flex-direction: column; }
+}
+@media (max-width: 1024px) {
+  #wrapper.dashboard-wrapper {
+   flex-direction:column;
+  }
+}
+
+
+
+
+
+
+.notification-btn{
+    position:relative;
+}
+
+.notification-dot{
+
+    position:absolute;
+
+    top:-5px;
+
+    right:-5px;
+
+    min-width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#dc3545;
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:0 4px;
+
+    line-height:20px;
+}
+
+.notification-dot:empty{
+    display:none;
 }

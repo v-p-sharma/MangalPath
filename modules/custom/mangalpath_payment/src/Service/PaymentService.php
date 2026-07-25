@@ -201,17 +201,16 @@ public function isTestMode(): bool {
       $razorpay_amount = (int) round($amount * 100);
 
       $receipt = sprintf(
-        'NODE-%d-USER-%d-%d',
-        $node->id(),
-        $this->getCurrentUserId(),
-        time()
-      );
+  'MP-%d-%d',
+  $node->id(),
+  time()
+);
 
       $order = $this->api->order->create([
         'receipt' => $receipt,
         'amount' => $razorpay_amount,
         'currency' => $this->getCurrency(),
-        'payment_capture' => true,
+        'payment_capture' => 1,
         'notes' => [
           'uid' => $this->getCurrentUserId(),
           'nid' => $node->id(),
@@ -271,63 +270,63 @@ public function isTestMode(): bool {
    *
    * @throws \Exception
    */
-  public function verifySignature(
-    string $order_id,
-    string $payment_id,
-    string $signature,
-  ): bool {
+  // public function verifySignature(
+  //   string $order_id,
+  //   string $payment_id,
+  //   string $signature,
+  // ): bool {
 
-    try {
+  //   try {
 
-      $attributes = [
-        'razorpay_order_id' => $order_id,
-        'razorpay_payment_id' => $payment_id,
-        'razorpay_signature' => $signature,
-      ];
+  //     $attributes = [
+  //       'razorpay_order_id' => $order_id,
+  //       'razorpay_payment_id' => $payment_id,
+  //       'razorpay_signature' => $signature,
+  //     ];
 
-      $this->api
-        ->utility
-        ->verifyPaymentSignature($attributes);
+  //     $this->api
+  //       ->utility
+  //       ->verifyPaymentSignature($attributes);
 
-      $this->logger->notice(
-        'Signature verified successfully. Order: @order Payment: @payment',
-        [
-          '@order' => $order_id,
-          '@payment' => $payment_id,
-        ]
-      );
+  //     $this->logger->notice(
+  //       'Signature verified successfully. Order: @order Payment: @payment',
+  //       [
+  //         '@order' => $order_id,
+  //         '@payment' => $payment_id,
+  //       ]
+  //     );
 
-      return TRUE;
+  //     return TRUE;
 
-    }
-    catch (SignatureVerificationError $exception) {
+  //   }
+  //   catch (SignatureVerificationError $exception) {
 
-      $this->logger->error(
-        'Signature verification failed. Order: @order Payment: @payment Message: @message',
-        [
-          '@order' => $order_id,
-          '@payment' => $payment_id,
-          '@message' => $exception->getMessage(),
-        ]
-      );
+  //     $this->logger->error(
+  //       'Signature verification failed. Order: @order Payment: @payment Message: @message',
+  //       [
+  //         '@order' => $order_id,
+  //         '@payment' => $payment_id,
+  //         '@message' => $exception->getMessage(),
+  //       ]
+  //     );
 
-      return FALSE;
+  //     return FALSE;
 
-    }
-    catch (\Exception $exception) {
+  //   }
+  //   catch (\Exception $exception) {
 
-      $this->logger->error(
-        'Unexpected error during signature verification. Message: @message',
-        [
-          '@message' => $exception->getMessage(),
-        ]
-      );
+  //     $this->logger->error(
+  //       'Unexpected error during signature verification. Message: @message',
+  //       [
+  //         '@message' => $exception->getMessage(),
+  //       ]
+  //     );
 
-      throw $exception;
+  //     throw $exception;
 
-    }
+  //   }
 
-  }
+  // }
     /**
    * Fetches payment details from Razorpay.
    *
@@ -542,9 +541,11 @@ public function isTestMode(): bool {
   'status' => $data['status'] ?? 'pending',
 
   'gateway_response' => json_encode(
-    $data['gateway_response'] ?? [],
-    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-  ),
+  $data['gateway_response'] ?? [],
+  JSON_PRETTY_PRINT |
+  JSON_UNESCAPED_UNICODE |
+  JSON_UNESCAPED_SLASHES
+),
 
   'changed' => time(),
 ];
@@ -893,20 +894,49 @@ public function isTestMode(): bool {
    * @return bool
    *   TRUE on success.
    */
-  public function markPaymentSuccess(string $order_id): bool {
+  public function markPaymentSuccess(
+  string $order_id,
+  ?string $payment_id = NULL,
+  ?string $signature = NULL,
+  array $gateway_response = []
+): bool {
 
-    $transaction = $this->getTransactionByOrderId($order_id);
+  $transaction = $this->getTransactionByOrderId($order_id);
 
-    if (!$transaction) {
-      return FALSE;
-    }
-
-    return $this->updateTransactionStatus(
-      (int) $transaction['id'],
-      'success'
-    );
-
+  if (!$transaction) {
+    return FALSE;
   }
+
+  $fields = [
+    'status' => 'success',
+    'changed' => time(),
+  ];
+
+  if ($payment_id !== NULL) {
+    $fields['payment_id'] = $payment_id;
+  }
+
+  if ($signature !== NULL) {
+    $fields['signature'] = $signature;
+  }
+
+  if (!empty($gateway_response)) {
+    $fields['gateway_response'] = json_encode(
+      $gateway_response,
+      JSON_PRETTY_PRINT |
+      JSON_UNESCAPED_UNICODE |
+      JSON_UNESCAPED_SLASHES
+    );
+  }
+
+  $this->database
+    ->update('mangalpath_payment_transaction')
+    ->fields($fields)
+    ->condition('id', $transaction['id'])
+    ->execute();
+
+  return TRUE;
+}
 
   /**
    * Deletes transaction.
@@ -1121,7 +1151,7 @@ public function getPendingTransaction(int $nid): ?array {
     ->fields('t')
     ->condition('nid', $nid)
     ->condition('status', 'pending')
-    ->condition('created', \Drupal::time()->getRequestTime() - 1800, '>')
+    ->condition('created', \Drupal::time()->getRequestTime() - 900, '>')
     ->orderBy('created', 'DESC')
     ->range(0, 1)
     ->execute()
@@ -1131,11 +1161,12 @@ public function getPendingTransaction(int $nid): ?array {
     return NULL;
   }
 
-  return [
-    'order_id' => $transaction['order_id'],
-    'amount' => $transaction['amount'],
-    'currency' => $transaction['currency'],
-  ];
+ return [
+  'id' => $transaction['id'],
+  'order_id' => $transaction['order_id'],
+  'amount' => $transaction['amount'],
+  'currency' => $transaction['currency'],
+];
 
 }
 public function isOrderPaid(string $order_id): bool {

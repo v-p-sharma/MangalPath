@@ -1,5 +1,6 @@
 {{ attach_library('mangalpath_module/partner-dashboard') }}
-<div id="wrapper">
+{{ attach_library('mangalpath_module/notification') }}
+<div id="wrapper" class="dashboard-wrapper">
   
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
@@ -18,7 +19,10 @@
       
       <div class="menu-category">General</div>
       <a href="/user/{{ logged_in ? user.id : 0 }}" class="menu-link"><i class="fa fa-user-circle"></i> My Profile</a>
-      <a href="#" class="menu-link"><i class="fa fa-bell"></i> Notifications</a>
+      <a href="/admin/notifications/list" class="menu-link"><button class="icon-btn">
+          <i class="fa fa-bell"></i>
+          <span class="notification-dot"></span>
+        </button>Notification</a>
       <a href="#charts-row-id" class="menu-link"><i class="fa fa-chart-pie"></i> Reports & Analytics</a>
       
       <div class="menu-category">Properties</div>

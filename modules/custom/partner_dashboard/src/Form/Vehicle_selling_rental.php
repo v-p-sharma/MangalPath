@@ -880,6 +880,26 @@ class Vehicle_selling_rental extends FormBase
             'mangalpath_payment.payment',
             ['node' => $node->id()]
         );
+
+        $notification = \Drupal::service('mangalpath_module.notification');
+
+            $notification->create(
+
+            'New Vehicle and Tour & Travel Details Listed......',
+
+            \Drupal::currentUser()->getAccountName() .' submitted a Vehicle and Tour & Travel Add.',
+
+            'Vehicle and Tour & Travel Added',
+
+            '/admin/content/'.$node->id(),
+
+            'node',
+
+            $node->id(),
+
+            \Drupal::currentUser()->id()
+
+            );
     }
     private function makeFilesPermanent($data)
     {

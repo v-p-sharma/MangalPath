@@ -64,17 +64,21 @@ class AnonymousRedirectSubscriber implements EventSubscriberInterface {
       }
     }
 
-    // Allow these public pages.
-    $allowed_paths = [
-      '/',
-      '/user/login',
-      '/user/password',
-      '/user/register',
-    ];
+  // Allow these public pages.
+$allowed_paths = [
+  '/',
+  '/user/login',
+  '/user/password',
+  '/user/register',
+  '/user/register/otp',
+];
 
-    if (in_array($path, $allowed_paths, TRUE)) {
-      return;
-    }
+if (
+  in_array($path, $allowed_paths, TRUE) ||
+  str_starts_with($path, '/user/reset/')
+) {
+  return;
+}
 
     // Redirect to login.
     $login_url = Url::fromRoute('user.login', [], [

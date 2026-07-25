@@ -42,9 +42,14 @@ const AjaxCommands = Drupal.AjaxCommands || {};
 
             handler: function (response) {
 
-              paymentSuccess(response);
+  if (window.mangalpathPaymentProcessing) {
+    return;
+  }
 
-            },
+  window.mangalpathPaymentProcessing = true;
+  paymentSuccess(response);
+
+},
 
             modal: {
 
@@ -113,14 +118,12 @@ const AjaxCommands = Drupal.AjaxCommands || {};
     success: function (result) {
 
       if (result.status) {
-
-        window.location.href = result.redirect;
+        window.location.replace(result.redirect);
 
       }
       else {
 
         alert(result.message);
-
         location.reload();
 
       }
@@ -129,13 +132,17 @@ const AjaxCommands = Drupal.AjaxCommands || {};
 
     error: function (xhr) {
 
-      console.error(xhr);
+  console.error(xhr);
 
-      alert('Payment verification failed.');
+  window.mangalpathPaymentProcessing = false;
 
-      location.reload();
+  $('#rzp-pay-btn')
+    .prop('disabled', false)
+    .text('Pay Now');
 
-    }
+  alert('Payment verification failed.');
+
+}
 
   });
 
@@ -175,12 +182,20 @@ const AjaxCommands = Drupal.AjaxCommands || {};
 
     },
 
-    complete: function () {
+    success: function () {
 
-      window.location.href =
-        drupalSettings.mangalpathPayment.failedUrl;
+  window.location.replace(
+    drupalSettings.mangalpathPayment.failedUrl
+  );
 
-    }
+},
+error: function () {
+
+  window.location.replace(
+    drupalSettings.mangalpathPayment.failedUrl
+  );
+
+}
 
   });
 
