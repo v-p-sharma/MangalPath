@@ -1,0 +1,25 @@
+uuid: 2e1bd65a-1af8-47ac-affa-874a39da814f
+langcode: en-gb
+status: true
+dependencies:
+  content:
+    - 'block_content:bottom_footer:c5fb5db7-1ba0-4082-a803-00de4d547e5b'
+  module:
+    - block_content
+  theme:
+    - seven
+id: seven_mangalpath
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:c5fb5db7-1ba0-4082-a803-00de4d547e5b'
+settings:
+  id: 'block_content:c5fb5db7-1ba0-4082-a803-00de4d547e5b'
+  label: mangalpath
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

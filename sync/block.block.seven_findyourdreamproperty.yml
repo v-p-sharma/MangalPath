@@ -1,0 +1,30 @@
+uuid: 69886a7a-0070-42bb-a10e-746e4cb5aa6b
+langcode: en-gb
+status: true
+dependencies:
+  content:
+    - 'block_content:common_banner:8a287e3a-f322-4727-926c-93ee3fc7e064'
+  module:
+    - block_content
+    - system
+  theme:
+    - seven
+id: seven_findyourdreamproperty
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:8a287e3a-f322-4727-926c-93ee3fc7e064'
+settings:
+  id: 'block_content:8a287e3a-f322-4727-926c-93ee3fc7e064'
+  label: 'Find Your Dream Property'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /property

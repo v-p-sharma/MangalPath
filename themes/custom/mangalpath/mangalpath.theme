@@ -87,11 +87,26 @@ function mangalpath_user_register_submit($form, FormStateInterface $form_state) 
     ];
 
     if (isset($role_map[$role])) {
-      $account->addRole($role_map[$role]);
-      $account->save();
+      $uid = $form_state->getValue('uid');
+
+    if ($uid) {
+      $account = \Drupal\user\Entity\User::load($uid);
+
+      if ($account && !$account->hasRole('partner')) {
+        $account->addRole('partner');
+        $account->save();
+      }
+    }
     }
   } 
    
+}
+function mangalpath_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+  dump("kkkkkkkkk");
+  if ($entity instanceof \Drupal\user\UserInterface && $entity->isNew()) {
+   dump("hlllllllllll0");die();
+    // Role assign logic.
+  }
 }
 function mangalpath_process_password($element, &$form_state, &$complete_form) {
     $element['#attributes']['class'] = ['row g-2 mb-4'];

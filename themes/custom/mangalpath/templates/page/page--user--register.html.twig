@@ -69,13 +69,13 @@
             <i class="fa fa-briefcase"></i> Partner
           </label>
         </div>
-
+        {{ drupal_block('system_messages_block') }}
         {{ page.content }}
         
 
         <div class="text-center mt-4">
           <span style="font-size:13px; color:#888;">Already have an account? </span>
-          <a href="login.html" style="color:var(--primary); font-weight:700; text-decoration:none;">Login</a>
+          <a href="/user/login" style="color:var(--primary); font-weight:700; text-decoration:none;">Login</a>
         </div>
       </div>
 
