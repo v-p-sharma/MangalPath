@@ -17,6 +17,7 @@
     "require": {
         "composer/installers": "^2.0",
         "drupal/admin_toolbar": "^3.6",
+        "drupal/adminimal_theme": "^1.7",
         "drupal/better_exposed_filters": "^7.1",
         "drupal/core-composer-scaffold": "^10.5",
         "drupal/core-project-message": "^10.5",
