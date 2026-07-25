@@ -178,29 +178,26 @@
 
       <!-- PERFORMANCE ANALYTICS -->
       <section class="charts-row">
-        <div class="chart-card">
-          <div class="chart-header">
-            <h3 class="chart-title">Monthly Revenue & Enquiries</h3>
-            <div class="chart-actions">
-              <select style="border:1px solid #ddd; padding:4px 8px; border-radius:4px; font-size:12px">
-                <option>This Year</option>
-                <option>Last Year</option>
-              </select>
-            </div>
-          </div>
-          <div style="height:300px; width:100%">
-            <canvas id="revenueChart"></canvas>
-          </div>
-        </div>
-        <div class="chart-card">
-          <div class="chart-header">
-            <h3 class="chart-title">Performance Mix</h3>
-          </div>
-          <div style="height:300px; width:100%; display:flex; justify-content:center">
-            <canvas id="performanceChart"></canvas>
-          </div>
-        </div>
-      </section>
+  <div class="chart-card">
+    <div class="chart-header">
+      <h3 class="chart-title">Monthly Revenue & Enquiries</h3>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="revenueChart"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-header">
+      <h3 class="chart-title">Performance Mix</h3>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="performanceChart"></canvas>
+    </div>
+  </div>
+</section>
 
       <!-- BUSINESS OVERVIEW SECTIONS -->
       <section class="business-grid">
@@ -351,14 +348,28 @@
                   <td> 
                    <h6>Get In Touch User</h6>
                   </td>
-                  <td><a href="/dashboard/admin/getintouch" >More Details</a></td>
+                  <td><a href="/admin/structure/webform/manage/mangal_path_get_in_touch_form/results/submissions" >More Details</a></td>
                 </tr>
                 <tr>
                   <td> 
                    <h6>Partner User</h6>
                   </td>
-                  <td><a href="/dashboard/admin/partnerList" >More Details</a></td>
-                  
+                  <td><a href="/dashboard/partner/Subscription" >More Details</a></td>
+
+                </tr>
+                <tr>
+                  <td> 
+                   <h6>Payment History</h6>
+                  </td>
+                  <td><a href="/admin/reports/mangalpath-payment" >More Details</a></td>
+                 
+                </tr>
+                 <tr>
+                  <td> 
+                   <h6>Loan Applications</h6>
+                  </td>
+                  <td><a href="/dashboard/loan-applications" >More Details</a></td>
+                 
                 </tr>
                
               </tbody>

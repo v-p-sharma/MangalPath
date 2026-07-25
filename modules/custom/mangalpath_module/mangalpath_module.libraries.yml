@@ -9,3 +9,13 @@ partner-dashboard:
     - core/drupal
     - core/jquery
     - core/once
+notification:
+
+  version: 1.x
+
+  js:
+    js/notification.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal

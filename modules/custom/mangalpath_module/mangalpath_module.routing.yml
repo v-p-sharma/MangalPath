@@ -53,4 +53,38 @@ mangalpath_module.update_status:
     _controller: '\Drupal\mangalpath_module\Controller\PartnerController::updateStatus'
   requirements:
     _permission: 'access content'
+mangalpath_module.loan_listing:
+  path: '/dashboard/loan-applications'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\LoanController::loanListing'
+    _title: 'Loan Applications'
+  requirements:
+    _permission: 'access administration pages'
 
+mangalpath_module.partnerSubscriptionReport:
+  path: '/dashboard/partner/Subscription'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\LoanController::partnerSubscriptionReport'
+    _title: 'partner Subscription Report'
+  requirements:
+    _permission: 'access administration pages'
+mangalpath_module.notification_count:
+  path: '/admin/notifications/count'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\NotificationController::count'
+  requirements:
+    _permission: 'access administration pages'
+
+mangalpath_module.notification_list:
+  path: '/admin/notifications/list'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\NotificationController::list'
+  requirements:
+    _permission: 'access administration pages'
+mangalpath_module.notification_read:
+  path: '/admin/notifications/read/{id}'
+  defaults:
+    _controller: '\Drupal\mangalpath_module\Controller\NotificationController::markRead'
+  requirements:
+    _permission: 'access content'
+  

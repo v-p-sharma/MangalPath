@@ -1,0 +1,75 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function mangalpath_module_schema() {
+
+  $schema['mangalpath_notifications'] = [
+    'description' => 'Admin Notifications',
+    'fields' => [
+
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+
+      'title' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+
+      'message' => [
+        'type' => 'text',
+        'size' => 'big',
+      ],
+
+      'type' => [
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+      ],
+
+      'entity_type' => [
+        'type' => 'varchar',
+        'length' => 50,
+        'default' => 'node',
+      ],
+
+      'entity_id' => [
+        'type' => 'int',
+        'default' => 0,
+      ],
+
+      'uid' => [
+        'type' => 'int',
+        'default' => 0,
+      ],
+
+      'link' => [
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+
+      'is_read' => [
+        'type' => 'int',
+        'size' => 'tiny',
+        'default' => 0,
+      ],
+
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+
+    ],
+
+    'primary key' => ['id'],
+
+  ];
+
+  return $schema;
+
+}

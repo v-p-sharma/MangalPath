@@ -14,7 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
+use Drupal\node\Entity\Node;
+use Symfony\Component\HttpFoundation\JsonResponse;
 class PaymentController extends ControllerBase
 {
 
@@ -136,46 +137,16 @@ class PaymentController extends ControllerBase
 
         if ($pending) {
 
-            // Existing pending order use karo.
-            $order = $pending;
+            $order          = $pending;
+            $transaction_id = $pending['id'];
 
         } else {
 
-            // Naya Razorpay order create karo.
-            $order = $this->paymentService->createOrder($node);
-
-        }
-
-        // -----------------------------
-        // Create Razorpay Order
-        // -----------------------------
-        $order = $this->paymentService->createOrder(
-            $node,
-            $amount
-        );
-
-        // -----------------------------
-        // Save Pending Transaction
-        // -----------------------------
-        $transaction_id = $this->paymentService
-            ->createPendingTransaction(
-                $node,
-                $order
-            );
-
-        $pending = $this->paymentService
-            ->getPendingTransaction($node->id());
-
-        if ($pending) {
-
-            // Old pending order use karo.
-            $order = $pending;
-
-        } else {
-
-            // New Razorpay Order banao.
             $order = $this->paymentService
-                ->createOrder($node);
+                ->createOrder($node, $amount);
+
+            $transaction_id = $this->paymentService
+                ->createPendingTransaction($node, $order);
 
         }
 
@@ -324,20 +295,21 @@ class PaymentController extends ControllerBase
                             ->load($transaction['nid']);
 
                         if ($node instanceof NodeInterface) {
-
-                            if (! $node->isPublished()) {
-                                $node->setPublished(true);
-                            }
-
                             $node->set(
                                 'field_suscribed_amount',
-                                $payment['amount'] / 100
+                                $payment['amount'] 
                             );
 
                             $node->set(
                                 'field_is_suscribed',
                                 true
                             );
+
+                            if (! $node->isPublished()) {
+                                $node->setPublished(true);
+                            }
+
+                            
 
                             $node->save();
 
@@ -480,7 +452,7 @@ class PaymentController extends ControllerBase
             if ($node instanceof NodeInterface) {
                 $listing = $node->label();
             }
-            $status = match ($transaction->payment_status) {
+            $status = match ($transaction->status) {
 
                 'success' => '<span class="badge bg-success">Success</span>',
 
@@ -493,7 +465,7 @@ class PaymentController extends ControllerBase
             };
             $operations = [];
 
-            if ($transaction->payment_status == 'failed') {
+            if ($transaction->status == 'failed') {
 
                 $operations[] = Link::fromTextAndUrl(
                     'Retry',
@@ -682,7 +654,7 @@ class PaymentController extends ControllerBase
                 ),
 
                 'status'  => ucfirst(
-                    $transaction->payment_status
+                    $transaction->status
                 ),
 
                 'payment' => $transaction->payment_id,
@@ -728,9 +700,12 @@ class PaymentController extends ControllerBase
 
         try {
 
-            $order_id   = $request->request->get('order_id');
-            $payment_id = $request->request->get('payment_id');
-            $signature  = $request->request->get('signature');
+            $order_id   = $request->request->get('razorpay_order_id');
+            $payment_id = $request->request->get('razorpay_payment_id');
+            $signature  = $request->request->get('razorpay_signature');
+
+            $node_id        = (int) $request->request->get('node_id');
+            $transaction_id = (int) $request->request->get('transaction_id');
 
             if (
                 empty($order_id) ||
@@ -773,7 +748,23 @@ class PaymentController extends ControllerBase
 
             // Fetch payment details from Razorpay.
             $payment = $this->paymentService
-                ->fetchPayment($payment_id);
+             ->fetchPayment($payment_id);
+             if ($payment['status'] !== 'captured') {
+
+  throw new \Exception('Payment not captured.');
+
+}
+
+// Save payment details
+$this->database
+    ->update('mangalpath_payment_transaction')
+    ->fields([
+        'payment_id' => $payment_id,
+        'signature' => $signature,
+        'gateway_response' => json_encode($payment),
+    ])
+    ->condition('order_id', $order_id)
+    ->execute();
 
             // Get pending transaction.
             $transaction = $this->paymentService
@@ -796,9 +787,21 @@ class PaymentController extends ControllerBase
             $node = Node::load($transaction['nid']);
 
             if ($node) {
+                 $node->set(
+                                'field_suscribed_amount',
+                                $payment['amount']
+                            );
 
-                $node->setPublished(true);
+                            $node->set(
+                                'field_is_suscribed',
+                                true
+                            );
+
+               if (!$node->isPublished()) {
+                $node->setPublished(TRUE);
                 $node->save();
+
+                }
 
             }
 

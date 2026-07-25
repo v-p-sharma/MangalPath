@@ -933,6 +933,26 @@ class Property_selling extends FormBase
             }
         }
 
+        $notification = \Drupal::service('mangalpath_module.notification');
+
+            $notification->create(
+
+            'New Property Details Listed......',
+
+            \Drupal::currentUser()->getAccountName() .' submitted a Property Add.',
+
+            'Property Added',
+
+            '/admin/content/'.$node->id(),
+
+            'node',
+
+            $node->id(),
+
+            \Drupal::currentUser()->id()
+
+            );
+
         $this->messenger()->addStatus($this->t('Property saved successfully!'));
         // Redirect to payment page with node id
         $form_state->setRedirect(

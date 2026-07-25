@@ -10,3 +10,6 @@ services:
     arguments:
       - '@entity_type.manager'
       - '@current_user'
+  mangalpath_module.notification:
+    class: Drupal\mangalpath_module\Service\NotificationService
+    arguments: ['@database']
