@@ -45,13 +45,28 @@ public function list() {
 
   $rows = [];
   foreach ($query->execute() as $row) {
-    // Create URL object
-    $url = Url::fromUri('internal:' . $row->link);
+    $link_path = trim($row->link);
 
-    // Create Link render array
-    $link = Link::fromTextAndUrl('View', $url)->toRenderable();
+try {
+  // External URL
+  if (filter_var($link_path, FILTER_VALIDATE_URL)) {
+    $url = Url::fromUri($link_path);
+  }
+  else {
+    // Internal path (/node/53, node/53, property/myproperty/45 etc.)
+    $url = Url::fromUserInput('/' . ltrim($link_path, '/'));
+  }
 
-    $link['#attributes'] = [
+  $link = Link::fromTextAndUrl('View', $url)->toRenderable();
+}
+catch (\Exception $e) {
+  // Invalid path hone par fallback
+  $link = [
+    '#markup' => '-',
+  ];
+}
+
+$link['#attributes'] = [
   'class' => ['notification-view-link'],
   'data-id' => $row->id,
 ];
