@@ -40,6 +40,7 @@ public function list() {
   $query = Database::getConnection()
     ->select('mangalpath_notifications', 'n')
     ->fields('n')
+    // ->condition('is_read', false)
     ->orderBy('created', 'DESC')
     ->range(0, 10);
 
@@ -95,12 +96,30 @@ $link['#attributes'] = [
 
   $header = ['ID', 'Title', 'Message', 'Link', 'Created', 'Status'];
 
-  return [
+   $build['wrapper'] = [
+            '#type'       => 'container',
+            '#attributes' => [
+                'class' => ['table-responsive container-fluid'],
+            ],
+        ];
+
+    $build['wrapper']['table'] = [
     '#type' => 'table',
-    '#header' => $header,
-    '#rows' => $rows,
-    '#attributes' => ['class' => ['notifications-table']],
-  ];
+        '#header' => $header,
+        '#rows' => $rows,
+        '#attributes' => ['class' => ['table table-bordered table-striped notifications-table']],
+        '#attached' => [
+        'library' => [
+          'mangalpath_module/notification',
+        ],
+      ],
+        '#cache' => [
+    'max-age' => 0,
+  ],
+
+    ];
+
+  return $build;
 }
 
 

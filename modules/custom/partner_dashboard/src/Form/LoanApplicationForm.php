@@ -572,7 +572,7 @@ class LoanApplicationForm extends FormBase
 
               'loan',
 
-              '/admin/content/'.$node->id(),
+              $node->toUrl()->toString(),
 
               'node',
 

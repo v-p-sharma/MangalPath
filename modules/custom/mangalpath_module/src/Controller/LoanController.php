@@ -110,6 +110,10 @@ class LoanController extends ControllerBase
             '#attributes' => [
                 'class' => ['table table-bordered table-striped'],
             ],
+              '#cache' => [
+    'max-age' => 0,
+  ],
+
         ];
 
         return $build;
@@ -261,6 +265,10 @@ class LoanController extends ControllerBase
                 'table-hover',
             ],
         ],
+          '#cache' => [
+    'max-age' => 0,
+  ],
+
         '#responsive' => FALSE,
     ];
 

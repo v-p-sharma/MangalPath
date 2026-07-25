@@ -76,7 +76,7 @@ mangalpath_module.notification_count:
     _permission: 'access administration pages'
 
 mangalpath_module.notification_list:
-  path: '/admin/notifications/list'
+  path: '/dashboard/notifications/list'
   defaults:
     _controller: '\Drupal\mangalpath_module\Controller\NotificationController::list'
   requirements:
