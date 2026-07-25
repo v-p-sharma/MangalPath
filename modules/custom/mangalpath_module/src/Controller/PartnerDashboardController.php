@@ -46,6 +46,10 @@ class PartnerDashboardController extends ControllerBase {
         'contexts' => ['user', 'user.roles'],
         'tags' => ['node_list'],
       ],
+        '#cache' => [
+    'max-age' => 0,
+  ],
+
     ];
   }
 }

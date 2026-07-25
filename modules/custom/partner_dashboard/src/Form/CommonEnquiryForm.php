@@ -412,7 +412,7 @@ class CommonEnquiryForm extends FormBase
 
               $related_inquery,
 
-              $listing->toUrl()->getInternalPath(),
+              $listing->toUrl()->toString(),
 
               'node',
 

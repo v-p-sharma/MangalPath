@@ -33,27 +33,25 @@
   Drupal.behaviors.notificationRead = {
     attach: function (context) {
 
-      $('.notification-view-link', context).once('notification-read').on('click', function (e) {
+      $(once('notification-read', '.notification-view-link', context))
+        .on('click', function (e) {
 
-        e.preventDefault();
+          e.preventDefault();
 
-        var link = $(this);
-        var url = link.attr('href');
-        var id = link.data('id');
+          const link = $(this);
+          const url = link.attr('href');
+          const id = link.data('id');
 
-        $.ajax({
-          url: '/admin/notifications/read/' + id,
-          type: 'POST',
-          success: function () {
-            window.location.href = url;
-          },
-          error: function () {
-            // Even if update fails, redirect.
-            window.location.href = url;
-          }
+          $.ajax({
+            url: Drupal.url('admin/notifications/read/' + id),
+            type: 'POST',
+            complete: function () {
+              window.location.href = url;
+            
+            }
+          });
+
         });
-
-      });
 
     }
   };

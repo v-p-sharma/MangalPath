@@ -943,7 +943,7 @@ class Property_selling extends FormBase
 
             'Property Added',
 
-            '/admin/content/'.$node->id(),
+            $node->toUrl()->toString(),
 
             'node',
 

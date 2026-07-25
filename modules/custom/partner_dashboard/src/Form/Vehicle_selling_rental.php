@@ -891,7 +891,7 @@ class Vehicle_selling_rental extends FormBase
 
             'Vehicle and Tour & Travel Added',
 
-            '/admin/content/'.$node->id(),
+            $node->toUrl()->toString(),
 
             'node',
 
