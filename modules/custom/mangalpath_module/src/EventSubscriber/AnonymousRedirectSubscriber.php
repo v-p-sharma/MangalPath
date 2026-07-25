@@ -71,11 +71,13 @@ $allowed_paths = [
   '/user/password',
   '/user/register',
   '/user/register/otp',
+  '/login-otp',
+  '/user/login/*',
 ];
 
 if (
   in_array($path, $allowed_paths, TRUE) ||
-  str_starts_with($path, '/user/reset/')
+  str_starts_with($path, '/user/')
 ) {
   return;
 }

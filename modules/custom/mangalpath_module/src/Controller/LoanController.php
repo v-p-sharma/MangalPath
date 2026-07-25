@@ -98,7 +98,7 @@ class LoanController extends ControllerBase
         $build['wrapper'] = [
             '#type'       => 'container',
             '#attributes' => [
-                'class' => ['table-responsive'],
+                'class' => ['table-responsive container-fluid'],
             ],
         ];
 
@@ -215,6 +215,7 @@ class LoanController extends ControllerBase
     // Summary Cards.
     $build['summary'] = [
         '#markup' => '
+        <div class="container-fluid">
         <div class="row mb-4">
 
             <div class="col-md-4">
@@ -238,12 +239,13 @@ class LoanController extends ControllerBase
                 </div>
             </div>
 
-        </div>',
+        </div> </div>',
     ];
 
     // Bootstrap Responsive Wrapper.
     $build['table_wrapper_start'] = [
-        '#markup' => '<div class="table-responsive">',
+        '#markup' => '<div class="table-responsive container-fluid" style="
+    margin: 20px;">',
     ];
 
     $build['table'] = [
