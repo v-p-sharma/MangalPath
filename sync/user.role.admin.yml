@@ -1,12 +1,9 @@
 uuid: 28248a34-c917-42e3-a764-c8cfbc656f97
 langcode: en-gb
 status: true
-dependencies:
-  module:
-    - mangalpath_module
+dependencies: {  }
 id: admin
 label: Admin
 weight: 5
 is_admin: null
-permissions:
-  - 'access Partner form'
+permissions: {  }
