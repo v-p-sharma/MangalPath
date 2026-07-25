@@ -3165,3 +3165,6 @@ div[role="alert"] {
     list-style: none;
     text-decoration: none;
 }
+.common-table-margin {
+  margin: 20px;
+}
