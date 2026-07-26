@@ -3,21 +3,21 @@ _core:
 langcode: en-gb
 name: MangalPath
 short_name: MangalPath
-app_id: localhost/mangalpath
+app_id: com.mangalpath.app
 description: ''
 start_url: /
 scope: /
 lang: ''
 dir: auto
-orientation: any
+orientation: natural
 categories:
   - ''
 theme_color: '#0066cc'
 background_color: '#ffffff'
 display: standalone
 cross_origin: false
-image_fid: 0
-image_small_fid: null
-image_very_small_fid: null
+image_fid: 351
+image_small_fid: 352
+image_very_small_fid: 353
 manifest_path_mode: all_except_listed
 manifest_paths: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*"
