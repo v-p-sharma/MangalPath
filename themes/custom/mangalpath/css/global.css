@@ -20,6 +20,8 @@ body {
   color: var(--text);
   background: var(--white);
   overflow-x: hidden;
+  overflow-y: auto;
+
 }
 
 /* Allow property form to scroll vertically (don’t lock the whole page) */
@@ -859,15 +861,6 @@ nav#block-mangalpath-useraccountmenu ul li a::after{
   --radius: 14px;
 }
 
-/* ===== RESET & BASE (Mobile First) ===== */
-body {
-  font-family: 'Nunito', sans-serif;
-  background-color: #f8f9fa;
-  color: var(--text);
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-}
 
 .auth-wrapper {
   display: flex;
@@ -3167,4 +3160,9 @@ div[role="alert"] {
 }
 .common-table-margin {
   margin: 20px;
+}
+nav.pager {
+    display: flex;
+    align-items: revert;
+    justify-content: space-around;
 }
