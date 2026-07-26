@@ -758,7 +758,7 @@ nav#block-mangalpath-useraccountmenu ul li a::after{
   color: #a0b4cc;
   padding: 60px 0 0;
 }
-.footer-brand { margin-bottom: 18px; }
+.footer-brand { margin-bottom: 18px;  width: 200px;}
 .footer-brand .name { font-size: 22px; font-weight: 900; color: white; }
 .footer-brand .tag { font-size: 11px; color: #6a8aaa; }
 .footer p { font-size: 13.5px; line-height: 1.7; margin-bottom: 20px; }
@@ -3165,4 +3165,12 @@ nav.pager {
     display: flex;
     align-items: revert;
     justify-content: space-around;
+}
+
+#mainNav {
+  justify-content: center;
+  align-items: baseline;
+}
+.brand-logo {
+    width: 117px;
 }
