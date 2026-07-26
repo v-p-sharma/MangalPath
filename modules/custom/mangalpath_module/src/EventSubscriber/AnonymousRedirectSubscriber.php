@@ -73,6 +73,7 @@ $allowed_paths = [
   '/user/register/otp',
   '/login-otp',
   '/user/login/*',
+  '/manifest.json',
 ];
 
 if (
