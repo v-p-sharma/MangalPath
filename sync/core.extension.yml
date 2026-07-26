@@ -41,6 +41,10 @@ module:
   partner_dashboard: 0
   path: 0
   path_alias: 0
+  pwa: 0
+  pwa_a2hs: 0
+  pwa_extras: 0
+  pwa_service_worker: 0
   search: 0
   shortcut: 0
   smtp: 0
