@@ -53,15 +53,20 @@
                 <td>{{ row.name }}</td>
 
                 <td>
-                  <a href="mailto:{{ row.email }}">
+                      {% if 'administrator' in user.getRoles() %}
                     {{ row.email }}
-                  </a>
+                  {% else %}
+                    {{ row.email|slice(0,2) }}***@gmail.com
+                  {% endif %}
+                 
                 </td>
 
                 <td>
-                  <a href="tel:{{ row.phone }}">
+                  {% if 'administrator' in user.getRoles() %}
                     {{ row.phone }}
-                  </a>
+                  {% else %}
+                    {{ row.phone|slice(0,2) }}********
+                  {% endif %}
                 </td>
 
                 <td>

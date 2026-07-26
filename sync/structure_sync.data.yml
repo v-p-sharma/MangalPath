@@ -408,6 +408,32 @@ menus:
     langcode: en-gb
     uuid: fa813d77-3f46-479d-9647-c92ebcdca296
     options: {  }
+  -
+    menu_name: main
+    title: 'About Us'
+    parent: null
+    uri: 'internal:/about-us'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en-gb
+    uuid: 9b6fac4a-80c8-4e3a-a7b6-973a9e2a2c6f
+    options: {  }
+  -
+    menu_name: main
+    title: 'Contact Us'
+    parent: null
+    uri: 'internal:/contact-us'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en-gb
+    uuid: fb053e91-85b3-4bf2-866a-27f26d0f791b
+    options: {  }
 taxonomies:
   loan_type:
     -

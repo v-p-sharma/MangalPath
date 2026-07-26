@@ -1093,13 +1093,19 @@
                 <i class="fa fa-phone"></i>
             </div>
 
-            <a href="tel:{{ node.field_contact_number.value }}">
-                {{ node.field_contact_number.value }}
-            </a>
+            {% if 'administrator' in user.getRoles() %}
+                                    <a href="tel:+91{{ node.field_contact_number.value }}">
+                                    +91 {{ node.field_contact_number.value }}
+                                    </a>
+                                    {% else %}
+                                    <a href="#">
+                                    +91 {{ node.field_contact_number.value|slice(0,2) }}********
+                                    </a>
+                                    {% endif %}
         </div>
         {% endif %}
 
-        {% if node.field_owner_name.value %}
+       {# {% if node.field_owner_name.value %}
         <div class="agent-contact-item">
 
             <div class="ac-icon green">
@@ -1112,7 +1118,7 @@
             </a>
 
         </div>
-        {% endif %}
+        {% endif %} #}
 
         <button class="btn-enquiry"
                 onclick="openEnquiry()">
@@ -1120,7 +1126,7 @@
             Send Enquiry
         </button>
 
-        {% if node.field_owner_name.value %}
+       {# {% if node.field_owner_name.value %}
         <a class="btn-whatsapp-agent"
            target="_blank"
            href="https://wa.me/91{{ node.field_owner_name.value }}">
@@ -1130,7 +1136,7 @@
             Chat on WhatsApp
 
         </a>
-        {% endif %}
+        {% endif %} #}
 
         {% if node.field_best_time_to_contact.value %}
         <div class="best-time">

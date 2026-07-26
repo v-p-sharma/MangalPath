@@ -1367,13 +1367,21 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
 
-                                <a href="tel:+91{{ node.field_contact_number.value }}">
+                                    {% if 'administrator' in user.getRoles() %}
+                                    <a href="tel:+91{{ node.field_contact_number.value }}">
                                     +91 {{ node.field_contact_number.value }}
-                                </a>
+                                    </a>
+                                    {% else %}
+                                    <a href="#">
+                                    +91 {{ node.field_contact_number.value|slice(0,2) }}********
+                                    </a>
+                                    {% endif %}
+                                    
+                            
                             </div>
                             {% endif %}
 
-                            {% if node.field_whatsapp_number.value %}
+                           {# {% if node.field_whatsapp_number.value %}
                             <div class="agent-contact-item">
                                 <div class="ac-icon green">
                                     <i class="fab fa-whatsapp"></i>
@@ -1383,17 +1391,22 @@
                                     +91 {{ node.field_whatsapp_number.value }}
                                 </a>
                             </div>
-                            {% endif %}
+                            {% endif %} #}
 
                             {% if node.field_email_address.value %}
                             <div class="agent-contact-item">
                                 <div class="ac-icon orange">
                                     <i class="fa fa-envelope"></i>
                                 </div>
-
+                                 {% if 'administrator' in user.getRoles() %}
                                 <a href="mailto:{{ node.field_email_address.value }}">
                                     {{ node.field_email_address.value }}
                                 </a>
+                                {% else %}
+                             <a href="#">
+                                    {{ node.field_email_address.value|slice(0,2) }}*****@gmail.com
+                                </a>
+                                {% endif %}
                             </div>
                             {% endif %}
 
@@ -1401,14 +1414,14 @@
                                 <i class="fa fa-comment-dots me-2"></i>Send Enquiry
                             </button>
 
-                            {% if node.field_whatsapp_number.value %}
+                           {# {% if node.field_whatsapp_number.value %}
                             <a href="https://wa.me/91{{ node.field_whatsapp_number.value }}?text=Hi, I'm interested in your property: {{ node.label|url_encode }} ({{ node.field_property_id_number.value|url_encode }}). Please share more details."
                                 class="btn-whatsapp-agent" target="_blank">
 
                                 <i class="fab fa-whatsapp me-2"></i>
                                 Chat on WhatsApp
                             </a>
-                            {% endif %}
+                            {% endif %} #}
 
                             {% if node.field_best_time_to_contact.value %}
                             <div class="best-time">
