@@ -457,7 +457,7 @@ class LoanApplicationForm extends FormBase
             'type'   => 'loan_section',
             'title'  => $title,
             'uid'    => \Drupal::currentUser()->id(),
-            'status' => 0, // Unpublished
+            'status' => 1, // Unpublished
         ]);
 
         // Node owner & created time.

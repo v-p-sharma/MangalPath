@@ -268,7 +268,6 @@ class LoanController extends ControllerBase
           '#cache' => [
     'max-age' => 0,
   ],
-
         '#responsive' => FALSE,
     ];
 
