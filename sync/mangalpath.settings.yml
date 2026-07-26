@@ -5,7 +5,7 @@ features:
   favicon: 1
 logo:
   use_default: 0
-  path: 'public://mangalpathlogo_0.jpg'
+  path: 'public://mangalpathwithoutbg.png'
 favicon:
   use_default: 0
   path: 'public://mangalpath2logo_0.jpg'

@@ -7,13 +7,15 @@
     {% block content %}
     <div class="footer-brand">
       <div class="d-flex align-items-center gap-2 mb-3">
-        <div class="brand-icon" style="width: 38px; height: 38px; font-size: 17px">
+        <img style="width:100%; height:auto" src="{{file_url(content.field_background_image['#object'].field_background_image[0].entity.uri[0].value)}}">
+        
+       {# <div class="brand-icon" style="width: 38px; height: 38px; font-size: 17px">
           M
         </div>
         <div>
           <div class="name">{{content.field_title | render|striptags  }}</div>
           <div class="tag">{{content.field_sub_title| render|striptags}}</div>
-        </div>
+        </div> #}
       </div>
     </div>
     <p>

@@ -111,7 +111,13 @@ blocks:
           value: '<p>mangalpath is a multi-service company providing financial assistance, real estate services, vehicle transactions, and transportation arrangements across India — all under one trusted brand.</p>'
           summary: ''
           format: basic_html
-      field_background_image: {  }
+      field_background_image:
+        -
+          target_id: '350'
+          alt: mangalpath
+          title: ''
+          width: '329'
+          height: '329'
       field_sub_title:
         -
           value: 'Your Trusted Multi-Service Partner'
@@ -121,11 +127,7 @@ blocks:
       field_tag_2:
         -
           value: ' 4.9 / 5 Rating'
-      field_title:
-        -
-          value: '<p>mangalpath</p>'
-          summary: ''
-          format: basic_html
+      field_title: {  }
   -
     info: 'One Trusted Partner for Loans, Property, Vehicles & Travel'
     langcode: en-gb
