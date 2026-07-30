@@ -305,7 +305,7 @@ content:
     region: content
   field_model:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -414,7 +414,7 @@ content:
     region: content
   field_property_highlights:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -590,7 +590,7 @@ content:
     region: content
   field_vehical_type:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -598,7 +598,7 @@ content:
     region: content
   field_vehicle_brand:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
