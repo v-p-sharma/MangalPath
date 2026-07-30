@@ -24,7 +24,7 @@ content:
     region: content
   field_property_listing_component:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''

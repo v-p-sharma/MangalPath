@@ -124,7 +124,12 @@
                         {% if node.field_registration_number.value %}
                         <div class="reg-plate">
                             <i class="fa fa-id-card"></i>
-                            {{ node.field_registration_number.value }}
+                             {% if 'administrator' in user.getRoles() %}
+                    {{node.field_registration_number.value }}
+                  {% else %}
+                    {{ node.field_registration_number.value|slice(0,2) }}****
+                  {% endif %}
+                            
                         </div>
                         {% endif %}
 
@@ -486,7 +491,13 @@
                                 {% if node.field_registration_number.value %}
                                 <div class="spec-item">
                                     <span class="spec-label">Registration No.</span>
-                                    <span class="spec-value">{{ node.field_registration_number.value }}</span>
+                                        {% if 'administrator' in user.getRoles() %}
+                    <span class="spec-value">{{ node.field_registration_number.value }}</span>
+                  {% else %}
+                    
+                    <span class="spec-value">{{ node.field_registration_number.value|slice(0,2) }}****</span>
+                  {% endif %}
+                                    
                                 </div>
                                 {% endif %}
 
@@ -865,7 +876,14 @@
                                 {% if node.field_registration_number.value %}
                                 <div class="spec-item">
                                     <span class="spec-label">Registration No.</span>
-                                    <span class="spec-value">{{ node.field_registration_number.value }}</span>
+                                      {% if 'administrator' in user.getRoles() %}
+                    <span class="spec-value">{{ node.field_registration_number.value }}</span>
+                  {% else %}
+                    
+                    <span class="spec-value">{{ node.field_registration_number.value|slice(0,2) }}****</span>
+                  {% endif %}
+                                    
+                            
                                 </div>
                                 {% endif %}
 

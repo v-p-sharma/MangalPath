@@ -27,7 +27,7 @@ class TourEnquiryListingController extends ControllerBase {
     // Count Query
     //==========================
     $count_query = $storage->getQuery()
-      ->condition('type', 'property_enquiry_form')
+      ->condition('type', 'tour_enquiry_form')
       ->condition('status', 1)
       ->accessCheck(TRUE);
 
@@ -48,7 +48,7 @@ class TourEnquiryListingController extends ControllerBase {
     // Listing Query
     //==========================
     $query = $storage->getQuery()
-      ->condition('type', 'property_enquiry_form')
+      ->condition('type', 'tour_enquiry_form')
       ->condition('status', 1)
       ->sort('created', 'DESC')
       ->range($current_page * $limit, $limit)
