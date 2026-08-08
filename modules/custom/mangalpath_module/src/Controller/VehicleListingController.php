@@ -146,6 +146,7 @@ class VehicleListingController extends ControllerBase {
     }
         return [
       '#theme' => 'partner_vehicle_listing',
+      '#category' => "Vehicle Listing",
       '#rows' => $rows,
       '#pager' => [
         '#type' => 'pager',

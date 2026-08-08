@@ -118,7 +118,7 @@ class VehicleEnquiryListingController extends ControllerBase {
 
         if (!empty($property_id) && isset($property)) {
 
-          $alias = '/vehicle/' .
+          $alias = '/vehicles/' .
             $this->slugify($property->getTitle()) .
             '/' .
             $property->id();

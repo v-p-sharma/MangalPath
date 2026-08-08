@@ -118,7 +118,7 @@ class TourEnquiryListingController extends ControllerBase {
 
         if (!empty($property_id) && isset($property)) {
 
-          $alias = '/tour/' .
+          $alias = '/vehicles/' .
             $this->slugify($property->getTitle()) .
             '/' .
             $property->id();

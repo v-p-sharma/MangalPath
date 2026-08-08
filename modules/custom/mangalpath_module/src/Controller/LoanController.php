@@ -36,8 +36,28 @@ class LoanController extends ControllerBase
 
         $rows = [];
 
+        //==========================
+        // Count Query
+        //==========================
+        $count_query = \Drupal::entityQuery('node')
+            ->condition('type', 'loan_section')
+            ->accessCheck(false);
+
+        $total = $count_query->count()->execute();
+
+        $limit = 10;
+
+        $pager = \Drupal::service('pager.manager')->createPager($total, $limit);
+
+        $current_page = $pager->getCurrentPage();
+
+        //==========================
+        // Listing Query
+        //==========================
         $nids = \Drupal::entityQuery('node')
             ->condition('type', 'loan_section')
+            ->sort('created', 'DESC')
+            ->range($current_page * $limit, $limit)
             ->accessCheck(false)
             ->execute();
 
@@ -102,7 +122,7 @@ class LoanController extends ControllerBase
             ],
         ];
 
-        $build['wrapper']['table'] = [
+$build['wrapper']['table'] = [
             '#type'       => 'table',
             '#header'     => $header,
             '#rows'       => $rows,
@@ -114,6 +134,10 @@ class LoanController extends ControllerBase
     'max-age' => 0,
   ],
 
+        ];
+
+        $build['wrapper']['pager'] = [
+            '#type' => 'pager',
         ];
 
         return $build;
@@ -136,6 +160,21 @@ class LoanController extends ControllerBase
         $this->t('Last Payment'),
         $this->t('Action'),
     ];
+
+//==========================
+    // Count Query
+    //==========================
+    $count_query = $database->select('users_field_data', 'u');
+    $count_query->join('user__roles', 'r', 'r.entity_id = u.uid');
+    $count_query->condition('u.status', 1);
+    $count_query->condition('r.roles_target_id', 'partner');
+    $total = $count_query->countQuery()->execute()->fetchField();
+
+    $limit = 10;
+
+    $pager = \Drupal::service('pager.manager')->createPager($total, $limit);
+
+    $current_page = $pager->getCurrentPage();
 
     // Fetch ALL Partner users.
     $query = $database->select('users_field_data', 'u');
@@ -167,6 +206,8 @@ class LoanController extends ControllerBase
     $query->groupBy('u.mail');
 
     $query->orderBy('u.name', 'ASC');
+
+    $query->range($current_page * $limit, $limit);
 
     $result = $query->execute();
 
@@ -271,8 +312,12 @@ class LoanController extends ControllerBase
         '#responsive' => FALSE,
     ];
 
-    $build['table_wrapper_end'] = [
+$build['table_wrapper_end'] = [
         '#markup' => '</div>',
+    ];
+
+    $build['pager'] = [
+        '#type' => 'pager',
     ];
 
     return $build;

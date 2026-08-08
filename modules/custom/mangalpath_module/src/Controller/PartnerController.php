@@ -5,6 +5,9 @@ namespace Drupal\mangalpath_module\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Property Listing Controller.
@@ -20,20 +23,33 @@ public function updateStatus(Request $request) {
   $nid = $request->request->get('nid');
   $status = $request->request->get('status');
 
+  // Validate required parameters.
+  if (empty($nid) || empty($status)) {
+    return new JsonResponse([
+      'status' => FALSE,
+      'message' => $this->t('Missing required parameters.'),
+    ]);
+  }
+
   $node = Node::load($nid);
 
   if (!$node) {
     return new JsonResponse([
       'status' => FALSE,
+      'message' => $this->t('Node not found.'),
     ]);
   }
 
-  $node->set('field_partner_data_status', $status);
-   if ($status === 132) {
+  // Compare as integers since status comes from request as a string.
+  $node->set('field_partner_status', $status);
+  if ((int) $status === 132) {
     $node->setPublished(TRUE);
   }
-  else {
+  if((int) $status === 134) {
     $node->setUnpublished();
+  }
+  else {
+    // $node->setUnpublished();
   }
 
   $node->save();
