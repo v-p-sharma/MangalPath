@@ -32,6 +32,7 @@ function mangalpath_module_theme($existing, $type, $theme, $path) {
     'partner_vehicle_listing' => [
       'variables' => [
         'rows' => [],
+        'category' => NULL,
         'pager' => NULL,
       ],
       'template' => 'partner-vehicle-listing',
@@ -39,6 +40,7 @@ function mangalpath_module_theme($existing, $type, $theme, $path) {
     'partner_vehicle_tour_listing' => [
       'variables' => [
         'rows' => [],
+        'category' => NULL,
         'pager' => NULL,
       ],
       'template' => 'partner-vehicle-listing',

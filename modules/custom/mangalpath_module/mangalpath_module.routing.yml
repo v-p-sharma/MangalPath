@@ -53,6 +53,7 @@ mangalpath_module.update_status:
     _controller: '\Drupal\mangalpath_module\Controller\PartnerController::updateStatus'
   requirements:
     _permission: 'access administration pages'
+  methods: [GET, POST]
 mangalpath_module.loan_listing:
   path: '/dashboard/loan-applications'
   defaults:

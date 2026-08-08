@@ -128,6 +128,7 @@ class VehicleTourController extends ControllerBase {
 
         $rows[] = [
           'title' => $node->getTitle(),
+          
           'id' => $id,
           'partner_statusId' =>$partner_statusId,
           'purpose' => $purpose,
@@ -146,6 +147,7 @@ class VehicleTourController extends ControllerBase {
     }
         return [
       '#theme' => 'partner_vehicle_tour_listing',
+      '#category' => "Tour & Travel Listing",
       '#rows' => $rows,
       '#pager' => [
         '#type' => 'pager',

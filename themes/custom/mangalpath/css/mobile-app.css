@@ -1,0 +1,1315 @@
+/* ============================================================================
+   MANGALPATH — MOBILE APP UI OVERRIDES  (mobile-app.css)
+   ----------------------------------------------------------------------------
+   Purpose : Transform the existing website/PWA into a native mobile-app feel.
+   Strategy: Pure CSS overrides ONLY. Loaded AFTER global.css so every rule
+             below wins by cascade. Desktop & tablet layouts are untouched.
+   Targets : Android Chrome, Samsung Internet, iPhone Safari, PWA standalone,
+             fullscreen & minimal-ui display modes.
+   Breakpoints: 320 / 360 / 375 / 390 / 412 / 430 / 480 (+ supportive 767)
+   ========================================================================== */
+
+/* ============================================================================
+   1. BASE MOBILE RESET & PWA CHROME
+   ----------------------------------------------------------------------------
+   - Enables safe-area insets (notch / home indicator).
+   - Removes tap-highlight flash for a native feel.
+   - Enables momentum scrolling + faster tap response.
+   ========================================================================== */
+
+:root {
+  /* App spacing scale (smaller than desktop) */
+  --mob-gutter: 16px;
+  --mob-gutter-sm: 12px;
+  --mob-card-radius: 16px;
+  --mob-btn-radius: 12px;
+  --mob-input-radius: 12px;
+  --mob-header-h: 60px;
+  --mob-shadow: 0 2px 12px rgba(15, 37, 72, 0.08);
+  --mob-shadow-lg: 0 8px 28px rgba(15, 37, 72, 0.14);
+}
+
+html {
+  /* Scrollbar-gutter fallback: keep mobile layout stable */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  /* Remove the "website" boxed feel */
+  overflow-x: hidden;
+  background: var(--light-bg);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Momentum scrolling + better touch feel on iOS Safari */
+.dialog-off-canvas-main-canvas,
+.layout-content,
+.layout-container {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Images & media should never blow out the viewport */
+img,
+video,
+iframe,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================================================
+   PWA STANDALONE / FULLSCREEN / MINIMAL-UI MODES
+   ----------------------------------------------------------------------------
+   These rules apply ONLY when the app is installed & running in its own window,
+   letting us account for status-bar safe areas without touching the website.
+   ========================================================================== */
+
+@media (display-mode: standalone),
+  (display-mode: fullscreen),
+  (display-mode: minimal-ui),
+  (display-mode: window-controls-overlay) {
+
+  /* Add top safe-area padding to the app bar */
+  .navbar,
+  .top-header {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Respect bottom safe-area for floating actions */
+  #backToTop,
+  .wa-float,
+  .nav-buttons,
+  .drawer-footer {
+    margin-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Prevent pull-to-refresh "bounce" feeling on the app shell */
+  body {
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* ============================================================================
+   2. MOBILE TYPOGRAPHY
+   ----------------------------------------------------------------------------
+   Comfortable, slightly smaller sizes with tighter line-height for mobile.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  body {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  h1 { font-size: 24px; line-height: 1.25; }
+  h2 { font-size: 21px; line-height: 1.3; }
+  h3 { font-size: 18px; line-height: 1.35; }
+  h4 { font-size: 16px; line-height: 1.4; }
+  h5 { font-size: 15px; line-height: 1.4; }
+  h6 { font-size: 14px; line-height: 1.45; }
+
+  p { line-height: 1.6; }
+
+  /* Section headers — more app-like, centered & compact */
+  .section-title {
+    font-size: 22px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .section-sub {
+    font-size: 14px !important;
+    max-width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .section-badge {
+    font-size: 11px !important;
+    padding: 4px 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .section-line { margin-bottom: 12px; }
+
+  /* Playfair display headings — keep brand serif but scale down */
+  .hero h1,
+  .property-hero h1,
+  .loan-hero h1,
+  .page-header h1 {
+    font-size: 26px;
+  }
+
+  .cta-section h2 {
+    font-size: 24px;
+  }
+}
+
+/* ============================================================================
+   3. STICKY COMPACT APP HEADER + ANIMATED HAMBURGER + FULL-SCREEN MENU
+   ----------------------------------------------------------------------------
+   Transforms the desktop navbar into a mobile app bar. The Bootstrap hamburger
+   is kept (no HTML changes) but restyled with a cleaner icon and animation.
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+
+  .navbar {
+    height: var(--mob-header-h);
+    box-shadow: 0 2px 16px rgba(15, 37, 72, 0.12);
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur(12px);
+  }
+
+  .navbar .container-fluid {
+    padding: 0 var(--mob-gutter);
+    height: 100%;
+  }
+
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
+
+  .brand-logo { gap: 8px; }
+  .brand-logo img { height: 38px; width: auto; }
+
+  /* Compact brand text */
+  .brand-text .name { font-size: 17px; }
+  .brand-text .tagline { font-size: 9px; }
+
+  /* ---- Hamburger toggler (CSS-only animation) ---- */
+  .navbar-toggler {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1.5px solid rgba(26, 60, 110, 0.15);
+    background: #f4f7fc;
+    transition: all .25s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  .navbar-toggler:active {
+    transform: scale(0.9);
+    background: #e3edf8;
+  }
+
+  /* Replace default bootstrap icon with a cleaner animated "burger" */
+  .navbar-toggler-icon {
+    width: 20px;
+    height: 16px;
+    background-image: none;
+    position: relative;
+    transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after,
+  .navbar-toggler-icon {
+    display: block;
+    height: 2.5px;
+    border-radius: 4px;
+    background: var(--primary);
+  }
+
+  .navbar-toggler-icon::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    transition: all .3s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    transition: all .3s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  /* Animate to "X" when expanded (aria-expanded driven by Bootstrap) */
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    transform: rotate(45deg);
+  }
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+  }
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    bottom: 50%;
+    transform: translateY(50%) rotate(0deg);
+    opacity: 0;
+  }
+
+  /* ---- Collapsible menu: native app drawer sheet ---- */
+  .navbar-collapse {
+    position: fixed;
+    top: var(--mob-header-h);
+    left: 0; right: 0;
+    bottom: 0;
+    background: var(--white);
+    z-index: 1049;
+    overflow-y: auto;
+    padding: 16px var(--mob-gutter) calc(24px + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -8px 40px rgba(15, 37, 72, 0.12);
+    border-top: 1px solid var(--border);
+    max-height: calc(100vh - var(--mob-header-h));
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Nav links — larger touch targets, modern rows */
+  .navbar-nav .nav-link,
+  nav#block-mangalpath-useraccountmenu ul li a {
+    padding: 14px 16px !important;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar-nav .nav-link:active,
+  nav#block-mangalpath-useraccountmenu ul li a:active {
+    background: var(--light-bg);
+    transform: scale(0.98);
+  }
+
+  .navbar-nav .nav-link::after,
+  nav#block-mangalpath-useraccountmenu ul li a::after {
+    display: none;
+  }
+
+  /* Hide desktop-only CTA buttons on small screens inside the drawer */
+  .btn-call,
+  .btn-quote {
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+  }
+}
+
+/* ---- Further refinement for very small phones ---- */
+@media (max-width: 360px) {
+  .brand-text .tagline { display: none; }
+  .brand-logo img { height: 34px; }
+}
+
+/* ============================================================================
+   4. HERO & BANNERS
+   ----------------------------------------------------------------------------
+   Remove excessive desktop spacing; make hero feel like an app splash.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .hero {
+    padding: 28px var(--mob-gutter) 24px;
+    min-height: 0;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero-trust { gap: 8px; margin-bottom: 20px; }
+  .trust-item {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+  .trust-item .icon { width: 24px; height: 24px; font-size: 11px; }
+
+  .hero-btns { flex-direction: column; width: 100%; }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Hero quick form card — app sheet look */
+  .hero-form-card {
+    padding: 18px;
+    border-radius: var(--mob-card-radius);
+    box-shadow: var(--mob-shadow-lg);
+  }
+
+  .form-tabs { gap: 4px; }
+  .form-tab { padding: 8px 4px; font-size: 12px; }
+  .form-tab i { font-size: 14px; }
+
+  /* Loan / property hero banner */
+  .loan-hero { padding: 60px 16px 90px; }
+  .loan-hero p { font-size: 15px; }
+
+  .property-hero { min-height: 0; padding: 40px 0 60px; }
+  .property-hero-content { padding: 20px 0 40px; }
+  .property-hero .hero-desc { font-size: 14px; margin-bottom: 24px; }
+  .hero-stats { gap: 18px; }
+  .hero-stat-val { font-size: 22px; }
+
+  .curve-divider svg { height: 34px; }
+
+  /* Generic page header */
+  .page-header { padding: 28px 0 24px; }
+  .page-header h1 { font-size: 24px; }
+  .page-header p { font-size: 13px; }
+
+  /* Quick contact bar (contact page) */
+  .quick-contact-bar { position: sticky; top: var(--mob-header-h); }
+  .qcb-item { padding: 12px 10px; gap: 8px; }
+  .qcb-icon { width: 34px; height: 34px; font-size: 14px; }
+  .qcb-text .qcb-value { font-size: 12.5px; }
+  .qcb-text .qcb-label { font-size: 9.5px; }
+}
+
+/* ============================================================================
+   5. BUTTONS
+   ----------------------------------------------------------------------------
+   Consistent 46px+ touch targets, rounded, with press feedback (ripple feel).
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .btn,
+  .btn-call,
+  .btn-quote,
+  .btn-check-now,
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .btn-hero-large,
+  .btn-cta,
+  .btn-submit,
+  .btn-custom,
+  .btn-check-eligibility,
+  .btn-prop-outline,
+  .btn-prop-fill,
+  .btn-action,
+  .btn-enquiry,
+  .btn-whatsapp-agent,
+  .btn-know-more,
+  .btn-get-direction,
+  .btn-reset-all,
+  .btn-hero-action,
+  .btn-submit-enquiry,
+  .btn-apply-mobile,
+  .btn-clear-filter,
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    min-height: 46px;
+    border-radius: var(--mob-btn-radius);
+    font-size: 14px;
+    padding: 12px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .12s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ripple-like press feedback (pure CSS) */
+  .btn:active,
+  .btn-call:active,
+  .btn-quote:active,
+  .btn-check-now:active,
+  .btn-hero-primary:active,
+  .btn-hero-secondary:active,
+  .btn-hero-large:active,
+  .btn-cta:active,
+  .btn-submit:active,
+  .btn-custom:active,
+  .btn-check-eligibility:active,
+  .btn-prop-outline:active,
+  .btn-prop-fill:active,
+  .btn-action:active,
+  .btn-enquiry:active,
+  .btn-whatsapp-agent:active,
+  .btn-know-more:active,
+  .btn-get-direction:active,
+  .btn-reset-all:active,
+  .btn-hero-action:active,
+  .btn-submit-enquiry:active,
+  .btn-apply-mobile:active,
+  .btn-clear-filter:active,
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-accent:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(15, 37, 72, 0.15);
+  }
+
+  /* Full-width buttons on primary actions */
+  .btn-hero-action { flex: 1 1 100%; }
+  .prop-btns { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  /* Icon buttons (heart/share/etc.) — bigger tap zones */
+  .vc-wishlist,
+  .icon-btn,
+  .drawer-close,
+  .modal-close,
+  .lightbox-close {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ============================================================================
+   6. CARDS — MODERN ANDROID/iOS LOOK
+   ----------------------------------------------------------------------------
+   Rounded corners, soft shadows, tighter padding, press feedback.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .loan-card,
+  .why-card,
+  .service-card,
+  .testimonial-card,
+  .prop-card,
+  .sim-card,
+  .vehicle-card,
+  .info-card,
+  .price-card,
+  .agent-card,
+  .enq-card,
+  .form-card,
+  .contact-card,
+  .stat-card,
+  .business-card,
+  .chart-card,
+  .table-card,
+  .activity-card,
+  .calc-wrapper,
+  .faq-card,
+  .map-card,
+  .mv-card,
+  .team-card {
+    border-radius: var(--mob-card-radius);
+    border-width: 1px;
+    box-shadow: var(--mob-shadow);
+  }
+
+  /* Press feedback for tappable cards */
+  .loan-card:active,
+  .why-card:active,
+  .service-card:active,
+  .prop-card:active,
+  .sim-card:active,
+  .vehicle-card:active,
+  .stat-card:active,
+  .testimonial-card:active {
+    transform: scale(0.98);
+  }
+
+  /* Reduce hover-lift so it doesn't feel jumpy on touch */
+  .loan-card:hover,
+  .why-card:hover,
+  .service-card:hover,
+  .prop-card:hover,
+  .sim-card:hover,
+  .vehicle-card:hover,
+  .stat-card:hover,
+  .testimonial-card:hover {
+    transform: none;
+  }
+
+  .prop-img-wrap { height: 190px; }
+  .sim-card-img { aspect-ratio: 16/9; }
+  .vc-img-wrap { aspect-ratio: 16/10; }
+
+  .prop-body { padding: 16px; }
+  .prop-title { font-size: 16px; }
+  .sim-card-body { padding: 14px; }
+  .sim-card-body h5 { font-size: 15px; }
+
+  /* Testimonials */
+  .testimonial-card { padding: 20px; }
+  .testi-text { font-size: 13px; }
+
+  /* Calculator */
+  .calc-wrapper { padding: 20px 16px; }
+  .calc-result-wrap { padding: 28px 20px !important; border-radius: var(--mob-card-radius); margin-top: 18px; position: static; }
+  .emi-display { font-size: 28px; }
+
+  /* Service cards */
+  .service-card-header { padding: 18px 16px 12px; }
+  .service-list { padding: 0 16px 12px; }
+  .service-card-footer { padding: 12px 16px 16px; }
+
+  /* Why choose */
+  .why-card { padding: 20px 16px; }
+
+  /* Contact / enquiry cards */
+  .enq-card { padding: 22px 16px; }
+  .contact-info { padding: 24px 18px; }
+  .contact-form { padding: 24px 18px; }
+}
+
+/* ============================================================================
+   7. FORMS — NATIVE INPUT STYLING
+   ----------------------------------------------------------------------------
+   - 16px font size prevents iOS auto-zoom on focus.
+   - Larger padding, modern focus rings, app-like selects.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .form-control,
+  .form-select,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="number"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px; /* critical: prevents iOS zoom */
+    min-height: 48px;
+    padding: 12px 14px;
+    border-radius: var(--mob-input-radius);
+    background-color: #fff;
+    border: 1.5px solid var(--border);
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  textarea { min-height: 110px; resize: vertical; }
+
+  .form-control:focus,
+  .form-select:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(26, 60, 110, 0.12);
+    outline: none;
+  }
+
+  /* Labels — clear & readable */
+  .form-label,
+  label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* Form groups — vertical rhythm */
+  .form-group { gap: 6px; margin-bottom: 16px; }
+
+  /* OTP inputs — native pin look */
+  .otp-container { gap: 8px; margin: 24px 0; }
+  .otp-input {
+    min-height: 0;
+    border-radius: 12px;
+    font-size: 22px;
+  }
+
+  /* File upload zones — bigger tap area */
+  .file-upload-label,
+  .upload-zone {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: var(--mob-input-radius);
+  }
+
+  /* Role selector (registration) */
+  .role-selector { border-radius: 16px; padding: 5px; }
+  .role-option { padding: 12px 6px; font-size: 13px; gap: 5px; }
+
+  /* Stepper */
+  .stepper-wrapper { gap: 14px; margin-bottom: 22px; }
+  .step-dot { width: 38px; height: 38px; font-size: 14px; }
+
+  /* Form wizard progress */
+  .header-wizard { padding: 16px; }
+  .progress-track { height: 6px; }
+  .form-grid { gap: 14px; }
+  .form-card { padding: 18px 14px; }
+
+  /* Amenity chips */
+  .amenities-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .amenity-chip label { padding: 12px 8px; font-size: 12.5px; }
+
+  /* Preview gallery */
+  .preview-gallery { gap: 8px; }
+  .preview-img { width: 72px; height: 72px; }
+
+  /* Auth form pages */
+  .auth-form-container { padding: 24px 16px; }
+  .form-header h2 { font-size: 22px; }
+  .auth-nav { padding: 12px 16px; }
+  .auth-left { padding: 20px 16px; height: auto; min-height: 32vh; }
+  .dream-title { font-size: 22px; }
+  .dream-item { padding: 8px 12px; font-size: 13px; }
+}
+
+/* ============================================================================
+   8. LISTS
+   ----------------------------------------------------------------------------
+   Comfortable spacing, separators, larger touch targets.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .service-list li { padding: 12px 0; font-size: 13px; }
+  .loan-features li { font-size: 13px; padding: 6px 0; margin-bottom: 4px; }
+
+  .footer-links li { margin-bottom: 12px; }
+  .footer-links a { font-size: 14px; padding: 4px 0; }
+
+  .footer-contact li { font-size: 13px; margin-bottom: 14px; }
+
+  .highlight-list li { padding: 8px 12px; font-size: 12.5px; }
+
+  /* Highlight boxes */
+  .highlight-box { padding: 14px 16px; }
+}
+
+/* ============================================================================
+   9. TABLES — MOBILE-FRIENDLY SCROLLABLE
+   ----------------------------------------------------------------------------
+   Keeps functionality; prevents overflow; horizontal scroll with nice UX.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -4px;
+    padding: 0 4px;
+  }
+
+  .table-responsive table {
+    min-width: 640px; /* force scroll rather than squish */
+    width: 100%;
+  }
+
+  /* Nice thin scrollbar for horizontal table scroll */
+  .table-responsive::-webkit-scrollbar { height: 6px; }
+  .table-responsive::-webkit-scrollbar-track { background: var(--light-bg); }
+  .table-responsive::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+  /* Make table cells breathe on touch */
+  .table-responsive td,
+  .table-responsive th {
+    padding: 14px 12px;
+    white-space: nowrap;
+  }
+
+  /* Pager */
+  nav.pager {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 0;
+  }
+  nav.pager ul { margin: 0; }
+
+  .page-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+  }
+}
+
+/* ============================================================================
+   10. DETAIL PAGES (Property / Vehicle)
+   ----------------------------------------------------------------------------
+   Gallery, quick stats, detail tabs, spec grids, agent card, modal bottom-sheet.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .gallery-section { padding: 16px 0 0; }
+  .gallery-main-wrap { border-radius: 14px; }
+  .gallery-main { aspect-ratio: 4/3; }
+  .gallery-thumbs { gap: 6px; }
+  .gallery-thumb { width: 76px; height: 56px; border-radius: 8px; }
+  .gallery-count { font-size: 12px; padding: 5px 12px; }
+
+  .prop-header { padding: 20px 0 0; }
+  .prop-title { font-size: 21px; }
+  .prop-location { font-size: 13px; }
+  .prop-tags { gap: 6px; }
+  .prop-tag { font-size: 11px; padding: 4px 10px; }
+  .prop-actions { gap: 8px; }
+  .prop-actions .btn-action { flex: 1 1 calc(50% - 8px); justify-content: center; padding: 12px 8px; }
+
+  /* Quick stats grid 2-col */
+  .quick-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 18px; }
+  .qs-item { padding: 12px 8px; }
+  .qs-item .qs-val { font-size: 15px; }
+
+  /* Detail tabs — scrollable pill bar */
+  .detail-tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 18px;
+    scrollbar-width: none;
+  }
+  .detail-tabs::-webkit-scrollbar { display: none; }
+  .detail-tab {
+    flex: 0 0 auto;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    white-space: nowrap;
+    margin-bottom: 0;
+  }
+  .detail-tab.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+  }
+
+  /* Info cards */
+  .info-card { padding: 18px 14px; margin-bottom: 16px; }
+  .info-card-title { font-size: 15px; margin-bottom: 12px; }
+  .desc-text { font-size: 13.5px; }
+
+  /* Spec grid — single column on phones */
+  .spec-grid { grid-template-columns: 1fr; }
+  .spec-item { padding: 12px 10px; font-size: 13px; }
+  .spec-item:nth-child(odd) { border-right: none; }
+
+  /* Amenities */
+  .amenity-item { padding: 12px 12px; font-size: 12.5px; }
+
+  /* Doc grid */
+  .doc-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .doc-item { padding: 10px 10px; font-size: 12px; gap: 8px; }
+
+  /* Price card */
+  .price-card { padding: 18px 14px; margin-bottom: 16px; position: static; }
+  .price-main { font-size: 26px; }
+
+  /* Agent card */
+  .agent-header { padding: 18px; }
+  .agent-avatar { width: 60px; height: 60px; font-size: 24px; }
+  .agent-body { padding: 16px 14px; }
+  .agent-contact-item { font-size: 13px; }
+
+  /* Modal — native bottom sheet */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modal-box {
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: 20px 20px 0 0;
+    animation: sheetUp .3s cubic-bezier(.4, 0, .2, 1);
+  }
+  @keyframes sheetUp {
+    from { transform: translateY(100%); opacity: .6; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .modal-header-bar { padding: 16px 20px; border-radius: 20px 20px 0 0; }
+  .modal-body { padding: 20px 16px !important; }
+
+  /* Toast — full-width snackbar style */
+  .toast-msg {
+    left: 16px; right: 16px;
+    top: auto; bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    transform: translateY(150%);
+    border-radius: 14px;
+    justify-content: center;
+    text-align: center;
+  }
+  .toast-msg.show { transform: translateY(0); }
+
+  /* Safety tips (vehicle) */
+  .safety-tips {
+    margin-top: 16px;
+    padding: 18px 14px;
+  }
+}
+
+/* ============================================================================
+   11. LISTING PAGES (Property / Vehicle)
+   ----------------------------------------------------------------------------
+   Bottom-sheet filter drawer, single-column grids, touch pagination.
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+
+  .filter-sidebar { display: none; }
+  .btn-apply-mobile { display: block; }
+  .mobile-filter-btn { display: inline-flex !important; }
+
+  /* Mobile filter drawer → native bottom sheet */
+  .filter-drawer {
+    top: auto;
+    bottom: 0;
+    left: 0; right: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 88vh;
+    transform: translateY(100%);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -10px 40px rgba(15, 37, 72, 0.2);
+    transition: transform .32s cubic-bezier(.4, 0, .2, 1);
+  }
+  .filter-drawer.show { transform: translateY(0); }
+
+  .drawer-header {
+    position: sticky;
+    top: 0;
+    padding: 16px 20px;
+    border-radius: 20px 20px 0 0;
+  }
+  .drawer-body { padding: 16px 20px calc(90px + env(safe-area-inset-bottom, 0px)); }
+  .drawer-footer {
+    left: 0; right: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 20px calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 767px) {
+
+  /* Single-column results */
+  .vehicle-grid { grid-template-columns: 1fr; gap: 14px; }
+  .views-view-grid .row.g-4,
+  .row.g-4 { row-gap: 14px; }
+
+  /* Listing layout spacing */
+  .listing-layout { padding: 20px 0 40px; }
+
+  /* Quick filter chips */
+  .quick-filters { top: var(--mob-header-h); padding: 10px 0; }
+  .qf-chip { padding: 9px 14px; font-size: 12px; }
+
+  /* Active filter tags */
+  .active-filters { margin-bottom: 12px; }
+
+  /* Filter cards (inside drawer) */
+  .filter-card { margin-bottom: 12px; }
+  .f-option { padding: 10px 0; font-size: 13.5px; }
+  .f-select { min-height: 46px; }
+
+  /* No results */
+  .no-results { padding: 40px 16px; }
+  .no-results i { font-size: 48px; }
+  .no-results h4 { font-size: 18px; }
+
+  /* Vehicle list view — stack image above */
+  .vehicle-list .vehicle-card { grid-template-columns: 1fr; }
+  .vehicle-list .vc-img-wrap { border-radius: var(--mob-card-radius) var(--mob-card-radius) 0 0; aspect-ratio: 16/10; }
+  .vehicle-list .vc-body { padding: 14px; }
+}
+
+/* ============================================================================
+   12. PARTNER DASHBOARD — MOBILE APP PANEL
+   ----------------------------------------------------------------------------
+   Sidebar becomes full-screen drawer, stats stack, charts stack.
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+
+  #wrapper.dashboard-wrapper { flex-direction: column; }
+  .main-content { margin-left: 0; width: 100%; }
+  .toggle-btn { display: block; }
+
+  /* Sidebar → full-screen app drawer */
+  .sidebar {
+    transform: translateX(-100%);
+    width: 290px;
+    max-width: 85vw;
+    box-shadow: 8px 0 40px rgba(15, 37, 72, 0.25);
+    transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+  }
+  .sidebar.active { transform: translateX(0); }
+
+  /* Overlay behind the drawer (CSS-only) */
+  .sidebar.active::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 37, 72, 0.4);
+    z-index: -1;
+    backdrop-filter: blur(2px);
+  }
+
+  .menu-link { padding: 14px 16px; font-size: 14.5px; margin-bottom: 6px; }
+  .menu-category { font-size: 11px; margin-top: 22px; }
+
+  .top-header {
+    padding: 0 16px;
+    height: var(--mob-header-h);
+    position: sticky;
+    top: 0;
+  }
+
+  .user-info { display: none; }
+
+  .dashboard-container { padding: 16px; }
+  .hero-card { padding: 22px 18px; }
+  .hero-title { font-size: 22px; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions .btn-hero-action { width: 100%; }
+
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat-card { padding: 16px 14px; }
+  .stat-value { font-size: 20px; }
+  .stat-label { font-size: 11px; }
+
+  .charts-row { grid-template-columns: 1fr; gap: 14px; }
+  .data-row { grid-template-columns: 1fr; gap: 14px; }
+  .business-grid { grid-template-columns: 1fr; gap: 14px; }
+  .biz-actions { flex-direction: column; }
+  .biz-actions a { width: 100%; }
+
+  .chart-card,
+  .table-card,
+  .activity-card { padding: 18px 14px; }
+  .chart-container { height: 240px; }
+
+  .sidebar-footer { display: none; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .biz-metrics { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================================
+   13. FOOTER
+   ----------------------------------------------------------------------------
+   Compact, app-friendly footer with comfortable tap targets.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .footer { padding: 36px 0 0; }
+  .footer .container { padding: 0 var(--mob-gutter); }
+  .footer .row { row-gap: 28px; }
+
+  .footer h5 { font-size: 14px; margin-bottom: 12px; }
+  .footer p { font-size: 13px; }
+
+  .footer-bottom { margin-top: 28px; padding: 16px 0; }
+  .footer-bottom .container { padding: 0 var(--mob-gutter); }
+  .footer-bottom p { font-size: 12px; text-align: center; }
+
+  .footer-social { justify-content: flex-start; margin-top: 8px; }
+  .footer-social a { width: 40px; height: 40px; font-size: 15px; }
+
+  /* Footer columns stack cleanly */
+  .footer .col-6,
+  .footer .col-lg-2,
+  .footer .col-lg-4 { width: 100% !important; flex: 0 0 100% !important; }
+}
+
+/* ============================================================================
+   14. FLOATING BUTTONS — SAFE-AREA AWARE
+   ----------------------------------------------------------------------------
+   WhatsApp + Back-to-top raised above the home indicator.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .wa-float {
+    width: 54px;
+    height: 54px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    left: 16px;
+    font-size: 24px;
+  }
+
+  #backToTop {
+    width: 46px;
+    height: 46px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+  }
+
+  /* Ensure floating buttons never overlap the bottom app bar (drawers) */
+  .filter-drawer.show ~ .wa-float,
+  .filter-drawer.show ~ #backToTop {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* ============================================================================
+   15. ACCESSIBILITY & REDUCED MOTION
+   ----------------------------------------------------------------------------
+   - Visible focus states (touch + keyboard).
+   - Respect prefers-reduced-motion (disable animations/transforms).
+   ========================================================================== */
+
+/* Visible focus for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid rgba(245, 130, 31, 0.55);
+  outline-offset: 2px;
+}
+
+/* Ensure focus never gets clipped by rounded cards */
+.card:focus-within,
+.info-card:focus-within,
+.vehicle-card:focus-within,
+.modal-box:focus-within {
+  outline: none;
+}
+
+/* Reduced motion — keep the app usable but calm */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* AOS reveals — force content visible */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Disable AOS transforms on phones to avoid janky reveals & FOUC */
+@media (max-width: 767px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .aos-init { opacity: 1 !important; }
+}
+
+/* ============================================================================
+   16. CONTAINER & GUTTER REFINEMENTS
+   ----------------------------------------------------------------------------
+   Edge-to-edge feel while keeping comfortable reading widths.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  .container,
+  .container-fluid {
+    padding-left: var(--mob-gutter);
+    padding-right: var(--mob-gutter);
+  }
+
+  /* Reduce heavy section vertical padding (desktop 80px → mobile ~48px) */
+  .py-section,
+  .why-section,
+  .services-section,
+  .hiw-section,
+  .testimonials-section,
+  .contact-section,
+  .similar-section,
+  .story-section,
+  .mv-section,
+  .team-section,
+  .timeline-section,
+  .cta-section,
+  .stats-section {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  /* Stats section */
+  .stat-number { font-size: 32px; }
+  .stat-label { font-size: 12px; }
+
+  /* How it works — stack vertically */
+  .hiw-timeline { flex-direction: column; align-items: center; gap: 18px; }
+  .hiw-step { max-width: 100%; }
+  .hiw-circle { width: 64px; height: 64px; }
+
+  /* Story / mission */
+  .story-image { aspect-ratio: 4/3; border-radius: 14px; }
+
+  /* Timeline (about page) — simple left rail */
+  .timeline::before { left: 12px; }
+  .tl-item { width: 100%; left: 0 !important; padding: 0 0 28px 40px !important; text-align: left !important; }
+  .tl-item .tl-dot { left: 4px !important; right: auto !important; }
+  .tl-content { padding: 16px; }
+
+  /* Team */
+  .team-card { margin-bottom: 14px; }
+  .team-body { padding: 16px; }
+
+  /* Map */
+  .map-placeholder { height: 230px; }
+  .map-info-bar { padding: 16px; flex-direction: column; align-items: flex-start; }
+  .btn-get-direction { width: 100%; }
+
+  /* FAQ — bigger question rows for touch */
+  .faq-question { padding: 16px 14px; font-size: 14px; }
+  .faq-q-icon { width: 30px; height: 30px; }
+  .faq-answer-inner { padding: 0 14px 16px; font-size: 13px; }
+
+  /* Quick contact bar items wrap nicely */
+  .qcb-item { flex: 1 1 50%; }
+}
+
+/* ============================================================================
+   17. BREAKPOINT REFINEMENTS
+   ----------------------------------------------------------------------------
+   Fine-tuning for the full modern phone range:
+   320 / 360 / 375 / 390 / 412 / 430 / 480
+   ========================================================================== */
+
+/* --- 320px (iPhone SE 1st gen / small Androids) --- */
+@media (max-width: 340px) {
+  :root { --mob-gutter: 12px; }
+
+  .brand-text .tagline { display: none; }
+  .hero h1 { font-size: 22px; }
+  .section-title { font-size: 20px !important; }
+  .prop-actions .btn-action { flex: 1 1 100%; }
+  .quick-stats { grid-template-columns: 1fr 1fr; }
+  .qs-item { padding: 10px 6px; }
+  .otp-container { gap: 6px; }
+  .otp-input { font-size: 18px; }
+  .wa-float { width: 50px; height: 50px; left: 12px; }
+  #backToTop { right: 12px; }
+}
+
+/* --- 360px (Galaxy S8/S9, small Android) --- */
+@media (min-width: 341px) and (max-width: 369px) {
+  .hero h1 { font-size: 23px; }
+  .prop-actions .btn-action { flex: 1 1 calc(50% - 8px); }
+}
+
+/* --- 375px (iPhone X/11/12/13 mini, Pixel 4a) --- */
+@media (min-width: 370px) and (max-width: 379px) {
+  :root { --mob-gutter: 16px; }
+}
+
+/* --- 390px (iPhone 12/13/14 standard) --- */
+@media (min-width: 380px) and (max-width: 399px) {
+  :root { --mob-gutter: 16px; }
+  .hero h1 { font-size: 25px; }
+}
+
+/* --- 412px (Pixel 5/6, Galaxy A-series) --- */
+@media (min-width: 400px) and (max-width: 420px) {
+  :root { --mob-gutter: 18px; }
+  .quick-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --- 430px (iPhone 14 Pro Max) --- */
+@media (min-width: 421px) and (max-width: 440px) {
+  :root { --mob-gutter: 18px; }
+  .hero h1 { font-size: 26px; }
+}
+
+/* --- 480px (large phones / small tablets in portrait) --- */
+@media (min-width: 441px) and (max-width: 480px) {
+  :root { --mob-gutter: 20px; }
+  .quick-stats { grid-template-columns: repeat(2, 1fr); }
+  .prop-actions .btn-action { flex: 1 1 calc(50% - 8px); }
+  .hero-btns { flex-direction: row; }
+  .btn-hero-primary,
+  .btn-hero-secondary { flex: 1; }
+}
+
+/* ============================================================================
+   18. EXTRA MICRO-POLISH
+   ----------------------------------------------------------------------------
+   Little touches that sell the "native app" feel.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+  /* Smooth momentum scroll on long listings */
+  .vehicle-grid,
+  .row.g-4,
+  .gallery-thumbs,
+  .chips-container {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Breadcrumb — compact */
+  .breadcrumb-bar .breadcrumb {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 8px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .breadcrumb-bar .breadcrumb::-webkit-scrollbar { display: none; }
+  .breadcrumb-item { font-size: 12px; white-space: nowrap; }
+
+  /* Success message — centered app state */
+  .success-message { padding: 30px 16px; }
+  .success-icon { font-size: 48px; }
+
+  /* Nav links in collapsed menu get an app-row treatment */
+  .navbar-collapse .nav-link {
+    color: var(--text) !important;
+  }
+
+  /* Carousel controls — larger, app-like */
+  #testiCarousel .carousel-control-prev,
+  #testiCarousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+  .carousel-controls-wrap { gap: 10px; }
+
+  /* Global anchors tap-friendly */
+  a { -webkit-tap-highlight-color: transparent; }
+
+  /* Prevent text selection flash on rapid taps (buttons) */
+  .btn,
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* ============================================================================
+   END OF mobile-app.css
+   ----------------------------------------------------------------------------
+   Safe to include after global.css — only overrides mobile presentation.
+   Desktop (≥992px) and tablet (768px–991px core layout) remain untouched.
+   ========================================================================== */
+

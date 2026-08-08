@@ -44,8 +44,14 @@ set row_classes = [
         </div>
         <div class="vc-body">
              <div class="vc-title">{{row.content['#row']._entity.title[0].value}}</div>
-            <div class="vc-reg"><span
+                    {% if 'administrator' in user.getRoles() %}
+                   <div class="vc-reg"><span
                     class="reg-plate">{{row.content['#row']._entity.field_registration_number[0].value}}</span><span>{{row.content['#row']._entity.field_manufacturing_year[0].value}} • {{row.content['#row']._entity.field_owner_name[0].value}}</span></div>
+                  {% else %}
+                   <div class="vc-reg"><span
+                    class="reg-plate">{{row.content['#row']._entity.field_registration_number[0].value|slice(0,2)}}*****</span><span>{{row.content['#row']._entity.field_manufacturing_year[0].value}} • {{row.content['#row']._entity.field_owner_name[0].value|slice(0,2)}}*****</span></div>
+                
+                  {% endif %}
             <div class="vc-specs">
                 <span class="vc-spec"><i
                         class="fa-gas-pump"></i>{{row.content['#row']._entity.field_fuel_type[0].entity.name[0].value}}</span>

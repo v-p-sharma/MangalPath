@@ -24,17 +24,12 @@
               <th>Created Date</th>
               <th>Status</th>
               <th width="120">Action</th>
-               {% if logged_in and ('administrator' in user.roles or 'admin' in user.roles) %}
-                            <td>
-                         <a href="#"
-                        class="btn btn-sm btn-primary js-change-status"
-                        data-node="{{ row.id }}"
-                        data-status="{{ row.partner_statusId }}">
-                        Change Status
-                    </a>
-
-                            </td>
-                         {% endif %}
+              {% if logged_in and ('administrator' in user.roles or 'admin' in user.roles) %}
+                            <th>
+                                Change Status
+                            </th>
+              {% endif %}
+    
             </tr>
           </thead>
 
@@ -135,12 +130,14 @@
 
       </div>
 
-      <div class="mt-4 d-flex justify-content-center">
+<div class="mt-4 d-flex justify-content-center">
         {{ pager }}
       </div>
 
     </div>
 
   </div>
+
+  {{ include("@mangalpath_module/partner-status-change.html.twig") }}
 
 </div>

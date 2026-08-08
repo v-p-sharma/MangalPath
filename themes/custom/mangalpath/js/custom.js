@@ -334,44 +334,78 @@
 
 
 Drupal.behaviors.partnerStatus = {
-    attach: function (context) {
+  attach: function (context) {
 
-      once('partner-status', '.js-change-status', context).forEach(function (element) {
+    once('partner-status', '.js-change-status', context).forEach(function (element) {
 
-        $(element).on('click', function (e) {
+      $(element).on('click', function (e) {
+        e.preventDefault();
 
-          e.preventDefault();
+        const nid = $(this).data('node');
+        const status = $(this).data('status');
 
-          $('#node-id').val($(this).data('node'));
-          $('#status-select').val($(this).data('status'));
+        console.log('clicked node:', nid);
+        console.log('clicked status:', status);
 
-          $('#statusModalChange').modal('show');
-        });
+        $('#node-id').val(nid);
+        $('#status-select').val(status);
 
+        console.log('after set:', $('#node-id').val());
+
+        $('#statusModalChange').modal('show');
       });
 
-      once('save-status', '#save-status', context).forEach(function (element) {
+    });
 
-        $(element).on('click', function () {
 
-          $.ajax({
-            url: '/partner/update-status',
-            type: 'POST',
-            data: {
-              nid: $('#node-id').val(),
-              status: $('#status-select').val()
-            },
-            success: function () {
-              location.reload();
+    once('save-status', '#save-status', context).forEach(function (element) {
+
+      $(element).on('click', function () {
+
+        // IMPORTANT: value click ke waqt lo
+        const nid = $('#node-id').val();
+        const status = $('#status-select').val();
+
+        console.log('Sending nid:', nid);
+        console.log('Sending status:', status);
+
+        $.ajax({
+          url: Drupal.url('partner/update-status'),
+          type: 'POST',
+
+          data: {
+            nid: nid,
+            status: status
+          },
+
+          success: function (response) {
+            console.log('Success:', response);
+
+            if (response && response.status) {
+              // Close the modal and refresh the listing to reflect new status.
+              $('#statusModalChange').modal('hide');
+
+              // Remove modal backdrops left behind by bootstrap.
+              $('.modal-backdrop').remove();
+
+              window.location.reload();
             }
-          });
+            else {
+              alert('Could not update status. Please try again.');
+            }
+          },
 
+          error: function (xhr) {
+            console.log('Error:', xhr.responseText);
+          }
         });
 
       });
 
-    }
-  };
+    });
+
+  }
+};
 
 
 })(Drupal, once, jQuery);
