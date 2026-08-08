@@ -53,7 +53,7 @@
                 <td>{{ row.name }}</td>
 
                 <td>
-                      {% if 'administrator' in user.getRoles() %}
+                    {% if 'administrator' in user.getRoles() %}
                     {{ row.email }}
                   {% else %}
                     {{ row.email|slice(0,2) }}***@gmail.com

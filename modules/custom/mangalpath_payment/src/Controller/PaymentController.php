@@ -16,6 +16,7 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\node\Entity\Node;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\Core\Link;
 class PaymentController extends ControllerBase
 {
 
@@ -429,7 +430,7 @@ class PaymentController extends ControllerBase
 
         }
         $transactions = $this->paymentService
-            ->getUserTransactions(
+            ->getTransactionsByUserId(
                 $uid
             );
         if (
@@ -523,26 +524,49 @@ class PaymentController extends ControllerBase
 
         }
 
-        return [
+    
+return [
 
-            'table' => [
+  'table_wrapper' => [
+    '#type' => 'container',
+    '#attributes' => [
+      'class' => [
+        'table-responsive',
+        'shadow-sm',
+        'rounded',
+      ],
+    ],
+    'table' => [
+      '#type' => 'table',
+      '#header' => $header,
+      '#rows' => $rows,
+      '#empty' => $this->t('No payments found.'),
+      '#attributes' => [
+        'class' => [
+          'table',
+          'table-striped',
+          'table-hover',
+          'table-bordered',
+          'align-middle',
+          'mb-0',
+        ],
+      ],
+    ],
+  ],
 
-                '#type'   => 'table',
+  'pager' => [
+    '#type' => 'pager',
+    '#attributes' => [
+      'class' => [
+        'mt-3',
+        'd-flex',
+        'justify-content-center',
+      ],
+    ],
+  ],
 
-                '#header' => $header,
+];
 
-                '#rows'   => $rows,
-
-                '#empty'  => $this->t(
-                    'No payments found.'
-                ),
-
-            ],
-            'pager' => [
-                '#type' => 'pager',
-            ],
-
-        ];
 
     }
 /**
